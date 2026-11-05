@@ -38,9 +38,9 @@ async function solveSession(page: Page) {
     }
     await expect(page.getByTestId("next")).toBeVisible();
     await page.keyboard.press("Enter");                                     // next item – exactly one step
+    await expect.poll(async () => (await page.getByTestId("session-close").isVisible()) || (await counter(page))[0] !== before).toBe(true);
     if (await page.getByTestId("session-close").isVisible()) return;
-    const [after] = await counter(page);
-    expect(after).toBe(before + 1);
+    expect((await counter(page))[0]).toBe(before + 1);                     // never skips an item
   }
   throw new Error("session did not finish");
 }
