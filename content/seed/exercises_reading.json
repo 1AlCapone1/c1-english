@@ -1,0 +1,889 @@
+[
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "work",
+  "reading_title": "The Quiet Rise of the Four-Day Week",
+  "position": 0,
+  "distractor_notes": {
+   "They were partly accurate.": "Tekst mówi, że żadna z obaw się nie spełniła.",
+   "They were ignored by the company.": "Nic o ignorowaniu – firma analizowała czas pracy.",
+   "They led to changes in the scheme.": "Brak informacji o zmianach pod wpływem komentarzy."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "What does the writer say about the predictions made by commentators?",
+   "options": [
+    "They proved to be unfounded.",
+    "They were partly accurate.",
+    "They were ignored by the company.",
+    "They led to changes in the scheme."
+   ]
+  },
+  "answers": [
+   "They proved to be unfounded."
+  ],
+  "explanation": "Akapit 1: 'none of these fears have materialised'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "work",
+  "reading_title": "The Quiet Rise of the Four-Day Week",
+  "position": 1,
+  "distractor_notes": {
+   "employees agreeing to longer days.": "Nie ma mowy o dłuższych dniach pracy.",
+   "hiring additional staff.": "Brak wzmianki o zatrudnianiu.",
+   "reducing the number of clients.": "Tekst o tym nie wspomina."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "According to Helen Okafor, the success of the scheme depended mainly on",
+   "options": [
+    "careful analysis of how time was spent.",
+    "employees agreeing to longer days.",
+    "hiring additional staff.",
+    "reducing the number of clients."
+   ]
+  },
+  "answers": [
+   "careful analysis of how time was spent."
+  ],
+  "explanation": "'We spent six months examining how people actually used their time.'"
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "work",
+  "reading_title": "The Quiet Rise of the Four-Day Week",
+  "position": 2,
+  "distractor_notes": {
+   "the difficulty of trying new methods.": "Chodzi o entuzjazm, nie trudność.",
+   "resistance to change among managers.": "Nie dotyczy menedżerów.",
+   "the popularity of new technology.": "Nie dotyczy technologii."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "The 'novelty effect' refers to",
+   "options": [
+    "a temporary increase in effort.",
+    "the difficulty of trying new methods.",
+    "resistance to change among managers.",
+    "the popularity of new technology."
+   ]
+  },
+  "answers": [
+   "a temporary increase in effort."
+  ],
+  "explanation": "Pracownicy mogą pracować ciężej na początku, ale entuzjazm może osłabnąć."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "work",
+  "reading_title": "The Quiet Rise of the Four-Day Week",
+  "position": 3,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "The four-day week can be introduced equally easily in all industries.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "False"
+  ],
+  "explanation": "Krytycy wskazują, że w opiece zdrowotnej i handlu jest to znacznie trudniejsze."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "work",
+  "reading_title": "The Quiet Rise of the Four-Day Week",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "The company in Leeds has opened a second office since introducing the scheme.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "Not Given"
+  ],
+  "explanation": "Tekst nie wspomina o nowym biurze."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "work",
+  "reading_title": "The Quiet Rise of the Four-Day Week",
+  "position": 5,
+  "distractor_notes": {
+   "To argue that the four-day week should be compulsory.": "Autor nie postuluje obowiązku.",
+   "To show that young workers care only about pay.": "Wręcz przeciwnie – elastyczność jest równie ważna jak płaca.",
+   "To predict that the trend will soon end.": "Autor mówi 'remains to be seen' – brak prognozy końca."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "What is the writer's main purpose in the final paragraph?",
+   "options": [
+    "To suggest the idea challenges assumptions about work.",
+    "To argue that the four-day week should be compulsory.",
+    "To show that young workers care only about pay.",
+    "To predict that the trend will soon end."
+   ]
+  },
+  "answers": [
+   "To suggest the idea challenges assumptions about work."
+  ],
+  "explanation": "Końcowe pytanie o to, ile tygodnia pracy jest naprawdę produktywne."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "media",
+  "reading_title": "Why We Trust Strangers Online",
+  "position": 0,
+  "distractor_notes": {
+   "was common a generation ago.": "Przeciwnie – wtedy wydawałoby się lekkomyślne.",
+   "is limited to restaurants.": "Wymieniono hotele i lekarzy.",
+   "is a sign of reckless behaviour today.": "Autor mówi, że dziś to rutyna."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "In the first paragraph, the writer suggests that trusting online reviews",
+   "options": [
+    "has become normal very quickly.",
+    "was common a generation ago.",
+    "is limited to restaurants.",
+    "is a sign of reckless behaviour today."
+   ]
+  },
+  "answers": [
+   "has become normal very quickly."
+  ],
+  "explanation": "Kiedyś uznano by to za lekkomyślne, dziś to rutyna."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "media",
+  "reading_title": "Why We Trust Strangers Online",
+  "position": 1,
+  "distractor_notes": {
+   "Crowded places are often of low quality.": "Tego nie twierdzi.",
+   "People prefer empty restaurants.": "Przeciwnie.",
+   "It works only in unfamiliar cities.": "Przykład z miastem jest ilustracją, nie ograniczeniem."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "What problem with 'social proof' online does the writer identify?",
+   "options": [
+    "We know little about the people we are following.",
+    "Crowded places are often of low quality.",
+    "People prefer empty restaurants.",
+    "It works only in unfamiliar cities."
+   ]
+  },
+  "answers": [
+   "We know little about the people we are following."
+  ],
+  "explanation": "'The crowd we are following is largely invisible.'"
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "media",
+  "reading_title": "Why We Trust Strangers Online",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "Platforms claim to delete large numbers of suspicious reviews.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "True"
+  ],
+  "explanation": "'Platforms insist that they remove millions of suspicious reviews.'"
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "media",
+  "reading_title": "Why We Trust Strangers Online",
+  "position": 3,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "Most reviews are written by people whose experience was average.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "False"
+  ],
+  "explanation": "Częściej piszą osoby z ekstremalnymi doświadczeniami."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "media",
+  "reading_title": "Why We Trust Strangers Online",
+  "position": 4,
+  "distractor_notes": {
+   "Platforms delete average reviews.": "Brak takiej informacji.",
+   "Businesses pay for extreme ratings only.": "Płatne opinie to osobny problem.",
+   "Most products are either excellent or terrible.": "Autor mówi, że obraz jest bardziej dramatyczny niż rzeczywistość."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "Why do ratings 'cluster at the top and bottom of the scale'?",
+   "options": [
+    "People with strong experiences are more likely to write.",
+    "Platforms delete average reviews.",
+    "Businesses pay for extreme ratings only.",
+    "Most products are either excellent or terrible."
+   ]
+  },
+  "answers": [
+   "People with strong experiences are more likely to write."
+  ],
+  "explanation": "Bezpośrednio z akapitu 3."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "media",
+  "reading_title": "Why We Trust Strangers Online",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "Experts recommend avoiding online reviews altogether.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "False"
+  ],
+  "explanation": "Zalecają traktowanie ich jako jednego z wielu źródeł."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "travel",
+  "reading_title": "The Forgotten Art of Getting Lost",
+  "position": 0,
+  "distractor_notes": {
+   "how inaccurate phone maps are.": "Nie ma mowy o niedokładności.",
+   "why travellers prefer paper maps.": "Tekst mówi raczej odwrotnie.",
+   "how dangerous streets can be.": "Nie dotyczy niebezpieczeństwa."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "The writer describes the 'small blue dot' in order to show",
+   "options": [
+    "how passive modern navigation has become.",
+    "how inaccurate phone maps are.",
+    "why travellers prefer paper maps.",
+    "how dangerous streets can be."
+   ]
+  },
+  "answers": [
+   "how passive modern navigation has become."
+  ],
+  "explanation": "Podążamy za nią posłusznie, nie patrząc na ulice."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "travel",
+  "reading_title": "The Forgotten Art of Getting Lost",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "Using one's own sense of direction is linked to more activity in the hippocampus.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "True"
+  ],
+  "explanation": "Tak wynika z badań opisanych w akapicie 2."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "travel",
+  "reading_title": "The Forgotten Art of Getting Lost",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "The writer believes satellite navigation has made travel less safe.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "False"
+  ],
+  "explanation": "'has undoubtedly made travel safer'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "travel",
+  "reading_title": "The Forgotten Art of Getting Lost",
+  "position": 3,
+  "distractor_notes": {
+   "found at famous attractions.": "Aplikacje prowadzą do atrakcji, ale to nie one są najbardziej pamiętne.",
+   "planned in advance.": "Przeciwnie.",
+   "shared on social media.": "Brak wzmianki."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "According to travel writers, memorable moments are often",
+   "options": [
+    "the result of unexpected events.",
+    "found at famous attractions.",
+    "planned in advance.",
+    "shared on social media."
+   ]
+  },
+  "answers": [
+   "the result of unexpected events."
+  ],
+  "explanation": "'often unplanned: the café discovered after a wrong turn'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "travel",
+  "reading_title": "The Forgotten Art of Getting Lost",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "People who use paper maps always arrive at their destination faster.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "Not Given"
+  ],
+  "explanation": "Tekst nie porównuje czasu dotarcia przy mapie papierowej."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "travel",
+  "reading_title": "The Forgotten Art of Getting Lost",
+  "position": 5,
+  "distractor_notes": {
+   "Navigation apps should be avoided completely.": "Autor wyraźnie odrzuca takie podejście.",
+   "Paper maps are more efficient than phones.": "Nie twierdzi tego.",
+   "Getting lost is always a positive experience.": "Mówi 'occasionally'."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "What is the writer's overall position?",
+   "options": [
+    "Technology is useful, but efficiency is not everything.",
+    "Navigation apps should be avoided completely.",
+    "Paper maps are more efficient than phones.",
+    "Getting lost is always a positive experience."
+   ]
+  },
+  "answers": [
+   "Technology is useful, but efficiency is not everything."
+  ],
+  "explanation": "'The point is not to reject technology… efficiency is not the only value'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "environment",
+  "reading_title": "Can Cities Learn to Love the Bicycle?",
+  "position": 0,
+  "distractor_notes": {
+   "their flat landscapes.": "Autor mówi, że to częste, ale błędne założenie.",
+   "a traditional love of bicycles.": "Jak wyżej.",
+   "a lack of cars in the 1970s.": "Ulice były zatłoczone samochodami."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "According to the writer, Amsterdam and Copenhagen became cycling cities mainly because of",
+   "options": [
+    "deliberate political choices.",
+    "their flat landscapes.",
+    "a traditional love of bicycles.",
+    "a lack of cars in the 1970s."
+   ]
+  },
+  "answers": [
+   "deliberate political choices."
+  ],
+  "explanation": "'It was the result of political decisions'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "environment",
+  "reading_title": "Can Cities Learn to Love the Bicycle?",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "Painted cycle lanes are as effective as physically separated ones.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "False"
+  ],
+  "explanation": "Malowane linie 'do little to reassure nervous riders'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "environment",
+  "reading_title": "Can Cities Learn to Love the Bicycle?",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "Some studies show that cyclists and pedestrians spend more at local shops over a month.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "True"
+  ],
+  "explanation": "Akapit 3."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "environment",
+  "reading_title": "Can Cities Learn to Love the Bicycle?",
+  "position": 3,
+  "distractor_notes": {
+   "To argue that cycling schemes are a mistake.": "Autor nie ocenia ich negatywnie.",
+   "To criticise voters for being short-sighted.": "Brak krytyki wyborców.",
+   "To explain why schemes are temporary.": "Tymczasowość wynika z innej strategii."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "Why does the writer mention politicians losing elections?",
+   "options": [
+    "To show how strong opposition can be.",
+    "To argue that cycling schemes are a mistake.",
+    "To criticise voters for being short-sighted.",
+    "To explain why schemes are temporary."
+   ]
+  },
+  "answers": [
+   "To show how strong opposition can be."
+  ],
+  "explanation": "Kontekst: 'Opposition, however, can be fierce.'"
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "environment",
+  "reading_title": "Can Cities Learn to Love the Bicycle?",
+  "position": 4,
+  "distractor_notes": {
+   "were cheaper to remove than to build.": "Koszt nie jest wspomniany.",
+   "satisfied shopkeepers immediately.": "Brak takiej informacji.",
+   "prevented any criticism.": "Krytyka nadal istniała."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "Temporary trials were useful because they",
+   "options": [
+    "let people try the changes before deciding.",
+    "were cheaper to remove than to build.",
+    "satisfied shopkeepers immediately.",
+    "prevented any criticism."
+   ]
+  },
+  "answers": [
+   "let people try the changes before deciding."
+  ],
+  "explanation": "'allowed residents to experience the change before passing judgement'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "environment",
+  "reading_title": "Can Cities Learn to Love the Bicycle?",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "Bogotá has the highest cycling rate in the world.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "Not Given"
+  ],
+  "explanation": "Bogotá jest wymieniona, ale bez porównania światowego."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "health",
+  "reading_title": "The Value of Boredom",
+  "position": 0,
+  "distractor_notes": {
+   "has made people more patient.": "Przeciwnie – sięgamy po telefon natychmiast.",
+   "is more boring than in the past.": "Tekst mówi odwrotnie.",
+   "has reduced the use of phones.": "Brak takiej informacji."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "In the first paragraph, the writer suggests that modern life",
+   "options": [
+    "leaves very little time unoccupied.",
+    "has made people more patient.",
+    "is more boring than in the past.",
+    "has reduced the use of phones."
+   ]
+  },
+  "answers": [
+   "leaves very little time unoccupied."
+  ],
+  "explanation": "Można przejść cały dzień bez minuty nieustrukturyzowanego czasu."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "health",
+  "reading_title": "The Value of Boredom",
+  "position": 1,
+  "distractor_notes": {
+   "a symptom of illness.": "Nie w tym akapicie.",
+   "a result of using phones.": "Telefony ją tłumią, a nie powodują.",
+   "a problem that industries should solve.": "To pogląd krytykowany przez autora."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "Some psychologists see boredom as",
+   "options": [
+    "a sign that we need something more meaningful.",
+    "a symptom of illness.",
+    "a result of using phones.",
+    "a problem that industries should solve."
+   ]
+  },
+  "answers": [
+   "a sign that we need something more meaningful."
+  ],
+  "explanation": "'a signal… encourages us to look for something more meaningful'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "health",
+  "reading_title": "The Value of Boredom",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "In the experiment, people who did a dull task first gave more creative answers.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "True"
+  ],
+  "explanation": "Akapit 3."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "health",
+  "reading_title": "The Value of Boredom",
+  "position": 3,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "The experiment was repeated with the same results in several countries.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "Not Given"
+  ],
+  "explanation": "Tekst nie mówi o powtórzeniach eksperymentu."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "health",
+  "reading_title": "The Value of Boredom",
+  "position": 4,
+  "distractor_notes": {
+   "Whether it happens at home or at work.": "Praca jest przykładem, nie kryterium.",
+   "How old the person is.": "Wiek nie jest wspomniany.",
+   "Whether it leads to creativity.": "Kreatywność to skutek, nie kryterium."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "What distinguishes harmful boredom from useful boredom, according to the text?",
+   "options": [
+    "Whether people are free to respond to it.",
+    "Whether it happens at home or at work.",
+    "How old the person is.",
+    "Whether it leads to creativity."
+   ]
+  },
+  "answers": [
+   "Whether people are free to respond to it."
+  ],
+  "explanation": "'The difference seems to lie in whether we have the freedom to respond'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "health",
+  "reading_title": "The Value of Boredom",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "The writer recommends removing all distractions from daily life.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "False"
+  ],
+  "explanation": "Konkluzja jest 'modest' – czasem pozwolić sobie na nudę."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "culture",
+  "reading_title": "Who Owns a Language?",
+  "position": 0,
+  "distractor_notes": {
+   "Native speakers no longer use dictionaries.": "Brak takiej informacji.",
+   "English is losing popularity worldwide.": "Przeciwnie.",
+   "Examination boards ignore native speakers.": "Historycznie było odwrotnie."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "What point does the writer make in the first paragraph?",
+   "options": [
+    "Most English conversations now involve non-native speakers.",
+    "Native speakers no longer use dictionaries.",
+    "English is losing popularity worldwide.",
+    "Examination boards ignore native speakers."
+   ]
+  },
+  "answers": [
+   "Most English conversations now involve non-native speakers."
+  ],
+  "explanation": "'the majority of conversations in English take place between people for whom it is not a mother tongue'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "culture",
+  "reading_title": "Who Owns a Language?",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "Some linguists believe intelligibility matters more than sounding native.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "True"
+  ],
+  "explanation": "Akapit 2."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "culture",
+  "reading_title": "Who Owns a Language?",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "Omitting the third-person 's' frequently causes serious misunderstanding.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "False"
+  ],
+  "explanation": "'rarely cause misunderstanding'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "culture",
+  "reading_title": "Who Owns a Language?",
+  "position": 3,
+  "distractor_notes": {
+   "make English harder to learn.": "Nie wspomniano.",
+   "reduce the number of teachers.": "Nie wspomniano.",
+   "favour British English over American.": "Nie o to chodzi."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "Critics are concerned that changing standards could",
+   "options": [
+    "harm learners in formal situations.",
+    "make English harder to learn.",
+    "reduce the number of teachers.",
+    "favour British English over American."
+   ]
+  },
+  "answers": [
+   "harm learners in formal situations."
+  ],
+  "explanation": "'leave learners at a disadvantage, particularly in formal contexts'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "culture",
+  "reading_title": "Who Owns a Language?",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "tfng",
+  "instruction": "Czy zdanie jest zgodne z tekstem?",
+  "prompt": {
+   "question": "Most learners want to sound exactly like British or American speakers.",
+   "options": [
+    "True",
+    "False",
+    "Not Given"
+   ]
+  },
+  "answers": [
+   "False"
+  ],
+  "explanation": "Chcą opanować standard, 'even if they do not intend to sound British or American'."
+ },
+ {
+  "module": "reading",
+  "level": "C1",
+  "topic": "culture",
+  "reading_title": "Who Owns a Language?",
+  "position": 5,
+  "distractor_notes": {
+   "one international standard should replace native norms.": "Autor odrzuca wybór jednego modelu.",
+   "native speakers should decide what is correct.": "Własność języka nie należy do jednej grupy.",
+   "accuracy is no longer important.": "W raporcie liczy się staranny standard."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz odpowiedź zgodną z tekstem.",
+  "prompt": {
+   "question": "The writer's conclusion is that",
+   "options": [
+    "good communicators adapt their English to the situation.",
+    "one international standard should replace native norms.",
+    "native speakers should decide what is correct.",
+    "accuracy is no longer important."
+   ]
+  },
+  "answers": [
+   "good communicators adapt their English to the situation."
+  ],
+  "explanation": "Ostatni akapit – elastyczność."
+ }
+]

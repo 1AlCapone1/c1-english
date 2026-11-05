@@ -1,0 +1,242 @@
+[
+ {
+  "type": "questions",
+  "title": "Getting to know you: free time",
+  "prompt": "Answer the questions:\n• How do you usually spend your free time?\n• Is there a hobby you would like to take up in the future? Why?\n• Do you think people have less free time than they used to?",
+  "model_answer": "To be honest, most of my free time goes on two things: running and reading. I try to go for a run three or four times a week, mainly because it clears my head after a day in front of a screen. As for a new hobby, I've always wanted to learn to play the piano – I grew up surrounded by music, but never actually had lessons. And yes, I do think many people feel they have less free time now, although I suspect that's partly because our phones fill every spare moment rather than because we actually work longer hours.",
+  "phrases": [
+   {
+    "en": "As far as I'm concerned, …",
+    "pl": "Jeśli o mnie chodzi, …"
+   },
+   {
+    "en": "I'd go along with that up to a point.",
+    "pl": "Do pewnego stopnia się zgadzam."
+   },
+   {
+    "en": "That's a fair point, but…",
+    "pl": "To słuszna uwaga, ale…"
+   },
+   {
+    "en": "It depends to a large extent on…",
+    "pl": "To w dużej mierze zależy od…"
+   }
+  ]
+ },
+ {
+  "type": "questions",
+  "title": "Getting to know you: learning",
+  "prompt": "Answer the questions:\n• What is the most useful thing you have ever learnt?\n• Do you prefer learning alone or with other people?\n• How do you think education will change in the next twenty years?",
+  "model_answer": "Probably the most useful thing I've ever learnt is how to cook properly, because it's saved me a fortune and made me much healthier. When it comes to learning, it depends on what I'm studying – I need peace and quiet for grammar, but I find speaking practice far more effective in a group. As for the future, I'd imagine that technology will allow lessons to be tailored to each student, although I hope teachers won't be replaced, since motivation often comes from the relationship with a good teacher.",
+  "phrases": [
+   {
+    "en": "As far as I'm concerned, …",
+    "pl": "Jeśli o mnie chodzi, …"
+   },
+   {
+    "en": "I'd go along with that up to a point.",
+    "pl": "Do pewnego stopnia się zgadzam."
+   },
+   {
+    "en": "That's a fair point, but…",
+    "pl": "To słuszna uwaga, ale…"
+   },
+   {
+    "en": "It depends to a large extent on…",
+    "pl": "To w dużej mierze zależy od…"
+   }
+  ]
+ },
+ {
+  "type": "compare",
+  "title": "Working environments",
+  "prompt": "Look at two situations: (A) people working in an open-plan office, (B) a person working from home at a kitchen table.\nCompare them and say: what are the advantages of each way of working? How might the people be feeling?",
+  "model_answer": "Both situations show people at work, but the atmosphere is completely different. In the open-plan office, everyone seems to be surrounded by colleagues, which probably makes it easy to share ideas and ask quick questions. On the other hand, it could be quite noisy, and I'd imagine it's hard to concentrate for long periods. The person at the kitchen table, by contrast, has plenty of peace and quiet and doesn't have to commute, which is a huge advantage. Judging by the piles of paper, though, it looks as if the line between work and home life may be getting rather blurred, and they might well be feeling a bit isolated.",
+  "phrases": [
+   {
+    "en": "It looks as if…",
+    "pl": "Wygląda na to, że…"
+   },
+   {
+    "en": "They might well be…",
+    "pl": "Całkiem możliwe, że są…"
+   },
+   {
+    "en": "I'd imagine that…",
+    "pl": "Wyobrażam sobie, że…"
+   },
+   {
+    "en": "Judging by their expressions, …",
+    "pl": "Sądząc po ich minach, …"
+   }
+  ]
+ },
+ {
+  "type": "speculate",
+  "title": "Celebrations",
+  "prompt": "Look at two situations: (A) a large wedding party outdoors, (B) a small family dinner for a birthday.\nWhy might people have chosen to celebrate in this way? How memorable might the occasion be?",
+  "model_answer": "In the first situation, the couple might have chosen a big outdoor wedding because they wanted to share the day with as many friends and relatives as possible. It looks as if everyone's having a wonderful time, and an event like that is likely to be remembered for years, partly because it's such a rare occasion. The family dinner is far more intimate. Perhaps the person celebrating simply prefers a quieter atmosphere, or maybe the family is spread across the country and this is a rare chance to sit down together. Although it's less spectacular, I'd say it could be just as memorable, because people tend to remember conversations rather than decorations.",
+  "phrases": [
+   {
+    "en": "It looks as if…",
+    "pl": "Wygląda na to, że…"
+   },
+   {
+    "en": "They might well be…",
+    "pl": "Całkiem możliwe, że są…"
+   },
+   {
+    "en": "I'd imagine that…",
+    "pl": "Wyobrażam sobie, że…"
+   },
+   {
+    "en": "Judging by their expressions, …",
+    "pl": "Sądząc po ich minach, …"
+   }
+  ]
+ },
+ {
+  "type": "discussion",
+  "title": "Improving a town for young people",
+  "prompt": "Discuss with a partner (or imagine the conversation): How could these ideas make a town more attractive for young people?\n• cheaper public transport • a modern library • a music venue • more sports facilities • free Wi-Fi in public places\nThen decide which TWO ideas would be most effective.",
+  "model_answer": "Shall we start with public transport? I think it's absolutely key, because if young people can't afford to travel, they can't take advantage of anything else the town offers. A music venue would also make a big difference – it gives people a reason to stay in the town in the evening rather than going to the city. I'm less convinced about free Wi-Fi; it's useful, but most people already have mobile data. So, if we have to choose two, I'd go for cheaper transport and the music venue: the first gives access, and the second gives people somewhere to meet and feel part of the community.",
+  "phrases": [
+   {
+    "en": "Shall we start with…?",
+    "pl": "Może zaczniemy od…?"
+   },
+   {
+    "en": "What's your take on…?",
+    "pl": "Co sądzisz o…?"
+   },
+   {
+    "en": "I see where you're coming from, but…",
+    "pl": "Rozumiem twój punkt widzenia, ale…"
+   },
+   {
+    "en": "So, have we reached a decision?",
+    "pl": "To co, podjęliśmy decyzję?"
+   }
+  ]
+ },
+ {
+  "type": "discussion",
+  "title": "Reducing stress at school",
+  "prompt": "Discuss: How might these things help students cope with stress?\n• less homework • mindfulness sessions • more sport • access to a counsellor • flexible deadlines\nWhich would have the greatest long-term effect?",
+  "model_answer": "Let's look at less homework first. It would obviously give students more free time, but I'm not sure it addresses the root causes of stress, which are often exams and pressure about the future. Access to a counsellor seems much more important to me, because it offers help to students who are really struggling. Sport is another strong option – it's well known that exercise improves mood and sleep. In the long term, I'd say a counsellor and more sport would make the greatest difference, since they teach students ways of coping that they can use for the rest of their lives.",
+  "phrases": [
+   {
+    "en": "Shall we start with…?",
+    "pl": "Może zaczniemy od…?"
+   },
+   {
+    "en": "What's your take on…?",
+    "pl": "Co sądzisz o…?"
+   },
+   {
+    "en": "I see where you're coming from, but…",
+    "pl": "Rozumiem twój punkt widzenia, ale…"
+   },
+   {
+    "en": "So, have we reached a decision?",
+    "pl": "To co, podjęliśmy decyzję?"
+   }
+  ]
+ },
+ {
+  "type": "opinion",
+  "title": "Technology and relationships",
+  "prompt": "Answer the questions:\n• Some people say social media makes us more lonely. What do you think?\n• Should children be allowed smartphones before they are teenagers?\n• Is it rude to check your phone during a meal?",
+  "model_answer": "I'd go along with that up to a point. Social media allows us to stay in touch with people we would otherwise lose contact with, but it can also replace real conversations with a constant stream of superficial updates, and that can leave people feeling more isolated. As for children, I think it depends to a large extent on how the phone is used. A basic phone for safety reasons makes sense, but unlimited internet access for a nine-year-old seems unwise. And yes, I find it quite rude when someone checks their phone during a meal, unless they're waiting for something urgent.",
+  "phrases": [
+   {
+    "en": "As far as I'm concerned, …",
+    "pl": "Jeśli o mnie chodzi, …"
+   },
+   {
+    "en": "I'd go along with that up to a point.",
+    "pl": "Do pewnego stopnia się zgadzam."
+   },
+   {
+    "en": "That's a fair point, but…",
+    "pl": "To słuszna uwaga, ale…"
+   },
+   {
+    "en": "It depends to a large extent on…",
+    "pl": "To w dużej mierze zależy od…"
+   }
+  ]
+ },
+ {
+  "type": "argue",
+  "title": "Should university be free?",
+  "prompt": "Give your opinion and justify it: Should university education be free for everyone? Consider cost to taxpayers, equal opportunities and the quality of education.",
+  "model_answer": "In my view, university should be free or at least very cheap, mainly because of equal opportunities. When students have to take on huge debts, talented young people from poorer families may simply decide not to apply, and society loses out. Admittedly, free education has to be paid for by taxpayers, including people who never went to university themselves, which some see as unfair. However, graduates usually earn more and therefore pay more tax over their lifetimes, so the investment is partly recovered. The real risk is quality: if universities are underfunded, free education is worth very little. So, on balance, I'd support free tuition, but only if it's properly funded.",
+  "phrases": [
+   {
+    "en": "As far as I'm concerned, …",
+    "pl": "Jeśli o mnie chodzi, …"
+   },
+   {
+    "en": "I'd go along with that up to a point.",
+    "pl": "Do pewnego stopnia się zgadzam."
+   },
+   {
+    "en": "That's a fair point, but…",
+    "pl": "To słuszna uwaga, ale…"
+   },
+   {
+    "en": "It depends to a large extent on…",
+    "pl": "To w dużej mierze zależy od…"
+   }
+  ]
+ },
+ {
+  "type": "respond",
+  "title": "Respond to a statement: tourism",
+  "prompt": "Respond to the statement: 'Tourism does more harm than good to popular cities.' Agree or disagree and give reasons and examples.",
+  "model_answer": "I'm not sure I'd go that far. It's true that in places like Venice or Barcelona, mass tourism has pushed up rents and turned some neighbourhoods into something like theme parks, which is genuinely harmful for residents. On the other hand, tourism supports millions of jobs and pays for the upkeep of monuments that might otherwise fall into disrepair. I think the problem is not tourism itself but the lack of management. Cities that limit short-term rentals, spread visitors across the year and charge fair tourist taxes seem to get the benefits without most of the damage.",
+  "phrases": [
+   {
+    "en": "As far as I'm concerned, …",
+    "pl": "Jeśli o mnie chodzi, …"
+   },
+   {
+    "en": "I'd go along with that up to a point.",
+    "pl": "Do pewnego stopnia się zgadzam."
+   },
+   {
+    "en": "That's a fair point, but…",
+    "pl": "To słuszna uwaga, ale…"
+   },
+   {
+    "en": "It depends to a large extent on…",
+    "pl": "To w dużej mierze zależy od…"
+   }
+  ]
+ },
+ {
+  "type": "photo",
+  "title": "Describe a photo: volunteering",
+  "prompt": "Imagine a photo of a group of people cleaning a beach. Describe what is happening, speculate about why they are doing it, and say whether you think volunteering should be compulsory at school.",
+  "model_answer": "In the picture, there's a group of people of different ages collecting rubbish on a beach. They're wearing gloves and carrying large bags, and judging by their smiles, they seem to be enjoying themselves despite the work. I'd imagine they belong to a local environmental group, or perhaps it's a school project. As for compulsory volunteering, I have mixed feelings. It could introduce young people to causes they would never otherwise discover, but forcing people to volunteer rather defeats the purpose – I think it works best when schools strongly encourage it but leave the final choice to students.",
+  "phrases": [
+   {
+    "en": "It looks as if…",
+    "pl": "Wygląda na to, że…"
+   },
+   {
+    "en": "They might well be…",
+    "pl": "Całkiem możliwe, że są…"
+   },
+   {
+    "en": "I'd imagine that…",
+    "pl": "Wyobrażam sobie, że…"
+   },
+   {
+    "en": "Judging by their expressions, …",
+    "pl": "Sądząc po ich minach, …"
+   }
+  ]
+ }
+]

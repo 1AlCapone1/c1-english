@@ -1,0 +1,2268 @@
+[
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The new policy has ___ a great deal of criticism from teachers.",
+   "options": [
+    "drawn",
+    "pulled",
+    "taken",
+    "led"
+   ]
+  },
+  "answers": [
+   "drawn"
+  ],
+  "explanation": "Draw criticism = spotkać się z krytyką (kolokacja).",
+  "distractor_notes": {
+   "pulled": "Pull nie łączy się z criticism.",
+   "taken": "Take criticism = przyjąć krytykę, nie: wywołać.",
+   "led": "Lead wymaga to (lead to)."
+  },
+  "position": 0
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "She was ___ aware that her decision would be unpopular.",
+   "options": [
+    "fully",
+    "highly",
+    "deeply",
+    "greatly"
+   ]
+  },
+  "answers": [
+   "fully"
+  ],
+  "explanation": "Fully aware = w pełni świadomy.",
+  "distractor_notes": {
+   "highly": "Highly łączy się np. z likely, successful.",
+   "deeply": "Deeply łączy się z concerned, moved.",
+   "greatly": "Greatly łączy się z czasownikami (greatly improve)."
+  },
+  "position": 1
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The two sides failed to ___ an agreement after hours of talks.",
+   "options": [
+    "reach",
+    "get",
+    "make",
+    "arrive"
+   ]
+  },
+  "answers": [
+   "reach"
+  ],
+  "explanation": "Reach an agreement – stała kolokacja.",
+  "distractor_notes": {
+   "get": "Get an agreement brzmi nienaturalnie.",
+   "make": "Make an agreement = zawrzeć umowę, ale po rozmowach mówimy reach.",
+   "arrive": "Arrive wymaga at (arrive at an agreement)."
+  },
+  "position": 2
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "Despite the setbacks, the team ___ on with the project.",
+   "options": [
+    "pressed",
+    "pushed",
+    "forced",
+    "drove"
+   ]
+  },
+  "answers": [
+   "pressed"
+  ],
+  "explanation": "Press on (with) = kontynuować mimo trudności.",
+  "distractor_notes": {
+   "pushed": "Push on też istnieje, ale nie łączy się z with w tym sensie tak naturalnie.",
+   "forced": "Force on nie znaczy 'kontynuować'.",
+   "drove": "Drive on – jechać dalej."
+  },
+  "position": 3
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The museum ___ host to over a million visitors last year.",
+   "options": [
+    "played",
+    "made",
+    "gave",
+    "did"
+   ]
+  },
+  "answers": [
+   "played"
+  ],
+  "explanation": "Play host to = gościć.",
+  "distractor_notes": {
+   "made": "Make host – brak takiej kolokacji.",
+   "gave": "Give host – brak.",
+   "did": "Do host – brak."
+  },
+  "position": 4
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "It is ___ to say that the plan was a disaster.",
+   "options": [
+    "fair",
+    "right",
+    "just",
+    "true"
+   ]
+  },
+  "answers": [
+   "fair"
+  ],
+  "explanation": "It is fair to say = można uczciwie powiedzieć.",
+  "distractor_notes": {
+   "right": "It is right to say – mniej idiomatyczne.",
+   "just": "Just to say – brak takiej frazy.",
+   "true": "It is true to say – rzadkie i niezręczne."
+  },
+  "position": 5
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The price of oil rose ___ after the announcement.",
+   "options": [
+    "sharply",
+    "strongly",
+    "heavily",
+    "highly"
+   ]
+  },
+  "answers": [
+   "sharply"
+  ],
+  "explanation": "Rise sharply = gwałtownie wzrosnąć.",
+  "distractor_notes": {
+   "strongly": "Strongly łączy się z believe, recommend.",
+   "heavily": "Heavily łączy się z rain, depend, invest.",
+   "highly": "Highly nie łączy się z rise."
+  },
+  "position": 6
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "Many people take their health for ___ until they fall ill.",
+   "options": [
+    "granted",
+    "given",
+    "sure",
+    "certain"
+   ]
+  },
+  "answers": [
+   "granted"
+  ],
+  "explanation": "Take for granted = uważać za oczywiste.",
+  "distractor_notes": {
+   "given": "Take for given – błąd.",
+   "sure": "For sure – inne znaczenie.",
+   "certain": "For certain – na pewno."
+  },
+  "position": 7
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The scandal ___ serious doubts about the minister's honesty.",
+   "options": [
+    "raised",
+    "rose",
+    "lifted",
+    "arose"
+   ]
+  },
+  "answers": [
+   "raised"
+  ],
+  "explanation": "Raise doubts – raise jest przechodni.",
+  "distractor_notes": {
+   "rose": "Rise jest nieprzechodni – nie przyjmuje dopełnienia.",
+   "lifted": "Lift doubts = rozwiać wątpliwości (odwrotnie).",
+   "arose": "Arise jest nieprzechodni."
+  },
+  "position": 8
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "She has a ___ memory for faces – she never forgets anyone.",
+   "options": [
+    "remarkable",
+    "considerable",
+    "notable",
+    "substantial"
+   ]
+  },
+  "answers": [
+   "remarkable"
+  ],
+  "explanation": "Remarkable memory = niezwykła pamięć.",
+  "distractor_notes": {
+   "considerable": "Considerable odnosi się do ilości.",
+   "notable": "Notable = godny uwagi, ale nie łączy się naturalnie z memory.",
+   "substantial": "Substantial – duży (kwota, ilość)."
+  },
+  "position": 9
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The film is loosely ___ on a true story.",
+   "options": [
+    "based",
+    "founded",
+    "built",
+    "grounded"
+   ]
+  },
+  "answers": [
+   "based"
+  ],
+  "explanation": "Based on = oparty na.",
+  "distractor_notes": {
+   "founded": "Founded on – o zasadach, instytucjach.",
+   "built": "Built on – dosłownie lub o sukcesie.",
+   "grounded": "Grounded in – zakorzeniony w."
+  },
+  "position": 10
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "You should ___ advantage of the free training.",
+   "options": [
+    "take",
+    "make",
+    "get",
+    "have"
+   ]
+  },
+  "answers": [
+   "take"
+  ],
+  "explanation": "Take advantage of – kolokacja.",
+  "distractor_notes": {
+   "make": "Make use of – ale nie make advantage.",
+   "get": "Get advantage – brak.",
+   "have": "Have an advantage = mieć przewagę."
+  },
+  "position": 11
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The company is on the ___ of bankruptcy.",
+   "options": [
+    "verge",
+    "edge",
+    "side",
+    "rim"
+   ]
+  },
+  "answers": [
+   "verge"
+  ],
+  "explanation": "On the verge of = na skraju.",
+  "distractor_notes": {
+   "edge": "On the edge of – dosłownie lub emocjonalnie (on the edge of my seat).",
+   "side": "On the side of = po stronie.",
+   "rim": "Rim = krawędź naczynia."
+  },
+  "position": 12
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "His theory doesn't ___ up to close examination.",
+   "options": [
+    "stand",
+    "hold",
+    "keep",
+    "bear"
+   ]
+  },
+  "answers": [
+   "stand"
+  ],
+  "explanation": "Stand up to = wytrzymać (krytykę, analizę).",
+  "distractor_notes": {
+   "hold": "Hold up – też możliwe, ale bez 'to'.",
+   "keep": "Keep up to – brak.",
+   "bear": "Bear up – trzymać się (emocjonalnie)."
+  },
+  "position": 13
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "There is a ___ chance that the flight will be cancelled.",
+   "options": [
+    "slight",
+    "small-scale",
+    "minor",
+    "faint"
+   ]
+  },
+  "answers": [
+   "slight"
+  ],
+  "explanation": "A slight chance = niewielka szansa.",
+  "distractor_notes": {
+   "small-scale": "Small-scale – o działalności, projektach.",
+   "minor": "Minor – o problemach, obrażeniach.",
+   "faint": "Faint chance – rzadkie; faint hope częstsze."
+  },
+  "position": 14
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The minister refused to ___ any responsibility for the error.",
+   "options": [
+    "accept",
+    "receive",
+    "admit",
+    "agree"
+   ]
+  },
+  "answers": [
+   "accept"
+  ],
+  "explanation": "Accept responsibility – kolokacja.",
+  "distractor_notes": {
+   "receive": "Receive – otrzymać.",
+   "admit": "Admit wymaga zwykle -ing/that; admit responsibility rzadsze.",
+   "agree": "Agree wymaga to/with."
+  },
+  "position": 15
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "We need to ___ a balance between work and family life.",
+   "options": [
+    "strike",
+    "hit",
+    "beat",
+    "make"
+   ]
+  },
+  "answers": [
+   "strike"
+  ],
+  "explanation": "Strike a balance – kolokacja.",
+  "distractor_notes": {
+   "hit": "Hit a balance – brak.",
+   "beat": "Beat – pokonać.",
+   "make": "Make a balance – brak."
+  },
+  "position": 16
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The report ___ attention to the lack of affordable housing.",
+   "options": [
+    "draws",
+    "pulls",
+    "gives",
+    "puts"
+   ]
+  },
+  "answers": [
+   "draws"
+  ],
+  "explanation": "Draw attention to = zwracać uwagę na.",
+  "distractor_notes": {
+   "pulls": "Pull attention – brak.",
+   "gives": "Give attention to – poświęcić uwagę.",
+   "puts": "Put attention – brak."
+  },
+  "position": 17
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "Her hard work finally ___ off when she was promoted.",
+   "options": [
+    "paid",
+    "gave",
+    "came",
+    "turned"
+   ]
+  },
+  "answers": [
+   "paid"
+  ],
+  "explanation": "Pay off = opłacić się.",
+  "distractor_notes": {
+   "gave": "Give off = wydzielać.",
+   "came": "Come off = udać się (o planie), ale nie o pracy.",
+   "turned": "Turn off = wyłączyć."
+  },
+  "position": 18
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The decision was taken in the ___ of the moment.",
+   "options": [
+    "heat",
+    "fire",
+    "warmth",
+    "flame"
+   ]
+  },
+  "answers": [
+   "heat"
+  ],
+  "explanation": "In the heat of the moment = pod wpływem chwili.",
+  "distractor_notes": {
+   "fire": "Brak takiego idiomu.",
+   "warmth": "Brak.",
+   "flame": "Brak."
+  },
+  "position": 19
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "It came as no ___ that he won the election.",
+   "options": [
+    "surprise",
+    "shock",
+    "wonder",
+    "amazement"
+   ]
+  },
+  "answers": [
+   "surprise"
+  ],
+  "explanation": "It came as no surprise – utarta fraza.",
+  "distractor_notes": {
+   "shock": "It came as a shock – ale 'no shock' nienaturalne.",
+   "wonder": "No wonder = nic dziwnego (bez came as).",
+   "amazement": "Nie występuje w tej frazie."
+  },
+  "position": 20
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "Unemployment has ___ a record high.",
+   "options": [
+    "reached",
+    "arrived",
+    "touched",
+    "achieved"
+   ]
+  },
+  "answers": [
+   "reached"
+  ],
+  "explanation": "Reach a record high.",
+  "distractor_notes": {
+   "arrived": "Arrive wymaga at.",
+   "touched": "Touch – dotknąć; nieidiomatyczne.",
+   "achieved": "Achieve – osiągnąć cel, nie poziom wskaźnika."
+  },
+  "position": 21
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "I'm afraid that's out of the ___ – we can't afford it.",
+   "options": [
+    "question",
+    "matter",
+    "issue",
+    "problem"
+   ]
+  },
+  "answers": [
+   "question"
+  ],
+  "explanation": "Out of the question = wykluczone.",
+  "distractor_notes": {
+   "matter": "Brak takiej frazy.",
+   "issue": "Brak.",
+   "problem": "Brak."
+  },
+  "position": 22
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The tickets sold out in a ___ of minutes.",
+   "options": [
+    "matter",
+    "question",
+    "case",
+    "point"
+   ]
+  },
+  "answers": [
+   "matter"
+  ],
+  "explanation": "In a matter of minutes = w ciągu kilku minut.",
+  "distractor_notes": {
+   "question": "Question of time – inna fraza.",
+   "case": "In case of – w razie.",
+   "point": "Brak."
+  },
+  "position": 23
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "He gave a ___ account of what had happened.",
+   "options": [
+    "detailed",
+    "thorough-going",
+    "deep",
+    "full-scale"
+   ]
+  },
+  "answers": [
+   "detailed"
+  ],
+  "explanation": "A detailed account = szczegółowa relacja.",
+  "distractor_notes": {
+   "thorough-going": "Thoroughgoing – całkowity (np. reform).",
+   "deep": "Deep account – nienaturalne.",
+   "full-scale": "Full-scale – o wojnie, operacji."
+  },
+  "position": 24
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The charity relies ___ on donations from the public.",
+   "options": [
+    "heavily",
+    "deeply",
+    "hardly",
+    "thickly"
+   ]
+  },
+  "answers": [
+   "heavily"
+  ],
+  "explanation": "Rely heavily on.",
+  "distractor_notes": {
+   "deeply": "Deeply nie łączy się z rely.",
+   "hardly": "Hardly = prawie wcale (zmienia sens).",
+   "thickly": "Thickly – grubo."
+  },
+  "position": 25
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "Please bear in ___ that the office closes at five.",
+   "options": [
+    "mind",
+    "head",
+    "memory",
+    "thought"
+   ]
+  },
+  "answers": [
+   "mind"
+  ],
+  "explanation": "Bear in mind = pamiętać, mieć na uwadze.",
+  "distractor_notes": {
+   "head": "Brak.",
+   "memory": "Brak.",
+   "thought": "Brak."
+  },
+  "position": 26
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The government has come ___ fire for its handling of the crisis.",
+   "options": [
+    "under",
+    "below",
+    "beneath",
+    "into"
+   ]
+  },
+  "answers": [
+   "under"
+  ],
+  "explanation": "Come under fire = znaleźć się pod ostrzałem krytyki.",
+  "distractor_notes": {
+   "below": "Brak.",
+   "beneath": "Brak.",
+   "into": "Come into – odziedziczyć."
+  },
+  "position": 27
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The plan was ___ by a lack of funding.",
+   "options": [
+    "hampered",
+    "deterred",
+    "prohibited",
+    "banned"
+   ]
+  },
+  "answers": [
+   "hampered"
+  ],
+  "explanation": "Hamper = utrudniać.",
+  "distractor_notes": {
+   "deterred": "Deter odnosi się do ludzi (zniechęcać).",
+   "prohibited": "Prohibit = zakazać prawnie.",
+   "banned": "Ban = zakazać."
+  },
+  "position": 28
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "mc_cloze",
+  "topic": "Part 1 – kolokacje i słownictwo",
+  "level": "C1",
+  "instruction": "Wybierz słowo, które najlepiej pasuje do luki.",
+  "prompt": {
+   "question": "The two theories are not mutually ___.",
+   "options": [
+    "exclusive",
+    "excluding",
+    "exclusionary",
+    "excluded"
+   ]
+  },
+  "answers": [
+   "exclusive"
+  ],
+  "explanation": "Mutually exclusive = wzajemnie się wykluczające.",
+  "distractor_notes": {
+   "excluding": "Forma -ing nie tworzy tej kolokacji.",
+   "exclusionary": "Exclusionary – wykluczający społecznie.",
+   "excluded": "Excluded – wykluczony (bierne)."
+  },
+  "position": 29
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "___ the bad weather, the match went ahead."
+  },
+  "answers": [
+   "Despite",
+   "despite"
+  ],
+  "explanation": "Despite + rzeczownik (bez of).",
+  "position": 0
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "She is one of the most talented artists ___ I have ever met."
+  },
+  "answers": [
+   "that",
+   "whom",
+   "who"
+  ],
+  "explanation": "Zaimek względny po superlative – zwykle that.",
+  "position": 1
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "Hardly ___ we arrived when the storm began."
+  },
+  "answers": [
+   "had"
+  ],
+  "explanation": "Hardly + had + podmiot (inwersja).",
+  "position": 2
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "It's no use ___ about it now – it's too late."
+  },
+  "answers": [
+   "worrying",
+   "complaining",
+   "crying"
+  ],
+  "explanation": "It's no use + -ing.",
+  "position": 3
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "I'd rather you ___ tell anyone about this."
+  },
+  "answers": [
+   "didn't"
+  ],
+  "explanation": "Would rather + podmiot + past simple.",
+  "position": 4
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "___ as it may seem, the plan actually worked."
+  },
+  "answers": [
+   "Strange",
+   "Odd",
+   "Surprising",
+   "Incredible",
+   "Unlikely"
+  ],
+  "explanation": "Przymiotnik + as + it may seem = choć może się to wydawać…",
+  "position": 5
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "He apologised ___ being late."
+  },
+  "answers": [
+   "for"
+  ],
+  "explanation": "Apologise for + -ing.",
+  "position": 6
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "The more you practise, ___ better you become."
+  },
+  "answers": [
+   "the"
+  ],
+  "explanation": "The more…, the better… (podwójny comparative).",
+  "position": 7
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "Not ___ did she pass, but she got the highest mark."
+  },
+  "answers": [
+   "only"
+  ],
+  "explanation": "Not only + inwersja.",
+  "position": 8
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "We must leave now, ___ we'll miss the train."
+  },
+  "answers": [
+   "or",
+   "otherwise"
+  ],
+  "explanation": "Or (else)/otherwise = w przeciwnym razie.",
+  "position": 9
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "___ you need any help, don't hesitate to call me."
+  },
+  "answers": [
+   "Should",
+   "should"
+  ],
+  "explanation": "Should zamiast if (inwersja, formalnie).",
+  "position": 10
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "She has a lot in common ___ her sister."
+  },
+  "answers": [
+   "with"
+  ],
+  "explanation": "Have something in common with.",
+  "position": 11
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "I'm not used ___ getting up so early."
+  },
+  "answers": [
+   "to"
+  ],
+  "explanation": "Be used to + -ing.",
+  "position": 12
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "No matter ___ hard I try, I can't remember his name."
+  },
+  "answers": [
+   "how"
+  ],
+  "explanation": "No matter how + przymiotnik.",
+  "position": 13
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "He was accused ___ stealing the money."
+  },
+  "answers": [
+   "of"
+  ],
+  "explanation": "Accuse sb of + -ing.",
+  "position": 14
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "The book was so boring ___ I fell asleep."
+  },
+  "answers": [
+   "that"
+  ],
+  "explanation": "So + przymiotnik + that.",
+  "position": 15
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "Little ___ he know that his life was about to change."
+  },
+  "answers": [
+   "did"
+  ],
+  "explanation": "Little + did + podmiot.",
+  "position": 16
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "She left early ___ order to catch the last bus."
+  },
+  "answers": [
+   "in"
+  ],
+  "explanation": "In order to.",
+  "position": 17
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "___ it not for your help, I would have failed."
+  },
+  "answers": [
+   "Were",
+   "were"
+  ],
+  "explanation": "Were it not for = gdyby nie (inwersja).",
+  "position": 18
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "This is by ___ the best film I've seen this year."
+  },
+  "answers": [
+   "far"
+  ],
+  "explanation": "By far + superlative.",
+  "position": 19
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "All things ___, it was a successful year."
+  },
+  "answers": [
+   "considered"
+  ],
+  "explanation": "All things considered = biorąc wszystko pod uwagę.",
+  "position": 20
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "He insisted ___ paying for dinner."
+  },
+  "answers": [
+   "on"
+  ],
+  "explanation": "Insist on + -ing.",
+  "position": 21
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "There's no point ___ arguing with him."
+  },
+  "answers": [
+   "in"
+  ],
+  "explanation": "There's no point in + -ing.",
+  "position": 22
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "___ a result of the strike, all flights were cancelled."
+  },
+  "answers": [
+   "As",
+   "as"
+  ],
+  "explanation": "As a result of.",
+  "position": 23
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "They came to the conclusion ___ the project should be stopped."
+  },
+  "answers": [
+   "that"
+  ],
+  "explanation": "Conclusion + that-clause.",
+  "position": 24
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "She speaks French as ___ as a native speaker."
+  },
+  "answers": [
+   "well",
+   "fluently"
+  ],
+  "explanation": "As well/fluently as.",
+  "position": 25
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "The problem is ___ to get worse before it gets better."
+  },
+  "answers": [
+   "likely",
+   "bound",
+   "going",
+   "sure",
+   "certain"
+  ],
+  "explanation": "Be likely/bound to.",
+  "position": 26
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "I'll lend you the money ___ long as you pay me back by Friday."
+  },
+  "answers": [
+   "as",
+   "so"
+  ],
+  "explanation": "As long as = pod warunkiem że.",
+  "position": 27
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "It was such ___ difficult exam that few passed."
+  },
+  "answers": [
+   "a"
+  ],
+  "explanation": "Such + a + przymiotnik + rzeczownik.",
+  "position": 28
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "open_cloze",
+  "topic": "Part 2 – słowa gramatyczne",
+  "level": "C1",
+  "instruction": "Wpisz JEDNO słowo, które pasuje do luki.",
+  "prompt": {
+   "question": "Whatever happens, I'll stand ___ you."
+  },
+  "answers": [
+   "by"
+  ],
+  "explanation": "Stand by sb = wspierać.",
+  "position": 29
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The ___ of the new bridge took three years.",
+   "base": "CONSTRUCT"
+  },
+  "answers": [
+   "construction"
+  ],
+  "explanation": "Rzeczownik od construct: construction.",
+  "position": 0
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "Her ___ to help others is admirable.",
+   "base": "WILLING"
+  },
+  "answers": [
+   "willingness"
+  ],
+  "explanation": "Przymiotnik willing → rzeczownik willingness (-ness).",
+  "position": 1
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The instructions were completely ___ – nobody understood them.",
+   "base": "COMPREHEND"
+  },
+  "answers": [
+   "incomprehensible"
+  ],
+  "explanation": "Negatywny przymiotnik: in- + comprehensible.",
+  "position": 2
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "There has been a ___ increase in prices this year.",
+   "base": "CONSIDER"
+  },
+  "answers": [
+   "considerable"
+  ],
+  "explanation": "Considerable = znaczny (nie considerate = taktowny).",
+  "position": 3
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The film was a huge ___ for the director.",
+   "base": "DISAPPOINT"
+  },
+  "answers": [
+   "disappointment"
+  ],
+  "explanation": "Rzeczownik: disappointment.",
+  "position": 4
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The company offers ___ working hours.",
+   "base": "FLEX"
+  },
+  "answers": [
+   "flexible"
+  ],
+  "explanation": "Przymiotnik: flexible.",
+  "position": 5
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "He was found guilty of ___ driving.",
+   "base": "CARE"
+  },
+  "answers": [
+   "careless"
+  ],
+  "explanation": "Careless = nieostrożny.",
+  "position": 6
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "Many young people feel a sense of ___ about the future.",
+   "base": "CERTAIN"
+  },
+  "answers": [
+   "uncertainty"
+  ],
+  "explanation": "Prefiks un- + certainty.",
+  "position": 7
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The ___ of the population live in cities.",
+   "base": "MAJOR"
+  },
+  "answers": [
+   "majority"
+  ],
+  "explanation": "Majority = większość.",
+  "position": 8
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "Her ___ was obvious from the way she smiled.",
+   "base": "HAPPY"
+  },
+  "answers": [
+   "happiness"
+  ],
+  "explanation": "Happiness (y → i).",
+  "position": 9
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The town is famous for its ___ architecture.",
+   "base": "DISTINCT"
+  },
+  "answers": [
+   "distinctive"
+  ],
+  "explanation": "Distinctive = charakterystyczny (distinct = wyraźny).",
+  "position": 10
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "It is ___ to drive without insurance.",
+   "base": "LEGAL"
+  },
+  "answers": [
+   "illegal"
+  ],
+  "explanation": "Il- przed l: illegal.",
+  "position": 11
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "He gave a very ___ speech that moved everyone.",
+   "base": "PERSUADE"
+  },
+  "answers": [
+   "persuasive"
+  ],
+  "explanation": "Persuade → persuasive.",
+  "position": 12
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The ___ of plastic bags has fallen sharply.",
+   "base": "CONSUME"
+  },
+  "answers": [
+   "consumption"
+  ],
+  "explanation": "Consume → consumption (nie consumation).",
+  "position": 13
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The results were ___ different from what we expected.",
+   "base": "SIGNIFY"
+  },
+  "answers": [
+   "significantly"
+  ],
+  "explanation": "Przysłówek: significantly.",
+  "position": 14
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "Her ___ in the project was crucial to its success.",
+   "base": "INVOLVE"
+  },
+  "answers": [
+   "involvement"
+  ],
+  "explanation": "Involve → involvement.",
+  "position": 15
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The new law will ___ the rights of workers.",
+   "base": "STRONG"
+  },
+  "answers": [
+   "strengthen"
+  ],
+  "explanation": "Czasownik: strengthen (-en).",
+  "position": 16
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The children were ___ by the magician's tricks.",
+   "base": "FASCINATE"
+  },
+  "answers": [
+   "fascinated"
+  ],
+  "explanation": "Uczucie osoby → -ed.",
+  "position": 17
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "His ___ to admit his mistakes annoyed everyone.",
+   "base": "REFUSE"
+  },
+  "answers": [
+   "refusal"
+  ],
+  "explanation": "Refuse → refusal.",
+  "position": 18
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The hotel staff were ___ helpful.",
+   "base": "EXCEPTION"
+  },
+  "answers": [
+   "exceptionally"
+  ],
+  "explanation": "Przysłówek przed przymiotnikiem: exceptionally.",
+  "position": 19
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The government plans to ___ the healthcare system.",
+   "base": "MODERN"
+  },
+  "answers": [
+   "modernise",
+   "modernize"
+  ],
+  "explanation": "Czasownik: modernise (BrE) / modernize (AmE).",
+  "position": 20
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "There is no ___ evidence that the drug works.",
+   "base": "SCIENCE"
+  },
+  "answers": [
+   "scientific"
+  ],
+  "explanation": "Science → scientific.",
+  "position": 21
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The ___ of the two companies created a giant.",
+   "base": "MERGE"
+  },
+  "answers": [
+   "merger"
+  ],
+  "explanation": "Merge → merger.",
+  "position": 22
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "She is ___ the best player in the team.",
+   "base": "ARGUE"
+  },
+  "answers": [
+   "arguably"
+  ],
+  "explanation": "Arguably = prawdopodobnie, można twierdzić.",
+  "position": 23
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The noise from the street was ___.",
+   "base": "BEAR"
+  },
+  "answers": [
+   "unbearable"
+  ],
+  "explanation": "Un- + bear + -able.",
+  "position": 24
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "There is a growing ___ that change is needed.",
+   "base": "AWARE"
+  },
+  "answers": [
+   "awareness"
+  ],
+  "explanation": "Aware → awareness.",
+  "position": 25
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The ___ of the plan depends on public support.",
+   "base": "EFFECTIVE"
+  },
+  "answers": [
+   "effectiveness"
+  ],
+  "explanation": "Effective → effectiveness.",
+  "position": 26
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "He has an ___ amount of energy for a man of 80.",
+   "base": "ORDINARY"
+  },
+  "answers": [
+   "extraordinary"
+  ],
+  "explanation": "Extra- + ordinary.",
+  "position": 27
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "The judge's decision was widely seen as ___.",
+   "base": "JUSTIFY"
+  },
+  "answers": [
+   "unjustified",
+   "justified",
+   "unjustifiable"
+  ],
+  "explanation": "Przymiotnik od justify; najczęściej z prefiksem un- w krytyce.",
+  "position": 28
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "word_formation",
+  "topic": "Part 3 – słowotwórstwo",
+  "level": "C1",
+  "instruction": "Utwórz od słowa w nawiasie wyraz, który pasuje do luki.",
+  "prompt": {
+   "question": "We need to ___ our dependence on fossil fuels.",
+   "base": "LESS"
+  },
+  "answers": [
+   "lessen"
+  ],
+  "explanation": "Less → lessen (zmniejszyć).",
+  "position": 29
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "I haven't been to the cinema for months.",
+   "keyword": "SINCE",
+   "sentence2": "It's months ___ to the cinema."
+  },
+  "answers": [
+   "since I last went",
+   "since I went",
+   "since I have been",
+   "since I've been"
+  ],
+  "explanation": "It's + czas + since + past simple.",
+  "position": 0
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "They will probably cancel the concert.",
+   "keyword": "LIKELY",
+   "sentence2": "The concert ___ cancelled."
+  },
+  "answers": [
+   "is likely to be"
+  ],
+  "explanation": "Be likely to + strona bierna.",
+  "position": 1
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "I didn't know she was ill, so I didn't visit her.",
+   "keyword": "HAD",
+   "sentence2": "If I ___ ill, I would have visited her."
+  },
+  "answers": [
+   "had known she was",
+   "had known that she was"
+  ],
+  "explanation": "Third conditional.",
+  "position": 2
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "He found it hard to accept the criticism.",
+   "keyword": "DIFFICULTY",
+   "sentence2": "He ___ the criticism."
+  },
+  "answers": [
+   "had difficulty accepting",
+   "had difficulty in accepting"
+  ],
+  "explanation": "Have difficulty (in) + -ing.",
+  "position": 3
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "It wasn't necessary for you to buy flowers.",
+   "keyword": "NEED",
+   "sentence2": "You ___ flowers."
+  },
+  "answers": [
+   "didn't need to buy",
+   "did not need to buy",
+   "need not have bought",
+   "needn't have bought"
+  ],
+  "explanation": "Didn't need to / needn't have.",
+  "position": 4
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "People believe the painting is a fake.",
+   "keyword": "BELIEVED",
+   "sentence2": "The painting ___ a fake."
+  },
+  "answers": [
+   "is believed to be"
+  ],
+  "explanation": "Is believed to be.",
+  "position": 5
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "I regret telling him my secret.",
+   "keyword": "WISH",
+   "sentence2": "I ___ him my secret."
+  },
+  "answers": [
+   "wish I hadn't told",
+   "wish I had not told"
+  ],
+  "explanation": "Wish + past perfect.",
+  "position": 6
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "She was so tired that she couldn't continue.",
+   "keyword": "TOO",
+   "sentence2": "She was ___ continue."
+  },
+  "answers": [
+   "too tired to"
+  ],
+  "explanation": "Too + przymiotnik + to.",
+  "position": 7
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "The meeting was postponed because of the strike.",
+   "keyword": "PUT",
+   "sentence2": "The meeting ___ because of the strike."
+  },
+  "answers": [
+   "was put off",
+   "has been put off",
+   "had been put off"
+  ],
+  "explanation": "Put off = przełożyć.",
+  "position": 8
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "Nobody in the class is taller than Tom.",
+   "keyword": "TALLEST",
+   "sentence2": "Tom ___ the class."
+  },
+  "answers": [
+   "is the tallest in",
+   "is the tallest person in",
+   "is the tallest student in"
+  ],
+  "explanation": "Superlative + in.",
+  "position": 9
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "You should have told me earlier.",
+   "keyword": "BETTER",
+   "sentence2": "It would ___ told me earlier."
+  },
+  "answers": [
+   "have been better if you had",
+   "have been better if you'd"
+  ],
+  "explanation": "It would have been better if…",
+  "position": 10
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "I'm sure she didn't steal the money.",
+   "keyword": "CAN'T",
+   "sentence2": "She ___ the money."
+  },
+  "answers": [
+   "can't have stolen"
+  ],
+  "explanation": "Can't have + past participle.",
+  "position": 11
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "He started learning Chinese five years ago.",
+   "keyword": "BEEN",
+   "sentence2": "He ___ Chinese for five years."
+  },
+  "answers": [
+   "has been learning"
+  ],
+  "explanation": "Present perfect continuous.",
+  "position": 12
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "Although it was raining, they went for a walk.",
+   "keyword": "SPITE",
+   "sentence2": "In ___ raining, they went for a walk."
+  },
+  "answers": [
+   "spite of the fact that it was",
+   "spite of it being"
+  ],
+  "explanation": "In spite of the fact that it was / in spite of it being + raining.",
+  "position": 13
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "'Don't touch anything,' the guide told us.",
+   "keyword": "WARNED",
+   "sentence2": "The guide ___ anything."
+  },
+  "answers": [
+   "warned us not to touch"
+  ],
+  "explanation": "Warn sb not to.",
+  "position": 14
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "I've never seen such a beautiful view.",
+   "keyword": "EVER",
+   "sentence2": "It's the most beautiful view ___ seen."
+  },
+  "answers": [
+   "I have ever",
+   "I've ever"
+  ],
+  "explanation": "Superlative + have ever.",
+  "position": 15
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "It's possible that he missed the train.",
+   "keyword": "MAY",
+   "sentence2": "He ___ the train."
+  },
+  "answers": [
+   "may have missed"
+  ],
+  "explanation": "May have + past participle.",
+  "position": 16
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "We couldn't go out because of the storm.",
+   "keyword": "PREVENTED",
+   "sentence2": "The storm ___ out."
+  },
+  "answers": [
+   "prevented us from going"
+  ],
+  "explanation": "Prevent sb from + -ing.",
+  "position": 17
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "She didn't apologise and she didn't explain.",
+   "keyword": "NEITHER",
+   "sentence2": "She ___ nor explained."
+  },
+  "answers": [
+   "neither apologised",
+   "neither apologized"
+  ],
+  "explanation": "Neither … nor.",
+  "position": 18
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "I'd prefer to stay at home tonight.",
+   "keyword": "RATHER",
+   "sentence2": "I'd ___ out tonight."
+  },
+  "answers": [
+   "rather stay at home than go",
+   "rather stay in than go"
+  ],
+  "explanation": "Would rather … than …",
+  "position": 19
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "They say the hotel is excellent.",
+   "keyword": "SUPPOSED",
+   "sentence2": "The hotel ___ excellent."
+  },
+  "answers": [
+   "is supposed to be"
+  ],
+  "explanation": "Be supposed to = podobno.",
+  "position": 20
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "He's very confident, but he still gets nervous before exams.",
+   "keyword": "HOWEVER",
+   "sentence2": "___ is, he still gets nervous before exams."
+  },
+  "answers": [
+   "However confident he"
+  ],
+  "explanation": "However + przymiotnik + podmiot + be.",
+  "position": 21
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "It was only when I got home that I noticed the mistake.",
+   "keyword": "UNTIL",
+   "sentence2": "I ___ home that I noticed the mistake."
+  },
+  "answers": [
+   "didn't notice the mistake until I got",
+   "did not notice the mistake until I got"
+  ],
+  "explanation": "Wariant: It was not until… W tej formie: didn't notice … until.",
+  "position": 22
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "The film was so good that I watched it twice.",
+   "keyword": "SUCH",
+   "sentence2": "It was ___ that I watched it twice."
+  },
+  "answers": [
+   "such a good film",
+   "such a great film"
+  ],
+  "explanation": "Such + a + przymiotnik + rzeczownik.",
+  "position": 23
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "I'm sorry I didn't come to your party.",
+   "keyword": "APOLOGISE",
+   "sentence2": "I ___ to your party."
+  },
+  "answers": [
+   "apologise for not coming",
+   "apologise for not having come"
+  ],
+  "explanation": "Apologise for not + -ing.",
+  "position": 24
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "Her parents made her study medicine.",
+   "keyword": "WAS",
+   "sentence2": "She ___ study medicine by her parents."
+  },
+  "answers": [
+   "was made to"
+  ],
+  "explanation": "Make sb do → be made to do.",
+  "position": 25
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "There's no point in complaining.",
+   "keyword": "WORTH",
+   "sentence2": "It's ___ complaining."
+  },
+  "answers": [
+   "not worth",
+   "isn't worth"
+  ],
+  "explanation": "It's not worth + -ing. (Krótko: 2 słowa przed complaining).",
+  "position": 26
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "I'll only lend you the car if you drive carefully.",
+   "keyword": "PROVIDED",
+   "sentence2": "I'll lend you the car ___ carefully."
+  },
+  "answers": [
+   "provided that you drive",
+   "provided you drive"
+  ],
+  "explanation": "Provided (that) = pod warunkiem że.",
+  "position": 27
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "Everybody was surprised when she resigned.",
+   "keyword": "CAME",
+   "sentence2": "Her resignation ___ everybody."
+  },
+  "answers": [
+   "came as a surprise to"
+  ],
+  "explanation": "Come as a surprise to sb.",
+  "position": 28
+ },
+ {
+  "module": "use_of_english",
+  "task_type": "kwt",
+  "topic": "Part 4 – transformacje",
+  "level": "C1",
+  "instruction": "Uzupełnij drugie zdanie tak, aby znaczyło to samo co pierwsze. Użyj słowa kluczowego bez zmiany. Wpisz od 3 do 6 słów.",
+  "prompt": {
+   "question": "They started the meeting without waiting for him.",
+   "keyword": "GONE",
+   "sentence2": "By the time he arrived, the meeting ___."
+  },
+  "answers": [
+   "had already gone ahead",
+   "had gone ahead"
+  ],
+  "explanation": "Go ahead = odbyć się; past perfect.",
+  "position": 29
+ }
+]
