@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { ExerciseTask, type Outcome } from "./Correction";
+import { useEnter } from "../lib/keys";
 import { Button, Card, Feedback, Progress } from "./ui";
 import type { Exercise } from "../lib/types";
 import { logSession, recordMistake } from "../lib/api";
@@ -53,6 +54,8 @@ export function PracticeSession({ title, items, pool = [], source, onFinish, onC
       onFinish?.(s.first, s.total);
     }
   }
+  useEnter(() => { void next(); }, !!done && !finished);
+  useEnter(() => onClose?.(), finished && !!onClose);
   if (!queue.length) return <Feedback tone="info" title="Brak zadań">W tej kategorii nie ma jeszcze ćwiczeń.</Feedback>;
   if (finished) return <Card><div className="flex flex-col gap-3">
     <div className="text-xs font-bold uppercase tracking-widest text-ink-soft">{title} · wynik</div>
@@ -68,6 +71,6 @@ export function PracticeSession({ title, items, pool = [], source, onFinish, onC
     <Progress value={(i / queue.length) * 100} />
     <Card><ExerciseTask key={ex.id + ":" + i} ex={ex} onDone={handleDone} /></Card>
     {saveErr && <Feedback tone="warn" title="Problem z zapisem">{saveErr}</Feedback>}
-    {done && <div><Button onClick={next} autoFocus data-testid="next">Dalej →</Button></div>}
+    {done && <div className="flex items-center gap-3"><Button onClick={next} data-testid="next">Dalej →</Button><span className="hidden text-xs text-ink-soft sm:inline">lub Enter</span></div>}
   </div>;
 }

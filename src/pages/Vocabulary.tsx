@@ -9,10 +9,23 @@ import { Button, Card, Empty, ErrorBox, Loading, PageHeader, Pill, inputCls } fr
 export function exampleHtml(ex: string) {
   return ex.split(/(\*[^*]+\*)/).map((part, i) => part.startsWith("*") && part.endsWith("*") ? <mark key={i} className="rounded bg-amber-100 px-0.5 dark:bg-amber-900/60 dark:text-amber-100">{part.slice(1, -1)}</mark> : <span key={i}>{part}</span>);
 }
+/** Pronunciation via the device's built-in speech synthesis (British English voice when available). Hidden if unsupported. */
+export function SpeakButton({ text }: { text: string }) {
+  if (typeof window === "undefined" || !("speechSynthesis" in window)) return null;
+  const say = () => {
+    const u = new SpeechSynthesisUtterance(text);
+    const voices = window.speechSynthesis.getVoices();
+    u.voice = voices.find((x) => x.lang === "en-GB") ?? voices.find((x) => x.lang.startsWith("en")) ?? null;
+    u.lang = u.voice?.lang ?? "en-GB"; u.rate = 0.9;
+    window.speechSynthesis.cancel(); window.speechSynthesis.speak(u);
+  };
+  return <button type="button" onClick={say} className="rounded-md border border-black/15 px-2 py-0.5 text-xs font-bold hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/10" aria-label={`Odsłuchaj: ${text}`} title="Głos syntezatora Twojego urządzenia">▶ odsłuchaj</button>;
+}
+
 export function VocabDetail({ v }: { v: Vocab }) {
   const row = (k: string, val: React.ReactNode) => val ? <div className="grid gap-1 sm:grid-cols-[130px_1fr]"><span className="text-xs font-bold uppercase tracking-wider text-ink-soft">{k}</span><div>{val}</div></div> : null;
   return <div className="flex flex-col gap-2 text-[0.95rem]">
-    {row("Wymowa", v.ipa && <span className="font-mono">/{v.ipa}/</span>)}
+    {row("Wymowa", v.ipa && <span className="flex flex-wrap items-center gap-2"><span className="font-mono">/{v.ipa.replace(/^\/|\/$/g, "")}/</span><SpeakButton text={v.term} /></span>)}
     {row("Część mowy", v.pos)}
     {row("Polski", v.translation_pl)}
     {row("Definicja", v.definition)}

@@ -1,35 +1,37 @@
-import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import type { Exercise } from "../lib/types";
 import { gradeExercise, withGap } from "./Correction";
 import { PracticeSession, categoryFor, promptText } from "./PracticeSession";
 import { Button, Card, Feedback, Pill, Progress, answerCls, cx } from "./ui";
 import { logSession, recordMistake, saveAttempt, shuffle } from "../lib/api";
 import { diagnose, mistakeCategory } from "../lib/answer";
+import { claimEnter, useEnter } from "../lib/keys";
 
 export type TestResult = { score: number; max: number; items: { ex: Exercise; answer: string; ok: boolean }[]; durationSec: number };
 
 function fmt(sec: number) { const s = Math.max(0, Math.floor(sec)); return `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`; }
 
 /** Question input in test mode – no feedback until the end. */
-export function TestQuestion({ ex, value, onChange, n }: { ex: Exercise; value: string; onChange: (v: string) => void; n: number }) {
+export function TestQuestion({ ex, value, onChange, n, onEnter }: { ex: Exercise; value: string; onChange: (v: string) => void; n: number; onEnter?: () => void }) {
   const p = ex.prompt;
   const options = useMemo(() => (ex.task_type === "tfng" ? p.options ?? [] : shuffle(p.options ?? [])), [ex.id]); // eslint-disable-line
   const choice = ["mc", "mc_cloze", "tfng", "matching"].includes(ex.task_type);
-  return <div className="flex gap-3 border-t border-black/5 py-4 first:border-0 dark:border-white/5">
+  const enter = (e: ReactKeyboardEvent) => { if (claimEnter(e)) onEnter?.(); };
+  return <div className="flex gap-3 border-t border-black/5 py-4 first:border-0 dark:border-white/5" data-q={n}>
     <span className="pt-0.5 font-mono text-sm font-bold text-ink-soft">{n}</span>
     <div className="flex min-w-0 flex-1 flex-col gap-2">
       <div className="text-sm text-ink-soft">{ex.instruction}</div>
       <div>{ex.task_type === "kwt" ? <>{p.question}<div className="my-2"><span className="rounded border-2 border-current px-2 py-0.5 font-mono text-sm font-bold">{p.keyword}</span></div>{withGap(p.sentence2 ?? "")}</> : <>{withGap(p.question)}{p.base && <b className="ml-1 font-mono">({p.base})</b>}</>}</div>
       {choice ? <div className="flex flex-col gap-1.5">{options.map((o, k) => <label key={o} className={cx("flex cursor-pointer items-start gap-3 rounded-lg border px-3 py-2", value === o ? "border-accent bg-accent-soft dark:border-accent-dark dark:bg-[#232E55]" : "border-black/15 dark:border-white/15")}>
-        <input type="radio" className="mt-1" name={ex.id} checked={value === o} onChange={() => onChange(o)} /><span><b className="mr-1 font-mono text-xs">{"ABCDEF"[k]}</b>{o}</span></label>)}</div>
-        : <input className={answerCls} value={value} onChange={(e) => onChange(e.target.value)} placeholder={ex.task_type === "kwt" ? "2–5 słów" : ex.task_type === "translation" ? "English translation" : "odpowiedź"} autoComplete="off" autoCapitalize="off" spellCheck={false} aria-label={`Odpowiedź ${n}`} />}
+        <input type="radio" className="mt-1" name={ex.id} checked={value === o} onChange={() => onChange(o)} onKeyDown={enter} /><span><b className="mr-1 font-mono text-xs">{"ABCDEF"[k]}</b>{o}</span></label>)}</div>
+        : <input className={answerCls} value={value} onChange={(e) => onChange(e.target.value)} onKeyDown={enter} enterKeyHint="next" placeholder={ex.task_type === "kwt" ? "2–5 słów" : ex.task_type === "translation" ? "English translation" : "odpowiedź"} autoComplete="off" autoCapitalize="off" spellCheck={false} aria-label={`Odpowiedź ${n}`} />}
     </div>
   </div>;
 }
 
-export function TestRunner({ title, kind, items, timeLimitSec, intro, onFinished, save = true, header }: {
+export function TestRunner({ title, kind, items, timeLimitSec, intro, onFinished, save = true, header, onContinue, continueLabel }: {
   title: string; kind: string; items: Exercise[]; timeLimitSec?: number | null; intro?: ReactNode; save?: boolean; header?: ReactNode;
-  onFinished?: (r: TestResult) => void;
+  onFinished?: (r: TestResult) => void; onContinue?: () => void; continueLabel?: string;
 }) {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [result, setResult] = useState<TestResult | null>(null);
@@ -38,6 +40,13 @@ export function TestRunner({ title, kind, items, timeLimitSec, intro, onFinished
   const [saveErr, setSaveErr] = useState<string | null>(null);
   const [saved, setSaved] = useState(false);
   const started = useRef(Date.now());
+  const confirmRef = useRef<HTMLButtonElement>(null);
+  /** Enter in question n → go to question n+1; after the last one → ask to finish. Never skips: it only moves focus. */
+  function goNext(n: number) {
+    const nextEl = document.querySelector<HTMLElement>(`[data-q="${n + 1}"] input:checked, [data-q="${n + 1}"] input`);
+    if (nextEl) { nextEl.focus(); nextEl.scrollIntoView({ block: "center", behavior: "smooth" }); return; }
+    setConfirm(true); setTimeout(() => confirmRef.current?.focus(), 0);
+  }
   const [now, setNow] = useState(Date.now());
   useEffect(() => { if (!timeLimitSec || result) return; const t = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(t); }, [timeLimitSec, result]);
   const left = timeLimitSec ? timeLimitSec - (now - started.current) / 1000 : null;
@@ -60,6 +69,7 @@ export function TestRunner({ title, kind, items, timeLimitSec, intro, onFinished
       setSaved(true);
     } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
   }
+  useEnter(() => onContinue?.(), !!result && !fixing && !!onContinue);
   if (fixing && result) return <PracticeSession title="Poprawa błędów" items={result.items.filter((g) => !g.ok).map((g) => g.ex)} source={`fix:${kind}`} onClose={() => setFixing(false)} />;
   if (result) {
     const pct = Math.round((result.score / result.max) * 100);
@@ -70,7 +80,8 @@ export function TestRunner({ title, kind, items, timeLimitSec, intro, onFinished
         <div className="mt-1 text-ink-soft">{result.score} poprawnych, {result.max - result.score} błędnych · czas {fmt(result.durationSec)}</div>
         <div className="mt-3"><Progress value={pct} tone={pct >= 70 ? "ok" : pct >= 50 ? "warn" : "bad"} /></div>
         {saveErr ? <div className="mt-3"><Feedback tone="warn" title="Wynik nie zapisał się w historii">{saveErr}</Feedback></div> : save && <p className="mt-2 text-sm text-ink-soft" aria-live="polite">{saved ? "Wynik zapisano w historii, a błędy w Mistake Notebook." : "Zapisywanie wyniku…"}</p>}
-        {result.score < result.max && <div className="mt-3"><Button onClick={() => setFixing(true)}>Popraw błędne odpowiedzi ({result.max - result.score})</Button></div>}
+        <div className="mt-3 flex flex-wrap gap-2">{onContinue && <Button onClick={onContinue} data-testid="test-continue">{continueLabel ?? "Dalej →"}</Button>}{result.score < result.max && <Button variant={onContinue ? "quiet" : "primary"} onClick={() => setFixing(true)}>Popraw błędne odpowiedzi ({result.max - result.score})</Button>}</div>
+        {onContinue && <p className="mt-2 hidden text-xs text-ink-soft sm:block">Enter – {continueLabel ?? "dalej"}</p>}
       </Card>
       <Card><h2 className="font-display text-lg font-bold">Odpowiedzi i wyjaśnienia</h2>
         <ol className="mt-2">{result.items.map((g, k) => <li key={g.ex.id} className="border-t border-black/5 py-3 first:border-0 dark:border-white/5">
@@ -89,7 +100,7 @@ export function TestRunner({ title, kind, items, timeLimitSec, intro, onFinished
       {left !== null && <span className={cx("rounded-md px-2.5 py-1 font-mono font-bold", left < 120 ? "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200" : "bg-black/5 dark:bg-white/10")} aria-live="polite">{fmt(left)}</span>}
     </div>
     {intro}
-    <Card>{items.map((ex, k) => <TestQuestion key={ex.id} ex={ex} n={k + 1} value={answers[ex.id] ?? ""} onChange={(v) => setAnswers((a) => ({ ...a, [ex.id]: v }))} />)}</Card>
-    <div className="flex flex-wrap items-center gap-2">{confirm ? <><span>{items.length - answered ? `Bez odpowiedzi: ${items.length - answered}. ` : ""}Zakończyć test?</span><Button onClick={finish} data-testid="finish-confirm">Tak, sprawdź</Button><Button variant="quiet" onClick={() => setConfirm(false)}>Wróć</Button></> : <Button onClick={() => setConfirm(true)} data-testid="finish">Zakończ i sprawdź</Button>}</div>
+    <Card>{items.map((ex, k) => <TestQuestion key={ex.id} ex={ex} n={k + 1} value={answers[ex.id] ?? ""} onChange={(v) => setAnswers((a) => ({ ...a, [ex.id]: v }))} onEnter={() => goNext(k + 1)} />)}</Card>
+    <div className="flex flex-wrap items-center gap-2">{confirm ? <><span>{items.length - answered ? `Bez odpowiedzi: ${items.length - answered}. ` : ""}Zakończyć test?</span><Button ref={confirmRef} onClick={finish} data-testid="finish-confirm">Tak, sprawdź</Button><Button variant="quiet" onClick={() => setConfirm(false)}>Wróć</Button></> : <Button onClick={() => setConfirm(true)} data-testid="finish">Zakończ i sprawdź</Button>}</div>
   </div>;
 }

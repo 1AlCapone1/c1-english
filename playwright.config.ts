@@ -9,7 +9,7 @@ export default defineConfig({
   webServer: process.env.E2E_BASE_URL ? undefined : { command: "npx vite preview --outDir dist-e2e --port 4173 --strictPort", port: 4173, reuseExistingServer: true },
   projects: [
     { name: "desktop", use: { ...devices["Desktop Chrome"] }, testIgnore: /verification\.spec\.ts/ },
-    { name: "mobile", use: { ...devices["Pixel 7"] }, testMatch: /responsive\.spec\.ts/ },
+    { name: "mobile", use: { ...devices["Pixel 7"] }, testMatch: /(responsive|daily)\.spec\.ts/ },
     // verification flow against the public site (manual workflow): desktop runs all cases, mobile repeats the main path on a phone
     { name: "verify-desktop", use: { ...devices["Desktop Chrome"] }, testMatch: /verification\.spec\.ts/, retries: 0 },
     { name: "verify-mobile", use: { ...devices["Pixel 7"] }, testMatch: /verification\.spec\.ts/, grep: /valid link/, retries: 0 },

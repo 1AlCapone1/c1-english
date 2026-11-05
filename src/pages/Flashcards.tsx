@@ -4,6 +4,7 @@ import { listExercises, logSession, pickFlashcards, recordMistake, saveFlashcard
 import { canon, levenshtein, mistakeCategory, type MistakeCategory } from "../lib/answer";
 import { CATEGORIES, KIND_LABEL, type Kind, type Vocab } from "../lib/types";
 import { TypedTask, type Outcome } from "../components/Correction";
+import { useEnter } from "../lib/keys";
 import { PracticeSession } from "../components/PracticeSession";
 import { Button, Card, Empty, Feedback, PageHeader, Pill, Progress, inputCls } from "../components/ui";
 import { VocabDetail, exampleHtml } from "./Vocabulary";
@@ -117,6 +118,8 @@ function Session({ cards: initial, onExit }: { cards: FlashCard[]; onExit: () =>
       try { await logSession("flashcards", vals.length, vals.filter((x) => x.firstTry).length, (Date.now() - started.current) / 60000); } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
     }
   }
+  useEnter(() => { void next(); }, !!outcome && !done);
+  useEnter(onExit, done);
   if (done) {
     const vals = Object.entries(first); const ok = vals.filter(([, o]) => o.firstTry).length; const wrong = vals.filter(([, o]) => !o.firstTry);
     return <div className="max-w-2xl"><PageHeader eyebrow="Koniec sesji" title={`${ok} / ${vals.length} za pierwszym razem`} />
@@ -139,6 +142,6 @@ function Session({ cards: initial, onExit }: { cards: FlashCard[]; onExit: () =>
       {outcome && <details className="mt-4 rounded-lg bg-black/[.03] p-3 dark:bg-white/[.04]" open={!outcome.firstTry}><summary className="cursor-pointer font-bold">{c.v.term}</summary><div className="mt-2"><VocabDetail v={c.v} /></div><p className="mt-2 text-sm italic">{exampleHtml(c.v.example)}</p></details>}
     </Card>
     {saveErr && <div className="mt-3"><Feedback tone="warn" title="Problem z zapisem">{saveErr}</Feedback></div>}
-    <div className="mt-4 flex gap-2">{outcome && <Button onClick={next} autoFocus data-testid="next">Dalej →</Button>}<Button variant="ghost" onClick={() => setI(cards.length)}>Zakończ sesję</Button></div>
+    <div className="mt-4 flex gap-2">{outcome && <Button onClick={next} data-testid="next">Dalej →</Button>}<Button variant="ghost" onClick={() => setI(cards.length)}>Zakończ sesję</Button></div>
   </div>;
 }

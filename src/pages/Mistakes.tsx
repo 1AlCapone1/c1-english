@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { deleteMistake, listMistakes, logSession, updateMistake } from "../lib/api";
 import { useAsync } from "../lib/useAsync";
 import { TypedTask, type Outcome } from "../components/Correction";
+import { useEnter } from "../lib/keys";
 import { Button, Card, Confirm, Empty, ErrorBox, Feedback, Loading, PageHeader, Pill, Progress, inputCls } from "../components/ui";
 import type { Mistake } from "../lib/types";
 
@@ -38,6 +39,8 @@ export default function Mistakes() {
 
 function Review({ items, onClose }: { items: Mistake[]; onClose: () => void }) {
   const [i, setI] = useState(0); const [done, setDone] = useState<Outcome | null>(null); const [ok, setOk] = useState(0);
+  useEnter(() => { setDone(null); setI((x) => x + 1); }, !!done && i < items.length);
+  useEnter(onClose, i >= items.length);
   const [err, setErr] = useState<string | null>(null); const started = useState(Date.now())[0];
   if (i >= items.length) return <Card><h2 className="font-display text-2xl font-bold">{ok} / {items.length} opanowanych za pierwszym razem</h2><div className="mt-3"><Progress value={(ok / items.length) * 100} tone="ok" /></div><p className="mt-2 text-ink-soft">Błędy rozwiązane bez pomyłki oznaczyłem jako opanowane.</p><Button className="mt-4" onClick={onClose}>Wróć do notatnika</Button></Card>;
   const m = items[i];
@@ -47,5 +50,5 @@ function Review({ items, onClose }: { items: Mistake[]; onClose: () => void }) {
       try { if (o.firstTry) { setOk((x) => x + 1); await updateMistake(m.id, { mastered: true }); } if (i === items.length - 1) await logSession("mistakes", items.length, ok + (o.firstTry ? 1 : 0), (Date.now() - started) / 60000); } catch (e) { setErr(e instanceof Error ? e.message : String(e)); }
     }} /></Card>
     {err && <div className="mt-3"><Feedback tone="warn">{err}</Feedback></div>}
-    <div className="mt-3 flex gap-2">{done && <Button onClick={() => { setDone(null); setI(i + 1); }} autoFocus>Dalej →</Button>}<Button variant="ghost" onClick={onClose}>Zakończ</Button></div></div>;
+    <div className="mt-3 flex gap-2">{done && <Button onClick={() => { setDone(null); setI(i + 1); }} data-testid="next">Dalej →</Button>}<Button variant="ghost" onClick={onClose}>Zakończ</Button></div></div>;
 }

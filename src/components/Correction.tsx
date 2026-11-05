@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import { checkText, diagnose, hint, type Diagnosis } from "../lib/answer";
 import type { Exercise } from "../lib/types";
 import { Button, Diff, Feedback, answerCls, cx } from "./ui";
+import { claimEnter, useEnter } from "../lib/keys";
 
 export type Outcome = { firstTry: boolean; attempts: number; firstAnswer: string; diagnosis: Diagnosis | null; hinted: boolean };
 
@@ -28,9 +29,11 @@ export function TypedTask(props: {
   useEffect(() => { ref.current?.focus(); }, [phase]);
 
   const isCorrect = (v: string) => checkText(v, answers).ok || (props.extraCheck ? props.extraCheck(v) : false);
+  const [emptyNudge, setEmptyNudge] = useState(false);
   function submit() {
     const v = val;
-    if (!v.trim() && phase !== "ask") return;
+    if (!v.trim()) { setEmptyNudge(true); ref.current?.focus(); return; } // never check an empty answer
+    setEmptyNudge(false);
     const n = attempts + 1; setAttempts(n);
     if (isCorrect(v)) {
       setPhase("done");
@@ -47,17 +50,22 @@ export function TypedTask(props: {
     setFails(0); setPhase("fix");
   }
   const best = diag?.best ?? answers[0];
+  const toRetype = () => { setVal(""); setPhase("retype"); };
+  const onEnter = (e: ReactKeyboardEvent) => { if (phase === "done") return; /* page-level "Dalej" handles it */ if (!claimEnter(e)) return; if (phase === "ask" || phase === "retype") submit(); else toRetype(); };
   return <div className="flex flex-col gap-4">
     <div className="text-lg">{props.prompt}</div>
     {props.multiline
-      ? <textarea ref={ref} className={cx(answerCls, "min-h-[90px] max-w-none font-sans")} value={phase === "fix" ? lastWrong : val} readOnly={phase === "fix" || phase === "done"} onChange={(e) => setVal(e.target.value)} placeholder={props.placeholder} aria-label="Twoja odpowiedź" spellCheck={false} />
+      ? <textarea ref={ref} className={cx(answerCls, "min-h-[90px] max-w-none font-sans")} value={phase === "fix" ? lastWrong : val} readOnly={phase === "fix" || phase === "done"} onChange={(e) => setVal(e.target.value)} onKeyDown={onEnter} data-enter="submit" placeholder={props.placeholder} aria-label="Twoja odpowiedź" aria-describedby="enter-hint" spellCheck={false} data-testid="answer-input" />
       : <input ref={ref} className={cx(answerCls, phase === "fix" && "border-red-600 text-red-700 dark:text-red-300", phase === "done" && "border-emerald-600 text-emerald-700 dark:text-emerald-300")}
           value={phase === "fix" ? lastWrong : val} readOnly={phase === "fix" || phase === "done"} onChange={(e) => setVal(e.target.value)}
-          onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); if (phase === "ask" || phase === "retype") submit(); else if (phase === "fix") { setVal(""); setPhase("retype"); } } }}
+          onKeyDown={onEnter}
           placeholder={props.placeholder ?? "Wpisz odpowiedź…"} aria-label="Twoja odpowiedź" autoComplete="off" autoCapitalize="off" autoCorrect="off" spellCheck={false} data-testid="answer-input" />}
+    {emptyNudge && (phase === "ask" || phase === "retype") && <div className="text-sm text-amber-800 dark:text-amber-300" role="status">Wpisz odpowiedź{phase === "ask" ? " albo kliknij „Nie wiem”" : ""}.</div>}
+    {(phase === "ask" || phase === "retype") && <div id="enter-hint" className="hidden text-xs text-ink-soft sm:block">Enter – sprawdź{props.multiline ? " · Shift+Enter – nowa linia" : ""}</div>}
     {hinted && phase === "ask" && <div className="text-sm text-ink-soft">Podpowiedź: <b className="font-mono">{hint(answers[0], 1)}</b></div>}
     {phase === "fix" && diag && <Feedback tone="bad" title={`Błąd: ${diag.label}`}>
-      {lastWrong.trim() ? <Diff user={lastWrong} right={best} /> : <span>Poprawna odpowiedź: <b className="font-mono">{best}</b></span>}
+      {lastWrong.trim() && <Diff user={lastWrong} right={best} />}
+      <span>Poprawna odpowiedź: <b className="font-mono" data-testid="correct-answer">{best}</b></span>
       <span>{diag.note}</span>{props.explanation && <span className="text-sm">{props.explanation}</span>}
     </Feedback>}
     {phase === "retype" && <Feedback tone="warn" title={fails ? "Jeszcze nie." : "Teraz wpisz poprawną odpowiedź z pamięci."}>
@@ -68,7 +76,7 @@ export function TypedTask(props: {
       {(phase === "ask" || phase === "retype") && <Button onClick={submit} data-testid="check">Sprawdź</Button>}
       {phase === "ask" && props.allowHint && !hinted && <Button variant="quiet" onClick={() => setHinted(true)}>Podpowiedź</Button>}
       {phase === "ask" && <Button variant="ghost" onClick={() => { setVal(""); const n = attempts + 1; setAttempts(n); const d = diagnose("", answers); setDiag(d); setLastWrong(""); if (!first) setFirst({ answer: "", diag: d }); setPhase("fix"); }}>Nie wiem</Button>}
-      {phase === "fix" && <Button onClick={() => { setVal(""); setPhase("retype"); }} data-testid="retype">Ukryj odpowiedź i wpisz z pamięci</Button>}
+      {phase === "fix" && <Button onClick={toRetype} data-testid="retype">Ukryj odpowiedź i wpisz z pamięci</Button>}
       {phase === "retype" && <Button variant="ghost" onClick={() => { setFails(0); setPhase("fix"); }}>Pokaż wyjaśnienie jeszcze raz</Button>}
     </div>
   </div>;
@@ -83,6 +91,20 @@ export function ChoiceTask(props: { prompt: ReactNode; options: string[]; correc
   const [attempts, setAttempts] = useState(0);
   const [firstWrong, setFirstWrong] = useState<string | null>(null);
   const correctIdx = props.options.findIndex((o) => o === props.correct);
+  const visible = order.filter((i) => !hidden.includes(i));
+  const retry = () => { setOrder(shuffleIdx(props.options.length)); setPicked(null); setPhase("retype"); };
+  useEnter(retry, phase === "fix");
+  useEffect(() => { // keys A–F / 1–6 choose an option
+    if (phase !== "ask" && phase !== "retype") return;
+    const onKey = (e: KeyboardEvent) => {
+      const t = e.target as HTMLElement | null;
+      if (e.repeat || e.ctrlKey || e.metaKey || e.altKey || t?.tagName === "INPUT" || t?.tagName === "TEXTAREA") return;
+      const k = "abcdef".indexOf(e.key.toLowerCase()), n = "123456".indexOf(e.key), idx = k >= 0 ? k : n;
+      if (idx >= 0 && idx < visible.length) { e.preventDefault(); pick(visible[idx]); }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  });
   function pick(i: number) {
     if (phase === "fix" || phase === "done") return;
     setPicked(i);
@@ -95,23 +117,24 @@ export function ChoiceTask(props: { prompt: ReactNode; options: string[]; correc
   return <div className="flex flex-col gap-4">
     <div className="text-lg">{props.prompt}</div>
     <div className="flex flex-col gap-2" role="radiogroup">
-      {order.filter((i) => !hidden.includes(i)).map((i, k) => {
+      {visible.map((i, k) => {
         const showRight = (phase === "fix" || phase === "done") && i === correctIdx;
         const showWrong = phase === "fix" && i === picked;
-        return <button key={i} role="radio" aria-checked={picked === i} disabled={phase === "fix" || phase === "done"} onClick={() => pick(i)}
+        return <button key={i} role="radio" aria-checked={picked === i} data-option={props.options[i]} disabled={phase === "fix" || phase === "done"} onClick={() => pick(i)}
           className={cx("flex items-start gap-3 rounded-lg border px-3.5 py-2.5 text-left transition",
             showRight ? "border-emerald-600 bg-emerald-50 dark:bg-emerald-950/60" : showWrong ? "border-red-600 bg-red-50 dark:bg-red-950/60" : "border-black/15 bg-white hover:border-accent dark:border-white/15 dark:bg-[#0E1320]")}>
           <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full border-2 border-current font-mono text-[10px]">{"ABCDEF"[k]}</span><span>{props.options[i]}</span></button>;
       })}
     </div>
     {phase === "fix" && <Feedback tone="bad" title="Błąd: zła odpowiedź">
-      <span>Wybrałeś: <b>{picked !== null ? props.options[picked] : "–"}</b>. Poprawnie: <b>{props.correct}</b>.</span>
+      <span>Wybrałeś: <b>{picked !== null ? props.options[picked] : "–"}</b>. Poprawnie: <b data-testid="correct-answer">{props.correct}</b>.</span>
       {props.explanation && <span>{props.explanation}</span>}
       {picked !== null && props.notes?.[props.options[picked]] && <span className="text-sm">Dlaczego nie „{props.options[picked]}”: {props.notes[props.options[picked]]}</span>}
     </Feedback>}
     {phase === "retype" && <Feedback tone="warn" title="Wybierz ponownie – samodzielnie.">{hidden.length ? "Wskazówka: usunąłem jedną błędną odpowiedź." : "Odpowiedzi zostały przetasowane."}</Feedback>}
     {phase === "done" && <Feedback tone="ok" title={attempts > 1 ? `Poprawione po ${attempts} próbach.` : "Dobrze!"}>{props.explanation && <span className="text-sm">{props.explanation}</span>}</Feedback>}
-    {phase === "fix" && <div><Button onClick={() => { setOrder(shuffleIdx(props.options.length)); setPicked(null); setPhase("retype"); }} data-testid="retype">Rozwiąż ponownie samodzielnie</Button></div>}
+    {phase === "fix" && <div><Button onClick={retry} data-testid="retype">Rozwiąż ponownie samodzielnie</Button></div>}
+    {(phase === "ask" || phase === "retype") && <div className="hidden text-xs text-ink-soft sm:block">Klawisze A–{"ABCDEF"[Math.max(0, visible.length - 1)]} lub 1–{visible.length} wybierają odpowiedź</div>}
   </div>;
 }
 function shuffleIdx(n: number) { const a = Array.from({ length: n }, (_, i) => i); for (let i = n - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }

@@ -37,7 +37,7 @@ export default function Tests() {
   const hist = useAsync(() => listAttempts(30));
   async function start() { setErr(null); setBusy(true); try { const t = await buildTest(kind, n); if (!t.items.length) throw new Error("Brak pytań dla tego testu."); setRun(t); } catch (e) { setErr(e instanceof Error ? e.message : String(e)); } finally { setBusy(false); } }
   if (run) return <div><Button variant="ghost" size="sm" onClick={() => { setRun(null); hist.reload(); }}>← Wróć do testów</Button><PageHeader title={run.title} />
-    <TestRunner title={run.title} kind={kind} items={run.items} timeLimitSec={timed ? run.items.length * 60 : null} intro={run.intro ? <Card><article className="prose-c1 max-w-[70ch] leading-relaxed">{run.intro.split(/\n\n+/).map((p, i) => <p key={i}>{p}</p>)}</article></Card> : undefined} /></div>;
+    <TestRunner title={run.title} kind={kind} items={run.items} timeLimitSec={timed ? run.items.length * 60 : null} intro={run.intro ? <Card><article className="prose-c1 max-w-[70ch] leading-relaxed">{run.intro.split(/\n\n+/).map((p, i) => <p key={i}>{p}</p>)}</article></Card> : undefined} onContinue={() => { setRun(null); hist.reload(); }} continueLabel="Wróć do testów" /></div>;
   return <div className="max-w-4xl">
     <PageHeader eyebrow="System testów" title="Testy" lead="Automatyczne sprawdzanie, wynik procentowy, lista błędów z wyjaśnieniami i zapis w historii. Błędy trafiają do Mistake Notebook." />
     <Card><div className="grid gap-3 sm:grid-cols-3">

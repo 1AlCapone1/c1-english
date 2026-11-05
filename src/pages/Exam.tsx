@@ -61,7 +61,7 @@ export default function Exam() {
   if (!data) return <Loading />;
   if (stage === "rue") return <div className="max-w-4xl">{nav}<TestRunner title="Reading and Use of English" kind="exam-rue" items={data.rue} timeLimitSec={90 * 60} save={false}
     intro={data.readingBody ? <Card><h2 className="font-display text-lg font-bold">Tekst do ostatnich pytań: {data.readingTitle}</h2><article className="prose-c1 mt-3 max-w-[70ch] leading-relaxed">{data.readingBody.split(/\n\n+/).map((p, i) => <p key={i}>{p}</p>)}</article></Card> : undefined}
-    onFinished={(r) => setRue(r)} />{rue && <div className="mt-4"><Button onClick={() => setStage("writing")}>Przejdź do części Writing →</Button></div>}</div>;
+    onFinished={(r) => setRue(r)} onContinue={() => setStage("writing")} continueLabel="Przejdź do części Writing →" /></div>;
   if (stage === "writing") return <div className="max-w-4xl">{nav}<WritingPart data={data} writing={writing} setWriting={setWriting} onNext={() => setStage("listening")} /></div>;
   if (stage === "listening") return <div className="max-w-3xl">{nav}<Card><h2 className="font-display text-xl font-bold">Listening</h2>
     {data.listeningAvailable ? <p className="mt-2">Nagrania są dostępne w module Listening. W tej wersji symulatora część Listening rozwiązujesz w module Listening, a wynik zapisuje się osobno w historii testów.</p>

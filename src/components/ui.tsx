@@ -1,11 +1,11 @@
-import { useState, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { forwardRef, useState, type ButtonHTMLAttributes, type ReactNode } from "react";
 import { diffSegments, type Seg } from "../lib/answer";
 
 export function cx(...c: (string | false | null | undefined)[]) { return c.filter(Boolean).join(" "); }
 
 type BtnProps = ButtonHTMLAttributes<HTMLButtonElement> & { variant?: "primary" | "quiet" | "ghost" | "danger"; size?: "sm" | "md" };
-export function Button({ variant = "primary", size = "md", className, ...p }: BtnProps) {
-  return <button {...p} className={cx(
+export const Button = forwardRef<HTMLButtonElement, BtnProps>(function Button({ variant = "primary", size = "md", className, type = "button", ...p }, ref) {
+  return <button ref={ref} type={type} {...p} className={cx(
     "inline-flex items-center justify-center gap-2 rounded-lg font-bold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:opacity-50 disabled:cursor-not-allowed",
     size === "sm" ? "px-3 py-1.5 text-sm" : "px-4 py-2.5",
     variant === "primary" && "bg-accent text-white hover:brightness-110 dark:bg-accent-dark dark:text-[#0E1320]",
@@ -13,7 +13,7 @@ export function Button({ variant = "primary", size = "md", className, ...p }: Bt
     variant === "ghost" && "text-accent hover:bg-accent-soft dark:text-accent-dark dark:hover:bg-white/5",
     variant === "danger" && "border border-red-600 text-red-700 hover:bg-red-50 dark:text-red-300 dark:border-red-400 dark:hover:bg-red-950",
     className)} />;
-}
+});
 export function Card({ children, className }: { children: ReactNode; className?: string }) {
   return <div className={cx("rounded-xl border border-black/10 bg-white p-5 shadow-sm dark:border-white/10 dark:bg-[#161D2E]", className)}>{children}</div>;
 }
