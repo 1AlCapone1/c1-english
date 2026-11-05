@@ -1,0 +1,35 @@
+name: Verify e-mail flow (public site)
+
+# Manually triggered end-to-end test of the e-mail verification flow on the deployed app.
+# Tokens come from supabase/tests/verification_fixtures.sql (test accounts on the c1-english.test domain).
+on:
+  workflow_dispatch:
+    inputs:
+      token_desktop: { description: "token_hash for the desktop test account", required: true }
+      token_mobile: { description: "token_hash for the mobile test account", required: true }
+      token_expired: { description: "token_hash whose confirmation was sent long ago", required: true }
+      email_desktop: { required: true }
+      email_mobile: { required: true }
+      password: { required: true }
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      E2E_BASE_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/
+      VERIFY_TOKEN_DESKTOP: ${{ inputs.token_desktop }}
+      VERIFY_TOKEN_MOBILE: ${{ inputs.token_mobile }}
+      VERIFY_TOKEN_EXPIRED: ${{ inputs.token_expired }}
+      VERIFY_EMAIL_DESKTOP: ${{ inputs.email_desktop }}
+      VERIFY_EMAIL_MOBILE: ${{ inputs.email_mobile }}
+      VERIFY_PASSWORD: ${{ inputs.password }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: npm install --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - run: npx playwright test e2e/verification.spec.ts --project=verify-desktop --project=verify-mobile
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with: { name: verification-report, path: playwright-report, retention-days: 7 }

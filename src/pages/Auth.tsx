@@ -1,10 +1,11 @@
-import { useState, type FormEvent, type ReactNode } from "react";
+import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { supabase, translateError } from "../lib/supabase";
 import { Button, Card, Feedback, inputCls } from "../components/ui";
 import { ThemeToggle } from "../components/Layout";
+import { classifyAuthError, isTokenHash, peekAuthLink, type AuthLink, type ConfirmProblem } from "../lib/authRedirect";
 
-const appUrl = () => window.location.origin + import.meta.env.BASE_URL;
+export const appUrl = () => window.location.origin + import.meta.env.BASE_URL;
 const emailOk = (e: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
 
 function AuthFrame({ title, children, footer }: { title: string; children: ReactNode; footer?: ReactNode }) {
@@ -49,6 +50,7 @@ export function Login() {
       <Field label="E-mail"><input className={inputCls} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} required data-testid="email" /></Field>
       <Field label="Hasło"><input className={inputCls} type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} required data-testid="password" /></Field>
       {err && <Feedback tone="bad">{err}</Feedback>}
+      {err?.startsWith("Potwierdź adres e-mail") && <ResendVerification initialEmail={email} compact />}
       <Button type="submit" disabled={busy} data-testid="login-submit">{busy ? "Logowanie…" : "Zaloguj się"}</Button>
       <Link className="text-sm text-accent dark:text-accent-dark" to="/reset">Nie pamiętasz hasła?</Link>
     </form>
@@ -71,7 +73,8 @@ export function Register() {
     if (error) return setErr(translateError(error.message));
     if (data.session) nav("/dashboard", { replace: true }); else setOk(true);
   }
-  if (ok) return <AuthFrame title="Sprawdź skrzynkę"><Feedback tone="ok" title="Konto utworzone">Wysłaliśmy link potwierdzający na {email}. Kliknij go, a potem zaloguj się.</Feedback><div className="mt-4"><Link to="/login"><Button variant="quiet">Przejdź do logowania</Button></Link></div></AuthFrame>;
+  if (ok) return <AuthFrame title="Sprawdź skrzynkę"><Feedback tone="ok" title="Konto utworzone">Wysłaliśmy link potwierdzający na {email}. Otwórz wiadomość, kliknij link, a potem „Potwierdź weryfikację”.</Feedback>
+    <div className="mt-4 flex flex-col gap-3"><Link to="/login"><Button variant="quiet">Przejdź do logowania</Button></Link><ResendVerification initialEmail={email} compact /></div></AuthFrame>;
   return <AuthFrame title="Załóż konto" footer={<>Masz już konto? <Link className="font-bold text-accent dark:text-accent-dark" to="/login">Zaloguj się</Link></>}>
     <form onSubmit={submit} className="flex flex-col gap-4" noValidate>
       <Field label="Imię lub pseudonim"><input className={inputCls} value={name} maxLength={60} onChange={(e) => setName(e.target.value)} autoComplete="nickname" /></Field>
@@ -90,7 +93,7 @@ export function ResetPassword() {
     e.preventDefault(); setErr(null);
     if (!emailOk(email)) return setErr("Podaj poprawny adres e-mail.");
     setBusy(true);
-    const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), { redirectTo: appUrl() });
+    const { error } = await supabase.auth.resetPasswordForEmail(email.trim(), { redirectTo: appUrl() + "?type=recovery" });
     setBusy(false);
     if (error) return setErr(translateError(error.message));
     setSent(true);
@@ -127,4 +130,110 @@ export function UpdatePassword() {
         <Button type="submit" disabled={busy}>{busy ? "Zapisywanie…" : "Zapisz hasło"}</Button>
       </form>}
   </AuthFrame>;
+}
+
+
+const PROBLEM: Record<ConfirmProblem, { title: string; text: string; resend: boolean; retry: boolean }> = {
+  expired: { title: "Link wygasł lub został już użyty", text: "Linki weryfikacyjne są jednorazowe i ważne przez ograniczony czas. Jeśli konto zostało już potwierdzone, po prostu się zaloguj. W przeciwnym razie wyślij nowy link.", resend: true, retry: false },
+  invalid: { title: "Nieprawidłowy link weryfikacyjny", text: "Link jest niepełny lub uszkodzony (zdarza się przy kopiowaniu adresu z wiadomości). Otwórz link bezpośrednio z e-maila albo wyślij nowy.", resend: true, retry: false },
+  other_device: { title: "Konto zostało pomyślnie zweryfikowane", text: "Adres e-mail jest potwierdzony. Link otwarto na innym urządzeniu lub w innej przeglądarce niż rejestracja, dlatego zaloguj się tutaj swoim e-mailem i hasłem.", resend: false, retry: false },
+  already: { title: "To konto jest już zweryfikowane", text: "Adres e-mail został potwierdzony wcześniej. Możesz się zalogować.", resend: false, retry: false },
+  server: { title: "Błąd serwera", text: "Serwer logowania nie odpowiedział poprawnie. Spróbuj ponownie za chwilę – Twój link nadal może być ważny.", resend: false, retry: true },
+  network: { title: "Problem z połączeniem", text: "Nie udało się połączyć z serwerem. Sprawdź internet i spróbuj ponownie – link nie został jeszcze wykorzystany.", resend: false, retry: true },
+};
+
+/** #/auth/confirm – processes links from verification and password-reset e-mails. Never renders an empty page. */
+export function ConfirmEmail() {
+  const nav = useNavigate();
+  const linkRef = useRef<AuthLink | null>(null);
+  if (linkRef.current === null) linkRef.current = peekAuthLink() ?? { tokenHash: null, type: null, code: null, error: null, errorCode: null, errorDescription: null };
+  const link = linkRef.current;
+  const recovery = link.type === "recovery";
+  type State = { s: "ready" } | { s: "working" } | { s: "success"; loggedIn: boolean } | { s: "problem"; p: ConfirmProblem; detail?: string } | { s: "nolink" };
+  const initial: State = link.error || link.errorCode ? { s: "problem", p: classifyAuthError(link.errorCode, link.errorDescription ?? link.error) }
+    : link.code ? { s: "working" } : link.tokenHash ? (isTokenHash(link.tokenHash) ? { s: "ready" } : { s: "problem", p: "invalid" }) : { s: "nolink" };
+  const [st, setSt] = useState<State>(initial);
+  const ran = useRef(false);
+
+  async function afterProblem(p: ConfirmProblem, detail?: string) {
+    if (p === "expired") { // a used link for an account that is already confirmed and signed in → say so
+      const { data } = await supabase.auth.getSession().catch(() => ({ data: { session: null } }));
+      if (data.session?.user.email_confirmed_at) return setSt({ s: "problem", p: "already" });
+    }
+    setSt({ s: "problem", p, detail });
+  }
+  async function confirmToken() {
+    if (!link.tokenHash) return;
+    setSt({ s: "working" });
+    try {
+      const { data, error } = await supabase.auth.verifyOtp({ token_hash: link.tokenHash, type: recovery ? "recovery" : link.type === "email_change" ? "email_change" : "email" });
+      if (error) return afterProblem(classifyAuthError((error as { code?: string }).code, error.message, (error as { status?: number }).status), error.message);
+      if (recovery) return nav("/update-password", { replace: true });
+      setSt({ s: "success", loggedIn: !!data.session });
+    } catch (e) { afterProblem(classifyAuthError("network", e instanceof Error ? e.message : String(e))); }
+  }
+  useEffect(() => {
+    if (!link.code || ran.current) return;
+    ran.current = true;
+    (async () => {
+      try {
+        const { data, error } = await supabase.auth.exchangeCodeForSession(link.code!);
+        if (error) {
+          const p = classifyAuthError((error as { code?: string }).code, error.message, (error as { status?: number }).status);
+          // The code is only issued after Supabase has verified the e-mail, so a missing verifier means "verified, but log in here".
+          return afterProblem(p === "invalid" ? "other_device" : p, error.message);
+        }
+        if (recovery) return nav("/update-password", { replace: true });
+        setSt({ s: "success", loggedIn: !!data.session });
+      } catch (e) { afterProblem(classifyAuthError("network", e instanceof Error ? e.message : String(e))); }
+    })();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const title = st.s === "success" ? "Konto zostało pomyślnie zweryfikowane" : st.s === "problem" ? PROBLEM[st.p].title : recovery ? "Reset hasła" : "Weryfikacja konta";
+  return <AuthFrame title={title}>
+    <div data-testid="confirm-state" data-state={st.s === "problem" ? st.p : st.s} className="flex flex-col gap-4">
+      {st.s === "ready" && <><p className="text-ink-soft">{recovery ? "Kliknij przycisk, aby przejść do ustawienia nowego hasła." : "Kliknij przycisk, aby potwierdzić swój adres e-mail i aktywować konto."}</p>
+        <Button onClick={confirmToken} data-testid="confirm-button">{recovery ? "Ustaw nowe hasło" : "Potwierdź weryfikację"}</Button></>}
+      {st.s === "working" && <p className="text-ink-soft" aria-live="polite">Sprawdzanie linku…</p>}
+      {st.s === "success" && <><Feedback tone="ok" title="Konto zostało pomyślnie zweryfikowane">Twój adres e-mail jest potwierdzony. {st.loggedIn ? "Jesteś już zalogowany – możesz zaczynać naukę." : "Zaloguj się, aby rozpocząć naukę."}</Feedback>
+        {st.loggedIn ? <Button onClick={() => nav("/dashboard", { replace: true })} data-testid="confirm-continue">Przejdź do aplikacji</Button> : <Button onClick={() => nav("/login", { replace: true })} data-testid="confirm-continue">Zaloguj się</Button>}</>}
+      {st.s === "problem" && <>
+        <Feedback tone={st.p === "other_device" || st.p === "already" ? "ok" : st.p === "network" || st.p === "server" ? "warn" : "bad"} title={PROBLEM[st.p].title}>{PROBLEM[st.p].text}</Feedback>
+        {PROBLEM[st.p].retry && link.tokenHash && <Button onClick={confirmToken}>Spróbuj ponownie</Button>}
+        {PROBLEM[st.p].retry && !link.tokenHash && <Button onClick={() => window.location.reload()}>Odśwież stronę</Button>}
+        {(st.p === "other_device" || st.p === "already" || st.p === "expired") && <Button variant={st.p === "expired" ? "quiet" : "primary"} onClick={() => nav("/login", { replace: true })} data-testid="confirm-login">Zaloguj się</Button>}
+        {PROBLEM[st.p].resend && !recovery && <ResendVerification />}
+        {PROBLEM[st.p].resend && recovery && <Link to="/reset"><Button variant="quiet">Wyślij nowy link do resetu hasła</Button></Link>}
+      </>}
+      {st.s === "nolink" && <><p className="text-ink-soft">Ta strona obsługuje linki z wiadomości e-mail. Nie znaleziono w adresie danych weryfikacyjnych – otwórz link bezpośrednio z wiadomości albo wyślij nowy.</p>
+        <Button variant="quiet" onClick={() => nav("/login", { replace: true })}>Zaloguj się</Button><ResendVerification /></>}
+    </div>
+  </AuthFrame>;
+}
+
+/** Re-send the sign-up confirmation e-mail. */
+export function ResendVerification({ initialEmail = "", compact = false }: { initialEmail?: string; compact?: boolean }) {
+  const [email, setEmail] = useState(initialEmail); const [busy, setBusy] = useState(false);
+  const [msg, setMsg] = useState<{ tone: "ok" | "bad" | "warn"; t: string } | null>(null);
+  const [open, setOpen] = useState(!compact);
+  async function send(e: FormEvent) {
+    e.preventDefault(); setMsg(null);
+    if (!emailOk(email)) return setMsg({ tone: "bad", t: "Podaj poprawny adres e-mail." });
+    setBusy(true);
+    try {
+      const { error } = await supabase.auth.resend({ type: "signup", email: email.trim(), options: { emailRedirectTo: appUrl() } });
+      if (error) {
+        const p = classifyAuthError((error as { code?: string }).code, error.message, (error as { status?: number }).status);
+        setMsg(p === "already" ? { tone: "ok", t: "To konto jest już zweryfikowane – możesz się zalogować." } : { tone: "bad", t: translateError(error.message) });
+      } else setMsg({ tone: "ok", t: `Jeśli konto ${email.trim()} czeka na potwierdzenie, wysłaliśmy nowy link. Sprawdź też folder spam.` });
+    } catch (err) { setMsg({ tone: "warn", t: translateError(err instanceof Error ? err.message : String(err)) }); }
+    setBusy(false);
+  }
+  if (!open) return <button type="button" className="text-left text-sm font-bold text-accent dark:text-accent-dark" onClick={() => setOpen(true)} data-testid="resend-open">Nie dostałeś wiadomości? Wyślij link ponownie</button>;
+  return <form onSubmit={send} className="flex flex-col gap-3 rounded-lg border border-black/10 p-3 dark:border-white/10" noValidate data-testid="resend-form">
+    <div className="text-sm font-bold">Wyślij nowy link weryfikacyjny</div>
+    <input className={inputCls} type="email" autoComplete="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="twoj@email.pl" aria-label="E-mail do ponownej weryfikacji" />
+    {msg && <Feedback tone={msg.tone}>{msg.t}</Feedback>}
+    <Button type="submit" variant="quiet" disabled={busy} data-testid="resend-submit">{busy ? "Wysyłanie…" : "Wyślij ponownie"}</Button>
+  </form>;
 }

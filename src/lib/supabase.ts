@@ -5,7 +5,7 @@ const key = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string | undefined;
 export const configError = !url || !key ? "Brak konfiguracji Supabase (VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY). Zobacz README." : null;
 
 export const supabase = createClient(url || "http://invalid.local", key || "missing", {
-  auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true, flowType: "pkce" },
+  auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: false, flowType: "pkce" },
 });
 
 /** Throw a readable Polish error for any Supabase error object. */

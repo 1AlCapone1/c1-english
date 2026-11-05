@@ -4,7 +4,7 @@ import { Protected } from "./components/Layout";
 import { Loading, ErrorBox } from "./components/ui";
 import { useAuth } from "./lib/auth";
 import { configError } from "./lib/supabase";
-import { Landing, Login, Register, ResetPassword, UpdatePassword } from "./pages/Auth";
+import { Landing, Login, Register, ResetPassword, UpdatePassword, ConfirmEmail } from "./pages/Auth";
 
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Vocabulary = lazy(() => import("./pages/Vocabulary"));
@@ -26,16 +26,16 @@ const Admin = lazy(() => import("./pages/admin/Admin"));
 export default function App() {
   const { session, recovery, loading } = useAuth();
   if (configError) return <div className="mx-auto max-w-xl p-8"><ErrorBox error={configError} /></div>;
-  if (recovery) return <UpdatePassword />;
   return (
     <HashRouter>
       <Suspense fallback={<div className="p-8"><Loading /></div>}>
-        <Routes>
+        {recovery ? <UpdatePassword /> : <Routes>
           <Route path="/" element={loading ? <Loading /> : session ? <Navigate to="/dashboard" replace /> : <Landing />} />
           <Route path="/login" element={session ? <Navigate to="/dashboard" replace /> : <Login />} />
           <Route path="/register" element={session ? <Navigate to="/dashboard" replace /> : <Register />} />
           <Route path="/reset" element={<ResetPassword />} />
           <Route path="/update-password" element={<UpdatePassword />} />
+          <Route path="/auth/confirm" element={<ConfirmEmail />} />
           <Route element={<Protected />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/vocabulary" element={<Vocabulary />} />
@@ -58,7 +58,7 @@ export default function App() {
             <Route path="/admin" element={<Admin />} />
           </Route>
           <Route path="*" element={<div className="mx-auto max-w-xl p-8"><h1 className="font-display text-3xl font-extrabold">Nie ma takiej strony</h1><a className="mt-4 inline-block text-accent underline" href="#/">Wróć na stronę główną</a></div>} />
-        </Routes>
+        </Routes>}
       </Suspense>
     </HashRouter>
   );
