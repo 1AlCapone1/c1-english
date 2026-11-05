@@ -1,0 +1,2771 @@
+[
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 0,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "Never ___ (I / see) such a beautiful sunset."
+  },
+  "answers": [
+   "have I seen"
+  ],
+  "explanation": "Never + present perfect: operator have przed podmiotem."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "Rarely ___ (she / ask) for help."
+  },
+  "answers": [
+   "does she ask"
+  ],
+  "explanation": "Present simple wymaga does; ask w formie podstawowej."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "No sooner ___ (we / sit) down than the alarm went off."
+  },
+  "answers": [
+   "had we sat"
+  ],
+  "explanation": "No sooner + past perfect z inwersją."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 3,
+  "distractor_notes": {
+   "than": "Than łączy się z no sooner, nie z hardly.",
+   "that": "That nie wprowadza tu zdania czasowego.",
+   "then": "Then to przysłówek, nie spójnik."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "Hardly had he finished speaking ___ the audience began to applaud.",
+   "options": [
+    "when",
+    "than",
+    "that",
+    "then"
+   ]
+  },
+  "answers": [
+   "when"
+  ],
+  "explanation": "Hardly … when (lub before)."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "Not only ___ (he / forget) my birthday, but he also lost the present."
+  },
+  "answers": [
+   "did he forget"
+  ],
+  "explanation": "Past simple → did + forget."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "Under no circumstances ___ (passengers / leave) their luggage unattended."
+  },
+  "answers": [
+   "should passengers leave",
+   "must passengers leave"
+  ],
+  "explanation": "Formalny zakaz: should/must + podmiot + forma podstawowa."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 6,
+  "distractor_notes": {
+   "they noticed": "Brak inwersji po only after.",
+   "they did notice": "Do pomocnicze musi stać przed podmiotem.",
+   "noticed they": "Inwersję robimy z operatorem, nie z czasownikiem głównym."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "Only after the results were published ___ the mistake.",
+   "options": [
+    "did they notice",
+    "they noticed",
+    "they did notice",
+    "noticed they"
+   ]
+  },
+  "answers": [
+   "did they notice"
+  ],
+  "explanation": "Inwersja w zdaniu głównym po only after."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 7,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "I didn't realise the danger until later.",
+   "keyword": "ONLY",
+   "sentence2": "___ the danger."
+  },
+  "answers": [
+   "Only later did I realise"
+  ],
+  "explanation": "Only later + inwersja: did I realise."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 8,
+  "distractor_notes": null,
+  "task_type": "error",
+  "instruction": "Zdanie zawiera błąd. Wpisz poprawne zdanie.",
+  "prompt": {
+   "question": "Little she knew what was about to happen."
+  },
+  "answers": [
+   "Little did she know what was about to happen.",
+   "little did she know"
+  ],
+  "explanation": "Little na początku → did + podmiot + know."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 100,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "Seldom ___ (we / have) such an opportunity."
+  },
+  "answers": [
+   "do we have"
+  ],
+  "explanation": "Present simple: do we have."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 101,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "At no time ___ (the staff / inform) about the changes."
+  },
+  "answers": [
+   "were the staff informed",
+   "was the staff informed"
+  ],
+  "explanation": "Strona bierna w past: were/was + podmiot + informed."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 102,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "As soon as she arrived, the meeting began.",
+   "keyword": "SOONER",
+   "sentence2": "No ___ the meeting began."
+  },
+  "answers": [
+   "sooner had she arrived than"
+  ],
+  "explanation": "No sooner + had + podmiot + past participle + than."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 103,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "He not only plays the violin but also composes.",
+   "keyword": "DOES",
+   "sentence2": "Not only ___ the violin, but he also composes."
+  },
+  "answers": [
+   "does he play"
+  ],
+  "explanation": "Present simple: does he play."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 104,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "You must not tell anyone about this.",
+   "keyword": "CIRCUMSTANCES",
+   "sentence2": "Under ___ anyone about this."
+  },
+  "answers": [
+   "no circumstances must you tell",
+   "no circumstances should you tell"
+  ],
+  "explanation": "Under no circumstances + must/should + you."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "lesson_slug": "inversion-negative-adverbials",
+  "position": 105,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "Nigdy wcześniej nie widziałem tak długiej kolejki."
+  },
+  "answers": [
+   "Never before have I seen such a long queue.",
+   "Never have I seen such a long queue before.",
+   "Never before had I seen such a long queue."
+  ],
+  "explanation": "Never (before) + have I seen."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 0,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "If I ___ (take) that job in 2019, I would be a manager now."
+  },
+  "answers": [
+   "had taken"
+  ],
+  "explanation": "Przeszłe zdarzenie → past perfect."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "If she weren't so shy, she ___ (speak) at yesterday's meeting."
+  },
+  "answers": [
+   "would have spoken"
+  ],
+  "explanation": "Skutek w przeszłości: would have + past participle."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 2,
+  "distractor_notes": {
+   "wouldn't have been": "To skutek w przeszłości, a zdanie mówi o 'now'.",
+   "won't be": "Pierwszy okres – realny, a tu sytuacja jest nierzeczywista.",
+   "hadn't been": "Past perfect należy do części z if."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "If we had left earlier, we ___ stuck in traffic now.",
+   "options": [
+    "wouldn't be",
+    "wouldn't have been",
+    "won't be",
+    "hadn't been"
+   ]
+  },
+  "answers": [
+   "wouldn't be"
+  ],
+  "explanation": "'Now' → skutek teraz."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 3,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "If he ___ (not / be) so lazy, he would have passed the exam."
+  },
+  "answers": [
+   "weren't",
+   "were not",
+   "wasn't",
+   "was not"
+  ],
+  "explanation": "Stała cecha teraz → past simple."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "I would be fluent in Italian now if I ___ (stay) in Rome."
+  },
+  "answers": [
+   "had stayed"
+  ],
+  "explanation": "Kolejność odwrócona, logika ta sama."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "I didn't go to the party, so I don't know her.",
+   "keyword": "WOULD",
+   "sentence2": "If I had gone to the party, I ___ her."
+  },
+  "answers": [
+   "would know"
+  ],
+  "explanation": "Przeszłość → teraz: would know."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 6,
+  "distractor_notes": null,
+  "task_type": "error",
+  "instruction": "Zdanie zawiera błąd. Wpisz poprawne zdanie.",
+  "prompt": {
+   "question": "If I would have known, I would tell you now."
+  },
+  "answers": [
+   "If I had known, I would tell you now.",
+   "had known"
+  ],
+  "explanation": "W zdaniu z if nie ma would."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 7,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "Gdybym nie złamał nogi, biegałbym teraz maraton."
+  },
+  "answers": [
+   "If I hadn't broken my leg, I would be running a marathon now.",
+   "If I had not broken my leg, I would be running a marathon now.",
+   "If I hadn't broken my leg, I would run a marathon now."
+  ],
+  "explanation": "Past perfect + would be + -ing."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 100,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "If they ___ (invest) in solar power years ago, their bills would be lower today."
+  },
+  "answers": [
+   "had invested"
+  ],
+  "explanation": "Lata temu → past perfect."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 101,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "If I were you, I ___ (accept) the offer last week."
+  },
+  "answers": [
+   "would have accepted"
+  ],
+  "explanation": "Rada dotycząca przeszłości."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 102,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "She is not tall, so she wasn't chosen for the team.",
+   "keyword": "TALLER",
+   "sentence2": "If she ___ chosen for the team."
+  },
+  "answers": [
+   "were taller, she would have been",
+   "was taller, she would have been"
+  ],
+  "explanation": "Cecha teraz → przeszły skutek w stronie biernej."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 103,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "We are lost because we didn't take a map.",
+   "keyword": "HAD",
+   "sentence2": "If we ___ wouldn't be lost."
+  },
+  "answers": [
+   "had taken a map, we"
+  ],
+  "explanation": "Past perfect w warunku, skutek teraz."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 104,
+  "distractor_notes": {
+   "If I didn't miss": "Past simple nie oddaje przeszłego zdarzenia.",
+   "Would I not miss": "Would nie wprowadza warunku.",
+   "Hadn't I missed": "W inwersji not stoi po podmiocie: Had I not."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "___ the bus, I would be at home by now.",
+   "options": [
+    "Had I not missed",
+    "If I didn't miss",
+    "Would I not miss",
+    "Hadn't I missed"
+   ]
+  },
+  "answers": [
+   "Had I not missed"
+  ],
+  "explanation": "Inwersja: Had + podmiot + not + past participle."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Mieszane okresy warunkowe",
+  "lesson_slug": "mixed-conditionals",
+  "position": 105,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "Gdyby był bardziej ostrożny, nie straciłby wczoraj portfela."
+  },
+  "answers": [
+   "If he were more careful, he wouldn't have lost his wallet yesterday.",
+   "If he was more careful, he wouldn't have lost his wallet yesterday.",
+   "If he were more careful, he would not have lost his wallet yesterday."
+  ],
+  "explanation": "Cecha teraz → skutek w przeszłości."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 0,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "It was Tom ___ broke the window, not me."
+  },
+  "answers": [
+   "who",
+   "that"
+  ],
+  "explanation": "Osoba – who lub that."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "It was in Rome ___ they first met."
+  },
+  "answers": [
+   "that"
+  ],
+  "explanation": "Miejsce w it-cleft – that."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "___ I really want is a quiet weekend."
+  },
+  "answers": [
+   "What",
+   "what"
+  ],
+  "explanation": "Wh-cleft zaczyna się od What."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 3,
+  "distractor_notes": {
+   "phoned": "Forma przeszła jest już w 'did'.",
+   "phoning": "-ing nie pasuje do tej konstrukcji.",
+   "he phoned": "Nie powtarzamy podmiotu."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "What he did was ___ the manager.",
+   "options": [
+    "phone",
+    "phoned",
+    "phoning",
+    "he phoned"
+   ]
+  },
+  "answers": [
+   "phone"
+  ],
+  "explanation": "Po What … did was – bezokolicznik."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "All I need ___ a bit more time."
+  },
+  "answers": [
+   "is"
+  ],
+  "explanation": "All = jedna rzecz → is."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "I only realised the truth when I read his letter.",
+   "keyword": "UNTIL",
+   "sentence2": "It ___ his letter that I realised the truth."
+  },
+  "answers": [
+   "was not until I read",
+   "wasn't until I read"
+  ],
+  "explanation": "It was not until … that."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 6,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "His arrogance annoys me.",
+   "keyword": "WHAT",
+   "sentence2": "___ his arrogance."
+  },
+  "answers": [
+   "What annoys me is"
+  ],
+  "explanation": "What + czasownik + me + is."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 7,
+  "distractor_notes": null,
+  "task_type": "error",
+  "instruction": "Zdanie zawiera błąd. Wpisz poprawne zdanie.",
+  "prompt": {
+   "question": "It was at midnight when the guests left."
+  },
+  "answers": [
+   "It was at midnight that the guests left.",
+   "that the guests left"
+  ],
+  "explanation": "Czas w it-cleft – that."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 100,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "Lack of sleep causes most of my stress.",
+   "keyword": "IS",
+   "sentence2": "It ___ causes most of my stress."
+  },
+  "answers": [
+   "is lack of sleep that",
+   "is lack of sleep which",
+   "is a lack of sleep that"
+  ],
+  "explanation": "It + is + element + that."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 101,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "I just want you to be honest.",
+   "keyword": "ALL",
+   "sentence2": "___ you to be honest."
+  },
+  "answers": [
+   "All I want is for",
+   "All I want is"
+  ],
+  "explanation": "All I want is (for) you to be honest."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 102,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "We left because the music was too loud.",
+   "keyword": "REASON",
+   "sentence2": "The ___ that the music was too loud."
+  },
+  "answers": [
+   "reason why we left was",
+   "reason we left was"
+  ],
+  "explanation": "The reason (why) … was that."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 103,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "What surprised everyone ___ how quickly she recovered."
+  },
+  "answers": [
+   "was"
+  ],
+  "explanation": "Wh-cleft + was."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 104,
+  "distractor_notes": {
+   "what": "What nie łączy się z it-cleft.",
+   "where": "Where dotyczy miejsc i nie pasuje tutaj.",
+   "who": "Who odnosi się do ludzi."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "It's not the cost ___ worries me, it's the time.",
+   "options": [
+    "that",
+    "what",
+    "where",
+    "who"
+   ]
+  },
+  "answers": [
+   "that"
+  ],
+  "explanation": "Rzecz – that."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania rozszczepione (cleft sentences)",
+  "lesson_slug": "cleft-sentences",
+  "position": 105,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "To mój brat znalazł twoje klucze."
+  },
+  "answers": [
+   "It was my brother who found your keys.",
+   "It was my brother that found your keys."
+  ],
+  "explanation": "It was + osoba + who."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 0,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "I wish I ___ (have) a car – the buses are terrible."
+  },
+  "answers": [
+   "had"
+  ],
+  "explanation": "Teraz → past simple."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "If only I ___ (not / eat) so much last night."
+  },
+  "answers": [
+   "hadn't eaten",
+   "had not eaten"
+  ],
+  "explanation": "Przeszłość → past perfect."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "I wish my neighbours ___ (stop) playing loud music."
+  },
+  "answers": [
+   "would stop"
+  ],
+  "explanation": "Irytacja zachowaniem innych → would."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 3,
+  "distractor_notes": {
+   "don't use": "Czas teraźniejszy nie pasuje po would rather + podmiot.",
+   "not use": "Brak operatora.",
+   "wouldn't use": "Would nie stoi po would rather."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "I'd rather you ___ your phone during dinner.",
+   "options": [
+    "didn't use",
+    "don't use",
+    "not use",
+    "wouldn't use"
+   ]
+  },
+  "answers": [
+   "didn't use"
+  ],
+  "explanation": "Inny podmiot → past simple."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "It's high time you ___ (find) a job."
+  },
+  "answers": [
+   "found"
+  ],
+  "explanation": "It's time + podmiot + past simple."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "I regret not going to university.",
+   "keyword": "WISH",
+   "sentence2": "I ___ to university."
+  },
+  "answers": [
+   "wish I had gone",
+   "wish that I had gone"
+  ],
+  "explanation": "Żal → wish + past perfect."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 6,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "I'd prefer you not to call me at work.",
+   "keyword": "RATHER",
+   "sentence2": "I'd ___ me at work."
+  },
+  "answers": [
+   "rather you didn't call",
+   "rather you did not call"
+  ],
+  "explanation": "Would rather + podmiot + past simple."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 7,
+  "distractor_notes": null,
+  "task_type": "error",
+  "instruction": "Zdanie zawiera błąd. Wpisz poprawne zdanie.",
+  "prompt": {
+   "question": "I wish I can swim."
+  },
+  "answers": [
+   "I wish I could swim.",
+   "could swim"
+  ],
+  "explanation": "Can → could po wish."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 100,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "You should go to bed now, children.",
+   "keyword": "TIME",
+   "sentence2": "It's ___ to bed, children."
+  },
+  "answers": [
+   "time you went",
+   "high time you went"
+  ],
+  "explanation": "It's time + you + past simple."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 101,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "It's a pity I don't know the answer.",
+   "keyword": "ONLY",
+   "sentence2": "If ___ the answer."
+  },
+  "answers": [
+   "only I knew"
+  ],
+  "explanation": "If only + past simple."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 102,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "Please stop interrupting me.",
+   "keyword": "WISH",
+   "sentence2": "I ___ interrupting me."
+  },
+  "answers": [
+   "wish you would stop",
+   "wish you'd stop"
+  ],
+  "explanation": "Wish + would dla cudzego zachowania."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 103,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "I'd rather ___ (stay) in tonight, if you don't mind."
+  },
+  "answers": [
+   "stay"
+  ],
+  "explanation": "Ten sam podmiot → bezokolicznik bez to."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 104,
+  "distractor_notes": {
+   "didn't say": "Past simple po wish dotyczy teraźniejszości.",
+   "wouldn't say": "Would dotyczy zmiany zachowania w przyszłości.",
+   "haven't said": "Present perfect nie występuje po wish."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "I wish I ___ that – I've upset her.",
+   "options": [
+    "hadn't said",
+    "didn't say",
+    "wouldn't say",
+    "haven't said"
+   ]
+  },
+  "answers": [
+   "hadn't said"
+  ],
+  "explanation": "Żal dotyczący przeszłości."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Wish, if only, would rather, it's time",
+  "lesson_slug": "wish-if-only-would-rather",
+  "position": 105,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "Szkoda, że nie ma cię tutaj."
+  },
+  "answers": [
+   "I wish you were here.",
+   "I wish you were here with me.",
+   "If only you were here."
+  ],
+  "explanation": "Wish + past simple (were)."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 0,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "The president is said ___ (be) in good health."
+  },
+  "answers": [
+   "to be"
+  ],
+  "explanation": "Podmiot + is said + to be."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "The robbers are thought ___ (escape) through the roof."
+  },
+  "answers": [
+   "to have escaped"
+  ],
+  "explanation": "Wcześniejsza czynność → to have + past participle."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "It ___ (believe) that the treasure is still buried here."
+  },
+  "answers": [
+   "is believed"
+  ],
+  "explanation": "It + is + past participle."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 3,
+  "distractor_notes": {
+   "to sink": "Prosty bezokolicznik – brak znaczenia przeszłości.",
+   "sinking": "Po reported potrzebne jest to.",
+   "that it sank": "Mieszanie dwóch konstrukcji."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "The ship is reported ___ in a storm last night.",
+   "options": [
+    "to have sunk",
+    "to sink",
+    "sinking",
+    "that it sank"
+   ]
+  },
+  "answers": [
+   "to have sunk"
+  ],
+  "explanation": "Zdarzenie przeszłe."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "The suspect is believed ___ (stay) with friends at the moment."
+  },
+  "answers": [
+   "to be staying"
+  ],
+  "explanation": "Teraz → to be + -ing."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "People say that she is a brilliant pianist.",
+   "keyword": "SAID",
+   "sentence2": "She ___ a brilliant pianist."
+  },
+  "answers": [
+   "is said to be"
+  ],
+  "explanation": "is said to be."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 6,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "People think the fire was started deliberately.",
+   "keyword": "THOUGHT",
+   "sentence2": "The fire ___ started deliberately."
+  },
+  "answers": [
+   "is thought to have been"
+  ],
+  "explanation": "Bierna perfect: to have been started."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 7,
+  "distractor_notes": null,
+  "task_type": "error",
+  "instruction": "Zdanie zawiera błąd. Wpisz poprawne zdanie.",
+  "prompt": {
+   "question": "He is known to be won three gold medals."
+  },
+  "answers": [
+   "He is known to have won three gold medals.",
+   "to have won"
+  ],
+  "explanation": "Przeszłe osiągnięcie → to have won."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 100,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "Experts expect that prices will fall.",
+   "keyword": "EXPECTED",
+   "sentence2": "Prices ___ fall."
+  },
+  "answers": [
+   "are expected to"
+  ],
+  "explanation": "Prices are expected to fall."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 101,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "It is believed that the band is recording a new album.",
+   "keyword": "BELIEVED",
+   "sentence2": "The band ___ a new album."
+  },
+  "answers": [
+   "is believed to be recording"
+  ],
+  "explanation": "Ciągła → to be recording."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 102,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "They say there are wolves in these mountains.",
+   "keyword": "SAID",
+   "sentence2": "There ___ wolves in these mountains."
+  },
+  "answers": [
+   "are said to be"
+  ],
+  "explanation": "There are said to be."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 103,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "It ___ (report) yesterday that the talks had collapsed."
+  },
+  "answers": [
+   "was reported"
+  ],
+  "explanation": "Yesterday → was reported."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 104,
+  "distractor_notes": {
+   "being": "Po considered w tej konstrukcji używamy to be.",
+   "that she is": "Mieszanie konstrukcji.",
+   "be": "Brakuje to."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "The author is considered ___ one of the best of her generation.",
+   "options": [
+    "to be",
+    "being",
+    "that she is",
+    "be"
+   ]
+  },
+  "answers": [
+   "to be"
+  ],
+  "explanation": "Considered + to be."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Bezosobowa strona bierna: it is said / he is thought to",
+  "lesson_slug": "impersonal-passive",
+  "position": 105,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "Uważa się, że on wyjechał za granicę."
+  },
+  "answers": [
+   "He is believed to have gone abroad.",
+   "He is thought to have gone abroad.",
+   "It is believed that he has gone abroad.",
+   "He is believed to have left the country.",
+   "It is thought that he has gone abroad."
+  ],
+  "explanation": "is believed/thought + to have gone."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 0,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "___ (live) in Paris for years, she knows the city well."
+  },
+  "answers": [
+   "Having lived"
+  ],
+  "explanation": "Długi okres wcześniej → having lived."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "___ (not / know) anyone at the party, I left early."
+  },
+  "answers": [
+   "Not knowing"
+  ],
+  "explanation": "Przeczenie i przyczyna."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "___ (write) in 1605, the novel is still popular."
+  },
+  "answers": [
+   "Written"
+  ],
+  "explanation": "Bierne → past participle."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 3,
+  "distractor_notes": {
+   "Sent": "Znaczenie bierne – nie pasuje (to ona wysłała).",
+   "Having send": "Po having – past participle (sent).",
+   "Sending it already": "Nienaturalne, sugeruje równoczesność."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "___ the email, she switched off the computer.",
+   "options": [
+    "Having sent",
+    "Sent",
+    "Having send",
+    "Sending it already"
+   ]
+  },
+  "answers": [
+   "Having sent"
+  ],
+  "explanation": "Czynność wcześniejsza."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "The woman ___ (stand) by the window is my aunt."
+  },
+  "answers": [
+   "standing"
+  ],
+  "explanation": "Skrócone zdanie względne czynne."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "Because he didn't have a ticket, he couldn't get in.",
+   "keyword": "HAVING",
+   "sentence2": "Not ___ couldn't get in."
+  },
+  "answers": [
+   "having a ticket, he"
+  ],
+  "explanation": "Not having + rzeczownik."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 6,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "After she had read the letter, she burst into tears.",
+   "keyword": "HAVING",
+   "sentence2": "___, she burst into tears."
+  },
+  "answers": [
+   "Having read the letter"
+  ],
+  "explanation": "Having + past participle."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 7,
+  "distractor_notes": null,
+  "task_type": "error",
+  "instruction": "Zdanie zawiera błąd. Wpisz poprawne zdanie.",
+  "prompt": {
+   "question": "Arriving at the station, the train had already left."
+  },
+  "answers": [
+   "Arriving at the station, I found that the train had already left.",
+   "When I arrived at the station, the train had already left.",
+   "When we arrived at the station, the train had already left."
+  ],
+  "explanation": "Pociąg nie przyjeżdżał na stację – potrzebny właściwy podmiot."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 100,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "___ (inform) of the delay, the passengers waited patiently."
+  },
+  "answers": [
+   "Having been informed",
+   "Informed"
+  ],
+  "explanation": "Bierne: (having been) informed."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 101,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "Products ___ (make) in this factory are exported worldwide."
+  },
+  "answers": [
+   "made"
+  ],
+  "explanation": "Skrócone względne bierne."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 102,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "As I didn't want to wake the baby, I whispered.",
+   "keyword": "WANTING",
+   "sentence2": "Not ___ the baby, I whispered."
+  },
+  "answers": [
+   "wanting to wake"
+  ],
+  "explanation": "Not wanting to."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 103,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "The castle, which was built in the 12th century, attracts many tourists.",
+   "keyword": "BUILT",
+   "sentence2": "___ century, the castle attracts many tourists."
+  },
+  "answers": [
+   "Built in the 12th",
+   "Built in the twelfth"
+  ],
+  "explanation": "Past participle na początku."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 104,
+  "distractor_notes": {
+   "Distracting": "Oznaczałoby, że to ona rozprasza.",
+   "Having distracted": "Czynne i wcześniejsze – złe znaczenie.",
+   "To distract": "Bezokolicznik celu nie pasuje."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "___ by the noise, she couldn't concentrate.",
+   "options": [
+    "Distracted",
+    "Distracting",
+    "Having distracted",
+    "To distract"
+   ]
+  },
+  "answers": [
+   "Distracted"
+  ],
+  "explanation": "Ją rozpraszano → bierne."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zdania z imiesłowem (participle clauses)",
+  "lesson_slug": "participle-clauses",
+  "position": 105,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "Skończywszy pracę, poszła do domu."
+  },
+  "answers": [
+   "Having finished work, she went home.",
+   "Having finished her work, she went home.",
+   "Having finished working, she went home."
+  ],
+  "explanation": "Having + finished."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 0,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "The lights are off. They ___ (must / go) to bed."
+  },
+  "answers": [
+   "must have gone"
+  ],
+  "explanation": "Pewna dedukcja."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "He ___ (can't / write) this – he doesn't speak French."
+  },
+  "answers": [
+   "can't have written",
+   "cannot have written",
+   "couldn't have written"
+  ],
+  "explanation": "Negatywna pewność."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "You ___ (should / ask) for help instead of struggling alone."
+  },
+  "answers": [
+   "should have asked"
+  ],
+  "explanation": "Krytyka."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 3,
+  "distractor_notes": {
+   "didn't need to": "Wymagałoby formy podstawowej: didn't need to cook.",
+   "mustn't have": "Nie wyraża braku konieczności.",
+   "can't have": "To dedukcja, nie ocena."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "I ___ cooked so much – nobody was hungry.",
+   "options": [
+    "needn't have",
+    "didn't need to",
+    "mustn't have",
+    "can't have"
+   ]
+  },
+  "answers": [
+   "needn't have"
+  ],
+  "explanation": "Zrobiłem niepotrzebnie."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "She ___ (might / not / receive) my email yet."
+  },
+  "answers": [
+   "might not have received",
+   "may not have received"
+  ],
+  "explanation": "Możliwość z przeczeniem."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "I'm sure he forgot his keys.",
+   "keyword": "MUST",
+   "sentence2": "He ___ keys."
+  },
+  "answers": [
+   "must have forgotten his"
+  ],
+  "explanation": "Pewność → must have."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 6,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "It was a mistake to sell the car.",
+   "keyword": "SHOULDN'T",
+   "sentence2": "We ___ the car."
+  },
+  "answers": [
+   "shouldn't have sold"
+  ],
+  "explanation": "Żal → shouldn't have."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 7,
+  "distractor_notes": null,
+  "task_type": "error",
+  "instruction": "Zdanie zawiera błąd. Wpisz poprawne zdanie.",
+  "prompt": {
+   "question": "She mustn't have seen us – she didn't wave."
+  },
+  "answers": [
+   "She can't have seen us – she didn't wave.",
+   "She can't have seen us",
+   "She couldn't have seen us"
+  ],
+  "explanation": "Negatywna dedukcja → can't have."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 100,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "Perhaps the parcel was delivered to the wrong address.",
+   "keyword": "MAY",
+   "sentence2": "The parcel ___ to the wrong address."
+  },
+  "answers": [
+   "may have been delivered"
+  ],
+  "explanation": "Bierna: may have been delivered."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 101,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "It is impossible that she saw the film – it isn't out yet.",
+   "keyword": "CAN'T",
+   "sentence2": "She ___ the film – it isn't out yet."
+  },
+  "answers": [
+   "can't have seen"
+  ],
+  "explanation": "can't have seen."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 102,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "It wasn't necessary for you to wait, but you did.",
+   "keyword": "NEEDN'T",
+   "sentence2": "You ___ for me."
+  },
+  "answers": [
+   "needn't have waited"
+  ],
+  "explanation": "needn't have waited."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 103,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "I'm sure they ___ (must / work) all night – they look exhausted."
+  },
+  "answers": [
+   "must have been working"
+  ],
+  "explanation": "Ciągła dedukcja."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 104,
+  "distractor_notes": {
+   "must have told": "To dedukcja, nie wyrzut.",
+   "can't have told": "Dedukcja negatywna – zły sens.",
+   "needn't have told": "Oznaczałoby, że powiedziałeś niepotrzebnie."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "You ___ me! I'd have helped.",
+   "options": [
+    "should have told",
+    "must have told",
+    "can't have told",
+    "needn't have told"
+   ]
+  },
+  "answers": [
+   "should have told"
+  ],
+  "explanation": "Wyrzut."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "lesson_slug": "modals-past-deduction",
+  "position": 105,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "Musiałeś być bardzo zmęczony."
+  },
+  "answers": [
+   "You must have been very tired.",
+   "You must have been really tired."
+  ],
+  "explanation": "must have been."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 0,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "The teacher suggested that she ___ (read) the book again."
+  },
+  "answers": [
+   "read",
+   "should read"
+  ],
+  "explanation": "Subjunctive: forma podstawowa."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "It is essential that everyone ___ (be) on time."
+  },
+  "answers": [
+   "be",
+   "should be"
+  ],
+  "explanation": "Be dla wszystkich osób."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "They insisted that the decision ___ (review)."
+  },
+  "answers": [
+   "be reviewed",
+   "should be reviewed"
+  ],
+  "explanation": "Strona bierna."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 3,
+  "distractor_notes": {
+   "consults": "Subjunctive nie ma końcówki -s.",
+   "consulted": "Czas przeszły zmienia znaczenie.",
+   "to consult": "Po that nie stawiamy to."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "I recommend that he ___ a lawyer.",
+   "options": [
+    "consult",
+    "consults",
+    "consulted",
+    "to consult"
+   ]
+  },
+  "answers": [
+   "consult"
+  ],
+  "explanation": "Bez -s."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "It is important that he ___ (not / tell) anyone."
+  },
+  "answers": [
+   "not tell",
+   "should not tell",
+   "shouldn't tell"
+  ],
+  "explanation": "Przeczenie: not tell."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "'You should get some rest,' the doctor told him.",
+   "keyword": "SUGGESTED",
+   "sentence2": "The doctor ___ some rest."
+  },
+  "answers": [
+   "suggested that he get",
+   "suggested that he should get",
+   "suggested he get",
+   "suggested he should get",
+   "suggested getting"
+  ],
+  "explanation": "Suggest + that + forma podstawowa."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 6,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "The boss said we absolutely had to attend.",
+   "keyword": "INSISTED",
+   "sentence2": "The boss ___ attend."
+  },
+  "answers": [
+   "insisted that we",
+   "insisted that we should"
+  ],
+  "explanation": "Insist that we attend."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 7,
+  "distractor_notes": null,
+  "task_type": "error",
+  "instruction": "Zdanie zawiera błąd. Wpisz poprawne zdanie.",
+  "prompt": {
+   "question": "She suggested me to take a break."
+  },
+  "answers": [
+   "She suggested that I take a break.",
+   "She suggested that I should take a break.",
+   "She suggested taking a break.",
+   "She suggested I take a break."
+  ],
+  "explanation": "Suggest + that."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 100,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "The report recommends that the scheme ___ (extend) to other cities."
+  },
+  "answers": [
+   "be extended",
+   "should be extended"
+  ],
+  "explanation": "Bierna."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 101,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "Everyone must be informed – that's crucial.",
+   "keyword": "CRUCIAL",
+   "sentence2": "It is ___ informed."
+  },
+  "answers": [
+   "crucial that everyone be",
+   "crucial that everyone should be",
+   "crucial that everybody be"
+  ],
+  "explanation": "It is crucial that + be."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 102,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "They demanded his resignation.",
+   "keyword": "RESIGN",
+   "sentence2": "They demanded that ___."
+  },
+  "answers": [
+   "he resign",
+   "he should resign"
+  ],
+  "explanation": "Demand that he resign."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 103,
+  "distractor_notes": {
+   "submits": "-s nie występuje w subjunctive.",
+   "will submit": "Will nie pasuje po require that.",
+   "submitting": "Po that potrzebne zdanie."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "The rules require that each candidate ___ a photo.",
+   "options": [
+    "submit",
+    "submits",
+    "will submit",
+    "submitting"
+   ]
+  },
+  "answers": [
+   "submit"
+  ],
+  "explanation": "Subjunctive."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 104,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "I propose that the meeting ___ (hold) online."
+  },
+  "answers": [
+   "be held",
+   "should be held"
+  ],
+  "explanation": "Bierna: be held."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "lesson_slug": "subjunctive",
+  "position": 105,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "Nalegał, żebym został na kolację."
+  },
+  "answers": [
+   "He insisted that I stay for dinner.",
+   "He insisted that I should stay for dinner.",
+   "He insisted on my staying for dinner.",
+   "He insisted I stay for dinner."
+  ],
+  "explanation": "Insist that + forma podstawowa."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 0,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "The person to ___ this letter is addressed has moved."
+  },
+  "answers": [
+   "whom"
+  ],
+  "explanation": "Po przyimku – whom."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "I bought ten apples, half of ___ were rotten."
+  },
+  "answers": [
+   "which"
+  ],
+  "explanation": "Rzeczy → of which."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "She is an author ___ books have been translated into 40 languages."
+  },
+  "answers": [
+   "whose"
+  ],
+  "explanation": "Przynależność → whose."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 3,
+  "distractor_notes": {
+   "where": "Where odnosi się do miejsca.",
+   "which": "Brakuje przyimka (by which).",
+   "what": "What nie jest zaimkiem względnym po rzeczowniku."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "They set up a scheme ___ volunteers could help elderly neighbours.",
+   "options": [
+    "whereby",
+    "where",
+    "which",
+    "what"
+   ]
+  },
+  "answers": [
+   "whereby"
+  ],
+  "explanation": "Mechanizm → whereby."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "He missed the final, ___ annoyed his coach."
+  },
+  "answers": [
+   "which"
+  ],
+  "explanation": "Which odnosi się do całego zdania."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "I met several students and they were all from Spain.",
+   "keyword": "WHOM",
+   "sentence2": "I met several students, all ___ from Spain."
+  },
+  "answers": [
+   "of whom were"
+  ],
+  "explanation": "all of whom."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 6,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "We don't know how far this policy will help.",
+   "keyword": "EXTENT",
+   "sentence2": "We don't know the ___ this policy will help."
+  },
+  "answers": [
+   "extent to which"
+  ],
+  "explanation": "The extent to which."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 7,
+  "distractor_notes": null,
+  "task_type": "error",
+  "instruction": "Zdanie zawiera błąd. Wpisz poprawne zdanie.",
+  "prompt": {
+   "question": "My grandparents, both of them are over 90, live with us."
+  },
+  "answers": [
+   "My grandparents, both of whom are over 90, live with us.",
+   "both of whom"
+  ],
+  "explanation": "both of whom."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 100,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "The hotel at ___ we stayed was excellent."
+  },
+  "answers": [
+   "which"
+  ],
+  "explanation": "Przyimek + which."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 101,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "There are two candidates, neither of ___ has experience."
+  },
+  "answers": [
+   "whom"
+  ],
+  "explanation": "Ludzie → of whom."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 102,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "The company's profits have doubled. It is based in Poznań.",
+   "keyword": "WHOSE",
+   "sentence2": "The company, ___ doubled, is based in Poznań."
+  },
+  "answers": [
+   "whose profits have"
+  ],
+  "explanation": "whose + rzeczownik."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 103,
+  "distractor_notes": {
+   "which": "Brakuje przyimka in.",
+   "in that": "That nie występuje po przyimku.",
+   "whom": "Whom odnosi się do ludzi."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "This is the town ___ I was born.",
+   "options": [
+    "in which",
+    "which",
+    "in that",
+    "whom"
+   ]
+  },
+  "answers": [
+   "in which"
+  ],
+  "explanation": "Miejsce: in which (= where)."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 104,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "She told me a story, most of ___ I didn't believe."
+  },
+  "answers": [
+   "which"
+  ],
+  "explanation": "most of which."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "lesson_slug": "advanced-relative-clauses",
+  "position": 105,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "Mam wielu przyjaciół, z których większość mieszka w Warszawie."
+  },
+  "answers": [
+   "I have many friends, most of whom live in Warsaw.",
+   "I have a lot of friends, most of whom live in Warsaw."
+  ],
+  "explanation": "most of whom."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 0,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "This time next week we ___ (fly) to Lisbon."
+  },
+  "answers": [
+   "will be flying",
+   "'ll be flying"
+  ],
+  "explanation": "Czynność w trakcie."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 1,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "By the time you get home, I ___ (finish) dinner."
+  },
+  "answers": [
+   "will have finished",
+   "'ll have finished"
+  ],
+  "explanation": "Zakończone przed momentem."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 2,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "By December, she ___ (work) here for ten years."
+  },
+  "answers": [
+   "will have been working",
+   "'ll have been working",
+   "will have worked"
+  ],
+  "explanation": "Czas trwania."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 3,
+  "distractor_notes": {
+   "will have put": "Oznaczałoby, że już skończymy.",
+   "put": "Brak formy przyszłej.",
+   "are put": "Strona bierna – zły sens."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "Don't ring at 9 – we ___ the children to bed.",
+   "options": [
+    "will be putting",
+    "will have put",
+    "put",
+    "are put"
+   ]
+  },
+  "answers": [
+   "will be putting"
+  ],
+  "explanation": "W trakcie o 9."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 4,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "They ___ (not / complete) the road by the summer."
+  },
+  "answers": [
+   "won't have completed",
+   "will not have completed"
+  ],
+  "explanation": "Przeczenie future perfect."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 5,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "I will finish the essay before Friday.",
+   "keyword": "HAVE",
+   "sentence2": "I ___ the essay by Friday."
+  },
+  "answers": [
+   "will have finished",
+   "'ll have finished",
+   "will have written"
+  ],
+  "explanation": "By + future perfect."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 6,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "Are you going to use your laptop tonight?",
+   "keyword": "BE",
+   "sentence2": "Will ___ laptop tonight?"
+  },
+  "answers": [
+   "you be using your"
+  ],
+  "explanation": "Future continuous w pytaniu."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 7,
+  "distractor_notes": null,
+  "task_type": "error",
+  "instruction": "Zdanie zawiera błąd. Wpisz poprawne zdanie.",
+  "prompt": {
+   "question": "When I will see her, I'll tell her."
+  },
+  "answers": [
+   "When I see her, I'll tell her.",
+   "When I see her"
+  ],
+  "explanation": "Po when – present simple."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 100,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "In 2030 I ___ (live) in this flat for twenty years."
+  },
+  "answers": [
+   "will have lived",
+   "will have been living",
+   "'ll have lived"
+  ],
+  "explanation": "Czas trwania do momentu."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 101,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "Hurry up! The film ___ (start) by the time we get there."
+  },
+  "answers": [
+   "will have started",
+   "'ll have started"
+  ],
+  "explanation": "Zakończone przed przybyciem."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 102,
+  "distractor_notes": null,
+  "task_type": "kwt",
+  "instruction": "Uzupełnij drugie zdanie tak, aby miało podobne znaczenie. Użyj słowa kluczowego (bez zmiany), 3–6 słów.",
+  "prompt": {
+   "question": "They will still be building the stadium in June.",
+   "keyword": "FINISHED",
+   "sentence2": "They ___ the stadium by June."
+  },
+  "answers": [
+   "won't have finished",
+   "will not have finished",
+   "won't have finished building",
+   "will not have finished building"
+  ],
+  "explanation": "Przeciwny sens: nie skończą."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 103,
+  "distractor_notes": {
+   "will learn": "Nie podkreśla zakończenia przed terminem.",
+   "are learning": "Present continuous nie łączy się z by the end of.",
+   "will be learnt": "Strona bierna – zły sens."
+  },
+  "task_type": "mc",
+  "instruction": "Wybierz poprawną odpowiedź.",
+  "prompt": {
+   "question": "By the end of the course, you ___ over 2,000 words.",
+   "options": [
+    "will have learnt",
+    "will learn",
+    "are learning",
+    "will be learnt"
+   ]
+  },
+  "answers": [
+   "will have learnt"
+  ],
+  "explanation": "By the end → future perfect."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 104,
+  "distractor_notes": null,
+  "task_type": "gap",
+  "instruction": "Uzupełnij lukę poprawną formą.",
+  "prompt": {
+   "question": "I ___ (drive) past your house tomorrow, so I can drop it off."
+  },
+  "answers": [
+   "will be driving",
+   "'ll be driving"
+  ],
+  "explanation": "Naturalny bieg rzeczy."
+ },
+ {
+  "module": "grammar",
+  "level": "C1",
+  "topic": "Future perfect i future continuous",
+  "lesson_slug": "future-perfect-and-continuous",
+  "position": 105,
+  "distractor_notes": null,
+  "task_type": "translation",
+  "instruction": "Przetłumacz na angielski, używając struktury z lekcji.",
+  "prompt": {
+   "question": "Do 2040 roku ludzie wylądują na Marsie."
+  },
+  "answers": [
+   "By 2040 people will have landed on Mars.",
+   "By 2040, people will have landed on Mars.",
+   "By 2040 humans will have landed on Mars.",
+   "By 2040, humans will have landed on Mars."
+  ],
+  "explanation": "By + future perfect."
+ }
+]

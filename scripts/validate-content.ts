@@ -7,7 +7,7 @@ import { validateRecord, type TableName } from "../src/lib/contentValidation.ts"
 const dir = join(import.meta.dirname, "..", "content", "seed");
 let bad = 0, total = 0;
 for (const file of readdirSync(dir).filter((f) => f.endsWith(".json")).sort()) {
-  const table = file.replace(/\.json$/, "").replace(/^\d+_/, "") as TableName;
+  const table = file.replace(/\.json$/, "").replace(/_[a-z]+$/, (m) => (["_lessons", "_materials", "_guides", "_tasks"].includes(m) ? m : "")) as TableName;
   const rows = JSON.parse(readFileSync(join(dir, file), "utf8")) as Record<string, unknown>[];
   const keys = new Set<string>();
   rows.forEach((r, i) => {

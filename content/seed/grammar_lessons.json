@@ -1,0 +1,1475 @@
+[
+ {
+  "slug": "inversion-negative-adverbials",
+  "area": "Inwersja",
+  "title": "Inwersja po wyrażeniach przeczących i ograniczających",
+  "position": 1,
+  "published": true,
+  "content": {
+   "explanation": "Inwersja to zamiana miejscami podmiotu i operatora (do/does/did, have, be, can itd.) – tak jak w pytaniu – ale w zdaniu twierdzącym. Robimy ją, gdy zdanie zaczyna się od wyrażenia przeczącego lub ograniczającego: Never, Rarely, Seldom, Hardly … when, No sooner … than, Not only … but also, Not until, Only then, Under no circumstances, At no time, Little. Efekt: zdanie brzmi bardziej formalnie i emfatycznie.",
+   "usage": "Używamy jej głównie w piśmie formalnym (eseje, raporty, przemówienia) i w wypowiedziach, które mają podkreślić zaskoczenie lub wagę informacji. W Part 4 (key word transformations) to jedna z najczęściej testowanych struktur. W rozmowie potocznej brzmi teatralnie – lepiej z niej rezygnować.",
+   "structure": {
+    "scheme": "Wyrażenie przeczące + operator + podmiot + czasownik główny",
+    "word_order": "Never have I seen… / Not only did she win… / Only after the meeting did we realise…",
+    "affirmative": [
+     "Never have I seen such chaos.",
+     "Rarely does he arrive on time.",
+     "No sooner had we left than it started to rain."
+    ],
+    "negative": [
+     "Inwersja sama w sobie wyraża przeczenie – nie dodajemy not: Never have I… (nie: Never haven't I…)."
+    ],
+    "questions": [
+     "Struktura nie tworzy pytań; to szyk pytający w zdaniu oznajmującym."
+    ]
+   },
+   "examples": [
+    {
+     "en": "Never have I been so embarrassed.",
+     "pl": "Nigdy nie byłem tak zawstydzony.",
+     "why": "Never + present perfect → operator have przed podmiotem."
+    },
+    {
+     "en": "Rarely do we see such dedication.",
+     "pl": "Rzadko widuje się takie zaangażowanie.",
+     "why": "Present simple → dodajemy do."
+    },
+    {
+     "en": "Seldom did she complain about her job.",
+     "pl": "Rzadko narzekała na swoją pracę.",
+     "why": "Past simple → did + forma podstawowa (complain)."
+    },
+    {
+     "en": "Hardly had I sat down when the phone rang.",
+     "pl": "Ledwie usiadłem, zadzwonił telefon.",
+     "why": "Hardly … when + past perfect w pierwszej części."
+    },
+    {
+     "en": "No sooner had the film started than the power went off.",
+     "pl": "Ledwie zaczął się film, wysiadł prąd.",
+     "why": "No sooner łączy się z than, nie z when."
+    },
+    {
+     "en": "Not only did he lie, but he also blamed others.",
+     "pl": "Nie tylko kłamał, ale też obwiniał innych.",
+     "why": "Inwersja tylko w części z not only."
+    },
+    {
+     "en": "Not until I read the report did I understand the problem.",
+     "pl": "Dopiero gdy przeczytałem raport, zrozumiałem problem.",
+     "why": "Not until + zdanie → inwersja w zdaniu głównym."
+    },
+    {
+     "en": "Only then did they realise their mistake.",
+     "pl": "Dopiero wtedy zdali sobie sprawę z błędu.",
+     "why": "Only then / Only later / Only after + inwersja."
+    },
+    {
+     "en": "Under no circumstances should you open this door.",
+     "pl": "W żadnym wypadku nie otwieraj tych drzwi.",
+     "why": "Zakaz w stylu formalnym; operator should."
+    },
+    {
+     "en": "Little did she know that she was being watched.",
+     "pl": "Nie miała pojęcia, że jest obserwowana.",
+     "why": "Little = wcale nie; typowe w narracji."
+    },
+    {
+     "en": "At no time was the public informed of the risk.",
+     "pl": "Ani razu nie poinformowano opinii publicznej o ryzyku.",
+     "why": "Strona bierna: operator was przed podmiotem."
+    },
+    {
+     "en": "Only by working together can we solve this.",
+     "pl": "Tylko współpracując, możemy to rozwiązać.",
+     "why": "Only by + -ing + inwersja z modalnym can."
+    }
+   ],
+   "comparison": [
+    {
+     "vs": "Never have I seen… vs I have never seen…",
+     "difference": "Treść ta sama; wersja z inwersją jest formalna i mocniej akcentuje 'never'.",
+     "when": "Inwersja: esej, przemówienie, Part 4. Zwykły szyk: rozmowa, e-mail nieformalny."
+    },
+    {
+     "vs": "Hardly … when vs No sooner … than",
+     "difference": "Znaczą to samo (ledwie… gdy). Różnią się drugim słowem: when/before po hardly, than po no sooner.",
+     "when": "Wybierz parę zgodnie z pierwszym słowem – mieszanie (no sooner … when) to błąd."
+    },
+    {
+     "vs": "Only after X did… vs Only X did…",
+     "difference": "Inwersja następuje w zdaniu głównym, nie w części z only after.",
+     "when": "Only after he left did I notice (nie: Only after did he leave…)."
+    }
+   ],
+   "mistakes": [
+    {
+     "wrong": "Never I have seen such a mess.",
+     "right": "Never have I seen such a mess.",
+     "why": "Po never na początku operator musi stać przed podmiotem."
+    },
+    {
+     "wrong": "Rarely he goes out.",
+     "right": "Rarely does he go out.",
+     "why": "W present simple trzeba dodać does, a czasownik wraca do formy podstawowej."
+    },
+    {
+     "wrong": "No sooner had we arrived when it rained.",
+     "right": "No sooner had we arrived than it rained.",
+     "why": "No sooner zawsze z than."
+    },
+    {
+     "wrong": "Not only she sings, but she also dances.",
+     "right": "Not only does she sing, but she also dances.",
+     "why": "Polski szyk nie ma inwersji – w angielskim po not only jest wymagana."
+    },
+    {
+     "wrong": "Not until I saw her I recognised her.",
+     "right": "Not until I saw her did I recognise her.",
+     "why": "Inwersja dotyczy drugiej części (zdania głównego)."
+    }
+   ],
+   "exceptions": [
+    "Gdy never/rarely/only nie stoją na początku zdania, inwersji nie ma: I have never seen it.",
+    "Not only może łączyć wyrazy, a nie zdania – wtedy bez inwersji: Not only Tom but also Ann came.",
+    "Only + podmiot (Only Tom knew) nie wywołuje inwersji, bo only odnosi się do podmiotu.",
+    "Little w znaczeniu 'mało' (Little is known) nie wymaga inwersji – to podmiot."
+   ],
+   "advanced": [
+    {
+     "en": "Seldom, if ever, has a government faced such opposition.",
+     "pl": "Rzadko kiedy, jeśli w ogóle, rząd mierzył się z takim sprzeciwem.",
+     "note": "'if ever' wzmacnia seldom/rarely – brzmi bardzo C1."
+    },
+    {
+     "en": "Nowhere is this more evident than in our schools.",
+     "pl": "Nigdzie nie widać tego wyraźniej niż w naszych szkołach.",
+     "note": "Nowhere + inwersja – świetne zdanie do eseju."
+    },
+    {
+     "en": "So severe was the damage that the bridge had to be closed.",
+     "pl": "Szkody były tak poważne, że most trzeba było zamknąć.",
+     "note": "So + przymiotnik + inwersja + that."
+    }
+   ]
+  }
+ },
+ {
+  "slug": "mixed-conditionals",
+  "area": "Tryby warunkowe",
+  "title": "Mieszane okresy warunkowe",
+  "position": 2,
+  "published": true,
+  "content": {
+   "explanation": "Mieszany okres warunkowy łączy dwie różne płaszczyzny czasowe. Najczęściej: warunek w przeszłości (if + past perfect), a skutek w teraźniejszości (would + bezokolicznik) – albo odwrotnie: stała cecha w teraźniejszości (if + past simple) i skutek w przeszłości (would have + past participle). Oba warunki są nierzeczywiste – opisują coś, co się nie wydarzyło lub nie jest prawdą.",
+   "usage": "Używamy go, gdy mówimy o żalu, krytyce lub hipotezach typu: 'gdybym wtedy…, teraz…' oraz 'gdybym był innym człowiekiem, wtedy…'. Bardzo przydatny w esejach (argumenty hipotetyczne) i w Part 4.",
+   "structure": {
+    "scheme": "(1) If + past perfect, would + bezokolicznik  (2) If + past simple, would have + past participle",
+    "word_order": "If I had taken the job, I would be rich now. / If I were braver, I would have said something.",
+    "affirmative": [
+     "If she had studied medicine, she would be a doctor now.",
+     "If he were more careful, he wouldn't have crashed the car."
+    ],
+    "negative": [
+     "If I hadn't missed the bus, I wouldn't be so late now.",
+     "If they didn't trust him, they wouldn't have lent him money."
+    ],
+    "questions": [
+     "Would you be happier now if you had stayed in London?",
+     "If you weren't so stubborn, would you have apologised?"
+    ]
+   },
+   "examples": [
+    {
+     "en": "If I had saved more money, I would own a flat now.",
+     "pl": "Gdybym oszczędzał więcej, miałbym teraz mieszkanie.",
+     "why": "Przeszła przyczyna → obecny skutek."
+    },
+    {
+     "en": "If she hadn't moved abroad, she wouldn't speak three languages.",
+     "pl": "Gdyby nie wyjechała za granicę, nie mówiłaby trzema językami.",
+     "why": "Przeszłość (wyjazd) → teraźniejszość (umiejętność)."
+    },
+    {
+     "en": "If we had booked earlier, we would be sitting on the beach now.",
+     "pl": "Gdybyśmy zarezerwowali wcześniej, siedzielibyśmy teraz na plaży.",
+     "why": "Skutek w formie ciągłej: would be + -ing."
+    },
+    {
+     "en": "If he were more organised, he wouldn't have missed the deadline.",
+     "pl": "Gdyby był lepiej zorganizowany, nie przegapiłby terminu.",
+     "why": "Stała cecha (teraz) → przeszły skutek."
+    },
+    {
+     "en": "If I didn't love my job, I would have left years ago.",
+     "pl": "Gdybym nie kochał swojej pracy, odszedłbym lata temu.",
+     "why": "Teraźniejszy stan → przeszła decyzja."
+    },
+    {
+     "en": "If you had listened to me, we wouldn't be lost.",
+     "pl": "Gdybyś mnie posłuchał, nie zgubilibyśmy się (teraz nie bylibyśmy zgubieni).",
+     "why": "Typowy wyrzut."
+    },
+    {
+     "en": "If the government had invested in rail, traffic would be lighter today.",
+     "pl": "Gdyby rząd zainwestował w kolej, ruch byłby dziś mniejszy.",
+     "why": "Zdanie typowe dla eseju."
+    },
+    {
+     "en": "If she weren't afraid of flying, she would have visited us last summer.",
+     "pl": "Gdyby nie bała się latać, odwiedziłaby nas zeszłego lata.",
+     "why": "Were dla wszystkich osób w stylu formalnym."
+    },
+    {
+     "en": "If I had been born in Spain, I would probably support Real Madrid.",
+     "pl": "Gdybym urodził się w Hiszpanii, pewnie kibicowałbym Realowi.",
+     "why": "Fakt z przeszłości → obecna preferencja."
+    },
+    {
+     "en": "If they knew the area, they would have found the hotel easily.",
+     "pl": "Gdyby znali okolicę, łatwo znaleźliby hotel.",
+     "why": "Brak wiedzy teraz/ogólnie → przeszła trudność."
+    },
+    {
+     "en": "Had I accepted the offer, I would be living in Berlin now.",
+     "pl": "Gdybym przyjął ofertę, mieszkałbym teraz w Berlinie.",
+     "why": "Wersja z inwersją (bez if) – formalna."
+    }
+   ],
+   "comparison": [
+    {
+     "vs": "Mixed vs third conditional",
+     "difference": "Third: obie części w przeszłości (would have done). Mixed: jedna część dotyczy teraz.",
+     "when": "Jeśli skutek widać dziś (now, today, still) – mixed."
+    },
+    {
+     "vs": "Mixed vs second conditional",
+     "difference": "Second: obie części teraz/ogólnie (If I had time, I would help).",
+     "when": "Jeśli przyczyna wydarzyła się w konkretnym momencie w przeszłości – mixed z past perfect."
+    },
+    {
+     "vs": "would be vs would have been",
+     "difference": "would be = skutek teraz; would have been = skutek wtedy.",
+     "when": "Słowa now/today sugerują would be."
+    }
+   ],
+   "mistakes": [
+    {
+     "wrong": "If I would have studied, I would be a lawyer.",
+     "right": "If I had studied, I would be a lawyer.",
+     "why": "W części z if nie używamy would."
+    },
+    {
+     "wrong": "If I had taken the job, I would have been rich now.",
+     "right": "If I had taken the job, I would be rich now.",
+     "why": "'Now' wskazuje na skutek w teraźniejszości."
+    },
+    {
+     "wrong": "If she was more patient, she wouldn't have shouted.",
+     "right": "If she were more patient, she wouldn't have shouted.",
+     "why": "W stylu formalnym 'were' (was jest potoczne, ale na egzaminie bezpieczniej were)."
+    },
+    {
+     "wrong": "If I didn't miss the train, I wouldn't be late.",
+     "right": "If I hadn't missed the train, I wouldn't be late.",
+     "why": "Spóźnienie na pociąg to zdarzenie z przeszłości → past perfect."
+    }
+   ],
+   "exceptions": [
+    "Zamiast would w skutku można użyć could/might: If I had learnt to drive, I could take you there now.",
+    "Część z if może stać na końcu – wtedy bez przecinka: I would be rich now if I had taken the job.",
+    "But for + rzeczownik zastępuje warunek: But for his help, I would be in trouble now."
+   ],
+   "advanced": [
+    {
+     "en": "Were it not for the scholarship, she would never have studied abroad.",
+     "pl": "Gdyby nie stypendium, nigdy nie studiowałaby za granicą.",
+     "note": "Inwersja z were – bardzo formalnie."
+    },
+    {
+     "en": "Had the warnings been heeded, the city would not be facing a crisis today.",
+     "pl": "Gdyby posłuchano ostrzeżeń, miasto nie stałoby dziś w obliczu kryzysu.",
+     "note": "Strona bierna + inwersja + skutek teraz."
+    },
+    {
+     "en": "If it hadn't been for the pandemic, remote work would still be rare.",
+     "pl": "Gdyby nie pandemia, praca zdalna wciąż byłaby rzadkością.",
+     "note": "If it hadn't been for = gdyby nie (w przeszłości)."
+    }
+   ]
+  }
+ },
+ {
+  "slug": "cleft-sentences",
+  "area": "Struktury emfatyczne",
+  "title": "Zdania rozszczepione (cleft sentences)",
+  "position": 3,
+  "published": true,
+  "content": {
+   "explanation": "Cleft sentence dzieli jedną informację na dwie części, żeby wyróżnić jeden element. Dwa główne typy: It-cleft (It was Tom who broke the window) – akcentuje osobę, rzecz, czas lub miejsce; Wh-cleft (What I need is a holiday) – akcentuje to, co następuje po 'is/was'. Są też formy: All I want is…, The thing that annoys me is…, The reason why… is that…",
+   "usage": "Struktury te służą do podkreślania, prostowania nieporozumień i budowania napięcia w wypowiedzi. Na egzaminie C1 występują w Part 4 i świetnie podnoszą ocenę z zakresu struktur w Writing i Speaking.",
+   "structure": {
+    "scheme": "It + be + wyróżniony element + who/that + reszta zdania  |  What + podmiot + czasownik + be + wyróżniony element",
+    "word_order": "It was in Paris that we met. / What surprised me was his calm.",
+    "affirmative": [
+     "It was my sister who called.",
+     "What I love about this city is the food.",
+     "All I need is some sleep."
+    ],
+    "negative": [
+     "It wasn't the price that put me off.",
+     "What I don't understand is why he left."
+    ],
+    "questions": [
+     "Was it you who left the door open?",
+     "Is it the noise that bothers you?"
+    ]
+   },
+   "examples": [
+    {
+     "en": "It was Maria who organised the whole event.",
+     "pl": "To Maria zorganizowała całe wydarzenie.",
+     "why": "Wyróżnienie osoby – who."
+    },
+    {
+     "en": "It was in 2015 that the company went bankrupt.",
+     "pl": "To w 2015 roku firma zbankrutowała.",
+     "why": "Wyróżnienie czasu – that (nie when)."
+    },
+    {
+     "en": "It's not the money that matters, it's the principle.",
+     "pl": "Nie chodzi o pieniądze, tylko o zasadę.",
+     "why": "Prostowanie: not X … it's Y."
+    },
+    {
+     "en": "What I need right now is a cup of coffee.",
+     "pl": "Teraz potrzebuję filiżanki kawy.",
+     "why": "Wh-cleft: what + czasownik + is."
+    },
+    {
+     "en": "What annoys me most is people talking during films.",
+     "pl": "Najbardziej denerwuje mnie, gdy ludzie rozmawiają w kinie.",
+     "why": "What + czasownik (annoys) jako podmiot."
+    },
+    {
+     "en": "What she did was call the police.",
+     "pl": "Zrobiła to, że zadzwoniła na policję.",
+     "why": "What … did was + bezokolicznik bez to."
+    },
+    {
+     "en": "All I wanted was a bit of respect.",
+     "pl": "Chciałem tylko trochę szacunku.",
+     "why": "All = jedyna rzecz."
+    },
+    {
+     "en": "The reason why I left is that I was bored.",
+     "pl": "Odszedłem, ponieważ się nudziłem.",
+     "why": "The reason why … is that (nie: is because w stylu formalnym)."
+    },
+    {
+     "en": "The person who helped me most was my teacher.",
+     "pl": "Najbardziej pomogła mi moja nauczycielka.",
+     "why": "The person who … was …"
+    },
+    {
+     "en": "What happened was that the system crashed.",
+     "pl": "Stało się to, że system się zawiesił.",
+     "why": "What happened was that + zdanie."
+    },
+    {
+     "en": "It was only when I got home that I noticed the mistake.",
+     "pl": "Dopiero w domu zauważyłem błąd.",
+     "why": "It was only when … that = dopiero gdy."
+    }
+   ],
+   "comparison": [
+    {
+     "vs": "It-cleft vs Wh-cleft",
+     "difference": "It-cleft wyróżnia element na początku (It was HIM…). Wh-cleft przenosi nacisk na koniec (What I want is PEACE).",
+     "when": "Do prostowania pomyłek: it-cleft. Do budowania napięcia: wh-cleft."
+    },
+    {
+     "vs": "who vs that w it-cleft",
+     "difference": "Dla ludzi who lub that; dla rzeczy, miejsc i czasu – that.",
+     "when": "It was in June that… (nie: It was in June when…)."
+    },
+    {
+     "vs": "What I did was + inf vs What I did was to + inf",
+     "difference": "Obie formy poprawne; bez 'to' jest częstsze.",
+     "when": "Na egzaminie bezpieczniej bez to."
+    }
+   ],
+   "mistakes": [
+    {
+     "wrong": "It was in London where we met.",
+     "right": "It was in London that we met.",
+     "why": "W it-cleft po miejscu/czasie używamy that."
+    },
+    {
+     "wrong": "What I need it is a break.",
+     "right": "What I need is a break.",
+     "why": "Nie dodajemy dodatkowego podmiotu 'it'."
+    },
+    {
+     "wrong": "What she did was she called him.",
+     "right": "What she did was call him.",
+     "why": "Po was – sam bezokolicznik."
+    },
+    {
+     "wrong": "The reason is because I was tired.",
+     "right": "The reason is that I was tired.",
+     "why": "Reason + because to tautologia w stylu formalnym."
+    }
+   ],
+   "exceptions": [
+    "Po It is/was czas zależy od sytuacji: It is you who are responsible (czasownik zgadza się z wyróżnionym podmiotem).",
+    "W liczbie mnogiej after What…: What we need are new ideas (dopuszczalne jest też is).",
+    "Forma z przeczeniem: It wasn't until… that… – znaczy to samo co Not until… + inwersja."
+   ],
+   "advanced": [
+    {
+     "en": "It is precisely this lack of transparency that worries voters.",
+     "pl": "Właśnie ten brak przejrzystości niepokoi wyborców.",
+     "note": "precisely/only/not so much wzmacniają it-cleft."
+    },
+    {
+     "en": "What is often overlooked is the cost to the environment.",
+     "pl": "Często pomija się koszty dla środowiska.",
+     "note": "What + strona bierna – idealne do esejów."
+    },
+    {
+     "en": "What the report fails to mention is who will pay for it.",
+     "pl": "Raport nie wspomina, kto za to zapłaci.",
+     "note": "Krytyka w stylu akademickim."
+    }
+   ]
+  }
+ },
+ {
+  "slug": "wish-if-only-would-rather",
+  "area": "Tryby nierzeczywiste",
+  "title": "Wish, if only, would rather, it's time",
+  "position": 4,
+  "published": true,
+  "content": {
+   "explanation": "Po wish, if only, would rather (z innym podmiotem) i it's (high) time używamy czasu 'o krok wstecz', aby wyrazić sytuację nierzeczywistą: past simple dla teraźniejszości, past perfect dla przeszłości, would + bezokolicznik dla irytacji lub życzenia zmiany czyjegoś zachowania.",
+   "usage": "Te struktury wyrażają żal, pretensje, preferencje i sugestie. Są bardzo częste w Part 4 (np. I regret… → I wish I had…; You should… → It's time you…).",
+   "structure": {
+    "scheme": "wish/if only + past simple (teraz) | + past perfect (przeszłość) | + would (irytacja/zmiana)  •  would rather + bezokolicznik (ten sam podmiot) | + podmiot + past simple  •  it's time + podmiot + past simple",
+    "word_order": "I wish I knew. / If only I had listened. / I'd rather you didn't smoke. / It's time we left.",
+    "affirmative": [
+     "I wish I lived closer to the sea.",
+     "If only I had kept the receipt.",
+     "I'd rather stay at home tonight."
+    ],
+    "negative": [
+     "I wish you wouldn't interrupt me.",
+     "I'd rather you didn't tell anyone.",
+     "I wish I hadn't said that."
+    ],
+    "questions": [
+     "Would you rather we met tomorrow?",
+     "Don't you wish you had more free time?"
+    ]
+   },
+   "examples": [
+    {
+     "en": "I wish I spoke Spanish.",
+     "pl": "Szkoda, że nie mówię po hiszpańsku.",
+     "why": "Teraz → past simple."
+    },
+    {
+     "en": "I wish I had studied harder at school.",
+     "pl": "Żałuję, że nie uczyłem się pilniej w szkole.",
+     "why": "Przeszłość → past perfect."
+    },
+    {
+     "en": "I wish you would stop complaining.",
+     "pl": "Chciałbym, żebyś przestał narzekać.",
+     "why": "Irytacja zachowaniem innej osoby → would."
+    },
+    {
+     "en": "If only it weren't raining.",
+     "pl": "Gdyby tylko nie padało.",
+     "why": "If only = mocniejsze wish; were w stylu formalnym."
+    },
+    {
+     "en": "If only I hadn't sold my bike.",
+     "pl": "Gdybym tylko nie sprzedał roweru.",
+     "why": "Żal dotyczący przeszłości."
+    },
+    {
+     "en": "I'd rather walk than take the bus.",
+     "pl": "Wolę iść pieszo, niż jechać autobusem.",
+     "why": "Ten sam podmiot → bezokolicznik bez to."
+    },
+    {
+     "en": "I'd rather you came a bit earlier.",
+     "pl": "Wolałbym, żebyś przyszedł trochę wcześniej.",
+     "why": "Inny podmiot → past simple."
+    },
+    {
+     "en": "I'd rather you hadn't told her.",
+     "pl": "Wolałbym, żebyś jej tego nie mówił.",
+     "why": "Preferencja dotycząca przeszłości → past perfect."
+    },
+    {
+     "en": "It's time we went home.",
+     "pl": "Czas, żebyśmy poszli do domu.",
+     "why": "It's time + podmiot + past simple."
+    },
+    {
+     "en": "It's high time the government did something about it.",
+     "pl": "Najwyższy czas, żeby rząd coś z tym zrobił.",
+     "why": "High time wzmacnia pilność."
+    },
+    {
+     "en": "It's time to go.",
+     "pl": "Czas iść.",
+     "why": "Bez podmiotu → to + bezokolicznik."
+    }
+   ],
+   "comparison": [
+    {
+     "vs": "wish + past simple vs wish + would",
+     "difference": "Past simple – stan, którego nie możemy zmienić (I wish I were taller). Would – czyjeś zachowanie, które chcemy zmienić.",
+     "when": "Nie mówimy I wish I would… o sobie (wyjątek: rzadkie przypadki postanowień)."
+    },
+    {
+     "vs": "wish vs hope",
+     "difference": "Hope – coś realnego, możliwego: I hope you pass. Wish – nierzeczywiste.",
+     "when": "Jeśli coś może się zdarzyć – hope."
+    },
+    {
+     "vs": "would rather vs prefer",
+     "difference": "Would rather + bezokolicznik bez to; prefer + -ing/to + bezokolicznik.",
+     "when": "I'd rather walk = I prefer walking."
+    }
+   ],
+   "mistakes": [
+    {
+     "wrong": "I wish I would have more time.",
+     "right": "I wish I had more time.",
+     "why": "Dla stanów u siebie – past simple."
+    },
+    {
+     "wrong": "I wish I didn't go there yesterday.",
+     "right": "I wish I hadn't gone there yesterday.",
+     "why": "Przeszłość wymaga past perfect."
+    },
+    {
+     "wrong": "I'd rather you don't smoke here.",
+     "right": "I'd rather you didn't smoke here.",
+     "why": "Po would rather + inny podmiot – past simple."
+    },
+    {
+     "wrong": "It's time we go.",
+     "right": "It's time we went.",
+     "why": "Po it's time + podmiot – past simple."
+    },
+    {
+     "wrong": "I'd rather to stay.",
+     "right": "I'd rather stay.",
+     "why": "Would rather + bezokolicznik bez to."
+    }
+   ],
+   "exceptions": [
+    "Po wish z I/he/she/it w stylu formalnym używamy were: I wish I were there.",
+    "Wish + rzeczownik/bezokolicznik oznacza 'chcieć' (formalnie): I wish to complain.",
+    "Would sooner ma to samo znaczenie co would rather."
+   ],
+   "advanced": [
+    {
+     "en": "Many voters now wish they had paid closer attention to the campaign.",
+     "pl": "Wielu wyborców żałuje teraz, że nie śledziło uważniej kampanii.",
+     "note": "Wish w sprawozdawczym, esejowym kontekście."
+    },
+    {
+     "en": "It is high time policymakers acknowledged the scale of the problem.",
+     "pl": "Najwyższy czas, by decydenci przyznali, jak duży jest problem.",
+     "note": "Mocne zdanie do zakończenia eseju."
+    },
+    {
+     "en": "I would rather the committee postponed the decision than rushed it.",
+     "pl": "Wolałbym, żeby komisja odłożyła decyzję, niż ją pospieszyła.",
+     "note": "Would rather + podmiot + past simple … than …"
+    }
+   ]
+  }
+ },
+ {
+  "slug": "impersonal-passive",
+  "area": "Strona bierna",
+  "title": "Bezosobowa strona bierna: it is said / he is thought to",
+  "position": 5,
+  "published": true,
+  "content": {
+   "explanation": "Gdy przekazujemy opinie lub informacje bez podawania źródła, używamy czasowników raportujących (say, believe, think, report, expect, claim, know, consider, allege) w stronie biernej. Dwie konstrukcje: It + is said + that + zdanie, albo podmiot + is said + to + bezokolicznik (to do / to be doing / to have done).",
+   "usage": "Typowe dla prasy, raportów i esejów – brzmi obiektywnie i formalnie. W Part 4 jedna z najczęstszych transformacji (People say that… → He is said to…).",
+   "structure": {
+    "scheme": "It + be + past participle + that…  |  Podmiot + be + past participle + to + bezokolicznik (prosty / ciągły / perfect)",
+    "word_order": "It is believed that the thief escaped. → The thief is believed to have escaped.",
+    "affirmative": [
+     "It is said that he is very rich.",
+     "He is said to be very rich.",
+     "She is thought to have left the country."
+    ],
+    "negative": [
+     "He is not thought to be dangerous.",
+     "It was not expected that the plan would fail."
+    ],
+    "questions": [
+     "Is he said to be the best candidate?",
+     "Was it reported that anyone had been injured?"
+    ]
+   },
+   "examples": [
+    {
+     "en": "It is said that the castle is haunted.",
+     "pl": "Mówi się, że zamek jest nawiedzony.",
+     "why": "It + is said + that."
+    },
+    {
+     "en": "The castle is said to be haunted.",
+     "pl": "Mówi się, że zamek jest nawiedzony.",
+     "why": "Podmiot + is said + to be."
+    },
+    {
+     "en": "The minister is believed to have resigned.",
+     "pl": "Uważa się, że minister podał się do dymisji.",
+     "why": "Czynność wcześniejsza → to have + past participle."
+    },
+    {
+     "en": "The suspect is thought to be hiding in the forest.",
+     "pl": "Przypuszcza się, że podejrzany ukrywa się w lesie.",
+     "why": "Czynność trwająca → to be + -ing."
+    },
+    {
+     "en": "It was reported that two people had been injured.",
+     "pl": "Doniesiono, że dwie osoby zostały ranne.",
+     "why": "Czasy cofają się po was reported."
+    },
+    {
+     "en": "Two people were reported to have been injured.",
+     "pl": "Doniesiono, że dwie osoby zostały ranne.",
+     "why": "To have been + past participle (bierna perfect)."
+    },
+    {
+     "en": "The company is expected to announce record profits.",
+     "pl": "Oczekuje się, że firma ogłosi rekordowe zyski.",
+     "why": "Expected + to + bezokolicznik o przyszłości."
+    },
+    {
+     "en": "He is known to have a short temper.",
+     "pl": "Wiadomo, że ma porywczy charakter.",
+     "why": "Known to have = wiadomo, że ma."
+    },
+    {
+     "en": "The painting is alleged to have been stolen.",
+     "pl": "Rzekomo obraz został skradziony.",
+     "why": "Allege – w kontekście prawnym."
+    },
+    {
+     "en": "It is widely acknowledged that smoking causes cancer.",
+     "pl": "Powszechnie uznaje się, że palenie powoduje raka.",
+     "why": "Przysłówek widely przed past participle."
+    },
+    {
+     "en": "There is said to be a tunnel under the city.",
+     "pl": "Mówi się, że pod miastem jest tunel.",
+     "why": "There + is said + to be."
+    }
+   ],
+   "comparison": [
+    {
+     "vs": "It is said that… vs He is said to…",
+     "difference": "Znaczenie identyczne; druga forma jest krótsza i częstsza w Part 4.",
+     "when": "Gdy zdanie ma podmiot osobowy – zwykle forma z to."
+    },
+    {
+     "vs": "to be vs to have been",
+     "difference": "To be – równocześnie z mówieniem; to have been – wcześniej.",
+     "when": "He is said to have been ill (był chory wcześniej)."
+    },
+    {
+     "vs": "is thought to be doing vs is thought to do",
+     "difference": "Ciągła – coś dzieje się teraz; prosta – fakt/zwyczaj.",
+     "when": "Ukrywa się teraz → to be hiding."
+    }
+   ],
+   "mistakes": [
+    {
+     "wrong": "He is said that he is rich.",
+     "right": "He is said to be rich. / It is said that he is rich.",
+     "why": "Nie łączymy dwóch konstrukcji."
+    },
+    {
+     "wrong": "She is believed to leave yesterday.",
+     "right": "She is believed to have left yesterday.",
+     "why": "Czynność przeszła → to have left."
+    },
+    {
+     "wrong": "It is thought him to be guilty.",
+     "right": "He is thought to be guilty.",
+     "why": "Osoba staje się podmiotem."
+    },
+    {
+     "wrong": "The prices are expected rising.",
+     "right": "Prices are expected to rise.",
+     "why": "Po expected – to + bezokolicznik."
+    }
+   ],
+   "exceptions": [
+    "Czasownik suggest nie tworzy konstrukcji 'He is suggested to…' – używamy It is suggested that…",
+    "Say w stronie biernej z osobą: He is said to (nie: He is told to – to inne znaczenie: kazano mu).",
+    "Konstrukcja z there: There are thought to be 200 species."
+   ],
+   "advanced": [
+    {
+     "en": "The reforms are widely considered to have failed.",
+     "pl": "Powszechnie uważa się, że reformy się nie powiodły.",
+     "note": "Przysłówek + considered + to have."
+    },
+    {
+     "en": "It has been suggested that the deadline be extended.",
+     "pl": "Zasugerowano przedłużenie terminu.",
+     "note": "Połączenie z subjunctive."
+    },
+    {
+     "en": "Tourism is estimated to account for a tenth of the economy.",
+     "pl": "Szacuje się, że turystyka odpowiada za jedną dziesiątą gospodarki.",
+     "note": "Estimated + kolokacja account for."
+    }
+   ]
+  }
+ },
+ {
+  "slug": "participle-clauses",
+  "area": "Zdania imiesłowowe",
+  "title": "Zdania z imiesłowem (participle clauses)",
+  "position": 6,
+  "published": true,
+  "content": {
+   "explanation": "Zdanie imiesłowowe to skrócona wersja zdania podrzędnego. Zamiast 'Because I felt tired, I went to bed' mówimy 'Feeling tired, I went to bed'. Używamy: imiesłowu czynnego -ing (czynność równoczesna lub przyczyna), imiesłowu biernego -ed/3. forma (znaczenie bierne) oraz having + past participle (czynność wcześniejsza).",
+   "usage": "Zdania imiesłowowe są typowe dla pisma formalnego i literackiego. Pozwalają łączyć informacje zwięźle – egzaminatorzy C1 wysoko cenią je w kryterium 'Language'.",
+   "structure": {
+    "scheme": "-ing …, zdanie główne | Having + past participle …, zdanie główne | Past participle …, zdanie główne",
+    "word_order": "Walking home, I met Tom. / Having finished the report, she left. / Built in 1890, the bridge is still used.",
+    "affirmative": [
+     "Knowing the risks, he still went ahead.",
+     "Having lived abroad, she understands culture shock.",
+     "Written in simple language, the book is easy to read."
+    ],
+    "negative": [
+     "Not knowing what to do, I called my mum.",
+     "Not having received a reply, we wrote again."
+    ],
+    "questions": [
+     "Zdania imiesłowowe nie tworzą pytań – są częścią zdania oznajmującego."
+    ]
+   },
+   "examples": [
+    {
+     "en": "Opening the door, she saw a stranger.",
+     "pl": "Otwierając drzwi, zobaczyła nieznajomego.",
+     "why": "Czynność równoczesna."
+    },
+    {
+     "en": "Feeling ill, he stayed at home.",
+     "pl": "Ponieważ źle się czuł, został w domu.",
+     "why": "Przyczyna."
+    },
+    {
+     "en": "Having finished his homework, he went out.",
+     "pl": "Odrobiwszy lekcje, wyszedł.",
+     "why": "Czynność wcześniejsza → having + past participle."
+    },
+    {
+     "en": "Not wanting to disturb her, I left a note.",
+     "pl": "Nie chcąc jej przeszkadzać, zostawiłem kartkę.",
+     "why": "Przeczenie: not przed imiesłowem."
+    },
+    {
+     "en": "Founded in 1364, the university is one of the oldest in Europe.",
+     "pl": "Założony w 1364 roku uniwersytet jest jednym z najstarszych w Europie.",
+     "why": "Znaczenie bierne → past participle."
+    },
+    {
+     "en": "Shocked by the news, she couldn't speak.",
+     "pl": "Zszokowana wiadomością, nie mogła mówić.",
+     "why": "Bierne – coś ją zszokowało."
+    },
+    {
+     "en": "Having been warned, they took extra care.",
+     "pl": "Ponieważ zostali ostrzeżeni, zachowali szczególną ostrożność.",
+     "why": "Having been + past participle: bierne i wcześniejsze."
+    },
+    {
+     "en": "The man sitting next to me was snoring.",
+     "pl": "Mężczyzna siedzący obok mnie chrapał.",
+     "why": "Skrócone zdanie względne (who was sitting)."
+    },
+    {
+     "en": "Goods bought online can be returned within 14 days.",
+     "pl": "Towary kupione przez internet można zwrócić w ciągu 14 dni.",
+     "why": "Skrócone zdanie względne bierne (which are bought)."
+    },
+    {
+     "en": "While waiting for the bus, I read the news.",
+     "pl": "Czekając na autobus, czytałem wiadomości.",
+     "why": "Spójnik while + -ing."
+    },
+    {
+     "en": "After graduating, she moved to Kraków.",
+     "pl": "Po ukończeniu studiów przeprowadziła się do Krakowa.",
+     "why": "After + -ing."
+    }
+   ],
+   "comparison": [
+    {
+     "vs": "-ing vs having + past participle",
+     "difference": "-ing: równocześnie lub tuż przed; having done: wyraźnie wcześniej, zanim nastąpiło drugie.",
+     "when": "Having eaten, we left (najpierw jedzenie, potem wyjście)."
+    },
+    {
+     "vs": "-ing vs past participle",
+     "difference": "-ing: podmiot wykonuje czynność; past participle: czynność jest wykonywana na podmiocie.",
+     "when": "Exhausting vs exhausted – kto co komu robi."
+    },
+    {
+     "vs": "Participle clause vs pełne zdanie",
+     "difference": "Znaczenie podobne; forma imiesłowowa jest zwięźlejsza i formalna.",
+     "when": "W mailu do kolegi – pełne zdanie; w raporcie – imiesłów."
+    }
+   ],
+   "mistakes": [
+    {
+     "wrong": "Walking in the park, the rain started.",
+     "right": "Walking in the park, I got caught in the rain.",
+     "why": "Wiszący imiesłów: podmiot obu części musi być ten sam (deszcz nie spacerował)."
+    },
+    {
+     "wrong": "Having finish the test, he left.",
+     "right": "Having finished the test, he left.",
+     "why": "Po having – past participle."
+    },
+    {
+     "wrong": "Built the house in 1990, they sold it.",
+     "right": "Having built the house in 1990, they sold it.",
+     "why": "Znaczenie czynne i wcześniejsze → having built."
+    },
+    {
+     "wrong": "Don't knowing the answer, I guessed.",
+     "right": "Not knowing the answer, I guessed.",
+     "why": "Przeczenie: not, bez do."
+    }
+   ],
+   "exceptions": [
+    "Podmiot zdania imiesłowowego musi być taki sam jak zdania głównego (inaczej to błąd – dangling participle).",
+    "Wyjątek – utarte wyrażenia: Generally speaking, Judging by…, Considering…, Given… – mogą mieć inny podmiot.",
+    "Konstrukcja absolutna z własnym podmiotem jest formalna: The weather being fine, we went out."
+   ],
+   "advanced": [
+    {
+     "en": "Having weighed up the evidence, the committee rejected the proposal.",
+     "pl": "Rozważywszy dowody, komisja odrzuciła propozycję.",
+     "note": "Weigh up – kolokacja + having."
+    },
+    {
+     "en": "Faced with rising costs, many families are cutting back on heating.",
+     "pl": "W obliczu rosnących kosztów wiele rodzin ogranicza ogrzewanie.",
+     "note": "Faced with – bardzo częste w esejach."
+    },
+    {
+     "en": "Given the circumstances, the decision seems reasonable.",
+     "pl": "Biorąc pod uwagę okoliczności, decyzja wydaje się rozsądna.",
+     "note": "Given – utarte wyrażenie."
+    }
+   ]
+  }
+ },
+ {
+  "slug": "modals-past-deduction",
+  "area": "Czasowniki modalne",
+  "title": "Dedukcja i krytyka w przeszłości: must have, can't have, should have",
+  "position": 7,
+  "published": true,
+  "content": {
+   "explanation": "Modal + have + past participle pozwala mówić o przeszłości z różnym stopniem pewności lub oceniać przeszłe działania. must have done – jestem pewien, że tak było; can't/couldn't have done – jestem pewien, że tak nie było; may/might/could have done – możliwe, że tak było; should have / ought to have done – krytyka lub żal (powinien był, ale nie zrobił); needn't have done – zrobił, choć nie musiał.",
+   "usage": "To jedna z najczęściej sprawdzanych struktur w Part 4 i Speaking (spekulowanie o zdjęciach i sytuacjach). Pozwala precyzyjnie wyrazić pewność, wątpliwość i krytykę.",
+   "structure": {
+    "scheme": "podmiot + must/can't/might/could/should/needn't + have + past participle",
+    "word_order": "She must have forgotten. / He can't have seen us. / You should have told me.",
+    "affirmative": [
+     "They must have left early.",
+     "She might have missed the bus.",
+     "You should have called."
+    ],
+    "negative": [
+     "He can't have known about it.",
+     "She might not have received my message.",
+     "You shouldn't have shouted at him."
+    ],
+    "questions": [
+     "Could he have taken the wrong train?",
+     "Should I have told her the truth?"
+    ]
+   },
+   "examples": [
+    {
+     "en": "The streets are wet – it must have rained.",
+     "pl": "Ulice są mokre – musiało padać.",
+     "why": "Mocna dedukcja z dowodu."
+    },
+    {
+     "en": "She can't have finished already – she only started ten minutes ago.",
+     "pl": "Niemożliwe, żeby już skończyła – zaczęła dziesięć minut temu.",
+     "why": "Negatywna pewność → can't have (nie: mustn't have)."
+    },
+    {
+     "en": "He might have forgotten about the meeting.",
+     "pl": "Może zapomniał o spotkaniu.",
+     "why": "Możliwość."
+    },
+    {
+     "en": "They could have taken a taxi, but they walked.",
+     "pl": "Mogli wziąć taksówkę, ale poszli pieszo.",
+     "why": "Could have – niewykorzystana możliwość."
+    },
+    {
+     "en": "You should have told me you were vegetarian.",
+     "pl": "Powinieneś był mi powiedzieć, że jesteś wegetarianinem.",
+     "why": "Krytyka przeszłego działania."
+    },
+    {
+     "en": "I shouldn't have eaten so much.",
+     "pl": "Nie powinienem był tyle jeść.",
+     "why": "Żal."
+    },
+    {
+     "en": "You needn't have brought a present.",
+     "pl": "Niepotrzebnie przynosiłeś prezent.",
+     "why": "Zrobiłeś, choć nie było trzeba."
+    },
+    {
+     "en": "We didn't need to queue because we had tickets.",
+     "pl": "Nie musieliśmy stać w kolejce, bo mieliśmy bilety.",
+     "why": "Nie trzeba było i nie zrobiliśmy → didn't need to."
+    },
+    {
+     "en": "She must have been sleeping when I called.",
+     "pl": "Musiała spać, kiedy dzwoniłem.",
+     "why": "Forma ciągła: must have been + -ing."
+    },
+    {
+     "en": "The letter may have been lost in the post.",
+     "pl": "List mógł zaginąć na poczcie.",
+     "why": "Strona bierna: may have been + past participle."
+    },
+    {
+     "en": "He ought to have apologised.",
+     "pl": "Powinien był przeprosić.",
+     "why": "Ought to have = should have (bardziej formalnie)."
+    }
+   ],
+   "comparison": [
+    {
+     "vs": "can't have vs mustn't have",
+     "difference": "Dla negatywnej dedukcji używamy can't/couldn't have. Mustn't have nie jest używane w tym znaczeniu.",
+     "when": "He can't have seen it (na pewno nie widział)."
+    },
+    {
+     "vs": "needn't have done vs didn't need to do",
+     "difference": "Needn't have – zrobiłeś niepotrzebnie. Didn't need to – zwykle nie zrobiłeś, bo nie było trzeba.",
+     "when": "I needn't have hurried (pospieszyłem się na próżno)."
+    },
+    {
+     "vs": "could have vs might have",
+     "difference": "Obie oznaczają możliwość; could have dodatkowo – niewykorzystana szansa.",
+     "when": "You could have died! (było blisko)."
+    }
+   ],
+   "mistakes": [
+    {
+     "wrong": "He mustn't have heard me.",
+     "right": "He can't have heard me.",
+     "why": "Negatywna dedukcja → can't have."
+    },
+    {
+     "wrong": "She must has gone.",
+     "right": "She must have gone.",
+     "why": "Po modalnym zawsze have (nie has)."
+    },
+    {
+     "wrong": "You should have came earlier.",
+     "right": "You should have come earlier.",
+     "why": "Past participle: come."
+    },
+    {
+     "wrong": "I should of called you.",
+     "right": "I should have called you.",
+     "why": "'Of' to błąd wynikający z wymowy 'should've'."
+    }
+   ],
+   "exceptions": [
+    "Was/were to have done oznacza plan, który się nie spełnił: The bridge was to have opened in May.",
+    "Would have done bez if – wyobrażenie: I would have liked to see it.",
+    "W pytaniach o dedukcję używamy could, nie must: Could she have left?"
+   ],
+   "advanced": [
+    {
+     "en": "The ancient builders must have possessed remarkable engineering skills.",
+     "pl": "Starożytni budowniczowie musieli mieć niezwykłe umiejętności inżynieryjne.",
+     "note": "Dedukcja w tekście akademickim."
+    },
+    {
+     "en": "The authorities could have prevented the disaster had they acted sooner.",
+     "pl": "Władze mogły zapobiec katastrofie, gdyby zareagowały wcześniej.",
+     "note": "Połączenie z inwersją warunkową."
+    },
+    {
+     "en": "In hindsight, the company ought to have diversified much earlier.",
+     "pl": "Z perspektywy czasu firma powinna była zdywersyfikować działalność dużo wcześniej.",
+     "note": "In hindsight + ought to have."
+    }
+   ]
+  }
+ },
+ {
+  "slug": "subjunctive",
+  "area": "Tryby nierzeczywiste",
+  "title": "Tryb łączący (subjunctive) po suggest, insist, demand",
+  "position": 8,
+  "published": true,
+  "content": {
+   "explanation": "Po czasownikach i wyrażeniach takich jak suggest, recommend, insist, demand, propose, request, require, it is essential/vital/important that używamy formy podstawowej czasownika (bez -s, bez czasu przeszłego) dla wszystkich osób: The doctor recommended that he rest. To tzw. present subjunctive. W brytyjskim angielskim alternatywą jest should + bezokolicznik.",
+   "usage": "Subjunctive to cecha stylu formalnego: raporty, propozycje (Writing Part 2), oficjalne listy. Na egzaminie często sprawdzane w Open cloze i Part 4 (suggest/insist).",
+   "structure": {
+    "scheme": "suggest/insist/recommend + that + podmiot + forma podstawowa (lub should + forma podstawowa)",
+    "word_order": "I suggest that she apply. / It is vital that everyone be informed.",
+    "affirmative": [
+     "The manager insisted that he attend the meeting.",
+     "It is essential that every pupil have access to a computer.",
+     "We recommend that the report be published."
+    ],
+    "negative": [
+     "She suggested that we not tell anyone.",
+     "It is important that he not be disturbed."
+    ],
+    "questions": [
+     "Was it necessary that she leave so early?"
+    ]
+   },
+   "examples": [
+    {
+     "en": "I suggest that he see a doctor.",
+     "pl": "Sugeruję, żeby poszedł do lekarza.",
+     "why": "See bez -s (subjunctive)."
+    },
+    {
+     "en": "I suggest that he should see a doctor.",
+     "pl": "Sugeruję, żeby poszedł do lekarza.",
+     "why": "Wersja brytyjska z should."
+    },
+    {
+     "en": "The committee recommended that the plan be rejected.",
+     "pl": "Komisja zaleciła odrzucenie planu.",
+     "why": "Strona bierna: be + past participle."
+    },
+    {
+     "en": "She insisted that he pay for the damage.",
+     "pl": "Nalegała, żeby zapłacił za szkody.",
+     "why": "Pay, mimo przeszłego insisted."
+    },
+    {
+     "en": "It is vital that all staff be trained.",
+     "pl": "Kluczowe jest, aby cały personel został przeszkolony.",
+     "why": "It is vital that + be."
+    },
+    {
+     "en": "They demanded that the minister resign.",
+     "pl": "Zażądali dymisji ministra.",
+     "why": "Resign bez -s."
+    },
+    {
+     "en": "We propose that the meeting be postponed.",
+     "pl": "Proponujemy przełożenie spotkania.",
+     "why": "Typowe w propozycji."
+    },
+    {
+     "en": "It is important that she not miss the deadline.",
+     "pl": "Ważne jest, żeby nie przegapiła terminu.",
+     "why": "Przeczenie: not + forma podstawowa (bez do)."
+    },
+    {
+     "en": "I suggest going by train.",
+     "pl": "Proponuję pojechać pociągiem.",
+     "why": "Alternatywa: suggest + -ing."
+    },
+    {
+     "en": "The rules require that every visitor sign in.",
+     "pl": "Przepisy wymagają, by każdy gość się wpisał.",
+     "why": "Require that + forma podstawowa."
+    },
+    {
+     "en": "If need be, we can stay longer.",
+     "pl": "W razie potrzeby możemy zostać dłużej.",
+     "why": "Utarte wyrażenie z subjunctive."
+    }
+   ],
+   "comparison": [
+    {
+     "vs": "suggest that he go vs suggest him to go",
+     "difference": "Pierwsza forma poprawna; druga to częsty błąd – suggest nie łączy się z dopełnieniem + to.",
+     "when": "Używaj: suggest that sb (should) do / suggest doing."
+    },
+    {
+     "vs": "subjunctive vs should + bezokolicznik",
+     "difference": "Znaczenie identyczne; subjunctive jest bardziej formalny i amerykański, should – brytyjski.",
+     "when": "Oba poprawne na egzaminie."
+    },
+    {
+     "vs": "insist that he go vs insist that he went",
+     "difference": "Go – żądanie; went – twierdzenie o fakcie (upierał się, że poszedł).",
+     "when": "Znaczenie zależy od formy!"
+    }
+   ],
+   "mistakes": [
+    {
+     "wrong": "I suggest you to apply.",
+     "right": "I suggest that you apply. / I suggest applying.",
+     "why": "Suggest nie łączy się z dopełnieniem + to."
+    },
+    {
+     "wrong": "The doctor recommended that she rests.",
+     "right": "The doctor recommended that she rest.",
+     "why": "W subjunctive brak -s."
+    },
+    {
+     "wrong": "It is essential that he doesn't forget.",
+     "right": "It is essential that he not forget.",
+     "why": "Przeczenie bez do."
+    },
+    {
+     "wrong": "They demanded that he was punished.",
+     "right": "They demanded that he be punished.",
+     "why": "Strona bierna: be + past participle."
+    }
+   ],
+   "exceptions": [
+    "W mowie potocznej wiele osób używa zwykłego czasu (I suggest he goes) – na egzaminie bezpieczniej subjunctive lub should.",
+    "Utarte formy subjunctive: God save the King, Be that as it may, So be it, Come what may.",
+    "Were jako subjunctive przeszły pojawia się w if I were, as if it were, wish it were."
+   ],
+   "advanced": [
+    {
+     "en": "It is imperative that the findings be shared with the public.",
+     "pl": "Konieczne jest udostępnienie wyników opinii publicznej.",
+     "note": "Imperative = konieczne (bardzo formalnie)."
+    },
+    {
+     "en": "I would therefore recommend that the council reconsider its decision.",
+     "pl": "Dlatego zalecałbym, aby rada ponownie rozważyła decyzję.",
+     "note": "Gotowe zdanie do raportu/propozycji."
+    },
+    {
+     "en": "Come what may, we will finish the project.",
+     "pl": "Cokolwiek się stanie, ukończymy projekt.",
+     "note": "Utarte wyrażenie."
+    }
+   ]
+  }
+ },
+ {
+  "slug": "advanced-relative-clauses",
+  "area": "Zdania względne",
+  "title": "Zaawansowane zdania względne: whereby, of which, prepositions",
+  "position": 9,
+  "published": true,
+  "content": {
+   "explanation": "Na poziomie C1 zdania względne wykraczają poza who/which/that. Ważne konstrukcje: przyimek przed zaimkiem (the person to whom I spoke), kwantyfikatory z of whom/of which (some of whom, most of which, none of which), whose dla rzeczy (a company whose profits fell), whereby (dzięki któremu, w ramach którego), which odnoszące się do całego zdania (He failed, which surprised everyone) oraz zdania względne skrócone.",
+   "usage": "Pozwalają tworzyć długie, precyzyjne zdania w stylu formalnym – typowe dla raportów, esejów i tekstów Reading. W Open cloze często brakuje właśnie whom, whose, which lub whereby.",
+   "structure": {
+    "scheme": "rzeczownik + (przyimek) + who/whom/which/whose/whereby + zdanie  |  kwantyfikator + of whom/of which",
+    "word_order": "The candidates, all of whom were qualified… / a system whereby users pay monthly",
+    "affirmative": [
+     "The scientist to whom the prize was awarded is Polish.",
+     "He has three sisters, two of whom live abroad.",
+     "They introduced a scheme whereby staff can work from home."
+    ],
+    "negative": [
+     "The books, none of which I had read, were on the list.",
+     "It's a problem about which little is known."
+    ],
+    "questions": [
+     "To whom should I address the letter?",
+     "Which is the town in which you grew up?"
+    ]
+   },
+   "examples": [
+    {
+     "en": "The woman to whom I was speaking is the director.",
+     "pl": "Kobieta, z którą rozmawiałem, to dyrektorka.",
+     "why": "Przyimek przed whom – formalne."
+    },
+    {
+     "en": "The woman I was speaking to is the director.",
+     "pl": "Kobieta, z którą rozmawiałem, to dyrektorka.",
+     "why": "Wersja nieformalna – przyimek na końcu, bez zaimka."
+    },
+    {
+     "en": "I have two brothers, both of whom are doctors.",
+     "pl": "Mam dwóch braci; obaj są lekarzami.",
+     "why": "both of whom – nie both of them w zdaniu względnym."
+    },
+    {
+     "en": "She gave me several suggestions, most of which were useful.",
+     "pl": "Dała mi kilka sugestii, z których większość była przydatna.",
+     "why": "most of which dla rzeczy."
+    },
+    {
+     "en": "It was a decision whose consequences nobody foresaw.",
+     "pl": "Była to decyzja, której konsekwencji nikt nie przewidział.",
+     "why": "Whose także dla rzeczy."
+    },
+    {
+     "en": "The bank introduced a system whereby customers can pay by phone.",
+     "pl": "Bank wprowadził system, dzięki któremu klienci mogą płacić telefonem.",
+     "why": "Whereby = by which / through which."
+    },
+    {
+     "en": "He lost his job, which came as a shock.",
+     "pl": "Stracił pracę, co było szokiem.",
+     "why": "Which = co (odnosi się do całego zdania)."
+    },
+    {
+     "en": "This is the reason why I resigned.",
+     "pl": "To jest powód, dla którego zrezygnowałem.",
+     "why": "Reason why/that."
+    },
+    {
+     "en": "2008 was the year in which the crisis began.",
+     "pl": "2008 to rok, w którym zaczął się kryzys.",
+     "why": "In which = when (formalnie)."
+    },
+    {
+     "en": "The extent to which this affects children is unclear.",
+     "pl": "Nie jest jasne, w jakim stopniu wpływa to na dzieci.",
+     "why": "The extent to which – bardzo częste w esejach."
+    },
+    {
+     "en": "The village, the name of which I have forgotten, was beautiful.",
+     "pl": "Wioska, której nazwy zapomniałem, była piękna.",
+     "why": "The name of which = whose name."
+    }
+   ],
+   "comparison": [
+    {
+     "vs": "who vs whom",
+     "difference": "Who – podmiot lub nieformalne dopełnienie; whom – dopełnienie, zawsze po przyimku.",
+     "when": "To whom (nie: to who)."
+    },
+    {
+     "vs": "which vs that",
+     "difference": "That tylko w zdaniach definiujących, nie po przecinku i nie po przyimku.",
+     "when": "The book, which I liked… (nie: , that I liked)."
+    },
+    {
+     "vs": "whereby vs where",
+     "difference": "Where – miejsce; whereby – sposób/mechanizm.",
+     "when": "A scheme whereby… (nie: a scheme where w stylu formalnym)."
+    }
+   ],
+   "mistakes": [
+    {
+     "wrong": "I have two sisters, both of them live in Gdańsk.",
+     "right": "I have two sisters, both of whom live in Gdańsk.",
+     "why": "Bez zaimka względnego powstaje comma splice."
+    },
+    {
+     "wrong": "The man to who I spoke was rude.",
+     "right": "The man to whom I spoke was rude.",
+     "why": "Po przyimku – whom."
+    },
+    {
+     "wrong": "My car, that is ten years old, still works.",
+     "right": "My car, which is ten years old, still works.",
+     "why": "That nie stoi po przecinku."
+    },
+    {
+     "wrong": "The house in which I live in is old.",
+     "right": "The house in which I live is old.",
+     "why": "Przyimek tylko raz."
+    }
+   ],
+   "exceptions": [
+    "Phrasal verbs nie rozdzielamy: the problem which we came across (nie: across which we came).",
+    "W zdaniach niedefiniujących nie można pominąć zaimka.",
+    "Whose można zastąpić 'of which' tylko dla rzeczy: the house, the roof of which…"
+   ],
+   "advanced": [
+    {
+     "en": "The study, the findings of which were published last month, challenges previous assumptions.",
+     "pl": "Badanie, którego wyniki opublikowano w zeszłym miesiącu, podważa wcześniejsze założenia.",
+     "note": "Bardzo formalna struktura."
+    },
+    {
+     "en": "There are many ways in which technology can support learning.",
+     "pl": "Istnieje wiele sposobów, w jakie technologia może wspierać naukę.",
+     "note": "Ways in which – zamiast 'ways how' (błąd)."
+    },
+    {
+     "en": "The council should adopt a policy whereby new buildings must be energy-efficient.",
+     "pl": "Rada powinna przyjąć politykę, zgodnie z którą nowe budynki muszą być energooszczędne.",
+     "note": "Do propozycji/raportu."
+    }
+   ]
+  }
+ },
+ {
+  "slug": "future-perfect-and-continuous",
+  "area": "Czasy zaawansowane",
+  "title": "Future perfect i future continuous",
+  "position": 10,
+  "published": true,
+  "content": {
+   "explanation": "Future continuous (will be doing) opisuje czynność w trakcie w konkretnym momencie przyszłości lub zaplanowany, rutynowy przebieg wydarzeń. Future perfect (will have done) mówi o czynności zakończonej przed danym momentem w przyszłości. Future perfect continuous (will have been doing) podkreśla, jak długo coś będzie trwało do danego momentu.",
+   "usage": "Te czasy pozwalają precyzyjnie mówić o planach, terminach i prognozach (by 2030, by the time…). Częste w esejach o przyszłości, w Speaking (spekulowanie) i w Part 4.",
+   "structure": {
+    "scheme": "will be + -ing | will have + past participle | will have been + -ing",
+    "word_order": "This time tomorrow I'll be flying. / By June I'll have finished. / By May I'll have been working here for 10 years.",
+    "affirmative": [
+     "This time next week I'll be lying on a beach.",
+     "By 2030 we will have reduced emissions by half.",
+     "By Friday she'll have been working on it for a month."
+    ],
+    "negative": [
+     "I won't be using the car tomorrow.",
+     "They won't have finished by the deadline."
+    ],
+    "questions": [
+     "Will you be passing the post office?",
+     "Will they have arrived by the time we get there?"
+    ]
+   },
+   "examples": [
+    {
+     "en": "At 8 p.m. tomorrow I'll be watching the match.",
+     "pl": "Jutro o 20:00 będę oglądał mecz.",
+     "why": "Czynność w trakcie w przyszłości."
+    },
+    {
+     "en": "Don't call at noon – I'll be having lunch.",
+     "pl": "Nie dzwoń w południe – będę jadł obiad.",
+     "why": "Future continuous."
+    },
+    {
+     "en": "Will you be using the printer this afternoon?",
+     "pl": "Czy będziesz korzystał z drukarki po południu?",
+     "why": "Grzeczne pytanie o plany."
+    },
+    {
+     "en": "The train will be arriving at platform 4.",
+     "pl": "Pociąg wjedzie na peron 4.",
+     "why": "Zaplanowany przebieg."
+    },
+    {
+     "en": "By the end of the year, I'll have saved enough for a car.",
+     "pl": "Do końca roku odłożę dość na samochód.",
+     "why": "Zakończone przed momentem w przyszłości."
+    },
+    {
+     "en": "She'll have left by the time you arrive.",
+     "pl": "Zanim przyjedziesz, ona już wyjdzie.",
+     "why": "By the time + present simple."
+    },
+    {
+     "en": "By 2050, many species will have disappeared.",
+     "pl": "Do 2050 roku wiele gatunków zniknie.",
+     "why": "Prognoza w eseju."
+    },
+    {
+     "en": "Next month we'll have been married for twenty years.",
+     "pl": "W przyszłym miesiącu minie dwadzieścia lat, odkąd jesteśmy małżeństwem.",
+     "why": "Czasownik stanu → future perfect simple."
+    },
+    {
+     "en": "By June, he'll have been studying English for five years.",
+     "pl": "W czerwcu minie pięć lat, odkąd uczy się angielskiego.",
+     "why": "Czas trwania → perfect continuous."
+    },
+    {
+     "en": "I won't have finished the report before Monday.",
+     "pl": "Nie skończę raportu przed poniedziałkiem.",
+     "why": "Przeczenie."
+    },
+    {
+     "en": "You'll have heard the news, I suppose.",
+     "pl": "Pewnie słyszałeś już wiadomość.",
+     "why": "Future perfect jako przypuszczenie o teraźniejszości."
+    }
+   ],
+   "comparison": [
+    {
+     "vs": "will do vs will be doing",
+     "difference": "Will do – decyzja, obietnica, przewidywanie; will be doing – czynność w toku w przyszłości lub zwykły bieg rzeczy.",
+     "when": "Will you be coming? brzmi grzeczniej niż Will you come?"
+    },
+    {
+     "vs": "will have done vs will have been doing",
+     "difference": "Simple – rezultat (ile, co skończone); continuous – długość trwania.",
+     "when": "I'll have read 3 books / I'll have been reading for 3 hours."
+    },
+    {
+     "vs": "by vs until",
+     "difference": "By – najpóźniej do; until – aż do (ciągle do tego momentu).",
+     "when": "I'll have finished by 5 / I'll be working until 5."
+    }
+   ],
+   "mistakes": [
+    {
+     "wrong": "By the time you will arrive, I'll have cooked.",
+     "right": "By the time you arrive, I'll have cooked.",
+     "why": "Po by the time/when/before – czas teraźniejszy."
+    },
+    {
+     "wrong": "This time tomorrow I'll lie on the beach.",
+     "right": "This time tomorrow I'll be lying on the beach.",
+     "why": "Moment w trakcie → continuous."
+    },
+    {
+     "wrong": "By 2030 they will finish the bridge.",
+     "right": "By 2030 they will have finished the bridge.",
+     "why": "By + moment → perfect."
+    },
+    {
+     "wrong": "I'll have been knowing her for ten years.",
+     "right": "I'll have known her for ten years.",
+     "why": "Know to czasownik stanu – bez -ing."
+    }
+   ],
+   "exceptions": [
+    "Czasowniki stanu (know, own, believe, be) nie występują w formach continuous.",
+    "Future perfect może wyrażać przypuszczenie o przeszłości: They'll have landed by now.",
+    "W zdaniach czasowych używamy present perfect zamiast future perfect: When I've finished, I'll call."
+   ],
+   "advanced": [
+    {
+     "en": "By the time the policy takes effect, millions will have lost their savings.",
+     "pl": "Zanim polityka wejdzie w życie, miliony stracą oszczędności.",
+     "note": "By the time + present simple + future perfect."
+    },
+    {
+     "en": "Within a decade, electric cars will have overtaken petrol cars in sales.",
+     "pl": "W ciągu dekady samochody elektryczne prześcigną spalinowe pod względem sprzedaży.",
+     "note": "Within + okres."
+    },
+    {
+     "en": "Ministers will be meeting union leaders throughout the week.",
+     "pl": "Ministrowie będą się spotykać z liderami związków przez cały tydzień.",
+     "note": "Styl prasowy."
+    }
+   ]
+  }
+ }
+]
