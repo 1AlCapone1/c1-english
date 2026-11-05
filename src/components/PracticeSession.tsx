@@ -15,8 +15,9 @@ export function categoryFor(ex: Exercise): MistakeCategory {
 export function promptText(ex: Exercise) { const p = ex.prompt; return ex.task_type === "kwt" ? `${p.question} → (${p.keyword}) ${p.sentence2}` : p.question; }
 
 /** Runs exercises one by one with the mandatory correction loop; adds a similar follow-up task after each mistake. */
-export function PracticeSession({ title, items, pool = [], source, onFinish, onClose }: {
+export function PracticeSession({ title, items, pool = [], source, onFinish, onClose, onItemDone, finishLabel }: {
   title: string; items: Exercise[]; pool?: Exercise[]; source: string; onFinish?: (firstTryCorrect: number, total: number) => void; onClose?: () => void;
+  onItemDone?: (ex: Exercise, o: Outcome) => Promise<void> | void; finishLabel?: string;
 }) {
   const [queue, setQueue] = useState<(Exercise & { followUp?: boolean })[]>(items);
   const [i, setI] = useState(0);
@@ -31,6 +32,7 @@ export function PracticeSession({ title, items, pool = [], source, onFinish, onC
   async function handleDone(o: Outcome) {
     const ex = queue[i];
     setDone(o);
+    try { await onItemDone?.(ex, o); } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
     setStats((s) => ({ first: s.first + (o.firstTry ? 1 : 0), fixed: s.fixed + (o.firstTry ? 0 : 1), total: s.total + 1 }));
     if (!o.firstTry) {
       const similar = pool.find((p) => !used.current.has(p.id) && p.task_type === ex.task_type && (p.topic === ex.topic || p.grammar_lesson_id === ex.grammar_lesson_id))
@@ -58,7 +60,7 @@ export function PracticeSession({ title, items, pool = [], source, onFinish, onC
     <Progress value={(stats.first / Math.max(1, stats.total)) * 100} tone={stats.first / Math.max(1, stats.total) >= 0.75 ? "ok" : "warn"} />
     {stats.fixed > 0 && <p className="text-ink-soft">{stats.fixed} zadań poprawionych samodzielnie po błędzie – trafiły do Mistake Notebook.</p>}
     {saveErr && <Feedback tone="warn" title="Nie wszystko zapisało się w bazie">{saveErr}</Feedback>}
-    {onClose && <div><Button variant="quiet" onClick={onClose}>Wróć</Button></div>}
+    {onClose && <div><Button variant={finishLabel ? "primary" : "quiet"} onClick={onClose} data-testid="session-close">{finishLabel ?? "Wróć"}</Button></div>}
   </div></Card>;
   const ex = queue[i];
   return <div className="flex max-w-3xl flex-col gap-4">

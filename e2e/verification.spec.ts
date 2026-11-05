@@ -31,6 +31,8 @@ test("valid link → 'Potwierdź weryfikację' → success → app works → reu
   // log out, log in again with the verified account
   await page.evaluate(() => { Object.keys(localStorage).filter((k) => k.startsWith("sb-")).forEach((k) => localStorage.removeItem(k)); });
   await page.goto("./#/login");
+  await page.reload(); // drop the in-memory session too
+  await expect(page.getByTestId("email")).toBeVisible({ timeout: 20_000 });
   await page.getByTestId("email").fill(email);
   await page.getByTestId("password").fill(T.password!);
   await page.getByTestId("login-submit").click();

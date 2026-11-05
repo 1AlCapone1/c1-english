@@ -36,3 +36,14 @@ test("mistakes from the test appear in the Mistake Notebook", async ({ page }) =
   await page.goto("/#/mistakes");
   await expect(page.getByText(/test:mixed|flashcards/).first()).toBeVisible({ timeout: 15_000 });
 });
+test("daily lesson: plan with 4 blocks + review test, vocabulary block starts with typed answers", async ({ page }) => {
+  await login(page);
+  await page.getByTestId("continue").click();
+  await expect(page).toHaveURL(/#\/daily/);
+  await expect(page.getByRole("heading", { name: "Codzienna lekcja" })).toBeVisible();
+  for (const b of ["vocab", "grammar", "uoe", "review"]) await expect(page.getByTestId(`daily-${b}`)).toBeVisible();
+  await expect(page.getByTestId("daily-test")).toBeVisible();
+  await page.getByTestId("daily-vocab").click();
+  await expect(page.getByTestId("answer-input").first()).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByText(/krok 1 z 5/)).toBeVisible();
+});

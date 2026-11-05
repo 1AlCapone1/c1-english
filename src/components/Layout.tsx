@@ -5,7 +5,7 @@ import { applyTheme, currentTheme, type Theme } from "../lib/theme";
 import { Loading, cx } from "./ui";
 
 const NAV: (string | [string, string, string?])[] = [
-  ["/dashboard", "Pulpit"], ["/flashcards", "Fiszki", "★"], ["/tests", "Testy"], ["/mistakes", "Mistake Notebook"],
+  ["/dashboard", "Pulpit"], ["/daily", "Codzienna lekcja", "☀"], ["/flashcards", "Fiszki", "★"], ["/tests", "Testy"], ["/mistakes", "Mistake Notebook"],
   "Kurs",
   ["/vocabulary", "Vocabulary", "A"], ["/grammar", "Grammar", "B"], ["/use-of-english", "Use of English", "C"], ["/reading", "Reading", "D"],
   ["/listening", "Listening", "E"], ["/writing", "Writing", "F"], ["/speaking", "Speaking", "G"],

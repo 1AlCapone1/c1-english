@@ -25,10 +25,10 @@ export default function Dashboard() {
     const row = d.week.find((w) => w.day === key);
     days.push({ label: dt.toLocaleDateString("pl-PL", { day: "numeric" }), value: row ? Math.round(Number(row.minutes)) : 0 });
   }
-  const cont = () => nav(d.words_due > 0 ? "/flashcards?mode=due" : next ? `/grammar/${next.slug}` : "/flashcards");
+  const cont = () => nav("/daily");
   return <div>
     <PageHeader eyebrow={`Poziom ${profile?.level ?? "B2"}`} title={`Cześć, ${profile?.display_name || "uczniu"}!`} lead={d.words_due > 0 ? `Masz ${d.words_due} haseł do powtórki.` : next ? `Następna lekcja: ${next.title}.` : "Wszystko na bieżąco – wybierz moduł i ćwicz dalej."}
-      actions={<Button onClick={cont} data-testid="continue">Kontynuuj naukę →</Button>} />
+      actions={<Button onClick={cont} data-testid="continue">Codzienna lekcja (ok. 20 min) →</Button>} />
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       <Card><div className="text-xs font-bold uppercase tracking-widest text-ink-soft">Dzienny cel</div><div className="mt-2 font-display text-3xl font-extrabold tabular-nums">{Math.round(Number(d.today_minutes))}<span className="text-base font-normal text-ink-soft"> / {goal} min</span></div><div className="mt-3"><Progress value={goalPct} tone={goalPct >= 100 ? "ok" : "accent"} /></div></Card>
       <Stat label="Seria dni nauki" value={d.streak} sub={d.streak ? "dni z rzędu" : "zacznij dziś"} />
