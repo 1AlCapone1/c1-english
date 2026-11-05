@@ -9260,5 +9260,1783 @@
   ],
   "register": "formal",
   "usage_note": null
+ },
+ {
+  "term": "affect",
+  "kind": "confused",
+  "category": "academic",
+  "pos": "verb",
+  "ipa": "/əˈfekt/",
+  "level": "B2",
+  "translation_pl": "wpływać na",
+  "definition": "to have an influence on something (verb)",
+  "example": "The strike will *affect* thousands of passengers.",
+  "example_pl": "Strajk dotknie tysiące pasażerów.",
+  "collocations": [
+   "seriously affect",
+   "directly affect"
+  ],
+  "synonyms": [
+   "influence",
+   "impact on"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "Effect to zwykle rzeczownik (have an effect on). Effect jako czasownik = wprowadzić (effect change)."
+ },
+ {
+  "term": "effect",
+  "kind": "confused",
+  "category": "academic",
+  "pos": "noun",
+  "ipa": "/ɪˈfekt/",
+  "level": "B2",
+  "translation_pl": "skutek, efekt",
+  "definition": "a change that is the result of something",
+  "example": "The new law had little *effect* on crime.",
+  "example_pl": "Nowe prawo miało niewielki wpływ na przestępczość.",
+  "collocations": [
+   "have an effect on",
+   "side effect",
+   "take effect"
+  ],
+  "synonyms": [
+   "impact",
+   "consequence"
+  ],
+  "antonyms": [
+   "cause"
+  ],
+  "register": "neutral",
+  "usage_note": "Have an effect ON (nie: in, to)."
+ },
+ {
+  "term": "principal",
+  "kind": "confused",
+  "category": "education",
+  "pos": "adjective",
+  "ipa": "/ˈprɪnsəpl/",
+  "level": "C1",
+  "translation_pl": "główny; dyrektor szkoły",
+  "definition": "most important; the head of a school",
+  "example": "The *principal* reason for the delay was a lack of staff.",
+  "example_pl": "Głównym powodem opóźnienia był brak personelu.",
+  "collocations": [
+   "principal reason",
+   "principal aim"
+  ],
+  "synonyms": [
+   "main",
+   "chief"
+  ],
+  "antonyms": [
+   "minor"
+  ],
+  "register": "formal",
+  "usage_note": "Principle = zasada (a matter of principle)."
+ },
+ {
+  "term": "principle",
+  "kind": "confused",
+  "category": "academic",
+  "pos": "noun",
+  "ipa": "/ˈprɪnsəpl/",
+  "level": "C1",
+  "translation_pl": "zasada",
+  "definition": "a basic idea or rule",
+  "example": "She refused on *principle*.",
+  "example_pl": "Odmówiła z zasady.",
+  "collocations": [
+   "in principle",
+   "on principle",
+   "basic principle"
+  ],
+  "synonyms": [
+   "rule",
+   "tenet"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "In principle = w teorii; on principle = z zasady."
+ },
+ {
+  "term": "economic",
+  "kind": "confused",
+  "category": "business",
+  "pos": "adjective",
+  "ipa": "/ˌiːkəˈnɒmɪk/",
+  "level": "B2",
+  "translation_pl": "gospodarczy, ekonomiczny",
+  "definition": "relating to the economy",
+  "example": "The country is in the middle of an *economic* crisis.",
+  "example_pl": "Kraj jest w środku kryzysu gospodarczego.",
+  "collocations": [
+   "economic growth",
+   "economic policy"
+  ],
+  "synonyms": [
+   "financial",
+   "fiscal"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "Economical = oszczędny (an economical car)."
+ },
+ {
+  "term": "economical",
+  "kind": "confused",
+  "category": "business",
+  "pos": "adjective",
+  "ipa": "/ˌiːkəˈnɒmɪkl/",
+  "level": "C1",
+  "translation_pl": "oszczędny, ekonomiczny w użyciu",
+  "definition": "using little money or fuel",
+  "example": "Small cars are more *economical* to run.",
+  "example_pl": "Małe samochody są tańsze w eksploatacji.",
+  "collocations": [
+   "economical with sth",
+   "economical to run"
+  ],
+  "synonyms": [
+   "thrifty",
+   "cost-effective"
+  ],
+  "antonyms": [
+   "wasteful"
+  ],
+  "register": "neutral",
+  "usage_note": "Economical with the truth = mijający się z prawdą."
+ },
+ {
+  "term": "sensible",
+  "kind": "confused",
+  "category": "personal",
+  "pos": "adjective",
+  "ipa": "/ˈsensəbl/",
+  "level": "B2",
+  "translation_pl": "rozsądny",
+  "definition": "showing good judgement",
+  "example": "It would be *sensible* to book in advance.",
+  "example_pl": "Rozsądnie byłoby zarezerwować z wyprzedzeniem.",
+  "collocations": [
+   "sensible decision",
+   "sensible shoes"
+  ],
+  "synonyms": [
+   "reasonable",
+   "prudent"
+  ],
+  "antonyms": [
+   "foolish"
+  ],
+  "register": "neutral",
+  "usage_note": "Fałszywy przyjaciel! 'Wrażliwy' to sensitive."
+ },
+ {
+  "term": "sensitive",
+  "kind": "confused",
+  "category": "personal",
+  "pos": "adjective",
+  "ipa": "/ˈsensətɪv/",
+  "level": "B2",
+  "translation_pl": "wrażliwy; drażliwy",
+  "definition": "easily hurt or affected; needing careful treatment",
+  "example": "Pay is a *sensitive* issue in the company.",
+  "example_pl": "Płace to w firmie drażliwy temat.",
+  "collocations": [
+   "sensitive issue",
+   "sensitive to criticism"
+  ],
+  "synonyms": [
+   "delicate",
+   "touchy"
+  ],
+  "antonyms": [
+   "insensitive"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "eventually",
+  "kind": "confused",
+  "category": "academic",
+  "pos": "adverb",
+  "ipa": "/ɪˈventʃuəli/",
+  "level": "B2",
+  "translation_pl": "ostatecznie, w końcu",
+  "definition": "in the end, after a long time",
+  "example": "We *eventually* found the hotel after an hour.",
+  "example_pl": "Po godzinie w końcu znaleźliśmy hotel.",
+  "collocations": [],
+  "synonyms": [],
+  "antonyms": [
+   "initially"
+  ],
+  "register": "neutral",
+  "usage_note": "Fałszywy przyjaciel! 'Ewentualnie' = possibly / alternatively."
+ },
+ {
+  "term": "actually",
+  "kind": "confused",
+  "category": "academic",
+  "pos": "adverb",
+  "ipa": "/ˈæktʃuəli/",
+  "level": "B2",
+  "translation_pl": "właściwie, w rzeczywistości",
+  "definition": "in fact; really",
+  "example": "He looks strict, but he's *actually* very kind.",
+  "example_pl": "Wygląda na surowego, ale tak naprawdę jest bardzo miły.",
+  "collocations": [],
+  "synonyms": [
+   "in fact",
+   "really"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "Fałszywy przyjaciel! 'Aktualnie' = currently."
+ },
+ {
+  "term": "lay",
+  "kind": "confused",
+  "category": "academic",
+  "pos": "verb",
+  "ipa": "/leɪ/",
+  "level": "B2",
+  "translation_pl": "kłaść",
+  "definition": "to put something down carefully (laid, laid)",
+  "example": "She *laid* the documents on the desk.",
+  "example_pl": "Położyła dokumenty na biurku.",
+  "collocations": [
+   "lay the table",
+   "lay foundations"
+  ],
+  "synonyms": [
+   "place",
+   "put"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "Lie (lay, lain) = leżeć – bez dopełnienia."
+ },
+ {
+  "term": "rise",
+  "kind": "confused",
+  "category": "business",
+  "pos": "verb",
+  "ipa": "/raɪz/",
+  "level": "B2",
+  "translation_pl": "rosnąć, wznosić się",
+  "definition": "to go up (no object; rose, risen)",
+  "example": "Prices have *risen* by 5%.",
+  "example_pl": "Ceny wzrosły o 5%.",
+  "collocations": [
+   "rise sharply",
+   "rise steadily"
+  ],
+  "synonyms": [
+   "increase",
+   "climb"
+  ],
+  "antonyms": [
+   "fall"
+  ],
+  "register": "neutral",
+  "usage_note": "Raise (raised) wymaga dopełnienia: raise prices."
+ },
+ {
+  "term": "fewer",
+  "kind": "confused",
+  "category": "academic",
+  "pos": "determiner",
+  "ipa": "/ˈfjuːə/",
+  "level": "B2",
+  "translation_pl": "mniej (policzalne)",
+  "definition": "a smaller number of",
+  "example": "*Fewer* students are choosing languages.",
+  "example_pl": "Coraz mniej studentów wybiera języki.",
+  "collocations": [
+   "far fewer"
+  ],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "Less dla niepoliczalnych: less money, fewer coins."
+ },
+ {
+  "term": "discrete",
+  "kind": "confused",
+  "category": "science",
+  "pos": "adjective",
+  "ipa": "/dɪˈskriːt/",
+  "level": "C2",
+  "translation_pl": "oddzielny, odrębny",
+  "definition": "clearly separate",
+  "example": "The process can be divided into three *discrete* stages.",
+  "example_pl": "Proces można podzielić na trzy odrębne etapy.",
+  "collocations": [
+   "discrete stages",
+   "discrete units"
+  ],
+  "synonyms": [
+   "separate",
+   "distinct"
+  ],
+  "antonyms": [
+   "continuous"
+  ],
+  "register": "academic",
+  "usage_note": "Discreet = dyskretny."
+ },
+ {
+  "term": "compliment",
+  "kind": "confused",
+  "category": "relationships",
+  "pos": "noun",
+  "ipa": "/ˈkɒmplɪmənt/",
+  "level": "B2",
+  "translation_pl": "komplement",
+  "definition": "a remark that expresses praise",
+  "example": "She paid me a *compliment* on my English.",
+  "example_pl": "Powiedziała mi komplement na temat mojego angielskiego.",
+  "collocations": [
+   "pay sb a compliment",
+   "take sth as a compliment"
+  ],
+  "synonyms": [
+   "praise"
+  ],
+  "antonyms": [
+   "insult"
+  ],
+  "register": "neutral",
+  "usage_note": "Complement = uzupełnienie (to complement = uzupełniać)."
+ },
+ {
+  "term": "decisive",
+  "kind": "word_formation",
+  "category": "personal",
+  "pos": "adjective",
+  "ipa": "/dɪˈsaɪsɪv/",
+  "level": "C1",
+  "translation_pl": "zdecydowany; rozstrzygający",
+  "definition": "able to make decisions quickly; having a big influence on the result",
+  "example": "Her goal proved *decisive* in the final.",
+  "example_pl": "Jej gol okazał się rozstrzygający w finale.",
+  "collocations": [
+   "decisive factor",
+   "decisive action"
+  ],
+  "synonyms": [
+   "resolute",
+   "conclusive"
+  ],
+  "antonyms": [
+   "indecisive"
+  ],
+  "register": "neutral",
+  "usage_note": "Rodzina: decide – decision – decisive – decisively – indecisive."
+ },
+ {
+  "term": "reliance",
+  "kind": "word_formation",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/rɪˈlaɪəns/",
+  "level": "C1",
+  "translation_pl": "poleganie, zależność",
+  "definition": "the state of depending on something",
+  "example": "Our *reliance* on fossil fuels must end.",
+  "example_pl": "Nasze uzależnienie od paliw kopalnych musi się skończyć.",
+  "collocations": [
+   "reliance on sth",
+   "heavy reliance"
+  ],
+  "synonyms": [
+   "dependence"
+  ],
+  "antonyms": [
+   "independence"
+  ],
+  "register": "formal",
+  "usage_note": "Rodzina: rely – reliance – reliable – reliability – unreliable."
+ },
+ {
+  "term": "inevitably",
+  "kind": "word_formation",
+  "category": "academic",
+  "pos": "adverb",
+  "ipa": "/ɪnˈevɪtəbli/",
+  "level": "C1",
+  "translation_pl": "nieuchronnie",
+  "definition": "in a way that cannot be avoided",
+  "example": "Change *inevitably* creates some resistance.",
+  "example_pl": "Zmiana nieuchronnie wywołuje opór.",
+  "collocations": [],
+  "synonyms": [
+   "unavoidably",
+   "necessarily"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": "Rodzina: inevitable – inevitably – inevitability."
+ },
+ {
+  "term": "unprecedented",
+  "kind": "word_formation",
+  "category": "politics",
+  "pos": "adjective",
+  "ipa": "/ʌnˈpresɪdentɪd/",
+  "level": "C1",
+  "translation_pl": "bezprecedensowy",
+  "definition": "never having happened before",
+  "example": "The pandemic caused *unprecedented* disruption.",
+  "example_pl": "Pandemia wywołała bezprecedensowe zakłócenia.",
+  "collocations": [
+   "unprecedented scale",
+   "unprecedented levels"
+  ],
+  "synonyms": [
+   "unparalleled",
+   "unheard-of"
+  ],
+  "antonyms": [
+   "common"
+  ],
+  "register": "neutral",
+  "usage_note": "Rodzina: precede – precedent – unprecedented."
+ },
+ {
+  "term": "irreplaceable",
+  "kind": "word_formation",
+  "category": "personal",
+  "pos": "adjective",
+  "ipa": "/ˌɪrɪˈpleɪsəbl/",
+  "level": "C1",
+  "translation_pl": "niezastąpiony",
+  "definition": "too special to be replaced",
+  "example": "Some of the stolen paintings are *irreplaceable*.",
+  "example_pl": "Niektóre ze skradzionych obrazów są niezastąpione.",
+  "collocations": [],
+  "synonyms": [
+   "unique",
+   "priceless"
+  ],
+  "antonyms": [
+   "replaceable"
+  ],
+  "register": "neutral",
+  "usage_note": "Rodzina: place – replace – replacement – irreplaceable."
+ },
+ {
+  "term": "accessibility",
+  "kind": "word_formation",
+  "category": "travel",
+  "pos": "noun",
+  "ipa": "/əkˌsesəˈbɪləti/",
+  "level": "C1",
+  "translation_pl": "dostępność",
+  "definition": "how easy something is to reach or use",
+  "example": "The museum has improved *accessibility* for wheelchair users.",
+  "example_pl": "Muzeum poprawiło dostępność dla osób na wózkach.",
+  "collocations": [
+   "improve accessibility"
+  ],
+  "synonyms": [
+   "availability"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "Rodzina: access – accessible – inaccessible – accessibility."
+ },
+ {
+  "term": "misconception",
+  "kind": "word_formation",
+  "category": "academic",
+  "pos": "noun",
+  "ipa": "/ˌmɪskənˈsepʃn/",
+  "level": "C1",
+  "translation_pl": "błędne przekonanie",
+  "definition": "a belief that is not based on correct information",
+  "example": "It's a *misconception* that bats are blind.",
+  "example_pl": "To błędne przekonanie, że nietoperze są ślepe.",
+  "collocations": [
+   "common misconception",
+   "popular misconception"
+  ],
+  "synonyms": [
+   "fallacy",
+   "myth"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "Prefiks mis- = błędnie (misunderstand, mislead)."
+ },
+ {
+  "term": "outnumber",
+  "kind": "word_formation",
+  "category": "politics",
+  "pos": "verb",
+  "ipa": "/ˌaʊtˈnʌmbə/",
+  "level": "C1",
+  "translation_pl": "przewyższać liczebnie",
+  "definition": "to be greater in number than",
+  "example": "Women now *outnumber* men at many universities.",
+  "example_pl": "Kobiety przewyższają dziś liczebnie mężczyzn na wielu uczelniach.",
+  "collocations": [
+   "heavily outnumber"
+  ],
+  "synonyms": [
+   "exceed"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "Prefiks out- = bardziej niż (outperform, outlive)."
+ },
+ {
+  "term": "underestimate",
+  "kind": "word_formation",
+  "category": "academic",
+  "pos": "verb",
+  "ipa": "/ˌʌndərˈestɪmeɪt/",
+  "level": "C1",
+  "translation_pl": "niedoceniać",
+  "definition": "to think something is smaller or less important than it is",
+  "example": "Never *underestimate* the power of habit.",
+  "example_pl": "Nigdy nie lekceważ siły nawyku.",
+  "collocations": [
+   "seriously underestimate"
+  ],
+  "synonyms": [
+   "undervalue"
+  ],
+  "antonyms": [
+   "overestimate"
+  ],
+  "register": "neutral",
+  "usage_note": "Prefiks under- = za mało."
+ },
+ {
+  "term": "widen",
+  "kind": "word_formation",
+  "category": "politics",
+  "pos": "verb",
+  "ipa": "/ˈwaɪdn/",
+  "level": "C1",
+  "translation_pl": "poszerzać",
+  "definition": "to become or make wider",
+  "example": "The gap between rich and poor has *widened*.",
+  "example_pl": "Przepaść między bogatymi a biednymi się pogłębiła.",
+  "collocations": [
+   "widen the gap",
+   "widen access"
+  ],
+  "synonyms": [
+   "broaden"
+  ],
+  "antonyms": [
+   "narrow"
+  ],
+  "register": "neutral",
+  "usage_note": "Sufiks -en: widen, strengthen, lengthen, broaden."
+ },
+ {
+  "term": "hospitable",
+  "kind": "word",
+  "category": "travel",
+  "pos": "adjective",
+  "ipa": "/hɒˈspɪtəbl/",
+  "level": "C1",
+  "translation_pl": "gościnny",
+  "definition": "friendly and welcoming to guests",
+  "example": "The locals were incredibly *hospitable*.",
+  "example_pl": "Miejscowi byli niezwykle gościnni.",
+  "collocations": [
+   "hospitable people"
+  ],
+  "synonyms": [
+   "welcoming",
+   "generous"
+  ],
+  "antonyms": [
+   "inhospitable"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "picturesque",
+  "kind": "word",
+  "category": "travel",
+  "pos": "adjective",
+  "ipa": "/ˌpɪktʃəˈresk/",
+  "level": "C1",
+  "translation_pl": "malowniczy",
+  "definition": "attractive in appearance, especially old-fashioned",
+  "example": "We stayed in a *picturesque* fishing village.",
+  "example_pl": "Zatrzymaliśmy się w malowniczej wiosce rybackiej.",
+  "collocations": [
+   "picturesque village",
+   "picturesque setting"
+  ],
+  "synonyms": [
+   "scenic",
+   "charming"
+  ],
+  "antonyms": [
+   "ugly"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "congestion",
+  "kind": "word",
+  "category": "environment",
+  "pos": "noun",
+  "ipa": "/kənˈdʒestʃən/",
+  "level": "C1",
+  "translation_pl": "zator, korki",
+  "definition": "a situation in which a place is too crowded with traffic",
+  "example": "The city introduced a charge to reduce *congestion*.",
+  "example_pl": "Miasto wprowadziło opłatę, by zmniejszyć korki.",
+  "collocations": [
+   "traffic congestion",
+   "congestion charge"
+  ],
+  "synonyms": [
+   "traffic jams",
+   "overcrowding"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "emissions",
+  "kind": "word",
+  "category": "environment",
+  "pos": "noun",
+  "ipa": "/iˈmɪʃnz/",
+  "level": "C1",
+  "translation_pl": "emisje",
+  "definition": "gases sent out into the air",
+  "example": "The factory must cut its carbon *emissions*.",
+  "example_pl": "Fabryka musi ograniczyć emisję dwutlenku węgla.",
+  "collocations": [
+   "cut emissions",
+   "carbon emissions",
+   "reduce emissions"
+  ],
+  "synonyms": [
+   "discharge"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "renewable",
+  "kind": "word",
+  "category": "environment",
+  "pos": "adjective",
+  "ipa": "/rɪˈnjuːəbl/",
+  "level": "C1",
+  "translation_pl": "odnawialny",
+  "definition": "able to be replaced naturally",
+  "example": "Wind and solar are *renewable* sources of energy.",
+  "example_pl": "Wiatr i słońce to odnawialne źródła energii.",
+  "collocations": [
+   "renewable energy",
+   "renewable resources"
+  ],
+  "synonyms": [
+   "sustainable"
+  ],
+  "antonyms": [
+   "non-renewable"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "sustainable",
+  "kind": "word",
+  "category": "environment",
+  "pos": "adjective",
+  "ipa": "/səˈsteɪnəbl/",
+  "level": "C1",
+  "translation_pl": "zrównoważony",
+  "definition": "able to continue without harming the environment",
+  "example": "We need more *sustainable* forms of transport.",
+  "example_pl": "Potrzebujemy bardziej zrównoważonych form transportu.",
+  "collocations": [
+   "sustainable development",
+   "environmentally sustainable"
+  ],
+  "synonyms": [
+   "eco-friendly",
+   "green"
+  ],
+  "antonyms": [
+   "unsustainable"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "endangered",
+  "kind": "word",
+  "category": "environment",
+  "pos": "adjective",
+  "ipa": "/ɪnˈdeɪndʒəd/",
+  "level": "C1",
+  "translation_pl": "zagrożony wyginięciem",
+  "definition": "at risk of no longer existing",
+  "example": "The tiger is an *endangered* species.",
+  "example_pl": "Tygrys jest gatunkiem zagrożonym wyginięciem.",
+  "collocations": [
+   "endangered species"
+  ],
+  "synonyms": [
+   "threatened",
+   "at risk"
+  ],
+  "antonyms": [
+   "thriving"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "landfill",
+  "kind": "word",
+  "category": "environment",
+  "pos": "noun",
+  "ipa": "/ˈlændfɪl/",
+  "level": "C1",
+  "translation_pl": "wysypisko",
+  "definition": "a place where waste is buried",
+  "example": "Most plastic still ends up in *landfill*.",
+  "example_pl": "Większość plastiku wciąż trafia na wysypiska.",
+  "collocations": [
+   "go to landfill",
+   "landfill site"
+  ],
+  "synonyms": [
+   "dump",
+   "tip"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "scarcity",
+  "kind": "word",
+  "category": "environment",
+  "pos": "noun",
+  "ipa": "/ˈskeəsəti/",
+  "level": "C1",
+  "translation_pl": "niedobór",
+  "definition": "a situation in which something is not easy to find",
+  "example": "Water *scarcity* is a growing problem.",
+  "example_pl": "Niedobór wody to narastający problem.",
+  "collocations": [
+   "water scarcity",
+   "scarcity of resources"
+  ],
+  "synonyms": [
+   "shortage",
+   "lack"
+  ],
+  "antonyms": [
+   "abundance"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "outbreak",
+  "kind": "word",
+  "category": "health",
+  "pos": "noun",
+  "ipa": "/ˈaʊtbreɪk/",
+  "level": "C1",
+  "translation_pl": "wybuch (epidemii, wojny)",
+  "definition": "the sudden start of something unpleasant",
+  "example": "There has been an *outbreak* of flu in the area.",
+  "example_pl": "W okolicy wybuchła epidemia grypy.",
+  "collocations": [
+   "outbreak of disease",
+   "outbreak of war"
+  ],
+  "synonyms": [
+   "epidemic",
+   "eruption"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "well-being",
+  "kind": "word",
+  "category": "health",
+  "pos": "noun",
+  "ipa": "/ˌwel ˈbiːɪŋ/",
+  "level": "C1",
+  "translation_pl": "dobrostan, dobre samopoczucie",
+  "definition": "the state of feeling healthy and happy",
+  "example": "Exercise is good for mental *well-being*.",
+  "example_pl": "Ruch sprzyja dobremu samopoczuciu psychicznemu.",
+  "collocations": [
+   "mental well-being",
+   "sense of well-being"
+  ],
+  "synonyms": [
+   "welfare",
+   "health"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "Pisane też wellbeing."
+ },
+ {
+  "term": "symptom",
+  "kind": "word",
+  "category": "health",
+  "pos": "noun",
+  "ipa": "/ˈsɪmptəm/",
+  "level": "B2",
+  "translation_pl": "objaw",
+  "definition": "a sign of an illness",
+  "example": "Fever is a common *symptom* of infection.",
+  "example_pl": "Gorączka to częsty objaw infekcji.",
+  "collocations": [
+   "common symptom",
+   "show symptoms"
+  ],
+  "synonyms": [
+   "sign",
+   "indication"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "deteriorate",
+  "kind": "word",
+  "category": "health",
+  "pos": "verb",
+  "ipa": "/dɪˈtɪəriəreɪt/",
+  "level": "C1",
+  "translation_pl": "pogarszać się",
+  "definition": "to become worse",
+  "example": "His health *deteriorated* rapidly.",
+  "example_pl": "Jego zdrowie gwałtownie się pogorszyło.",
+  "collocations": [
+   "deteriorate rapidly",
+   "deteriorating conditions"
+  ],
+  "synonyms": [
+   "worsen",
+   "decline"
+  ],
+  "antonyms": [
+   "improve"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "relapse",
+  "kind": "word",
+  "category": "health",
+  "pos": "noun",
+  "ipa": "/ˈriːlæps/",
+  "level": "C1",
+  "translation_pl": "nawrót (choroby)",
+  "definition": "a return to illness after improving",
+  "example": "She suffered a *relapse* after leaving hospital.",
+  "example_pl": "Po wyjściu ze szpitala nastąpił u niej nawrót choroby.",
+  "collocations": [
+   "suffer a relapse"
+  ],
+  "synonyms": [
+   "setback",
+   "recurrence"
+  ],
+  "antonyms": [
+   "recovery"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "peer pressure",
+  "kind": "word",
+  "category": "education",
+  "pos": "noun",
+  "ipa": "/ˈpɪə ˌpreʃə/",
+  "level": "C1",
+  "translation_pl": "presja rówieśników",
+  "definition": "influence from people of your own age",
+  "example": "Many teenagers start smoking because of *peer pressure*.",
+  "example_pl": "Wielu nastolatków zaczyna palić pod wpływem presji rówieśników.",
+  "collocations": [
+   "give in to peer pressure"
+  ],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "tuition fees",
+  "kind": "word",
+  "category": "education",
+  "pos": "noun",
+  "ipa": "/tjuˈɪʃn fiːz/",
+  "level": "C1",
+  "translation_pl": "czesne",
+  "definition": "money paid for teaching at a university or college",
+  "example": "*Tuition fees* have risen sharply in recent years.",
+  "example_pl": "Czesne gwałtownie wzrosło w ostatnich latach.",
+  "collocations": [
+   "pay tuition fees",
+   "abolish tuition fees"
+  ],
+  "synonyms": [
+   "fees"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "plagiarism",
+  "kind": "word",
+  "category": "education",
+  "pos": "noun",
+  "ipa": "/ˈpleɪdʒərɪzəm/",
+  "level": "C1",
+  "translation_pl": "plagiat",
+  "definition": "copying someone else's work and presenting it as your own",
+  "example": "The student was expelled for *plagiarism*.",
+  "example_pl": "Studenta wyrzucono za plagiat.",
+  "collocations": [
+   "accuse sb of plagiarism"
+  ],
+  "synonyms": [
+   "copying"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "mentor",
+  "kind": "word",
+  "category": "work",
+  "pos": "noun",
+  "ipa": "/ˈmentɔː/",
+  "level": "C1",
+  "translation_pl": "mentor, opiekun",
+  "definition": "an experienced person who advises someone less experienced",
+  "example": "Every new employee is assigned a *mentor*.",
+  "example_pl": "Każdy nowy pracownik otrzymuje opiekuna.",
+  "collocations": [
+   "act as a mentor"
+  ],
+  "synonyms": [
+   "adviser",
+   "guide"
+  ],
+  "antonyms": [
+   "mentee"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "workload",
+  "kind": "word",
+  "category": "work",
+  "pos": "noun",
+  "ipa": "/ˈwɜːkləʊd/",
+  "level": "C1",
+  "translation_pl": "obciążenie pracą",
+  "definition": "the amount of work a person has to do",
+  "example": "Teachers complain about their heavy *workload*.",
+  "example_pl": "Nauczyciele skarżą się na duże obciążenie pracą.",
+  "collocations": [
+   "heavy workload",
+   "reduce the workload"
+  ],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "burnout",
+  "kind": "word",
+  "category": "work",
+  "pos": "noun",
+  "ipa": "/ˈbɜːnaʊt/",
+  "level": "C1",
+  "translation_pl": "wypalenie zawodowe",
+  "definition": "extreme tiredness caused by working too hard",
+  "example": "Long hours can lead to *burnout*.",
+  "example_pl": "Długie godziny pracy mogą prowadzić do wypalenia.",
+  "collocations": [
+   "suffer from burnout"
+  ],
+  "synonyms": [
+   "exhaustion"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "entrepreneur",
+  "kind": "word",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/ˌɒntrəprəˈnɜː/",
+  "level": "C1",
+  "translation_pl": "przedsiębiorca",
+  "definition": "a person who starts their own business",
+  "example": "She is a successful tech *entrepreneur*.",
+  "example_pl": "Jest odnoszącą sukcesy przedsiębiorczynią w branży technologicznej.",
+  "collocations": [
+   "young entrepreneur",
+   "serial entrepreneur"
+  ],
+  "synonyms": [
+   "business owner"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "revenue",
+  "kind": "word",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/ˈrevənjuː/",
+  "level": "C1",
+  "translation_pl": "przychód",
+  "definition": "income, especially of a company or government",
+  "example": "Advertising is the site's main source of *revenue*.",
+  "example_pl": "Reklamy to główne źródło przychodu serwisu.",
+  "collocations": [
+   "generate revenue",
+   "tax revenue"
+  ],
+  "synonyms": [
+   "income",
+   "turnover"
+  ],
+  "antonyms": [
+   "expenditure"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "merger",
+  "kind": "word",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/ˈmɜːdʒə/",
+  "level": "C1",
+  "translation_pl": "fuzja",
+  "definition": "the joining of two companies",
+  "example": "The *merger* created the largest bank in the country.",
+  "example_pl": "Fuzja stworzyła największy bank w kraju.",
+  "collocations": [
+   "merger with sth",
+   "mergers and acquisitions"
+  ],
+  "synonyms": [
+   "amalgamation"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "shareholder",
+  "kind": "word",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/ˈʃeəhəʊldə/",
+  "level": "C1",
+  "translation_pl": "akcjonariusz",
+  "definition": "someone who owns shares in a company",
+  "example": "*Shareholders* voted against the proposal.",
+  "example_pl": "Akcjonariusze zagłosowali przeciw propozycji.",
+  "collocations": [
+   "major shareholder"
+  ],
+  "synonyms": [
+   "stockholder"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "boom",
+  "kind": "word",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/buːm/",
+  "level": "C1",
+  "translation_pl": "boom, okres szybkiego wzrostu",
+  "definition": "a period of rapid economic growth",
+  "example": "The town grew rapidly during the oil *boom*.",
+  "example_pl": "Miasto szybko rosło w czasie boomu naftowego.",
+  "collocations": [
+   "economic boom",
+   "property boom"
+  ],
+  "synonyms": [
+   "upturn"
+  ],
+  "antonyms": [
+   "slump"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "inflation",
+  "kind": "word",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/ɪnˈfleɪʃn/",
+  "level": "C1",
+  "translation_pl": "inflacja",
+  "definition": "a general increase in prices",
+  "example": "*Inflation* has reached its highest level in decades.",
+  "example_pl": "Inflacja osiągnęła najwyższy poziom od dekad.",
+  "collocations": [
+   "high inflation",
+   "rate of inflation"
+  ],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "scrutiny",
+  "kind": "word",
+  "category": "politics",
+  "pos": "noun",
+  "ipa": "/ˈskruːtəni/",
+  "level": "C1",
+  "translation_pl": "wnikliwa kontrola",
+  "definition": "careful and detailed examination",
+  "example": "The minister's expenses came under *scrutiny*.",
+  "example_pl": "Wydatki ministra poddano wnikliwej kontroli.",
+  "collocations": [
+   "come under scrutiny",
+   "public scrutiny"
+  ],
+  "synonyms": [
+   "examination",
+   "inspection"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "legislation",
+  "kind": "word",
+  "category": "law",
+  "pos": "noun",
+  "ipa": "/ˌledʒɪsˈleɪʃn/",
+  "level": "C1",
+  "translation_pl": "ustawodawstwo, przepisy",
+  "definition": "a law or set of laws",
+  "example": "New *legislation* will protect online privacy.",
+  "example_pl": "Nowe przepisy będą chronić prywatność w sieci.",
+  "collocations": [
+   "introduce legislation",
+   "pass legislation"
+  ],
+  "synonyms": [
+   "laws",
+   "regulations"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": "Niepoliczalne: a piece of legislation."
+ },
+ {
+  "term": "verdict",
+  "kind": "word",
+  "category": "law",
+  "pos": "noun",
+  "ipa": "/ˈvɜːdɪkt/",
+  "level": "C1",
+  "translation_pl": "werdykt",
+  "definition": "the decision of a jury or judge",
+  "example": "The jury returned a *verdict* of not guilty.",
+  "example_pl": "Ława przysięgłych wydała werdykt uniewinniający.",
+  "collocations": [
+   "reach a verdict",
+   "guilty verdict"
+  ],
+  "synonyms": [
+   "judgement",
+   "ruling"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "witness",
+  "kind": "word",
+  "category": "law",
+  "pos": "noun",
+  "ipa": "/ˈwɪtnəs/",
+  "level": "B2",
+  "translation_pl": "świadek",
+  "definition": "a person who sees an event happen",
+  "example": "Police are appealing for *witnesses*.",
+  "example_pl": "Policja prosi o zgłaszanie się świadków.",
+  "collocations": [
+   "key witness",
+   "witness statement"
+  ],
+  "synonyms": [
+   "observer",
+   "onlooker"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "offender",
+  "kind": "word",
+  "category": "law",
+  "pos": "noun",
+  "ipa": "/əˈfendə/",
+  "level": "C1",
+  "translation_pl": "sprawca, przestępca",
+  "definition": "a person who has committed a crime",
+  "example": "Young *offenders* are sent to special centres.",
+  "example_pl": "Młodociani przestępcy trafiają do specjalnych ośrodków.",
+  "collocations": [
+   "young offender",
+   "repeat offender"
+  ],
+  "synonyms": [
+   "criminal",
+   "wrongdoer"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "bias",
+  "kind": "word",
+  "category": "media",
+  "pos": "noun",
+  "ipa": "/ˈbaɪəs/",
+  "level": "C1",
+  "translation_pl": "stronniczość",
+  "definition": "unfair support for one side",
+  "example": "The broadcaster was accused of political *bias*.",
+  "example_pl": "Nadawcę oskarżono o polityczną stronniczość.",
+  "collocations": [
+   "political bias",
+   "bias against sb"
+  ],
+  "synonyms": [
+   "prejudice",
+   "partiality"
+  ],
+  "antonyms": [
+   "impartiality"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "censorship",
+  "kind": "word",
+  "category": "media",
+  "pos": "noun",
+  "ipa": "/ˈsensəʃɪp/",
+  "level": "C1",
+  "translation_pl": "cenzura",
+  "definition": "the control of what can be published or said",
+  "example": "Internet *censorship* is widespread in some countries.",
+  "example_pl": "Cenzura internetu jest powszechna w niektórych krajach.",
+  "collocations": [
+   "strict censorship",
+   "state censorship"
+  ],
+  "synonyms": [
+   "suppression"
+  ],
+  "antonyms": [
+   "freedom of speech"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "headline",
+  "kind": "word",
+  "category": "media",
+  "pos": "noun",
+  "ipa": "/ˈhedlaɪn/",
+  "level": "B2",
+  "translation_pl": "nagłówek",
+  "definition": "the title of a newspaper article",
+  "example": "The story made the *headlines* around the world.",
+  "example_pl": "Ta historia trafiła na pierwsze strony gazet na całym świecie.",
+  "collocations": [
+   "hit the headlines",
+   "make the headlines"
+  ],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "viral",
+  "kind": "word",
+  "category": "media",
+  "pos": "adjective",
+  "ipa": "/ˈvaɪrəl/",
+  "level": "C1",
+  "translation_pl": "wiralowy",
+  "definition": "spread quickly online",
+  "example": "The video went *viral* overnight.",
+  "example_pl": "Film stał się viralem z dnia na dzień.",
+  "collocations": [
+   "go viral"
+  ],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "informal",
+  "usage_note": null
+ },
+ {
+  "term": "privacy",
+  "kind": "word",
+  "category": "media",
+  "pos": "noun",
+  "ipa": "/ˈprɪvəsi/",
+  "level": "B2",
+  "translation_pl": "prywatność",
+  "definition": "the right to keep your personal life secret",
+  "example": "Celebrities complain about invasions of their *privacy*.",
+  "example_pl": "Celebryci skarżą się na naruszanie ich prywatności.",
+  "collocations": [
+   "invasion of privacy",
+   "right to privacy"
+  ],
+  "synonyms": [
+   "confidentiality"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "masterpiece",
+  "kind": "word",
+  "category": "culture",
+  "pos": "noun",
+  "ipa": "/ˈmɑːstəpiːs/",
+  "level": "C1",
+  "translation_pl": "arcydzieło",
+  "definition": "an outstanding work of art",
+  "example": "Many consider the novel her *masterpiece*.",
+  "example_pl": "Wielu uważa tę powieść za jej arcydzieło.",
+  "collocations": [
+   "a true masterpiece"
+  ],
+  "synonyms": [
+   "classic",
+   "magnum opus"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "heritage",
+  "kind": "word",
+  "category": "culture",
+  "pos": "noun",
+  "ipa": "/ˈherɪtɪdʒ/",
+  "level": "C1",
+  "translation_pl": "dziedzictwo",
+  "definition": "the traditions and buildings of a country",
+  "example": "The old town is a world *heritage* site.",
+  "example_pl": "Stare miasto jest wpisane na listę światowego dziedzictwa.",
+  "collocations": [
+   "cultural heritage",
+   "national heritage"
+  ],
+  "synonyms": [
+   "legacy",
+   "tradition"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "exhibition",
+  "kind": "word",
+  "category": "culture",
+  "pos": "noun",
+  "ipa": "/ˌeksɪˈbɪʃn/",
+  "level": "B2",
+  "translation_pl": "wystawa",
+  "definition": "a public show of objects such as paintings",
+  "example": "The *exhibition* attracted record numbers of visitors.",
+  "example_pl": "Wystawa przyciągnęła rekordową liczbę zwiedzających.",
+  "collocations": [
+   "hold an exhibition",
+   "exhibition of sth"
+  ],
+  "synonyms": [
+   "display",
+   "show"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "mainstream",
+  "kind": "word",
+  "category": "culture",
+  "pos": "adjective",
+  "ipa": "/ˈmeɪnstriːm/",
+  "level": "C1",
+  "translation_pl": "główny nurt",
+  "definition": "considered normal by most people",
+  "example": "The band moved from punk to *mainstream* pop.",
+  "example_pl": "Zespół przeszedł od punka do popu głównego nurtu.",
+  "collocations": [
+   "mainstream media",
+   "mainstream culture"
+  ],
+  "synonyms": [
+   "conventional"
+  ],
+  "antonyms": [
+   "alternative"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "diaspora",
+  "kind": "word",
+  "category": "globalisation",
+  "pos": "noun",
+  "ipa": "/daɪˈæspərə/",
+  "level": "C2",
+  "translation_pl": "diaspora",
+  "definition": "people who have spread from their original country",
+  "example": "The Polish *diaspora* in Chicago is very large.",
+  "example_pl": "Polska diaspora w Chicago jest bardzo liczna.",
+  "collocations": [],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "multinational",
+  "kind": "word",
+  "category": "globalisation",
+  "pos": "noun",
+  "ipa": "/ˌmʌltiˈnæʃnəl/",
+  "level": "C1",
+  "translation_pl": "korporacja międzynarodowa",
+  "definition": "a company that operates in several countries",
+  "example": "Several *multinationals* have offices in Warsaw.",
+  "example_pl": "Kilka korporacji międzynarodowych ma biura w Warszawie.",
+  "collocations": [
+   "large multinational"
+  ],
+  "synonyms": [
+   "corporation"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "outsourcing",
+  "kind": "word",
+  "category": "globalisation",
+  "pos": "noun",
+  "ipa": "/ˈaʊtsɔːsɪŋ/",
+  "level": "C1",
+  "translation_pl": "outsourcing",
+  "definition": "paying another company to do work",
+  "example": "*Outsourcing* has cost many factory jobs.",
+  "example_pl": "Outsourcing kosztował wiele miejsc pracy w fabrykach.",
+  "collocations": [],
+  "synonyms": [],
+  "antonyms": [
+   "insourcing"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "interdependence",
+  "kind": "word",
+  "category": "globalisation",
+  "pos": "noun",
+  "ipa": "/ˌɪntədɪˈpendəns/",
+  "level": "C1",
+  "translation_pl": "współzależność",
+  "definition": "the state of depending on each other",
+  "example": "Trade has created economic *interdependence* between nations.",
+  "example_pl": "Handel stworzył gospodarczą współzależność między narodami.",
+  "collocations": [
+   "global interdependence"
+  ],
+  "synonyms": [
+   "mutual dependence"
+  ],
+  "antonyms": [
+   "independence"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "homogenisation",
+  "kind": "word",
+  "category": "globalisation",
+  "pos": "noun",
+  "ipa": "/həˌmɒdʒənaɪˈzeɪʃn/",
+  "level": "C2",
+  "translation_pl": "ujednolicenie, homogenizacja",
+  "definition": "the process of becoming the same",
+  "example": "Critics fear the *homogenisation* of global culture.",
+  "example_pl": "Krytycy obawiają się ujednolicenia kultury światowej.",
+  "collocations": [
+   "cultural homogenisation"
+  ],
+  "synonyms": [
+   "standardisation"
+  ],
+  "antonyms": [
+   "diversity"
+  ],
+  "register": "academic",
+  "usage_note": null
+ },
+ {
+  "term": "self-esteem",
+  "kind": "word",
+  "category": "personal",
+  "pos": "noun",
+  "ipa": "/ˌself ɪˈstiːm/",
+  "level": "C1",
+  "translation_pl": "poczucie własnej wartości",
+  "definition": "confidence in your own value",
+  "example": "Bullying can destroy a child's *self-esteem*.",
+  "example_pl": "Nękanie może zniszczyć poczucie własnej wartości dziecka.",
+  "collocations": [
+   "low self-esteem",
+   "boost self-esteem"
+  ],
+  "synonyms": [
+   "self-confidence",
+   "self-worth"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "willpower",
+  "kind": "word",
+  "category": "personal",
+  "pos": "noun",
+  "ipa": "/ˈwɪlpaʊə/",
+  "level": "C1",
+  "translation_pl": "siła woli",
+  "definition": "the ability to control your actions",
+  "example": "It takes *willpower* to give up sugar.",
+  "example_pl": "Rezygnacja z cukru wymaga siły woli.",
+  "collocations": [
+   "sheer willpower"
+  ],
+  "synonyms": [
+   "determination",
+   "self-discipline"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "ambition",
+  "kind": "word",
+  "category": "personal",
+  "pos": "noun",
+  "ipa": "/æmˈbɪʃn/",
+  "level": "B2",
+  "translation_pl": "ambicja",
+  "definition": "a strong wish to achieve something",
+  "example": "Her *ambition* is to become a surgeon.",
+  "example_pl": "Jej ambicją jest zostać chirurgiem.",
+  "collocations": [
+   "achieve an ambition",
+   "lifelong ambition"
+  ],
+  "synonyms": [
+   "aspiration",
+   "goal"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "commitment",
+  "kind": "word",
+  "category": "relationships",
+  "pos": "noun",
+  "ipa": "/kəˈmɪtmənt/",
+  "level": "C1",
+  "translation_pl": "zaangażowanie, zobowiązanie",
+  "definition": "willingness to give time and energy; a promise",
+  "example": "Learning a language requires real *commitment*.",
+  "example_pl": "Nauka języka wymaga prawdziwego zaangażowania.",
+  "collocations": [
+   "make a commitment",
+   "long-term commitment"
+  ],
+  "synonyms": [
+   "dedication",
+   "pledge"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "bond",
+  "kind": "word",
+  "category": "relationships",
+  "pos": "noun",
+  "ipa": "/bɒnd/",
+  "level": "C1",
+  "translation_pl": "więź",
+  "definition": "a close connection between people",
+  "example": "There is a strong *bond* between the twins.",
+  "example_pl": "Między bliźniętami istnieje silna więź.",
+  "collocations": [
+   "form a bond",
+   "strengthen a bond"
+  ],
+  "synonyms": [
+   "connection",
+   "tie"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "grudge",
+  "kind": "word",
+  "category": "relationships",
+  "pos": "noun",
+  "ipa": "/ɡrʌdʒ/",
+  "level": "C1",
+  "translation_pl": "uraza",
+  "definition": "a feeling of anger about something someone did in the past",
+  "example": "He still bears a *grudge* against his former boss.",
+  "example_pl": "Wciąż żywi urazę do byłego szefa.",
+  "collocations": [
+   "bear a grudge",
+   "hold a grudge"
+  ],
+  "synonyms": [
+   "resentment"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "empathy",
+  "kind": "word",
+  "category": "relationships",
+  "pos": "noun",
+  "ipa": "/ˈempəθi/",
+  "level": "C1",
+  "translation_pl": "empatia",
+  "definition": "the ability to understand other people's feelings",
+  "example": "Good doctors show *empathy* towards their patients.",
+  "example_pl": "Dobrzy lekarze okazują pacjentom empatię.",
+  "collocations": [
+   "show empathy",
+   "lack of empathy"
+  ],
+  "synonyms": [
+   "compassion",
+   "understanding"
+  ],
+  "antonyms": [
+   "indifference"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "breakdown",
+  "kind": "word",
+  "category": "relationships",
+  "pos": "noun",
+  "ipa": "/ˈbreɪkdaʊn/",
+  "level": "C1",
+  "translation_pl": "rozpad; załamanie",
+  "definition": "a failure of a relationship or system; a collapse of mental health",
+  "example": "The *breakdown* of talks led to a strike.",
+  "example_pl": "Zerwanie rozmów doprowadziło do strajku.",
+  "collocations": [
+   "breakdown in communication",
+   "nervous breakdown"
+  ],
+  "synonyms": [
+   "collapse",
+   "failure"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
  }
 ]
