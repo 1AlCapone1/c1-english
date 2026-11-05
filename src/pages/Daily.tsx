@@ -1,4 +1,4 @@
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase, unwrap } from "../lib/supabase";
 import { useAsync } from "../lib/useAsync";
@@ -180,6 +180,8 @@ function GrammarStage({ lesson, header, onDone, saving, errBox }: { lesson: Gram
 /** Practice built only from today's words and today's grammar topic. */
 function ExercisesStage({ words, lessonExercises, lesson, header, onDone, errBox }: { words: Vocab[]; lessonExercises: Exercise[]; lesson: GrammarLesson | null; header: HeaderFn; onDone: (correct: number, items: number) => void; errBox: ReactNode }) {
   const [result, setResult] = useState<{ correct: number; items: number } | null>(null);
+  const [closeAsked, setCloseAsked] = useState(false);
+  useEffect(() => { if (closeAsked && result) onDone(result.correct, result.items); }, [closeAsked, result]); // eslint-disable-line react-hooks/exhaustive-deps
   const { items, pool } = useMemo(() => {
     const modes = ["plen", "gap", "sentence"] as const;
     const vocabItems = words.map((v, i) => { const m = modes[i % 3]; return vocabToExercise(v, m === "sentence" && !v.example_pl ? "gap" : m); });
@@ -199,13 +201,15 @@ function ExercisesStage({ words, lessonExercises, lesson, header, onDone, errBox
     {header("Ćwiczenia", `Słowa dnia (tłumaczenia, luki, zdania) i zadania z tematu „${lesson?.title ?? "gramatyka"}”. Po błędzie poprawiasz odpowiedź, zanim przejdziesz dalej.`)}
     {errBox}
     <PracticeSession title="Ćwiczenia" items={items} pool={pool} source="daily:exercises" onItemDone={onItemDone}
-      onFinish={(correct, total) => setResult({ correct, items: total })} finishLabel="Dalej: Powtórka →" onClose={() => result && onDone(result.correct, result.items)} />
+      onFinish={(correct, total) => setResult({ correct, items: total })} finishLabel="Dalej: Powtórka →" onClose={() => setCloseAsked(true)} />
   </div>;
 }
 
 /** Flashcards of today's words in a new form + due words and open mistakes from previous days. */
 function RevisionStage({ words, header, onDone, errBox }: { words: Vocab[]; header: HeaderFn; onDone: (correct: number, items: number) => void; errBox: ReactNode }) {
   const [result, setResult] = useState<{ correct: number; items: number } | null>(null);
+  const [closeAsked, setCloseAsked] = useState(false);
+  useEffect(() => { if (closeAsked && result) onDone(result.correct, result.items); }, [closeAsked, result]); // eslint-disable-line react-hooks/exhaustive-deps
   const built = useAsync(async () => {
     const todayIds = new Set(words.map((w) => w.id));
     const todays = shuffle(words).slice(0, 5).map((v, i) => vocabToExercise(v, i % 2 ? "gap" : "plen"));
@@ -228,7 +232,7 @@ function RevisionStage({ words, header, onDone, errBox }: { words: Vocab[]; head
     {header("Powtórka", built.data.fromPast ? `Fiszki ze słowami dnia oraz ${built.data.fromPast} pytań z poprzednich dni (powtórki i Twoje błędy).` : "Fiszki ze słowami dnia. Nie masz zaległych powtórek ani błędów z poprzednich dni.")}
     {errBox}
     <PracticeSession title="Powtórka" items={built.data.items} source="daily:revision" onItemDone={onItemDone}
-      onFinish={(correct, total) => setResult({ correct, items: total })} finishLabel="Zobacz podsumowanie →" onClose={() => result && onDone(result.correct, result.items)} />
+      onFinish={(correct, total) => setResult({ correct, items: total })} finishLabel="Zobacz podsumowanie →" onClose={() => setCloseAsked(true)} />
   </div>;
 }
 

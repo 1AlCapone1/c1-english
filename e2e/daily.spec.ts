@@ -38,7 +38,13 @@ async function solveSession(page: Page) {
     }
     await expect(page.getByTestId("next")).toBeVisible();
     await page.keyboard.press("Enter");                                     // next item – exactly one step
-    await expect.poll(async () => (await page.getByTestId("session-close").isVisible()) || (await counter(page))[0] !== before).toBe(true);
+    try {
+      await expect.poll(async () => (await page.getByTestId("session-close").isVisible()) || (await counter(page))[0] !== before, { timeout: 8000 }).toBe(true);
+    } catch (e) {
+      console.log("DEBUG active:", await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 300)));
+      console.log("DEBUG page:", (await page.locator("#root").innerText()).slice(0, 1500));
+      throw e;
+    }
     if (await page.getByTestId("session-close").isVisible()) return;
     expect((await counter(page))[0]).toBe(before + 1);                     // never skips an item
   }
