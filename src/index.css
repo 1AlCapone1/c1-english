@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { -webkit-text-size-adjust: 100%; }
+body { font-family: "Atkinson Hyperlegible", system-ui, sans-serif; }
+h1, h2, h3 { text-wrap: balance; }
+:focus-visible { outline: 2px solid #2944C4; outline-offset: 2px; }
+.dark :focus-visible { outline-color: #8199FF; }
+.prose-c1 p + p { margin-top: .75em; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
