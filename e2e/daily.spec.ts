@@ -44,7 +44,6 @@ async function solveSession(page: Page) {
       console.log("DEBUG active:", await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 300)));
       console.log("DEBUG page:", (await page.locator("main").innerText()).replace(/\s+/g, " ").slice(0, 2000));
       console.log("DEBUG next visible:", await page.getByTestId("next").isVisible());
-      console.log("DEBUG enter log:", JSON.stringify(await page.evaluate(() => (window as unknown as { __enterLog?: string[] }).__enterLog?.slice(-12))));
       throw e;
     }
     if (await page.getByTestId("session-close").isVisible()) return;
@@ -60,7 +59,6 @@ for (const [label, user] of [["desktop", U1], ["phone", U2]] as const) {
     test.skip(label === "phone" ? !isMobile : !!isMobile, "runs in its own project");
     test.setTimeout(240_000);
     await resetTodaysPlan(user);
-    await page.addInitScript(() => { (window as unknown as { __enterLog: string[] }).__enterLog = []; });
     await login(page, user);
     await page.goto("./#/daily");
     // 1. vocabulary first, later stages locked

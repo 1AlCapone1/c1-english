@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from "react";
 import { checkText, diagnose, hint, type Diagnosis } from "../lib/answer";
 import type { Exercise } from "../lib/types";
 import { Button, Diff, Feedback, answerCls, cx } from "./ui";
@@ -94,7 +94,7 @@ export function ChoiceTask(props: { prompt: ReactNode; options: string[]; correc
   const visible = order.filter((i) => !hidden.includes(i));
   const retry = () => { setOrder(shuffleIdx(props.options.length)); setPicked(null); setPhase("retype"); };
   useEnter(retry, phase === "fix");
-  useEffect(() => { // keys A–F / 1–6 choose an option
+  useLayoutEffect(() => { // keys A–F / 1–6 choose an option
     if (phase !== "ask" && phase !== "retype") return;
     const onKey = (e: KeyboardEvent) => {
       const t = e.target as HTMLElement | null;

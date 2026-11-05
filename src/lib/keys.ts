@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 /**
  * Keyboard support: Enter works like the visible "Sprawdź" / "Dalej" button.
@@ -38,12 +38,12 @@ export function installEnterGuard() {
  */
 export function useEnter(handler: () => void, enabled: boolean) {
   const ref = useRef(handler); ref.current = handler;
-  useEffect(() => {
+  // Layout effect: the listener is in place before the "Dalej" button is painted, so a fast Enter is never lost.
+  useLayoutEffect(() => {
     if (!enabled) return;
+    const since = performance.now(); // the key press that enabled this handler must not trigger it
     const onKey = (e: KeyboardEvent) => {
-      const dbg = (window as unknown as { __enterLog?: string[] }).__enterLog;
-      dbg?.push(`key=${e.key} prevented=${e.defaultPrevented} handled=${handled.has(e)} plain=${plainEnter(e)} target=${(e.target as HTMLElement | null)?.tagName}`);
-      if (e.defaultPrevented || handled.has(e) || !plainEnter(e)) return;
+      if (e.timeStamp <= since || e.defaultPrevented || handled.has(e) || !plainEnter(e)) return;
       const t = e.target as HTMLElement | null;
       const tag = t?.tagName;
       if ((tag === "TEXTAREA" && !(t as HTMLTextAreaElement).readOnly) || tag === "SELECT" || tag === "A" || (tag === "BUTTON" && !t?.hasAttribute("data-enter-pass"))) return;
@@ -51,8 +51,7 @@ export function useEnter(handler: () => void, enabled: boolean) {
       if (!claimEnter(e)) return;
       ref.current();
     };
-    // registered after the current key press finishes, so the press that enabled it can't trigger it
-    const id = window.setTimeout(() => { window.addEventListener("keydown", onKey); (window as unknown as { __enterLog?: string[] }).__enterLog?.push("registered"); }, 0);
-    return () => { window.clearTimeout(id); window.removeEventListener("keydown", onKey); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [enabled]);
 }
