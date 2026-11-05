@@ -36,6 +36,7 @@ export function TestRunner({ title, kind, items, timeLimitSec, intro, onFinished
   const [confirm, setConfirm] = useState(false);
   const [fixing, setFixing] = useState(false);
   const [saveErr, setSaveErr] = useState<string | null>(null);
+  const [saved, setSaved] = useState(false);
   const started = useRef(Date.now());
   const [now, setNow] = useState(Date.now());
   useEffect(() => { if (!timeLimitSec || result) return; const t = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(t); }, [timeLimitSec, result]);
@@ -56,6 +57,7 @@ export function TestRunner({ title, kind, items, timeLimitSec, intro, onFinished
         await recordMistake({ category: d ? mistakeCategory(d, categoryFor(g.ex), g.ex.answers[0]) : categoryFor(g.ex), source: `test:${kind}`, prompt: promptText(g.ex), user_answer: g.answer, correct: g.ex.answers[0], explanation: g.ex.explanation, exercise_id: g.ex.id });
       }
       await logSession(`test:${kind}`, r.max, r.score, r.durationSec / 60);
+      setSaved(true);
     } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
   }
   if (fixing && result) return <PracticeSession title="Poprawa błędów" items={result.items.filter((g) => !g.ok).map((g) => g.ex)} source={`fix:${kind}`} onClose={() => setFixing(false)} />;
@@ -67,7 +69,7 @@ export function TestRunner({ title, kind, items, timeLimitSec, intro, onFinished
         <div className="mt-1 font-display text-4xl font-extrabold">{pct}%</div>
         <div className="mt-1 text-ink-soft">{result.score} poprawnych, {result.max - result.score} błędnych · czas {fmt(result.durationSec)}</div>
         <div className="mt-3"><Progress value={pct} tone={pct >= 70 ? "ok" : pct >= 50 ? "warn" : "bad"} /></div>
-        {saveErr ? <div className="mt-3"><Feedback tone="warn" title="Wynik nie zapisał się w historii">{saveErr}</Feedback></div> : save && <p className="mt-2 text-sm text-ink-soft">Wynik zapisano w historii, a błędy w Mistake Notebook.</p>}
+        {saveErr ? <div className="mt-3"><Feedback tone="warn" title="Wynik nie zapisał się w historii">{saveErr}</Feedback></div> : save && <p className="mt-2 text-sm text-ink-soft" aria-live="polite">{saved ? "Wynik zapisano w historii, a błędy w Mistake Notebook." : "Zapisywanie wyniku…"}</p>}
         {result.score < result.max && <div className="mt-3"><Button onClick={() => setFixing(true)}>Popraw błędne odpowiedzi ({result.max - result.score})</Button></div>}
       </Card>
       <Card><h2 className="font-display text-lg font-bold">Odpowiedzi i wyjaśnienia</h2>

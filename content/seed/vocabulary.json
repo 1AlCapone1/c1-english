@@ -11038,5 +11038,1639 @@
   "antonyms": [],
   "register": "neutral",
   "usage_note": null
+ },
+ {
+  "term": "ample",
+  "kind": "word",
+  "category": "academic",
+  "pos": "adjective",
+  "ipa": "/ˈæmpl/",
+  "level": "C1",
+  "translation_pl": "obfity, wystarczający",
+  "definition": "more than enough",
+  "example": "There is *ample* evidence that the plan works.",
+  "example_pl": "Istnieje mnóstwo dowodów, że plan działa.",
+  "collocations": [
+   "ample evidence",
+   "ample opportunity"
+  ],
+  "synonyms": [
+   "plenty of",
+   "abundant"
+  ],
+  "antonyms": [
+   "insufficient"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "apprehensive",
+  "kind": "word",
+  "category": "personal",
+  "pos": "adjective",
+  "ipa": "/ˌæprɪˈhensɪv/",
+  "level": "C1",
+  "translation_pl": "zaniepokojony, pełen obaw",
+  "definition": "worried that something bad will happen",
+  "example": "She felt *apprehensive* about the interview.",
+  "example_pl": "Odczuwała obawy przed rozmową kwalifikacyjną.",
+  "collocations": [
+   "apprehensive about sth"
+  ],
+  "synonyms": [
+   "anxious",
+   "uneasy"
+  ],
+  "antonyms": [
+   "confident"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "assertive",
+  "kind": "word",
+  "category": "work",
+  "pos": "adjective",
+  "ipa": "/əˈsɜːtɪv/",
+  "level": "C1",
+  "translation_pl": "asertywny, stanowczy",
+  "definition": "confident and direct in expressing opinions",
+  "example": "You need to be more *assertive* in meetings.",
+  "example_pl": "Musisz być bardziej stanowczy na spotkaniach.",
+  "collocations": [
+   "assertive manner",
+   "assertive leadership"
+  ],
+  "synonyms": [
+   "forceful",
+   "self-assured"
+  ],
+  "antonyms": [
+   "timid"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "compelling",
+  "kind": "word",
+  "category": "academic",
+  "pos": "adjective",
+  "ipa": "/kəmˈpelɪŋ/",
+  "level": "C1",
+  "translation_pl": "przekonujący, fascynujący",
+  "definition": "very convincing or interesting",
+  "example": "She made a *compelling* case for reform.",
+  "example_pl": "Przedstawiła przekonujące argumenty za reformą.",
+  "collocations": [
+   "compelling argument",
+   "compelling evidence"
+  ],
+  "synonyms": [
+   "convincing",
+   "persuasive"
+  ],
+  "antonyms": [
+   "weak"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "comprehensive",
+  "kind": "word",
+  "category": "academic",
+  "pos": "adjective",
+  "ipa": "/ˌkɒmprɪˈhensɪv/",
+  "level": "C1",
+  "translation_pl": "wszechstronny, kompleksowy",
+  "definition": "including everything",
+  "example": "The guide gives a *comprehensive* overview of the topic.",
+  "example_pl": "Przewodnik daje kompleksowy przegląd tematu.",
+  "collocations": [
+   "comprehensive review",
+   "comprehensive coverage"
+  ],
+  "synonyms": [
+   "thorough",
+   "exhaustive"
+  ],
+  "antonyms": [
+   "partial"
+  ],
+  "register": "neutral",
+  "usage_note": "Fałszywy przyjaciel: nie 'zrozumiały' (comprehensible)."
+ },
+ {
+  "term": "detrimental",
+  "kind": "word",
+  "category": "health",
+  "pos": "adjective",
+  "ipa": "/ˌdetrɪˈmentl/",
+  "level": "C1",
+  "translation_pl": "szkodliwy",
+  "definition": "causing harm",
+  "example": "Lack of sleep is *detrimental* to health.",
+  "example_pl": "Brak snu szkodzi zdrowiu.",
+  "collocations": [
+   "detrimental effect",
+   "detrimental to sth"
+  ],
+  "synonyms": [
+   "harmful",
+   "damaging"
+  ],
+  "antonyms": [
+   "beneficial"
+  ],
+  "register": "formal",
+  "usage_note": "Konstrukcja: detrimental to."
+ },
+ {
+  "term": "diverse",
+  "kind": "word",
+  "category": "globalisation",
+  "pos": "adjective",
+  "ipa": "/daɪˈvɜːs/",
+  "level": "C1",
+  "translation_pl": "różnorodny",
+  "definition": "including many different types",
+  "example": "London has a very *diverse* population.",
+  "example_pl": "Londyn ma bardzo zróżnicowaną populację.",
+  "collocations": [
+   "culturally diverse",
+   "diverse range"
+  ],
+  "synonyms": [
+   "varied",
+   "mixed"
+  ],
+  "antonyms": [
+   "uniform"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "eminent",
+  "kind": "word",
+  "category": "academic",
+  "pos": "adjective",
+  "ipa": "/ˈemɪnənt/",
+  "level": "C1",
+  "translation_pl": "wybitny, znakomity",
+  "definition": "famous and respected in a profession",
+  "example": "She is an *eminent* scientist.",
+  "example_pl": "Jest wybitną naukowczynią.",
+  "collocations": [
+   "eminent scholar",
+   "eminent surgeon"
+  ],
+  "synonyms": [
+   "distinguished",
+   "renowned"
+  ],
+  "antonyms": [
+   "unknown"
+  ],
+  "register": "formal",
+  "usage_note": "Nie mylić z imminent (nieuchronny)."
+ },
+ {
+  "term": "excessive",
+  "kind": "word",
+  "category": "health",
+  "pos": "adjective",
+  "ipa": "/ɪkˈsesɪv/",
+  "level": "C1",
+  "translation_pl": "nadmierny",
+  "definition": "more than is necessary or reasonable",
+  "example": "*Excessive* screen time can affect sleep.",
+  "example_pl": "Nadmierny czas przed ekranem może wpływać na sen.",
+  "collocations": [
+   "excessive force",
+   "excessive drinking"
+  ],
+  "synonyms": [
+   "undue",
+   "immoderate"
+  ],
+  "antonyms": [
+   "moderate"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "fragile",
+  "kind": "word",
+  "category": "environment",
+  "pos": "adjective",
+  "ipa": "/ˈfrædʒaɪl/",
+  "level": "C1",
+  "translation_pl": "kruchy, delikatny",
+  "definition": "easily broken or damaged",
+  "example": "The coral reef is a *fragile* ecosystem.",
+  "example_pl": "Rafa koralowa to delikatny ekosystem.",
+  "collocations": [
+   "fragile ecosystem",
+   "fragile peace"
+  ],
+  "synonyms": [
+   "delicate",
+   "vulnerable"
+  ],
+  "antonyms": [
+   "robust"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "gruelling",
+  "kind": "word",
+  "category": "work",
+  "pos": "adjective",
+  "ipa": "/ˈɡruːəlɪŋ/",
+  "level": "C1",
+  "translation_pl": "wyczerpujący, morderczy",
+  "definition": "very tiring and demanding",
+  "example": "After a *gruelling* week, I slept for twelve hours.",
+  "example_pl": "Po wyczerpującym tygodniu spałem dwanaście godzin.",
+  "collocations": [
+   "gruelling schedule",
+   "gruelling journey"
+  ],
+  "synonyms": [
+   "exhausting",
+   "punishing"
+  ],
+  "antonyms": [
+   "easy"
+  ],
+  "register": "neutral",
+  "usage_note": "AmE: grueling."
+ },
+ {
+  "term": "inconclusive",
+  "kind": "word",
+  "category": "science",
+  "pos": "adjective",
+  "ipa": "/ˌɪnkənˈkluːsɪv/",
+  "level": "C1",
+  "translation_pl": "niejednoznaczny, nierozstrzygający",
+  "definition": "not leading to a definite result",
+  "example": "The results of the trial were *inconclusive*.",
+  "example_pl": "Wyniki badania były niejednoznaczne.",
+  "collocations": [
+   "inconclusive evidence",
+   "inconclusive results"
+  ],
+  "synonyms": [
+   "indefinite",
+   "unclear"
+  ],
+  "antonyms": [
+   "conclusive"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "lavish",
+  "kind": "word",
+  "category": "culture",
+  "pos": "adjective",
+  "ipa": "/ˈlævɪʃ/",
+  "level": "C1",
+  "translation_pl": "wystawny, hojny",
+  "definition": "large, impressive and expensive",
+  "example": "They held a *lavish* wedding in a castle.",
+  "example_pl": "Wyprawili wystawne wesele w zamku.",
+  "collocations": [
+   "lavish lifestyle",
+   "lavish praise"
+  ],
+  "synonyms": [
+   "extravagant",
+   "luxurious"
+  ],
+  "antonyms": [
+   "modest"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "monotonous",
+  "kind": "word",
+  "category": "work",
+  "pos": "adjective",
+  "ipa": "/məˈnɒtənəs/",
+  "level": "C1",
+  "translation_pl": "monotonny",
+  "definition": "boring because always the same",
+  "example": "Factory work can be very *monotonous*.",
+  "example_pl": "Praca w fabryce może być bardzo monotonna.",
+  "collocations": [
+   "monotonous routine",
+   "monotonous voice"
+  ],
+  "synonyms": [
+   "repetitive",
+   "tedious"
+  ],
+  "antonyms": [
+   "varied"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "obstinate",
+  "kind": "word",
+  "category": "personal",
+  "pos": "adjective",
+  "ipa": "/ˈɒbstɪnət/",
+  "level": "C1",
+  "translation_pl": "uparty",
+  "definition": "refusing to change your opinion",
+  "example": "He was too *obstinate* to admit his mistake.",
+  "example_pl": "Był zbyt uparty, by przyznać się do błędu.",
+  "collocations": [],
+  "synonyms": [
+   "stubborn",
+   "headstrong"
+  ],
+  "antonyms": [
+   "flexible"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "overwhelming",
+  "kind": "word",
+  "category": "personal",
+  "pos": "adjective",
+  "ipa": "/ˌəʊvəˈwelmɪŋ/",
+  "level": "C1",
+  "translation_pl": "przytłaczający; przeważający",
+  "definition": "very great or strong",
+  "example": "The *overwhelming* majority voted in favour.",
+  "example_pl": "Przytłaczająca większość głosowała za.",
+  "collocations": [
+   "overwhelming majority",
+   "overwhelming evidence"
+  ],
+  "synonyms": [
+   "crushing",
+   "massive"
+  ],
+  "antonyms": [
+   "negligible"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "pertinent",
+  "kind": "word",
+  "category": "academic",
+  "pos": "adjective",
+  "ipa": "/ˈpɜːtɪnənt/",
+  "level": "C1",
+  "translation_pl": "trafny, istotny",
+  "definition": "relevant to a particular matter",
+  "example": "She asked some very *pertinent* questions.",
+  "example_pl": "Zadała kilka bardzo trafnych pytań.",
+  "collocations": [
+   "pertinent question",
+   "pertinent to sth"
+  ],
+  "synonyms": [
+   "relevant",
+   "apposite"
+  ],
+  "antonyms": [
+   "irrelevant"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "plausible",
+  "kind": "word",
+  "category": "academic",
+  "pos": "adjective",
+  "ipa": "/ˈplɔːzəbl/",
+  "level": "C1",
+  "translation_pl": "wiarygodny, prawdopodobny",
+  "definition": "seeming reasonable or probable",
+  "example": "There is a *plausible* explanation for the delay.",
+  "example_pl": "Istnieje wiarygodne wyjaśnienie opóźnienia.",
+  "collocations": [
+   "plausible explanation",
+   "perfectly plausible"
+  ],
+  "synonyms": [
+   "credible",
+   "believable"
+  ],
+  "antonyms": [
+   "implausible"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "rigorous",
+  "kind": "word",
+  "category": "science",
+  "pos": "adjective",
+  "ipa": "/ˈrɪɡərəs/",
+  "level": "C1",
+  "translation_pl": "rygorystyczny, skrupulatny",
+  "definition": "careful, detailed and strict",
+  "example": "The drug went through *rigorous* testing.",
+  "example_pl": "Lek przeszedł rygorystyczne testy.",
+  "collocations": [
+   "rigorous testing",
+   "rigorous standards"
+  ],
+  "synonyms": [
+   "thorough",
+   "meticulous"
+  ],
+  "antonyms": [
+   "lax"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "sceptical",
+  "kind": "word",
+  "category": "academic",
+  "pos": "adjective",
+  "ipa": "/ˈskeptɪkl/",
+  "level": "C1",
+  "translation_pl": "sceptyczny",
+  "definition": "having doubts that something is true",
+  "example": "Many experts remain *sceptical* about the claims.",
+  "example_pl": "Wielu ekspertów pozostaje sceptycznych wobec tych twierdzeń.",
+  "collocations": [
+   "sceptical about sth",
+   "deeply sceptical"
+  ],
+  "synonyms": [
+   "doubtful",
+   "dubious"
+  ],
+  "antonyms": [
+   "convinced"
+  ],
+  "register": "neutral",
+  "usage_note": "AmE: skeptical."
+ },
+ {
+  "term": "susceptible",
+  "kind": "word",
+  "category": "health",
+  "pos": "adjective",
+  "ipa": "/səˈseptəbl/",
+  "level": "C1",
+  "translation_pl": "podatny",
+  "definition": "easily influenced or harmed",
+  "example": "Young children are more *susceptible* to infection.",
+  "example_pl": "Małe dzieci są bardziej podatne na infekcje.",
+  "collocations": [
+   "susceptible to sth",
+   "highly susceptible"
+  ],
+  "synonyms": [
+   "vulnerable",
+   "prone"
+  ],
+  "antonyms": [
+   "resistant"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "unanimous",
+  "kind": "word",
+  "category": "politics",
+  "pos": "adjective",
+  "ipa": "/juˈnænɪməs/",
+  "level": "C1",
+  "translation_pl": "jednogłośny",
+  "definition": "agreed by everyone",
+  "example": "The decision was *unanimous*.",
+  "example_pl": "Decyzja była jednogłośna.",
+  "collocations": [
+   "unanimous decision",
+   "unanimous vote"
+  ],
+  "synonyms": [
+   "united",
+   "undivided"
+  ],
+  "antonyms": [
+   "divided"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "versatile",
+  "kind": "word",
+  "category": "work",
+  "pos": "adjective",
+  "ipa": "/ˈvɜːsətaɪl/",
+  "level": "C1",
+  "translation_pl": "wszechstronny",
+  "definition": "able to do many different things",
+  "example": "She is a *versatile* actress.",
+  "example_pl": "Jest wszechstronną aktorką.",
+  "collocations": [
+   "versatile player",
+   "highly versatile"
+  ],
+  "synonyms": [
+   "adaptable",
+   "all-round"
+  ],
+  "antonyms": [
+   "limited"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "adhere to",
+  "kind": "word",
+  "category": "law",
+  "pos": "verb",
+  "ipa": "/ədˈhɪə tə/",
+  "level": "C1",
+  "translation_pl": "przestrzegać",
+  "definition": "to follow a rule or agreement",
+  "example": "All staff must *adhere to* the safety rules.",
+  "example_pl": "Cały personel musi przestrzegać zasad bezpieczeństwa.",
+  "collocations": [
+   "adhere to rules",
+   "strictly adhere to"
+  ],
+  "synonyms": [
+   "comply with",
+   "abide by"
+  ],
+  "antonyms": [
+   "break"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "alienate",
+  "kind": "word",
+  "category": "politics",
+  "pos": "verb",
+  "ipa": "/ˈeɪliəneɪt/",
+  "level": "C1",
+  "translation_pl": "zrażać, alienować",
+  "definition": "to make someone feel unwelcome or unfriendly",
+  "example": "The new policy *alienated* many loyal voters.",
+  "example_pl": "Nowa polityka zraziła wielu wiernych wyborców.",
+  "collocations": [
+   "alienate supporters"
+  ],
+  "synonyms": [
+   "estrange",
+   "antagonise"
+  ],
+  "antonyms": [
+   "win over"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "anticipate",
+  "kind": "word",
+  "category": "business",
+  "pos": "verb",
+  "ipa": "/ænˈtɪsɪpeɪt/",
+  "level": "C1",
+  "translation_pl": "przewidywać, spodziewać się",
+  "definition": "to expect something and prepare for it",
+  "example": "We don't *anticipate* any problems.",
+  "example_pl": "Nie spodziewamy się żadnych problemów.",
+  "collocations": [
+   "anticipate demand",
+   "anticipate problems"
+  ],
+  "synonyms": [
+   "expect",
+   "foresee"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "compensate",
+  "kind": "word",
+  "category": "law",
+  "pos": "verb",
+  "ipa": "/ˈkɒmpenseɪt/",
+  "level": "C1",
+  "translation_pl": "rekompensować",
+  "definition": "to pay or make up for loss or damage",
+  "example": "The airline *compensated* passengers for the delay.",
+  "example_pl": "Linia lotnicza wypłaciła pasażerom odszkodowanie za opóźnienie.",
+  "collocations": [
+   "compensate for sth",
+   "compensate sb for sth"
+  ],
+  "synonyms": [
+   "make up for",
+   "reimburse"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "deplete",
+  "kind": "word",
+  "category": "environment",
+  "pos": "verb",
+  "ipa": "/dɪˈpliːt/",
+  "level": "C1",
+  "translation_pl": "uszczuplać, wyczerpywać",
+  "definition": "to reduce the amount of something",
+  "example": "Overfishing has *depleted* fish stocks.",
+  "example_pl": "Nadmierne połowy uszczupliły zasoby ryb.",
+  "collocations": [
+   "deplete resources",
+   "depleted stocks"
+  ],
+  "synonyms": [
+   "exhaust",
+   "drain"
+  ],
+  "antonyms": [
+   "replenish"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "diminish",
+  "kind": "word",
+  "category": "academic",
+  "pos": "verb",
+  "ipa": "/dɪˈmɪnɪʃ/",
+  "level": "C1",
+  "translation_pl": "zmniejszać się",
+  "definition": "to become or make smaller or less",
+  "example": "The pain should *diminish* after a few days.",
+  "example_pl": "Ból powinien zmniejszyć się po kilku dniach.",
+  "collocations": [
+   "diminish rapidly",
+   "diminishing returns"
+  ],
+  "synonyms": [
+   "decrease",
+   "lessen"
+  ],
+  "antonyms": [
+   "increase"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "emulate",
+  "kind": "word",
+  "category": "education",
+  "pos": "verb",
+  "ipa": "/ˈemjuleɪt/",
+  "level": "C1",
+  "translation_pl": "naśladować (wzór)",
+  "definition": "to copy someone because you admire them",
+  "example": "Children often *emulate* their parents.",
+  "example_pl": "Dzieci często naśladują rodziców.",
+  "collocations": [
+   "emulate success"
+  ],
+  "synonyms": [
+   "imitate",
+   "follow"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "enhance",
+  "kind": "word",
+  "category": "academic",
+  "pos": "verb",
+  "ipa": "/ɪnˈhɑːns/",
+  "level": "C1",
+  "translation_pl": "zwiększać, poprawiać",
+  "definition": "to improve the quality or value of something",
+  "example": "Good lighting can *enhance* a room.",
+  "example_pl": "Dobre oświetlenie może poprawić wygląd pokoju.",
+  "collocations": [
+   "enhance performance",
+   "enhance quality"
+  ],
+  "synonyms": [
+   "improve",
+   "boost"
+  ],
+  "antonyms": [
+   "diminish"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "exploit",
+  "kind": "word",
+  "category": "work",
+  "pos": "verb",
+  "ipa": "/ɪkˈsplɔɪt/",
+  "level": "C1",
+  "translation_pl": "wykorzystywać",
+  "definition": "to use something fully; to treat people unfairly for profit",
+  "example": "Some employers *exploit* migrant workers.",
+  "example_pl": "Niektórzy pracodawcy wykorzystują pracowników migrujących.",
+  "collocations": [
+   "exploit resources",
+   "exploit a loophole"
+  ],
+  "synonyms": [
+   "take advantage of",
+   "abuse"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "fluctuate",
+  "kind": "word",
+  "category": "business",
+  "pos": "verb",
+  "ipa": "/ˈflʌktʃueɪt/",
+  "level": "C1",
+  "translation_pl": "wahać się",
+  "definition": "to change frequently in amount or level",
+  "example": "Prices *fluctuate* according to demand.",
+  "example_pl": "Ceny wahają się w zależności od popytu.",
+  "collocations": [
+   "fluctuate wildly"
+  ],
+  "synonyms": [
+   "vary",
+   "oscillate"
+  ],
+  "antonyms": [
+   "stabilise"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "neglect",
+  "kind": "word",
+  "category": "health",
+  "pos": "verb",
+  "ipa": "/nɪˈɡlekt/",
+  "level": "C1",
+  "translation_pl": "zaniedbywać",
+  "definition": "to fail to look after something",
+  "example": "Many people *neglect* their mental health.",
+  "example_pl": "Wiele osób zaniedbuje swoje zdrowie psychiczne.",
+  "collocations": [
+   "neglect duties",
+   "neglected garden"
+  ],
+  "synonyms": [
+   "overlook",
+   "disregard"
+  ],
+  "antonyms": [
+   "look after"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "prioritise",
+  "kind": "word",
+  "category": "work",
+  "pos": "verb",
+  "ipa": "/praɪˈɒrətaɪz/",
+  "level": "C1",
+  "translation_pl": "nadawać priorytet",
+  "definition": "to decide which things are most important",
+  "example": "You need to *prioritise* your tasks.",
+  "example_pl": "Musisz ustalić priorytety zadań.",
+  "collocations": [
+   "prioritise tasks",
+   "prioritise safety"
+  ],
+  "synonyms": [
+   "put first"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": "AmE: prioritize."
+ },
+ {
+  "term": "reinforce",
+  "kind": "word",
+  "category": "education",
+  "pos": "verb",
+  "ipa": "/ˌriːɪnˈfɔːs/",
+  "level": "C1",
+  "translation_pl": "wzmacniać, utrwalać",
+  "definition": "to make an idea or feeling stronger",
+  "example": "Regular revision *reinforces* what you have learnt.",
+  "example_pl": "Regularne powtórki utrwalają to, czego się nauczyłeś.",
+  "collocations": [
+   "reinforce a message",
+   "reinforce stereotypes"
+  ],
+  "synonyms": [
+   "strengthen",
+   "consolidate"
+  ],
+  "antonyms": [
+   "weaken"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "resolve",
+  "kind": "word",
+  "category": "politics",
+  "pos": "verb",
+  "ipa": "/rɪˈzɒlv/",
+  "level": "C1",
+  "translation_pl": "rozwiązać, rozstrzygnąć",
+  "definition": "to find a solution to a problem",
+  "example": "The dispute was *resolved* through negotiation.",
+  "example_pl": "Spór rozwiązano w drodze negocjacji.",
+  "collocations": [
+   "resolve a conflict",
+   "resolve an issue"
+  ],
+  "synonyms": [
+   "settle",
+   "solve"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "thrive",
+  "kind": "word",
+  "category": "business",
+  "pos": "verb",
+  "ipa": "/θraɪv/",
+  "level": "C1",
+  "translation_pl": "prosperować, kwitnąć",
+  "definition": "to grow or develop successfully",
+  "example": "Small businesses *thrive* in this area.",
+  "example_pl": "Małe firmy dobrze prosperują w tej okolicy.",
+  "collocations": [
+   "thrive on sth",
+   "thriving economy"
+  ],
+  "synonyms": [
+   "flourish",
+   "prosper"
+  ],
+  "antonyms": [
+   "decline"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "uphold",
+  "kind": "word",
+  "category": "law",
+  "pos": "verb",
+  "ipa": "/ʌpˈhəʊld/",
+  "level": "C1",
+  "translation_pl": "utrzymać w mocy; przestrzegać",
+  "definition": "to support or confirm a decision or principle",
+  "example": "The court *upheld* the original verdict.",
+  "example_pl": "Sąd utrzymał w mocy pierwotny wyrok.",
+  "collocations": [
+   "uphold the law",
+   "uphold a decision"
+  ],
+  "synonyms": [
+   "maintain",
+   "confirm"
+  ],
+  "antonyms": [
+   "overturn"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "withstand",
+  "kind": "word",
+  "category": "science",
+  "pos": "verb",
+  "ipa": "/wɪðˈstænd/",
+  "level": "C1",
+  "translation_pl": "wytrzymać",
+  "definition": "to be strong enough not to be damaged",
+  "example": "The building can *withstand* earthquakes.",
+  "example_pl": "Budynek jest w stanie wytrzymać trzęsienia ziemi.",
+  "collocations": [
+   "withstand pressure",
+   "withstand the test of time"
+  ],
+  "synonyms": [
+   "resist",
+   "endure"
+  ],
+  "antonyms": [
+   "succumb to"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "asset",
+  "kind": "word",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/ˈæset/",
+  "level": "C1",
+  "translation_pl": "atut; aktywa",
+  "definition": "something useful or valuable",
+  "example": "Her language skills are a great *asset*.",
+  "example_pl": "Jej umiejętności językowe to wielki atut.",
+  "collocations": [
+   "valuable asset",
+   "financial assets"
+  ],
+  "synonyms": [
+   "advantage",
+   "benefit"
+  ],
+  "antonyms": [
+   "liability"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "benchmark",
+  "kind": "word",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/ˈbentʃmɑːk/",
+  "level": "C1",
+  "translation_pl": "punkt odniesienia",
+  "definition": "a standard used for comparison",
+  "example": "The results set a new *benchmark* for the industry.",
+  "example_pl": "Wyniki wyznaczyły nowy punkt odniesienia dla branży.",
+  "collocations": [
+   "set a benchmark",
+   "industry benchmark"
+  ],
+  "synonyms": [
+   "standard",
+   "yardstick"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "constraint",
+  "kind": "word",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/kənˈstreɪnt/",
+  "level": "C1",
+  "translation_pl": "ograniczenie",
+  "definition": "something that limits what you can do",
+  "example": "We are working under tight budget *constraints*.",
+  "example_pl": "Pracujemy w warunkach ścisłych ograniczeń budżetowych.",
+  "collocations": [
+   "time constraints",
+   "financial constraints"
+  ],
+  "synonyms": [
+   "limitation",
+   "restriction"
+  ],
+  "antonyms": [
+   "freedom"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "dedication",
+  "kind": "word",
+  "category": "work",
+  "pos": "noun",
+  "ipa": "/ˌdedɪˈkeɪʃn/",
+  "level": "C1",
+  "translation_pl": "poświęcenie, oddanie",
+  "definition": "hard work and commitment",
+  "example": "Her *dedication* to her patients is remarkable.",
+  "example_pl": "Jej oddanie pacjentom jest niezwykłe.",
+  "collocations": [
+   "dedication to sth",
+   "total dedication"
+  ],
+  "synonyms": [
+   "commitment",
+   "devotion"
+  ],
+  "antonyms": [
+   "apathy"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "foresight",
+  "kind": "word",
+  "category": "business",
+  "pos": "noun",
+  "ipa": "/ˈfɔːsaɪt/",
+  "level": "C1",
+  "translation_pl": "przezorność, dalekowzroczność",
+  "definition": "the ability to plan for the future",
+  "example": "The planners showed great *foresight*.",
+  "example_pl": "Planiści wykazali się dużą przezornością.",
+  "collocations": [
+   "have the foresight to do sth"
+  ],
+  "synonyms": [
+   "vision",
+   "prudence"
+  ],
+  "antonyms": [
+   "hindsight"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "hindsight",
+  "kind": "word",
+  "category": "personal",
+  "pos": "noun",
+  "ipa": "/ˈhaɪndsaɪt/",
+  "level": "C1",
+  "translation_pl": "perspektywa czasu",
+  "definition": "understanding of a situation after it has happened",
+  "example": "With *hindsight*, we should have left earlier.",
+  "example_pl": "Z perspektywy czasu powinniśmy byli wyjść wcześniej.",
+  "collocations": [
+   "with hindsight",
+   "in hindsight"
+  ],
+  "synonyms": [
+   "retrospect"
+  ],
+  "antonyms": [
+   "foresight"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "implication",
+  "kind": "word",
+  "category": "academic",
+  "pos": "noun",
+  "ipa": "/ˌɪmplɪˈkeɪʃn/",
+  "level": "C1",
+  "translation_pl": "konsekwencja, implikacja",
+  "definition": "a possible effect or result",
+  "example": "The decision has serious *implications* for students.",
+  "example_pl": "Decyzja ma poważne konsekwencje dla studentów.",
+  "collocations": [
+   "far-reaching implications",
+   "implications for sth"
+  ],
+  "synonyms": [
+   "consequence",
+   "ramification"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "infrastructure",
+  "kind": "word",
+  "category": "politics",
+  "pos": "noun",
+  "ipa": "/ˈɪnfrəstrʌktʃə/",
+  "level": "C1",
+  "translation_pl": "infrastruktura",
+  "definition": "basic systems such as roads and power supplies",
+  "example": "The country needs to invest in its *infrastructure*.",
+  "example_pl": "Kraj musi inwestować w infrastrukturę.",
+  "collocations": [
+   "transport infrastructure",
+   "invest in infrastructure"
+  ],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "justification",
+  "kind": "word",
+  "category": "academic",
+  "pos": "noun",
+  "ipa": "/ˌdʒʌstɪfɪˈkeɪʃn/",
+  "level": "C1",
+  "translation_pl": "uzasadnienie",
+  "definition": "a good reason for something",
+  "example": "There is no *justification* for violence.",
+  "example_pl": "Nie ma usprawiedliwienia dla przemocy.",
+  "collocations": [
+   "justification for sth",
+   "moral justification"
+  ],
+  "synonyms": [
+   "reason",
+   "grounds"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "loyalty",
+  "kind": "word",
+  "category": "relationships",
+  "pos": "noun",
+  "ipa": "/ˈlɔɪəlti/",
+  "level": "C1",
+  "translation_pl": "lojalność",
+  "definition": "the quality of staying faithful",
+  "example": "The company rewards customer *loyalty*.",
+  "example_pl": "Firma nagradza lojalność klientów.",
+  "collocations": [
+   "brand loyalty",
+   "loyalty to sb"
+  ],
+  "synonyms": [
+   "faithfulness",
+   "allegiance"
+  ],
+  "antonyms": [
+   "betrayal"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "obstacle",
+  "kind": "word",
+  "category": "personal",
+  "pos": "noun",
+  "ipa": "/ˈɒbstəkl/",
+  "level": "C1",
+  "translation_pl": "przeszkoda",
+  "definition": "something that blocks progress",
+  "example": "Lack of money is the main *obstacle*.",
+  "example_pl": "Brak pieniędzy to główna przeszkoda.",
+  "collocations": [
+   "overcome an obstacle",
+   "major obstacle"
+  ],
+  "synonyms": [
+   "barrier",
+   "hurdle"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "perception",
+  "kind": "word",
+  "category": "academic",
+  "pos": "noun",
+  "ipa": "/pəˈsepʃn/",
+  "level": "C1",
+  "translation_pl": "postrzeganie",
+  "definition": "the way you understand or think about something",
+  "example": "Public *perception* of the police has changed.",
+  "example_pl": "Społeczne postrzeganie policji się zmieniło.",
+  "collocations": [
+   "public perception",
+   "perception of sth"
+  ],
+  "synonyms": [
+   "view",
+   "impression"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "phenomenon",
+  "kind": "word",
+  "category": "science",
+  "pos": "noun",
+  "ipa": "/fəˈnɒmɪnən/",
+  "level": "C1",
+  "translation_pl": "zjawisko",
+  "definition": "something that exists or happens, especially unusual",
+  "example": "Remote work is now a global *phenomenon*.",
+  "example_pl": "Praca zdalna to dziś zjawisko globalne.",
+  "collocations": [
+   "natural phenomenon",
+   "social phenomenon"
+  ],
+  "synonyms": [
+   "occurrence",
+   "event"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": "L.mn.: phenomena."
+ },
+ {
+  "term": "prerequisite",
+  "kind": "word",
+  "category": "education",
+  "pos": "noun",
+  "ipa": "/ˌpriːˈrekwəzɪt/",
+  "level": "C1",
+  "translation_pl": "warunek wstępny",
+  "definition": "something required before something else can happen",
+  "example": "A degree is a *prerequisite* for the job.",
+  "example_pl": "Dyplom jest warunkiem wstępnym tej pracy.",
+  "collocations": [
+   "prerequisite for sth"
+  ],
+  "synonyms": [
+   "requirement",
+   "precondition"
+  ],
+  "antonyms": [],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "prospect",
+  "kind": "word",
+  "category": "work",
+  "pos": "noun",
+  "ipa": "/ˈprɒspekt/",
+  "level": "C1",
+  "translation_pl": "perspektywa",
+  "definition": "the possibility of something happening",
+  "example": "Job *prospects* for graduates are improving.",
+  "example_pl": "Perspektywy zawodowe absolwentów się poprawiają.",
+  "collocations": [
+   "job prospects",
+   "the prospect of sth"
+  ],
+  "synonyms": [
+   "outlook",
+   "possibility"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "rivalry",
+  "kind": "word",
+  "category": "relationships",
+  "pos": "noun",
+  "ipa": "/ˈraɪvlri/",
+  "level": "C1",
+  "translation_pl": "rywalizacja",
+  "definition": "competition between people or groups",
+  "example": "There is fierce *rivalry* between the two clubs.",
+  "example_pl": "Między tymi klubami trwa zacięta rywalizacja.",
+  "collocations": [
+   "fierce rivalry",
+   "sibling rivalry"
+  ],
+  "synonyms": [
+   "competition"
+  ],
+  "antonyms": [
+   "cooperation"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "stamina",
+  "kind": "word",
+  "category": "health",
+  "pos": "noun",
+  "ipa": "/ˈstæmɪnə/",
+  "level": "C1",
+  "translation_pl": "wytrzymałość",
+  "definition": "physical or mental strength to continue",
+  "example": "Marathon runners need great *stamina*.",
+  "example_pl": "Maratończycy potrzebują wielkiej wytrzymałości.",
+  "collocations": [
+   "build up stamina"
+  ],
+  "synonyms": [
+   "endurance",
+   "resilience"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "threshold",
+  "kind": "word",
+  "category": "academic",
+  "pos": "noun",
+  "ipa": "/ˈθreʃhəʊld/",
+  "level": "C1",
+  "translation_pl": "próg",
+  "definition": "the level at which something starts",
+  "example": "Income below this *threshold* is not taxed.",
+  "example_pl": "Dochód poniżej tego progu nie jest opodatkowany.",
+  "collocations": [
+   "pain threshold",
+   "on the threshold of"
+  ],
+  "synonyms": [
+   "limit",
+   "level"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "transparency",
+  "kind": "word",
+  "category": "politics",
+  "pos": "noun",
+  "ipa": "/trænsˈpærənsi/",
+  "level": "C1",
+  "translation_pl": "przejrzystość",
+  "definition": "openness about decisions and actions",
+  "example": "Voters want more *transparency* in government.",
+  "example_pl": "Wyborcy chcą większej przejrzystości w rządzie.",
+  "collocations": [
+   "lack of transparency",
+   "greater transparency"
+  ],
+  "synonyms": [
+   "openness"
+  ],
+  "antonyms": [
+   "secrecy"
+  ],
+  "register": "formal",
+  "usage_note": null
+ },
+ {
+  "term": "turmoil",
+  "kind": "word",
+  "category": "politics",
+  "pos": "noun",
+  "ipa": "/ˈtɜːmɔɪl/",
+  "level": "C1",
+  "translation_pl": "zamęt, zamieszanie",
+  "definition": "a state of great confusion",
+  "example": "The country was in political *turmoil*.",
+  "example_pl": "Kraj pogrążony był w politycznym chaosie.",
+  "collocations": [
+   "political turmoil",
+   "emotional turmoil"
+  ],
+  "synonyms": [
+   "chaos",
+   "upheaval"
+  ],
+  "antonyms": [
+   "calm"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "come to terms with",
+  "kind": "idiom",
+  "category": "idioms",
+  "pos": "idiom",
+  "ipa": "/kʌm tə ˈtɜːmz wɪð/",
+  "level": "C1",
+  "translation_pl": "pogodzić się z",
+  "definition": "to accept something sad",
+  "example": "It took him years to *come to terms with* her death.",
+  "example_pl": "Lata zajęło mu pogodzenie się z jej śmiercią.",
+  "collocations": [],
+  "synonyms": [
+   "accept",
+   "reconcile yourself to"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "keep a straight face",
+  "kind": "idiom",
+  "category": "idioms",
+  "pos": "idiom",
+  "ipa": "/kiːp ə ˌstreɪt ˈfeɪs/",
+  "level": "C1",
+  "translation_pl": "zachować powagę",
+  "definition": "to avoid laughing",
+  "example": "It was hard to *keep a straight face* during his speech.",
+  "example_pl": "Trudno było zachować powagę podczas jego przemowy.",
+  "collocations": [],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "make ends meet",
+  "kind": "idiom",
+  "category": "idioms",
+  "pos": "idiom",
+  "ipa": "/meɪk ˌendz ˈmiːt/",
+  "level": "C1",
+  "translation_pl": "wiązać koniec z końcem",
+  "definition": "to have just enough money to live",
+  "example": "Many families struggle to *make ends meet*.",
+  "example_pl": "Wiele rodzin z trudem wiąże koniec z końcem.",
+  "collocations": [],
+  "synonyms": [
+   "get by"
+  ],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "on the spur of the moment",
+  "kind": "idiom",
+  "category": "idioms",
+  "pos": "idiom",
+  "ipa": "/ɒn ðə ˌspɜːr əv ðə ˈməʊmənt/",
+  "level": "C1",
+  "translation_pl": "pod wpływem chwili",
+  "definition": "suddenly, without planning",
+  "example": "We booked the trip *on the spur of the moment*.",
+  "example_pl": "Zarezerwowaliśmy wycieczkę pod wpływem chwili.",
+  "collocations": [],
+  "synonyms": [
+   "spontaneously"
+  ],
+  "antonyms": [
+   "planned"
+  ],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "take the plunge",
+  "kind": "idiom",
+  "category": "idioms",
+  "pos": "idiom",
+  "ipa": "/teɪk ðə ˈplʌndʒ/",
+  "level": "C1",
+  "translation_pl": "zdecydować się (na ryzykowny krok)",
+  "definition": "to finally do something risky",
+  "example": "She *took the plunge* and started her own business.",
+  "example_pl": "Zdecydowała się i założyła własną firmę.",
+  "collocations": [],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "informal",
+  "usage_note": null
+ },
+ {
+  "term": "a far cry from",
+  "kind": "idiom",
+  "category": "idioms",
+  "pos": "idiom",
+  "ipa": "/ə ˌfɑː ˈkraɪ frəm/",
+  "level": "C1",
+  "translation_pl": "coś zupełnie innego niż",
+  "definition": "very different from",
+  "example": "The tiny flat was *a far cry from* the house she grew up in.",
+  "example_pl": "Maleńkie mieszkanie było czymś zupełnie innym niż dom, w którym dorastała.",
+  "collocations": [],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "neutral",
+  "usage_note": null
+ },
+ {
+  "term": "foot the bill",
+  "kind": "idiom",
+  "category": "idioms",
+  "pos": "idiom",
+  "ipa": "/fʊt ðə ˈbɪl/",
+  "level": "C1",
+  "translation_pl": "pokryć koszty",
+  "definition": "to pay for something",
+  "example": "Taxpayers will have to *foot the bill*.",
+  "example_pl": "Podatnicy będą musieli pokryć koszty.",
+  "collocations": [],
+  "synonyms": [
+   "pay for"
+  ],
+  "antonyms": [],
+  "register": "informal",
+  "usage_note": null
+ },
+ {
+  "term": "think outside the box",
+  "kind": "idiom",
+  "category": "idioms",
+  "pos": "idiom",
+  "ipa": "/θɪŋk ˌaʊtsaɪd ðə ˈbɒks/",
+  "level": "C1",
+  "translation_pl": "myśleć nieszablonowo",
+  "definition": "to think creatively",
+  "example": "We need to *think outside the box* to solve this.",
+  "example_pl": "Musimy myśleć nieszablonowo, by to rozwiązać.",
+  "collocations": [],
+  "synonyms": [
+   "be creative"
+  ],
+  "antonyms": [],
+  "register": "informal",
+  "usage_note": null
+ },
+ {
+  "term": "back to square one",
+  "kind": "idiom",
+  "category": "idioms",
+  "pos": "idiom",
+  "ipa": "/ˌbæk tə ˌskweə ˈwʌn/",
+  "level": "C1",
+  "translation_pl": "powrót do punktu wyjścia",
+  "definition": "back to the beginning after a failure",
+  "example": "The deal fell through, so we're *back to square one*.",
+  "example_pl": "Umowa nie doszła do skutku, więc wracamy do punktu wyjścia.",
+  "collocations": [],
+  "synonyms": [],
+  "antonyms": [],
+  "register": "informal",
+  "usage_note": null
+ },
+ {
+  "term": "ring a bell",
+  "kind": "idiom",
+  "category": "idioms",
+  "pos": "idiom",
+  "ipa": "/rɪŋ ə ˈbel/",
+  "level": "C1",
+  "translation_pl": "brzmieć znajomo",
+  "definition": "to sound familiar",
+  "example": "Her name *rings a bell*, but I can't remember her.",
+  "example_pl": "Jej nazwisko brzmi znajomo, ale nie mogę jej sobie przypomnieć.",
+  "collocations": [],
+  "synonyms": [
+   "sound familiar"
+  ],
+  "antonyms": [],
+  "register": "informal",
+  "usage_note": null
  }
 ]
