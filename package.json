@@ -10,7 +10,7 @@
     "typecheck": "tsc -b --noEmit",
     "test": "vitest run",
     "e2e": "playwright test",
-    "validate:content": "node scripts/validate-content.mjs"
+    "validate:content": "node --experimental-strip-types scripts/validate-content.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
