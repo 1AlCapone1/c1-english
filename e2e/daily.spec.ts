@@ -42,7 +42,8 @@ async function solveSession(page: Page) {
       await expect.poll(async () => (await page.getByTestId("session-close").isVisible()) || (await counter(page))[0] !== before, { timeout: 8000 }).toBe(true);
     } catch (e) {
       console.log("DEBUG active:", await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 300)));
-      console.log("DEBUG page:", (await page.locator("#root").innerText()).slice(0, 1500));
+      console.log("DEBUG page:", (await page.locator("main").innerText()).replace(/\s+/g, " ").slice(0, 2000));
+      console.log("DEBUG next visible:", await page.getByTestId("next").isVisible());
       throw e;
     }
     if (await page.getByTestId("session-close").isVisible()) return;
@@ -53,6 +54,8 @@ async function solveSession(page: Page) {
 
 for (const [label, user] of [["desktop", U1], ["phone", U2]] as const) {
   test(`daily lesson order and Enter navigation (${label})`, async ({ page, isMobile }) => {
+    page.on("console", (m) => { if (m.type() === "error") console.log("BROWSER ERROR:", m.text()); });
+    page.on("pageerror", (e) => console.log("PAGE ERROR:", e.message));
     test.skip(label === "phone" ? !isMobile : !!isMobile, "runs in its own project");
     test.setTimeout(240_000);
     await resetTodaysPlan(user);
