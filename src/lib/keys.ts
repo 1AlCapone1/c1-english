@@ -41,6 +41,8 @@ export function useEnter(handler: () => void, enabled: boolean) {
   useEffect(() => {
     if (!enabled) return;
     const onKey = (e: KeyboardEvent) => {
+      const dbg = (window as unknown as { __enterLog?: string[] }).__enterLog;
+      dbg?.push(`key=${e.key} prevented=${e.defaultPrevented} handled=${handled.has(e)} plain=${plainEnter(e)} target=${(e.target as HTMLElement | null)?.tagName}`);
       if (e.defaultPrevented || handled.has(e) || !plainEnter(e)) return;
       const t = e.target as HTMLElement | null;
       const tag = t?.tagName;
@@ -50,7 +52,7 @@ export function useEnter(handler: () => void, enabled: boolean) {
       ref.current();
     };
     // registered after the current key press finishes, so the press that enabled it can't trigger it
-    const id = window.setTimeout(() => window.addEventListener("keydown", onKey), 0);
+    const id = window.setTimeout(() => { window.addEventListener("keydown", onKey); (window as unknown as { __enterLog?: string[] }).__enterLog?.push("registered"); }, 0);
     return () => { window.clearTimeout(id); window.removeEventListener("keydown", onKey); };
   }, [enabled]);
 }
