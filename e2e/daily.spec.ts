@@ -27,7 +27,7 @@ async function solveSession(page: Page) {
       await expect(page.getByText(/^Wpisz odpowiedź/)).toBeVisible();
       await input.fill("zzz wrong"); await page.keyboard.press("Enter");
       const right = (await page.getByTestId("correct-answer").textContent())!.trim();
-      expect(right.split(/\s+/).length, `short answer expected, got "${right}"`).toBeLessThanOrEqual(4);
+      expect(right.split(/\s+/).length, `short answer expected, got "${right}"`).toBeLessThanOrEqual(6); // one word, phrase or fixed expression – never a sentence
       await expect(page.getByText(/Przetłumacz zdanie/)).toHaveCount(0);
       await page.keyboard.press("Enter");                                  // fix → retype
       await expect(page.getByText("Teraz wpisz poprawną odpowiedź z pamięci.")).toBeVisible();

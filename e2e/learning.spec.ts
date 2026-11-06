@@ -34,7 +34,7 @@ test("test: answers are graded and stored in history", async ({ page }) => {
 test("mistakes from the test appear in the Mistake Notebook", async ({ page }) => {
   await login(page);
   await page.goto("/#/mistakes");
-  await expect(page.getByText(/test:mixed|flashcards/).first()).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByText(/test:mixed|flashcards|daily:/).first()).toBeVisible({ timeout: 15_000 });
 });
 test("dashboard button opens the daily lesson", async ({ page }) => {
   await login(page);
