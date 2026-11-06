@@ -17,6 +17,7 @@ async function solveSession(page: Page) {
   for (let guard = 0; guard < 60; guard++) {
     if (await page.getByTestId("session-close").isVisible()) return;
     const [before] = await counter(page);
+    const isWord = /angielski odpowiednik|brakujące słowo|pasuje do definicji/.test(await page.locator("main").innerText());
     // daily lesson: only short answers – no sentence translation fields
     await expect(page.locator("main textarea")).toHaveCount(0);
     const input = page.getByTestId("answer-input");
@@ -41,6 +42,7 @@ async function solveSession(page: Page) {
       }
     }
     await expect(page.getByTestId("next")).toBeVisible();
+    if (isWord) await expect(page.getByTestId("word-card")).toBeVisible();  // full word card after a word
     await page.keyboard.press("Enter");                                     // next item – exactly one step
     await expect.poll(async () => (await page.getByTestId("session-close").isVisible()) || (await counter(page))[0] !== before).toBe(true);
     if (await page.getByTestId("session-close").isVisible()) return;
@@ -81,13 +83,22 @@ for (const [label, user] of [["desktop", U1], ["phone", U2]] as const) {
     // summary
     await expect.poll(() => stage(page)).toBe("summary");
     await expect(page.getByRole("heading", { name: "Lekcja ukończona" })).toBeVisible();
+    // optional extra round: new words → read → short answers → back to the summary
+    await page.getByTestId("learn-more").click();
+    await expect(page.getByTestId("extra-read")).toBeVisible({ timeout: 20_000 });
+    await page.keyboard.press("Enter");
+    await expect(page.getByTestId("extra-practice")).toBeVisible();
+    await solveSession(page);
+    await page.keyboard.press("Enter");
+    await expect(page.getByTestId("extra-summary")).toBeVisible({ timeout: 20_000 });
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL(/#\/dashboard/);
     // progress saved in the database: plan row has all four stages, and word progress was recorded
     const c = createClient(url, key, { auth: { persistSession: false } });
     await c.auth.signInWithPassword(user);
     const { data: plans } = await c.from("daily_plans").select("stages, vocab_ids").order("day", { ascending: false }).limit(1);
-    expect(Object.keys(plans?.[0]?.stages ?? {}).sort()).toEqual(["exercises", "grammar", "revision", "vocab"]);
+    expect(Object.keys(plans?.[0]?.stages ?? {}).sort()).toEqual(["exercises", "extra", "grammar", "revision", "vocab"]);
+    expect(plans?.[0]?.stages.extra).toHaveLength(1);
     const { count } = await c.from("flashcard_progress").select("vocab_id", { count: "exact", head: true }).in("vocab_id", plans![0].vocab_ids);
     expect(count).toBe(plans![0].vocab_ids.length);
     // reopening shows the summary

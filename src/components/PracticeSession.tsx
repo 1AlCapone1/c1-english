@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import type { ReactNode } from "react";
 import { ExerciseTask, type Outcome } from "./Correction";
 import { useEnter } from "../lib/keys";
 import { Button, Card, Feedback, Progress } from "./ui";
@@ -16,9 +17,11 @@ export function categoryFor(ex: Exercise): MistakeCategory {
 export function promptText(ex: Exercise) { const p = ex.prompt; return ex.task_type === "kwt" ? `${p.question} → (${p.keyword}) ${p.sentence2}` : p.question; }
 
 /** Runs exercises one by one with the mandatory correction loop; adds a similar follow-up task after each mistake. */
-export function PracticeSession({ title, items, pool = [], source, onFinish, onClose, onItemDone, finishLabel }: {
+export function PracticeSession({ title, items, pool = [], source, onFinish, onClose, onItemDone, finishLabel, afterAnswer }: {
   title: string; items: Exercise[]; pool?: Exercise[]; source: string; onFinish?: (firstTryCorrect: number, total: number) => void; onClose?: () => void;
   onItemDone?: (ex: Exercise, o: Outcome) => Promise<void> | void; finishLabel?: string;
+  /** Extra content shown once the item is answered correctly (e.g. the full word card). */
+  afterAnswer?: (ex: Exercise) => ReactNode;
 }) {
   const [queue, setQueue] = useState<(Exercise & { followUp?: boolean })[]>(items);
   const [i, setI] = useState(0);
@@ -72,5 +75,6 @@ export function PracticeSession({ title, items, pool = [], source, onFinish, onC
     <Card><ExerciseTask key={ex.id + ":" + i} ex={ex} onDone={handleDone} /></Card>
     {saveErr && <Feedback tone="warn" title="Problem z zapisem">{saveErr}</Feedback>}
     {done && <div className="flex items-center gap-3"><Button onClick={next} data-testid="next">Dalej →</Button><span className="hidden text-xs text-ink-soft sm:inline">lub Enter</span></div>}
+    {done && afterAnswer && afterAnswer(queue[i])}
   </div>;
 }

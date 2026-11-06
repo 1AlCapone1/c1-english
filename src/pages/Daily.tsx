@@ -23,7 +23,8 @@ import { Button, Card, ErrorBox, Feedback, Loading, PageHeader, Pill, Progress, 
  */
 type StageKey = "vocab" | "grammar" | "exercises" | "revision";
 type StageState = { done_at: string; items?: number; correct?: number; minutes?: number };
-type Plan = { day: string; vocab_ids: string[]; lesson_id: string | null; stages: Partial<Record<StageKey, StageState>> };
+type ExtraRound = { done_at: string; vocab_ids: string[]; items: number; correct: number; minutes: number };
+type Plan = { day: string; vocab_ids: string[]; lesson_id: string | null; stages: Partial<Record<StageKey, StageState>> & { extra?: ExtraRound[] } };
 const STAGES: { key: StageKey; title: string; minutes: number; what: string }[] = [
   { key: "vocab", title: "Słownictwo", minutes: 4, what: "Poznaj słowa dnia: tłumaczenie, wymowa, przykłady" },
   { key: "grammar", title: "Gramatyka", minutes: 5, what: "Przeczytaj zagadnienie dnia z wyjaśnieniem po polsku" },
@@ -81,7 +82,7 @@ export default function Daily() {
   const nav = useNavigate();
   const data = useAsync(loadDaily);
   const [plan, setPlan] = useState<Plan | null>(null);
-  const [view, setView] = useState<StageKey | "summary" | null>(null);
+  const [view, setView] = useState<StageKey | "summary" | "extra" | null>(null);
   const [startedAt, setStartedAt] = useState(Date.now());
   const [err, setErr] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
@@ -107,7 +108,7 @@ export default function Daily() {
   if (data.loading) return <Loading />;
   if (data.error || !data.data || !p || !current) return <ErrorBox error={data.error ?? "Nie udało się przygotować lekcji."} onRetry={data.reload} />;
   const { words, lesson, lessonExercises, uoe } = data.data;
-  const stageIdx = current === "summary" ? 4 : STAGES.findIndex((s) => s.key === current);
+  const stageIdx = current === "summary" || current === "extra" ? 4 : STAGES.findIndex((s) => s.key === current);
   const openStage = (k: StageKey) => { const i = STAGES.findIndex((s) => s.key === k); if (STAGES.slice(0, i).every((s) => p.stages[s.key])) { setView(k); setStartedAt(Date.now()); window.scrollTo(0, 0); } };
 
   const stepper = <div className="mb-5">
@@ -122,7 +123,7 @@ export default function Daily() {
     </ol>
     <div className="mt-3"><Progress value={(doneCount / 4) * 100} tone={doneCount === 4 ? "ok" : "accent"} /></div>
   </div>;
-  const header = (title: string, lead: ReactNode) => <PageHeader eyebrow={`Codzienna lekcja · ${current === "summary" ? "koniec" : `etap ${stageIdx + 1} z 4 · ok. ${STAGES[stageIdx].minutes} min`}`} title={title} lead={lead} />;
+  const header = (title: string, lead: ReactNode) => <PageHeader eyebrow={`Codzienna lekcja · ${current === "extra" ? "nauka dodatkowa" : current === "summary" ? "koniec" : `etap ${stageIdx + 1} z 4 · ok. ${STAGES[stageIdx].minutes} min`}`} title={title} lead={lead} />;
   const errBox = err && <div className="my-3"><Feedback tone="warn" title="Nie udało się zapisać postępu">{err}</Feedback></div>;
 
   return <div className="max-w-3xl" data-testid="daily" data-stage={current}>
@@ -133,7 +134,18 @@ export default function Daily() {
       onDone={(correct, items) => complete("exercises", { items, correct }, false)} />}
     {current === "revision" && <RevisionStage key={"rev" + p.day} words={words} header={header} errBox={errBox}
       onDone={async (correct, items) => { try { if (items) await saveAttempt({ kind: "daily", title: "Codzienna lekcja – powtórka", score: correct, max_score: items }); } catch { /* history entry is optional */ } await complete("revision", { items, correct }, false); }} />}
-    {current === "summary" && <Summary plan={p} words={words} lesson={lesson} header={header} onClose={() => nav("/dashboard")} onRepeat={(k) => openStage(k)} />}
+    {current === "summary" && <Summary plan={p} words={words} lesson={lesson} header={header} onClose={() => nav("/dashboard")} onRepeat={(k) => openStage(k)} onMore={() => { setView("extra"); setStartedAt(Date.now()); window.scrollTo(0, 0); }} />}
+    {current === "extra" && <ExtraRoundView key={"extra" + (p.stages.extra?.length ?? 0)} plan={p} lessonExercises={lessonExercises} uoe={uoe} header={header}
+      onCancel={() => setView("summary")}
+      onDone={async (r) => {
+        try {
+          const extra = [...(p.stages.extra ?? []), { ...r, done_at: new Date().toISOString(), minutes: Math.min(60, (Date.now() - startedAt) / 60000) }];
+          const stages = { ...p.stages, extra };
+          unwrap(await supabase.from("daily_plans").update({ stages, updated_at: new Date().toISOString() }).eq("day", p.day));
+          setPlan({ ...p, stages });
+        } catch (e) { setErr(e instanceof Error ? e.message : String(e)); }
+        setView("summary"); window.scrollTo(0, 0);
+      }} />}
   </div>;
 }
 
@@ -205,7 +217,7 @@ function ExercisesStage({ words, lessonExercises, uoe, lesson, header, onDone, e
   return <div>
     {header("Ćwiczenia", `Krótkie odpowiedzi: polskie słowo → angielskie, pojedyncze luki i formy z tematu „${lesson?.title ?? "gramatyka"}”. Enter sprawdza; po błędzie wpisujesz poprawną odpowiedź jeszcze raz.`)}
     {errBox}
-    <PracticeSession title="Ćwiczenia" items={items} pool={pool} source="daily:exercises" onItemDone={onItemDone}
+    <PracticeSession title="Ćwiczenia" items={items} pool={pool} source="daily:exercises" onItemDone={onItemDone} afterAnswer={wordCard(words)}
       onFinish={(correct, total) => setResult({ correct, items: total })} finishLabel="Dalej: Powtórka →" onClose={() => setCloseAsked(true)} />
   </div>;
 }
@@ -218,15 +230,17 @@ function RevisionStage({ words, header, onDone, errBox }: { words: Vocab[]; head
   const built = useAsync(async () => {
     const todayIds = new Set(words.map((w) => w.id));
     const todays = shuffle(words).slice(0, 6).map((v, i) => vocabShortExercise(v, i % 2 ? "gap" : "def")); // same words, another form
-    const due = (await pickFlashcards({ n: 10, mode: "due" })).filter((v) => !todayIds.has(v.id)).slice(0, 3).map((v) => vocabShortExercise(v, "plen"));
+    const dueWords = (await pickFlashcards({ n: 10, mode: "due" })).filter((v) => !todayIds.has(v.id)).slice(0, 3);
+    const due = dueWords.map((v) => vocabShortExercise(v, "plen"));
     const midnight = new Date(`${today()}T00:00:00`).getTime() - 2 * 3600e3; // conservative: anything clearly before today
     const old = (await listMistakes()).filter((m) => !m.mastered && new Date(m.created_at).getTime() < midnight).sort((a, b) => b.times - a.times);
     const exIds = [...new Set(old.map((m) => m.exercise_id).filter((x): x is string => !!x))].slice(0, 3);
     const fromExercises = exIds.length ? (await exercisesByIds(exIds)).filter(isShortTask) : [];
     const vocabMistakeIds = old.map((m) => m.vocab_id).filter((x): x is string => !!x && !todayIds.has(x)).slice(0, 3 - fromExercises.length);
-    const fromVocab = vocabMistakeIds.length ? (await listVocab({ ids: vocabMistakeIds, limit: vocabMistakeIds.length })).rows.map((v) => vocabShortExercise(v, "plen")) : [];
+    const vocabMistakeWords = vocabMistakeIds.length ? (await listVocab({ ids: vocabMistakeIds, limit: vocabMistakeIds.length })).rows : [];
+    const fromVocab = vocabMistakeWords.map((v) => vocabShortExercise(v, "plen"));
     const uniq = new Map<string, Exercise>(); [...todays, ...due, ...fromExercises, ...fromVocab].forEach((x) => uniq.set(x.id, x));
-    return { items: [...uniq.values()], fromPast: due.length + fromExercises.length + fromVocab.length };
+    return { items: [...uniq.values()], fromPast: due.length + fromExercises.length + fromVocab.length, vocab: [...words, ...dueWords, ...vocabMistakeWords] };
   }, [words]);
   async function onItemDone(ex: Exercise, o: { firstTry: boolean; hinted: boolean; attempts: number }) {
     if (isVocabId(ex.id)) await saveFlashcardResult(vocabIdOf(ex.id), o.firstTry, o.hinted, o.attempts, "daily-revision");
@@ -236,14 +250,16 @@ function RevisionStage({ words, header, onDone, errBox }: { words: Vocab[]; head
   return <div>
     {header("Powtórka", built.data.fromPast ? `Fiszki ze słowami dnia oraz ${built.data.fromPast} pytań z poprzednich dni (powtórki i Twoje błędy).` : "Fiszki ze słowami dnia. Nie masz zaległych powtórek ani błędów z poprzednich dni.")}
     {errBox}
-    <PracticeSession title="Powtórka" items={built.data.items} source="daily:revision" onItemDone={onItemDone}
+    <PracticeSession title="Powtórka" items={built.data.items} source="daily:revision" onItemDone={onItemDone} afterAnswer={wordCard(built.data.vocab)}
       onFinish={(correct, total) => setResult({ correct, items: total })} finishLabel="Zobacz podsumowanie →" onClose={() => setCloseAsked(true)} />
   </div>;
 }
 
-function Summary({ plan, words, lesson, header, onClose, onRepeat }: { plan: Plan; words: Vocab[]; lesson: GrammarLesson | null; header: HeaderFn; onClose: () => void; onRepeat: (k: StageKey) => void }) {
+function Summary({ plan, words, lesson, header, onClose, onRepeat, onMore }: { plan: Plan; words: Vocab[]; lesson: GrammarLesson | null; header: HeaderFn; onClose: () => void; onRepeat: (k: StageKey) => void; onMore: () => void }) {
+  const extra = plan.stages.extra ?? [];
   const ex = plan.stages.exercises, rev = plan.stages.revision;
   const minutes = Math.round(STAGES.reduce((s, x) => s + (plan.stages[x.key]?.minutes ?? 0), 0));
+  const extraMinutes = Math.round(extra.reduce((s, r) => s + r.minutes, 0));
   const pct = (s?: StageState) => (s?.items ? Math.round(((s.correct ?? 0) / s.items) * 100) : null);
   return <div>
     {header("Lekcja ukończona", "Wszystkie cztery etapy na dziś są zrobione. Wynik zapisano na Twoim koncie.")}
@@ -255,7 +271,57 @@ function Summary({ plan, words, lesson, header, onClose, onRepeat }: { plan: Pla
     </div>
     <Card className="mt-3"><div className="flex flex-wrap items-center justify-between gap-2"><span>Czas nauki dziś (lekcja): <b>{minutes} min</b></span><Pill tone="ok">plan dnia: ok. 20 min</Pill></div>
       <p className="mt-2 text-sm text-ink-soft">Błędy z dzisiejszej lekcji trafiły do <Link className="underline" to="/mistakes">Mistake Notebook</Link> i wrócą w jutrzejszej powtórce. Jutro czekają nowe słowa i kolejne zagadnienie.</p>
+      {extra.length > 0 && <p className="mt-2 text-sm" data-testid="extra-summary">Nauka dodatkowa: <b>{extra.length} {extra.length === 1 ? "runda" : "rundy"}</b>, {extra.reduce((s, r) => s + r.vocab_ids.length, 0)} nowych słów, {extra.reduce((s, r) => s + r.correct, 0)}/{extra.reduce((s, r) => s + r.items, 0)} za pierwszym razem · {extraMinutes} min</p>}
       <div className="mt-3 flex flex-wrap gap-2"><Button variant="quiet" size="sm" onClick={() => onRepeat("exercises")}>Powtórz ćwiczenia</Button><Button variant="quiet" size="sm" onClick={() => onRepeat("revision")}>Powtórz powtórkę</Button></div></Card>
+    <Card className="mt-3"><div className="flex flex-wrap items-center justify-between gap-3"><div><div className="font-display text-lg font-bold">Masz jeszcze czas?</div><div className="text-sm text-ink-soft">Ucz się dalej: 8 kolejnych słów i krótkie ćwiczenia (ok. 10 min). Dzienny plan jest już zaliczony – to nauka dodatkowa.</div></div>
+      <Button variant="quiet" onClick={onMore} data-testid="learn-more">Ucz się dalej →</Button></div></Card>
     <NextBar label="Zakończ i wróć do pulpitu" onClick={onClose} />
+  </div>;
+}
+
+/** Full word card shown after a word has been answered (translation, pronunciation, example, synonyms, collocations, notes). */
+function wordCard(words: Vocab[]) {
+  const byId = new Map(words.map((w) => [w.id, w]));
+  return (ex: Exercise) => {
+    const v = isVocabId(ex.id) ? byId.get(vocabIdOf(ex.id)) : undefined;
+    if (!v) return null;
+    return <div data-testid="word-card"><Card className="mt-1"><div className="mb-3 flex flex-wrap items-baseline gap-2"><h3 className="font-display text-xl font-bold">{v.term}</h3>{v.pos && <Pill>{v.pos}</Pill>}<Pill>{v.level}</Pill></div><VocabDetail v={v} /></Card></div>;
+  };
+}
+
+/** "Ucz się dalej": optional extra round after the daily plan – new words, read them, then short typed answers. */
+function ExtraRoundView({ plan, lessonExercises, uoe, header, onDone, onCancel }: { plan: Plan; lessonExercises: Exercise[]; uoe: Exercise[]; header: HeaderFn; onDone: (r: { vocab_ids: string[]; items: number; correct: number }) => void; onCancel: () => void }) {
+  const [phase, setPhase] = useState<"read" | "practice">("read");
+  const [result, setResult] = useState<{ correct: number; items: number } | null>(null);
+  const [closeAsked, setCloseAsked] = useState(false);
+  const built = useAsync(async () => {
+    const seen = new Set([...plan.vocab_ids, ...(plan.stages.extra ?? []).flatMap((r) => r.vocab_ids)]);
+    let words = (await pickFlashcards({ n: 20, mode: "new" })).filter((w) => !seen.has(w.id)).slice(0, 8);
+    if (words.length < 4) words = [...words, ...(await pickFlashcards({ n: 20, mode: "smart" })).filter((w) => !seen.has(w.id) && !words.some((x) => x.id === w.id))].slice(0, 8);
+    return words;
+  }, []);
+  const words = built.data ?? [];
+  useEffect(() => { if (closeAsked && result) onDone({ vocab_ids: words.map((w) => w.id), ...result }); }, [closeAsked, result]); // eslint-disable-line react-hooks/exhaustive-deps
+  const items = useMemo(() => {
+    const vocab = words.flatMap((v, i) => [vocabShortExercise(v, "plen"), ...(i % 2 ? [vocabShortExercise(v, "gap")] : [])]);
+    const gram = shuffle(lessonExercises).slice(0, 2), wf = shuffle(uoe.filter((e) => e.task_type === "word_formation")).slice(0, 1);
+    return shuffle([...vocab, ...gram, ...wf]);
+  }, [words, lessonExercises, uoe]);
+  async function onItemDone(ex: Exercise, o: { firstTry: boolean; hinted: boolean; attempts: number }) {
+    if (isVocabId(ex.id)) await saveFlashcardResult(vocabIdOf(ex.id), o.firstTry, o.hinted, o.attempts, "daily-extra");
+  }
+  if (built.loading) return <Loading />;
+  if (built.error) return <ErrorBox error={built.error} onRetry={built.reload} />;
+  if (!words.length) return <div>{header("Ucz się dalej", "")}<Feedback tone="info" title="Wszystkie słowa z bazy są już w nauce">Nie ma więcej nowych haseł – powtarzaj je w fiszkach.</Feedback><NextBar label="Wróć do podsumowania" onClick={onCancel} /></div>;
+  if (phase === "read") return <div data-testid="extra-read">
+    {header("Ucz się dalej – nowe słowa", `Kolejne ${words.length} haseł. Przeczytaj je, a potem przećwicz krótkimi odpowiedziami.`)}
+    <ol className="flex flex-col gap-3">{words.map((v, i) => <li key={v.id}><Card><div className="mb-3 flex flex-wrap items-baseline gap-2"><span className="font-mono text-sm text-ink-soft">{i + 1}</span><h2 className="font-display text-xl font-bold">{v.term}</h2>{v.pos && <Pill>{v.pos}</Pill>}<Pill>{v.level}</Pill></div><VocabDetail v={v} /></Card></li>)}</ol>
+    <div className="mt-3"><Button variant="ghost" size="sm" onClick={onCancel}>Anuluj</Button></div>
+    <NextBar label="Znam już te słowa – ćwicz" onClick={() => { setPhase("practice"); window.scrollTo(0, 0); }} />
+  </div>;
+  return <div data-testid="extra-practice">
+    {header("Ucz się dalej – ćwiczenia", "Krótkie odpowiedzi: polskie słowo → angielskie i pojedyncze luki. Po każdym słowie zobaczysz jego pełną kartę.")}
+    <PracticeSession title="Nauka dodatkowa" items={items} source="daily:extra" onItemDone={onItemDone} afterAnswer={wordCard(words)}
+      onFinish={(correct, total) => setResult({ correct, items: total })} finishLabel="Wróć do podsumowania →" onClose={() => setCloseAsked(true)} />
   </div>;
 }
