@@ -17,6 +17,8 @@ async function solveSession(page: Page) {
   for (let guard = 0; guard < 60; guard++) {
     if (await page.getByTestId("session-close").isVisible()) return;
     const [before] = await counter(page);
+    // daily lesson: only short answers – no sentence translation fields
+    await expect(page.locator("main textarea")).toHaveCount(0);
     const input = page.getByTestId("answer-input");
     if (await input.count()) {
       // empty Enter must do nothing
@@ -24,6 +26,8 @@ async function solveSession(page: Page) {
       await expect(page.getByText(/^Wpisz odpowiedź/)).toBeVisible();
       await input.fill("zzz wrong"); await page.keyboard.press("Enter");
       const right = (await page.getByTestId("correct-answer").textContent())!.trim();
+      expect(right.split(/\s+/).length, `short answer expected, got "${right}"`).toBeLessThanOrEqual(4);
+      await expect(page.getByText(/Przetłumacz zdanie/)).toHaveCount(0);
       await page.keyboard.press("Enter");                                  // fix → retype
       await expect(page.getByText("Teraz wpisz poprawną odpowiedź z pamięci.")).toBeVisible();
       await input.fill(right); await page.keyboard.press("Enter");          // check again
@@ -38,14 +42,7 @@ async function solveSession(page: Page) {
     }
     await expect(page.getByTestId("next")).toBeVisible();
     await page.keyboard.press("Enter");                                     // next item – exactly one step
-    try {
-      await expect.poll(async () => (await page.getByTestId("session-close").isVisible()) || (await counter(page))[0] !== before, { timeout: 8000 }).toBe(true);
-    } catch (e) {
-      console.log("DEBUG active:", await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 300)));
-      console.log("DEBUG page:", (await page.locator("main").innerText()).replace(/\s+/g, " ").slice(0, 2000));
-      console.log("DEBUG next visible:", await page.getByTestId("next").isVisible());
-      throw e;
-    }
+    await expect.poll(async () => (await page.getByTestId("session-close").isVisible()) || (await counter(page))[0] !== before).toBe(true);
     if (await page.getByTestId("session-close").isVisible()) return;
     expect((await counter(page))[0]).toBe(before + 1);                     // never skips an item
   }
@@ -54,8 +51,6 @@ async function solveSession(page: Page) {
 
 for (const [label, user] of [["desktop", U1], ["phone", U2]] as const) {
   test(`daily lesson order and Enter navigation (${label})`, async ({ page, isMobile }) => {
-    page.on("console", (m) => { if (m.type() === "error") console.log("BROWSER ERROR:", m.text()); });
-    page.on("pageerror", (e) => console.log("PAGE ERROR:", e.message));
     test.skip(label === "phone" ? !isMobile : !!isMobile, "runs in its own project");
     test.setTimeout(240_000);
     await resetTodaysPlan(user);
@@ -88,7 +83,14 @@ for (const [label, user] of [["desktop", U1], ["phone", U2]] as const) {
     await expect(page.getByRole("heading", { name: "Lekcja ukończona" })).toBeVisible();
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL(/#\/dashboard/);
-    // progress was saved in the database: reopening shows the summary
+    // progress saved in the database: plan row has all four stages, and word progress was recorded
+    const c = createClient(url, key, { auth: { persistSession: false } });
+    await c.auth.signInWithPassword(user);
+    const { data: plans } = await c.from("daily_plans").select("stages, vocab_ids").order("day", { ascending: false }).limit(1);
+    expect(Object.keys(plans?.[0]?.stages ?? {}).sort()).toEqual(["exercises", "grammar", "revision", "vocab"]);
+    const { count } = await c.from("flashcard_progress").select("vocab_id", { count: "exact", head: true }).in("vocab_id", plans![0].vocab_ids);
+    expect(count).toBe(plans![0].vocab_ids.length);
+    // reopening shows the summary
     await page.goto("./#/daily");
     await expect.poll(() => stage(page)).toBe("summary");
   });

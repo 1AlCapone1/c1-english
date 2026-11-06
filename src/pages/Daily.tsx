@@ -2,8 +2,8 @@ import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase, unwrap } from "../lib/supabase";
 import { useAsync } from "../lib/useAsync";
-import { exercisesByIds, lessonProgress, listLessons, listMistakes, listVocab, logSession, pickFlashcards, saveAttempt, saveFlashcardResult, shuffle } from "../lib/api";
-import { vocabToExercise } from "../lib/vocabTest";
+import { exercisesByIds, lessonProgress, listExercises, listLessons, listMistakes, listVocab, logSession, pickFlashcards, saveAttempt, saveFlashcardResult, shuffle } from "../lib/api";
+import { isShortTask, vocabShortExercise } from "../lib/vocabTest";
 import { useEnter } from "../lib/keys";
 import type { Exercise, GrammarLesson, Vocab } from "../lib/types";
 import { PracticeSession } from "../components/PracticeSession";
@@ -14,8 +14,10 @@ import { Button, Card, ErrorBox, Feedback, Loading, PageHeader, Pill, Progress, 
  * Daily lesson – about 20 minutes, no timer, always in this order:
  *   1. Słownictwo  – read the words of the day (translation, example, pronunciation, notes)
  *   2. Gramatyka   – read the grammar topic of the day (explanation in Polish, structure, examples)
- *   3. Ćwiczenia   – practise exactly those words and that topic (translation, gaps, sentences, grammar tasks)
- *   4. Powtórka    – flashcards + check questions, including mistakes and due words from previous days
+ *   3. Ćwiczenia   – short typed answers only (as in the original prototype): Polish word → English word,
+ *                    single gaps, one word form, choosing the right construction, word formation
+ *   4. Powtórka    – the same words as flashcards in another form + due words and short mistakes from previous days
+ * No whole-sentence translation or sentence writing in the daily lesson (those stay in the other modules).
  * then a summary. The plan (words, lesson) and stage progress live in the database (daily_plans),
  * so the same plan continues after a reload or on another device. A stage opens only after the previous one.
  */
@@ -25,8 +27,8 @@ type Plan = { day: string; vocab_ids: string[]; lesson_id: string | null; stages
 const STAGES: { key: StageKey; title: string; minutes: number; what: string }[] = [
   { key: "vocab", title: "Słownictwo", minutes: 4, what: "Poznaj słowa dnia: tłumaczenie, wymowa, przykłady" },
   { key: "grammar", title: "Gramatyka", minutes: 5, what: "Przeczytaj zagadnienie dnia z wyjaśnieniem po polsku" },
-  { key: "exercises", title: "Ćwiczenia", minutes: 7, what: "Tłumaczenia, luki, zdania i zadania z dzisiejszego materiału" },
-  { key: "revision", title: "Powtórka", minutes: 4, what: "Fiszki i pytania sprawdzające, także błędy z poprzednich dni" },
+  { key: "exercises", title: "Ćwiczenia", minutes: 7, what: "Krótkie odpowiedzi: polskie słowo → angielskie, luki i formy gramatyczne" },
+  { key: "revision", title: "Powtórka", minutes: 4, what: "Fiszki ze słowami dnia, zaległe powtórki i błędy z poprzednich dni" },
 ];
 const WORDS_PER_DAY = 8;
 const today = () => new Date().toLocaleDateString("sv-SE", { timeZone: "Europe/Warsaw" });
@@ -63,8 +65,10 @@ async function loadDaily() {
   const order = new Map(plan.vocab_ids.map((id, i) => [id, i]));
   const words = [...vocabRes.rows].sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
   const lesson = (lessonRes.data as GrammarLesson | null) ?? null;
-  const lessonExercises = lesson ? unwrap(await supabase.from("exercises").select("*").eq("grammar_lesson_id", lesson.id).lt("position", 100).order("position")) as Exercise[] : [];
-  return { plan, words, lesson, lessonExercises };
+  const lessonAll = lesson ? unwrap(await supabase.from("exercises").select("*").eq("grammar_lesson_id", lesson.id).order("position")) as Exercise[] : [];
+  const lessonExercises = lessonAll.filter(isShortTask); // gaps, one word form, choice of construction – no sentence writing
+  const uoe = (await listExercises({ module: "use_of_english", limit: 400 })).filter((e) => e.task_type !== "kwt" && isShortTask(e));
+  return { plan, words, lesson, lessonExercises, uoe };
 }
 
 async function saveStage(plan: Plan, key: StageKey, s: Omit<StageState, "done_at">): Promise<Plan> {
@@ -102,7 +106,7 @@ export default function Daily() {
 
   if (data.loading) return <Loading />;
   if (data.error || !data.data || !p || !current) return <ErrorBox error={data.error ?? "Nie udało się przygotować lekcji."} onRetry={data.reload} />;
-  const { words, lesson, lessonExercises } = data.data;
+  const { words, lesson, lessonExercises, uoe } = data.data;
   const stageIdx = current === "summary" ? 4 : STAGES.findIndex((s) => s.key === current);
   const openStage = (k: StageKey) => { const i = STAGES.findIndex((s) => s.key === k); if (STAGES.slice(0, i).every((s) => p.stages[s.key])) { setView(k); setStartedAt(Date.now()); window.scrollTo(0, 0); } };
 
@@ -125,7 +129,7 @@ export default function Daily() {
     {stepper}
     {current === "vocab" && <VocabStage words={words} header={header} saving={saving} errBox={errBox} onDone={() => complete("vocab", { items: words.length }, true)} />}
     {current === "grammar" && <GrammarStage lesson={lesson} header={header} saving={saving} errBox={errBox} onDone={() => complete("grammar", { items: 1 }, true)} />}
-    {current === "exercises" && <ExercisesStage key={"ex" + p.day} words={words} lessonExercises={lessonExercises} lesson={lesson} header={header} errBox={errBox}
+    {current === "exercises" && <ExercisesStage key={"ex" + p.day} words={words} lessonExercises={lessonExercises} uoe={uoe} lesson={lesson} header={header} errBox={errBox}
       onDone={(correct, items) => complete("exercises", { items, correct }, false)} />}
     {current === "revision" && <RevisionStage key={"rev" + p.day} words={words} header={header} errBox={errBox}
       onDone={async (correct, items) => { try { if (items) await saveAttempt({ kind: "daily", title: "Codzienna lekcja – powtórka", score: correct, max_score: items }); } catch { /* history entry is optional */ } await complete("revision", { items, correct }, false); }} />}
@@ -177,28 +181,29 @@ function GrammarStage({ lesson, header, onDone, saving, errBox }: { lesson: Gram
   </div>;
 }
 
-/** Practice built only from today's words and today's grammar topic. */
-function ExercisesStage({ words, lessonExercises, lesson, header, onDone, errBox }: { words: Vocab[]; lessonExercises: Exercise[]; lesson: GrammarLesson | null; header: HeaderFn; onDone: (correct: number, items: number) => void; errBox: ReactNode }) {
+/** Short tasks built only from today's words and today's grammar topic (+ a few one-word Use of English items). */
+function ExercisesStage({ words, lessonExercises, uoe, lesson, header, onDone, errBox }: { words: Vocab[]; lessonExercises: Exercise[]; uoe: Exercise[]; lesson: GrammarLesson | null; header: HeaderFn; onDone: (correct: number, items: number) => void; errBox: ReactNode }) {
   const [result, setResult] = useState<{ correct: number; items: number } | null>(null);
   const [closeAsked, setCloseAsked] = useState(false);
   useEffect(() => { if (closeAsked && result) onDone(result.correct, result.items); }, [closeAsked, result]); // eslint-disable-line react-hooks/exhaustive-deps
   const { items, pool } = useMemo(() => {
-    const modes = ["plen", "gap", "sentence"] as const;
-    const vocabItems = words.map((v, i) => { const m = modes[i % 3]; return vocabToExercise(v, m === "sentence" && !v.example_pl ? "gap" : m); });
-    const typed = shuffle(lessonExercises.filter((e) => e.task_type !== "mc"));
-    const choice = shuffle(lessonExercises.filter((e) => e.task_type === "mc"));
-    const grammar = [...typed.slice(0, 4), ...choice.slice(0, 1)];
-    const mixed: Exercise[] = []; // alternate: word, word, grammar, …
+    const vocabItems = words.map((v) => vocabShortExercise(v, "plen"));        // Polish word → type the English word
+    const gaps = shuffle(lessonExercises.filter((e) => e.task_type === "gap"));
+    const choice = shuffle(lessonExercises.filter((e) => e.task_type !== "gap"));
+    const grammar = [...gaps.slice(0, 4), ...choice.slice(0, 1)];
+    const extra = [...shuffle(uoe.filter((e) => e.task_type === "word_formation")).slice(0, 1), ...shuffle(uoe.filter((e) => e.task_type === "mc_cloze")).slice(0, 1), ...shuffle(uoe.filter((e) => e.task_type === "open_cloze")).slice(0, 1)];
+    const mixed: Exercise[] = []; // word, word, grammar, … then the Use of English items
     let g = 0; vocabItems.forEach((v, i) => { mixed.push(v); if (i % 2 === 1 && g < grammar.length) mixed.push(grammar[g++]); });
     while (g < grammar.length) mixed.push(grammar[g++]);
+    mixed.push(...extra);
     const used = new Set(mixed.map((x) => x.id));
     return { items: mixed, pool: lessonExercises.filter((e) => !used.has(e.id)) };
-  }, [words, lessonExercises]);
+  }, [words, lessonExercises, uoe]);
   async function onItemDone(ex: Exercise, o: { firstTry: boolean; hinted: boolean; attempts: number }) {
     if (isVocabId(ex.id)) await saveFlashcardResult(vocabIdOf(ex.id), o.firstTry, o.hinted, o.attempts, "daily");
   }
   return <div>
-    {header("Ćwiczenia", `Słowa dnia (tłumaczenia, luki, zdania) i zadania z tematu „${lesson?.title ?? "gramatyka"}”. Po błędzie poprawiasz odpowiedź, zanim przejdziesz dalej.`)}
+    {header("Ćwiczenia", `Krótkie odpowiedzi: polskie słowo → angielskie, pojedyncze luki i formy z tematu „${lesson?.title ?? "gramatyka"}”. Enter sprawdza; po błędzie wpisujesz poprawną odpowiedź jeszcze raz.`)}
     {errBox}
     <PracticeSession title="Ćwiczenia" items={items} pool={pool} source="daily:exercises" onItemDone={onItemDone}
       onFinish={(correct, total) => setResult({ correct, items: total })} finishLabel="Dalej: Powtórka →" onClose={() => setCloseAsked(true)} />
@@ -212,14 +217,14 @@ function RevisionStage({ words, header, onDone, errBox }: { words: Vocab[]; head
   useEffect(() => { if (closeAsked && result) onDone(result.correct, result.items); }, [closeAsked, result]); // eslint-disable-line react-hooks/exhaustive-deps
   const built = useAsync(async () => {
     const todayIds = new Set(words.map((w) => w.id));
-    const todays = shuffle(words).slice(0, 5).map((v, i) => vocabToExercise(v, i % 2 ? "gap" : "plen"));
-    const due = (await pickFlashcards({ n: 10, mode: "due" })).filter((v) => !todayIds.has(v.id)).slice(0, 3).map((v) => vocabToExercise(v, "plen"));
+    const todays = shuffle(words).slice(0, 6).map((v, i) => vocabShortExercise(v, i % 2 ? "gap" : "def")); // same words, another form
+    const due = (await pickFlashcards({ n: 10, mode: "due" })).filter((v) => !todayIds.has(v.id)).slice(0, 3).map((v) => vocabShortExercise(v, "plen"));
     const midnight = new Date(`${today()}T00:00:00`).getTime() - 2 * 3600e3; // conservative: anything clearly before today
     const old = (await listMistakes()).filter((m) => !m.mastered && new Date(m.created_at).getTime() < midnight).sort((a, b) => b.times - a.times);
     const exIds = [...new Set(old.map((m) => m.exercise_id).filter((x): x is string => !!x))].slice(0, 3);
-    const fromExercises = exIds.length ? await exercisesByIds(exIds) : [];
+    const fromExercises = exIds.length ? (await exercisesByIds(exIds)).filter(isShortTask) : [];
     const vocabMistakeIds = old.map((m) => m.vocab_id).filter((x): x is string => !!x && !todayIds.has(x)).slice(0, 3 - fromExercises.length);
-    const fromVocab = vocabMistakeIds.length ? (await listVocab({ ids: vocabMistakeIds, limit: vocabMistakeIds.length })).rows.map((v) => vocabToExercise(v, "gap")) : [];
+    const fromVocab = vocabMistakeIds.length ? (await listVocab({ ids: vocabMistakeIds, limit: vocabMistakeIds.length })).rows.map((v) => vocabShortExercise(v, "plen")) : [];
     const uniq = new Map<string, Exercise>(); [...todays, ...due, ...fromExercises, ...fromVocab].forEach((x) => uniq.set(x.id, x));
     return { items: [...uniq.values()], fromPast: due.length + fromExercises.length + fromVocab.length };
   }, [words]);
