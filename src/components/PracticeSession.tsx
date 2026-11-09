@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import { ExerciseTask, type Outcome } from "./Correction";
 import { useEnter } from "../lib/keys";
 import { Button, Card, Feedback, Progress } from "./ui";
 import type { Exercise } from "../lib/types";
-import { logSession, recordMistake } from "../lib/api";
+import { logSession, recordMistake, unhideWord } from "../lib/api";
+import { RemovedNotice, SkipBar } from "./SkipBar";
 import { mistakeCategory, type MistakeCategory } from "../lib/answer";
 
 export function categoryFor(ex: Exercise): MistakeCategory {
@@ -28,6 +29,8 @@ export function PracticeSession({ title, items, pool = [], source, onFinish, onC
   const [done, setDone] = useState<Outcome | null>(null);
   const [stats, setStats] = useState({ first: 0, fixed: 0, total: 0 });
   const [saveErr, setSaveErr] = useState<string | null>(null);
+  const [answered, setAnswered] = useState(false);
+  const [removed, setRemoved] = useState<{ id: string; term: string } | null>(null);
   const started = useRef(Date.now());
   const used = useRef(new Set(items.map((x) => x.id)));
   const finished = i >= queue.length;
@@ -47,17 +50,28 @@ export function PracticeSession({ title, items, pool = [], source, onFinish, onC
       } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
     }
   }
-  async function next() {
-    setDone(null);
+  async function next(queueLength = queue.length) {
+    setDone(null); setAnswered(false);
     const ni = i + 1; setI(ni);
-    if (ni >= queue.length && !logged.current) {
+    if (ni >= queueLength && !logged.current) {
       logged.current = true;
       const s = stats;
       try { await logSession(source, s.total, s.first, (Date.now() - started.current) / 60000); } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
       onFinish?.(s.first, s.total);
     }
   }
+  /** Skip the current item (before answering) – not counted, no mistake recorded. */
+  function skip() { setRemoved(null); void next(); }
+  /** Word removed from learning: drop all its remaining cards from this session and move on. */
+  function removeWord(vocabId: string, term: string) {
+    const rest = queue.slice(i + 1).filter((x) => !x.id.startsWith(`v:${vocabId}:`));
+    const nq = [...queue.slice(0, i + 1), ...rest];
+    setQueue(nq);
+    setRemoved({ id: vocabId, term });
+    void next(nq.length);
+  }
   useEnter(() => { void next(); }, !!done && !finished);
+  useEffect(() => { if (done) setRemoved(null); }, [done]);
   useEnter(() => onClose?.(), finished && !!onClose);
   if (!queue.length) return <Feedback tone="info" title="Brak zadań">W tej kategorii nie ma jeszcze ćwiczeń.</Feedback>;
   if (finished) return <Card><div className="flex flex-col gap-3">
@@ -72,9 +86,14 @@ export function PracticeSession({ title, items, pool = [], source, onFinish, onC
   return <div className="flex max-w-3xl flex-col gap-4">
     <div className="flex items-center justify-between gap-3 text-sm text-ink-soft"><span className="font-bold uppercase tracking-widest">{title} · {i + 1} / {queue.length}{ex.followUp ? " · zadanie sprawdzające" : ""}</span>{onClose && <Button size="sm" variant="ghost" onClick={onClose}>Zamknij</Button>}</div>
     <Progress value={(i / queue.length) * 100} />
-    <Card><ExerciseTask key={ex.id + ":" + i} ex={ex} onDone={handleDone} /></Card>
+    {removed && <RemovedNotice term={removed.term} onUndo={async () => { const r = removed; setRemoved(null); try { await unhideWord(r.id); } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); } }} />}
+    <Card><ExerciseTask key={ex.id + ":" + i} ex={ex} onDone={handleDone} onAnswered={() => setAnswered(true)} /></Card>
+    {!done && <SkipBar canSkip={!answered} vocabId={ex.id.startsWith("v:") ? ex.id.split(":")[1] : undefined} onSkip={skip} onRemoved={(id) => removeWord(id, wordOf(ex) ?? "")} />}
     {saveErr && <Feedback tone="warn" title="Problem z zapisem">{saveErr}</Feedback>}
-    {done && <div className="flex items-center gap-3"><Button onClick={next} data-testid="next">Dalej →</Button><span className="hidden text-xs text-ink-soft sm:inline">lub Enter</span></div>}
+    {done && <div className="flex items-center gap-3"><Button onClick={() => void next()} data-testid="next">Dalej →</Button><span className="hidden text-xs text-ink-soft sm:inline">lub Enter</span></div>}
     {done && afterAnswer && afterAnswer(queue[i])}
   </div>;
 }
+
+/** The English word behind a synthetic vocabulary card (answer of the card). */
+function wordOf(ex: Exercise): string | undefined { return ex.id.startsWith("v:") ? String(ex.answers[0] ?? "") : undefined; }

@@ -8,6 +8,7 @@ async function resetTodaysPlan(u: { email: string; password: string }) {
   const c = createClient(url, key, { auth: { persistSession: false } });
   const { error } = await c.auth.signInWithPassword(u); if (error) throw error;
   await c.from("daily_plans").delete().gte("day", "2000-01-01"); // RLS: only this user's own plans
+  await c.from("vocab_hidden").delete().gte("created_at", "2000-01-01"); // words removed by earlier runs come back
 }
 const stage = (page: Page) => page.getByTestId("daily").getAttribute("data-stage");
 async function counter(page: Page) { const t = await page.getByText(/· \d+ \/ \d+/).first().textContent(); const m = t?.match(/(\d+) \/ (\d+)/); return m ? [Number(m[1]), Number(m[2])] : [0, 0]; }
@@ -65,6 +66,12 @@ for (const [label, user] of [["desktop", U1], ["phone", U2]] as const) {
     await expect(page.getByTestId("stage-exercises")).toBeDisabled();
     await expect(page.getByText("Polski").first()).toBeVisible();
     await expect(page.getByTestId("stage-next")).toHaveText("Znam już te słowa – dalej");
+    const words = page.locator("[data-testid=daily] ol > li");
+    const n = await words.count();
+    const removedTerm = (await words.first().locator("h2").textContent())!.trim();
+    await words.first().getByTestId("vocab-remove").click();                 // "Wyrzuć – daj inne słowo"
+    await expect(page.locator("[data-testid=daily] ol > li h2").filter({ hasText: new RegExp(`^${removedTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`) })).toHaveCount(0, { timeout: 20_000 });
+    await expect(words).toHaveCount(n);
     await page.keyboard.press("Enter");
     // 2. grammar second
     await expect.poll(() => stage(page)).toBe("grammar");

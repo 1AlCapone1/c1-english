@@ -33,12 +33,32 @@ export async function myProgress(ids?: string[]): Promise<Progress[]> {
   return unwrap(await q.limit(10000)) as Progress[];
 }
 /** Pick flashcards: due first, then new, filtered by category/level/kind. */
-export async function pickFlashcards(f: { kind?: string; category?: string; level?: string; n: number; mode: "smart" | "new" | "due" | "hard" | "saved" }) {
-  const prog = await myProgress();
+/** Words the user removed from learning ("Wyrzuć słowo"). */
+export async function hiddenIds(): Promise<Set<string>> {
+  const rows = unwrap(await supabase.from("vocab_hidden").select("vocab_id").limit(10000)) as { vocab_id: string }[];
+  return new Set(rows.map((r) => r.vocab_id));
+}
+export async function hideWord(vocabId: string, reason: "known" | "not_useful" = "known") {
+  unwrap(await supabase.from("vocab_hidden").upsert({ vocab_id: vocabId, reason }, { onConflict: "user_id,vocab_id" }));
+}
+export async function unhideWord(vocabId: string) {
+  unwrap(await supabase.from("vocab_hidden").delete().eq("vocab_id", vocabId));
+}
+export async function listHidden(): Promise<(Vocab & { hidden_at: string; reason: string })[]> {
+  const rows = unwrap(await supabase.from("vocab_hidden").select("vocab_id, reason, created_at").order("created_at", { ascending: false }).limit(1000)) as { vocab_id: string; reason: string; created_at: string }[];
+  if (!rows.length) return [];
+  const vs = (await listVocab({ ids: rows.map((r) => r.vocab_id), limit: rows.length })).rows;
+  const m = new Map(vs.map((v) => [v.id, v]));
+  return rows.flatMap((r) => (m.get(r.vocab_id) ? [{ ...m.get(r.vocab_id)!, hidden_at: r.created_at, reason: r.reason }] : []));
+}
+
+export async function pickFlashcards(f: { kind?: string; category?: string; level?: string; n: number; mode: "smart" | "new" | "due" | "hard" | "saved"; exclude?: Iterable<string> }) {
+  const [prog, hidden] = await Promise.all([myProgress(), hiddenIds()]);
+  for (const id of f.exclude ?? []) hidden.add(id);
   const pmap = new Map(prog.map((p) => [p.vocab_id, p]));
   if (f.mode === "saved") {
     const saved = unwrap(await supabase.from("flashcards").select("vocab_id").not("vocab_id", "is", null)) as { vocab_id: string }[];
-    const ids = saved.map((s) => s.vocab_id).slice(0, f.n);
+    const ids = saved.map((s) => s.vocab_id).filter((id) => !hidden.has(id)).slice(0, f.n);
     if (!ids.length) return [];
     return (await listVocab({ ids, limit: ids.length })).rows;
   }
@@ -46,7 +66,7 @@ export async function pickFlashcards(f: { kind?: string; category?: string; leve
   const dueIds = prog.filter((p) => new Date(p.due_at).getTime() <= now).sort((a, b) => a.box - b.box || b.wrong - a.wrong).map((p) => p.vocab_id);
   const hardIds = prog.filter((p) => p.wrong > 0).sort((a, b) => (b.wrong - b.correct) - (a.wrong - a.correct)).map((p) => p.vocab_id);
   const pool: Vocab[] = [];
-  const filterFn = (v: Vocab) => (!f.kind || v.kind === f.kind) && (!f.category || v.category === f.category) && (!f.level || v.level === f.level);
+  const filterFn = (v: Vocab) => !hidden.has(v.id) && (!f.kind || v.kind === f.kind) && (!f.category || v.category === f.category) && (!f.level || v.level === f.level);
   const take = async (ids: string[]) => {
     for (let i = 0; i < ids.length && pool.length < f.n; i += 200) {
       const rows = (await listVocab({ ids: ids.slice(i, i + 200), limit: 200 })).rows.filter(filterFn);
@@ -62,7 +82,7 @@ export async function pickFlashcards(f: { kind?: string; category?: string; leve
     if (f.category) q = q.eq("category", f.category);
     if (f.level) q = q.eq("level", f.level);
     const all = unwrap(await q.limit(3000)) as Vocab[];
-    const fresh = all.filter((v) => !pmap.has(v.id));
+    const fresh = all.filter((v) => !pmap.has(v.id) && !hidden.has(v.id));
     shuffle(fresh).slice(0, f.n - pool.length).forEach((v) => pool.push(v));
   }
   return shuffle(pool);

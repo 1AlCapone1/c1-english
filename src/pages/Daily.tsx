@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase, unwrap } from "../lib/supabase";
 import { useAsync } from "../lib/useAsync";
-import { exercisesByIds, lessonProgress, listExercises, listLessons, listMistakes, listVocab, logSession, pickFlashcards, saveAttempt, saveFlashcardResult, shuffle } from "../lib/api";
+import { exercisesByIds, hideWord, lessonProgress, listExercises, listLessons, listMistakes, listVocab, logSession, pickFlashcards, saveAttempt, saveFlashcardResult, shuffle } from "../lib/api";
 import { isShortTask, vocabShortExercise } from "../lib/vocabTest";
 import { useEnter } from "../lib/keys";
 import type { Exercise, GrammarLesson, Vocab } from "../lib/types";
@@ -129,7 +129,17 @@ export default function Daily() {
 
   return <div className="max-w-3xl" data-testid="daily" data-stage={current}>
     {stepper}
-    {current === "vocab" && <VocabStage words={words} header={header} saving={saving} errBox={errBox} onDone={() => complete("vocab", { items: words.length }, true)} />}
+    {current === "vocab" && <VocabStage words={words} header={header} saving={saving} errBox={errBox} onDone={() => complete("vocab", { items: words.length }, true)}
+      onReplace={async (v) => {
+        setErr(null);
+        try {
+          await hideWord(v.id, "known");
+          const [fresh] = await pickFlashcards({ n: 1, mode: "new", exclude: p.vocab_ids });
+          const vocab_ids = p.vocab_ids.flatMap((id) => (id === v.id ? (fresh ? [fresh.id] : []) : [id]));
+          unwrap(await supabase.from("daily_plans").update({ vocab_ids, updated_at: new Date().toISOString() }).eq("day", p.day));
+          setPlan({ ...p, vocab_ids }); data.reload();
+        } catch (e) { setErr(e instanceof Error ? e.message : String(e)); }
+      }} />}
     {current === "grammar" && <GrammarStage lesson={lesson} header={header} saving={saving} errBox={errBox} onDone={() => complete("grammar", { items: 1 }, true)} />}
     {current === "exercises" && <ExercisesStage key={"ex" + p.day} words={words} lessonExercises={lessonExercises} uoe={uoe} lesson={lesson} header={header} errBox={errBox}
       onDone={(correct, items) => complete("exercises", { items, correct }, false)} />}
@@ -160,11 +170,14 @@ function NextBar({ label, onClick, disabled, hint = true }: { label: string; onC
   </div>;
 }
 
-function VocabStage({ words, header, onDone, saving, errBox }: { words: Vocab[]; header: HeaderFn; onDone: () => void; saving: boolean; errBox: ReactNode }) {
+function VocabStage({ words, header, onDone, saving, errBox, onReplace }: { words: Vocab[]; header: HeaderFn; onDone: () => void; saving: boolean; errBox: ReactNode; onReplace: (v: Vocab) => Promise<void> }) {
+  const [busy, setBusy] = useState<string | null>(null);
   return <div>
     {header("Słownictwo dnia", `Zapoznaj się ze wszystkimi ${words.length} hasłami. Ćwiczenia w etapie 3 będą dotyczyć właśnie tych słów.`)}
     {words.length ? <ol className="flex flex-col gap-3">{words.map((v, i) => <li key={v.id}><Card>
-      <div className="mb-3 flex flex-wrap items-baseline gap-2"><span className="font-mono text-sm text-ink-soft">{i + 1}</span><h2 className="font-display text-xl font-bold">{v.term}</h2>{v.pos && <Pill>{v.pos}</Pill>}<Pill>{v.level}</Pill></div>
+      <div className="mb-3 flex flex-wrap items-baseline gap-2"><span className="font-mono text-sm text-ink-soft">{i + 1}</span><h2 className="font-display text-xl font-bold">{v.term}</h2>{v.pos && <Pill>{v.pos}</Pill>}<Pill>{v.level}</Pill>
+        <Button size="sm" variant="ghost" className="ml-auto" disabled={!!busy} data-testid="vocab-remove" title="Znam to / nie chcę się tego uczyć. Słowo zostanie zastąpione nowym; przywrócisz je w Ustawieniach."
+          onClick={async () => { setBusy(v.id); try { await onReplace(v); } finally { setBusy(null); } }}>{busy === v.id ? "Zamieniam…" : "Wyrzuć – daj inne słowo"}</Button></div>
       <VocabDetail v={v} /></Card></li>)}</ol>
       : <Feedback tone="info" title="Brak nowych słów">W bazie nie ma na dziś nowych haseł – przejdź dalej.</Feedback>}
     {errBox}
@@ -229,6 +242,7 @@ function RevisionStage({ words, header, onDone, errBox }: { words: Vocab[]; head
   const [closeAsked, setCloseAsked] = useState(false);
   useEffect(() => { if (closeAsked && result) onDone(result.correct, result.items); }, [closeAsked, result]); // eslint-disable-line react-hooks/exhaustive-deps
   const [started, setStarted] = useState(false);
+  const [removedIds, setRemovedIds] = useState<Set<string>>(new Set());
   const built = useAsync(async () => {
     const todayIds = new Set(words.map((w) => w.id));
     const todays = shuffle(words).slice(0, 6).map((v, i) => vocabShortExercise(v, i % 2 ? "gap" : "def")); // same words, another form
@@ -249,13 +263,16 @@ function RevisionStage({ words, header, onDone, errBox }: { words: Vocab[]; head
   }
   if (built.loading) return <Loading />;
   if (built.error || !built.data) return <ErrorBox error={built.error ?? ""} onRetry={built.reload} />;
-  if (!started) return <WordPreview words={[...new Map(built.data.vocab.map((w) => [w.id, w])).values()]} title="Powtórka – hasła"
+  const visibleVocab = [...new Map(built.data.vocab.map((w) => [w.id, w])).values()].filter((w) => !removedIds.has(w.id));
+  const revItems = built.data.items.filter((x) => !(isVocabId(x.id) && removedIds.has(vocabIdOf(x.id))));
+  if (!started) return <WordPreview words={visibleVocab} title="Powtórka – hasła"
+    onRemove={(v) => setRemovedIds((s) => new Set([...s, v.id]))} onRestore={(v) => setRemovedIds((s) => { const n = new Set(s); n.delete(v.id); return n; })}
     lead="Te słowa i wyrażenia pojawią się teraz w fiszkach: słowa dnia oraz zaległe powtórki i błędy z poprzednich dni. Kliknij hasło, żeby zobaczyć pełną kartę."
     startLabel="Zaczynamy powtórkę →" onStart={() => { setStarted(true); window.scrollTo(0, 0); }} />;
   return <div>
     {header("Powtórka", built.data.fromPast ? `Fiszki ze słowami dnia oraz ${built.data.fromPast} pytań z poprzednich dni (powtórki i Twoje błędy).` : "Fiszki ze słowami dnia. Nie masz zaległych powtórek ani błędów z poprzednich dni.")}
     {errBox}
-    <PracticeSession title="Powtórka" items={built.data.items} source="daily:revision" onItemDone={onItemDone} afterAnswer={wordCard(built.data.vocab)}
+    <PracticeSession title="Powtórka" items={revItems} source="daily:revision" onItemDone={onItemDone} afterAnswer={wordCard(built.data.vocab)}
       onFinish={(correct, total) => setResult({ correct, items: total })} finishLabel="Zobacz podsumowanie →" onClose={() => setCloseAsked(true)} />
   </div>;
 }
@@ -305,7 +322,8 @@ function ExtraRoundView({ plan, lessonExercises, uoe, header, onDone, onCancel }
     if (words.length < 4) words = [...words, ...(await pickFlashcards({ n: 20, mode: "smart" })).filter((w) => !seen.has(w.id) && !words.some((x) => x.id === w.id))].slice(0, 8);
     return words;
   }, []);
-  const words = built.data ?? [];
+  const [removedIds, setRemovedIds] = useState<Set<string>>(new Set());
+  const words = useMemo(() => (built.data ?? []).filter((w) => !removedIds.has(w.id)), [built.data, removedIds]);
   useEffect(() => { if (closeAsked && result) onDone({ vocab_ids: words.map((w) => w.id), ...result }); }, [closeAsked, result]); // eslint-disable-line react-hooks/exhaustive-deps
   const items = useMemo(() => {
     const vocab = words.flatMap((v, i) => [vocabShortExercise(v, "plen"), ...(i % 2 ? [vocabShortExercise(v, "gap")] : [])]);
@@ -320,7 +338,8 @@ function ExtraRoundView({ plan, lessonExercises, uoe, header, onDone, onCancel }
   if (!words.length) return <div>{header("Ucz się dalej", "")}<Feedback tone="info" title="Wszystkie słowa z bazy są już w nauce">Nie ma więcej nowych haseł – powtarzaj je w fiszkach.</Feedback><NextBar label="Wróć do podsumowania" onClick={onCancel} /></div>;
   if (phase === "read") return <div data-testid="extra-read">
     {header("Ucz się dalej – nowe słowa", `Kolejne ${words.length} haseł. Przeczytaj je, a potem przećwicz krótkimi odpowiedziami.`)}
-    <ol className="flex flex-col gap-3">{words.map((v, i) => <li key={v.id}><Card><div className="mb-3 flex flex-wrap items-baseline gap-2"><span className="font-mono text-sm text-ink-soft">{i + 1}</span><h2 className="font-display text-xl font-bold">{v.term}</h2>{v.pos && <Pill>{v.pos}</Pill>}<Pill>{v.level}</Pill></div><VocabDetail v={v} /></Card></li>)}</ol>
+    <ol className="flex flex-col gap-3">{words.map((v, i) => <li key={v.id}><Card><div className="mb-3 flex flex-wrap items-baseline gap-2"><span className="font-mono text-sm text-ink-soft">{i + 1}</span><h2 className="font-display text-xl font-bold">{v.term}</h2>{v.pos && <Pill>{v.pos}</Pill>}<Pill>{v.level}</Pill>
+      <Button size="sm" variant="ghost" className="ml-auto" data-testid="vocab-remove" onClick={async () => { await hideWord(v.id, "known"); setRemovedIds((s) => new Set([...s, v.id])); }}>Wyrzuć</Button></div><VocabDetail v={v} /></Card></li>)}</ol>
     <div className="mt-3"><Button variant="ghost" size="sm" onClick={onCancel}>Anuluj</Button></div>
     <NextBar label="Znam już te słowa – ćwicz" onClick={() => { setPhase("practice"); window.scrollTo(0, 0); }} />
   </div>;

@@ -1,11 +1,12 @@
 import { useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { listExercises, logSession, pickFlashcards, recordMistake, saveFlashcardResult, shuffle } from "../lib/api";
+import { listExercises, logSession, pickFlashcards, recordMistake, saveFlashcardResult, shuffle, unhideWord } from "../lib/api";
 import { canon, levenshtein, mistakeCategory, type MistakeCategory } from "../lib/answer";
 import { CATEGORIES, KIND_LABEL, type Kind, type Vocab } from "../lib/types";
 import { TypedTask, type Outcome } from "../components/Correction";
 import { useEnter } from "../lib/keys";
 import { WordPreview } from "../components/WordPreview";
+import { RemovedNotice, SkipBar } from "../components/SkipBar";
 import { PracticeSession } from "../components/PracticeSession";
 import { Button, Card, Empty, Feedback, PageHeader, Pill, Progress, inputCls } from "../components/ui";
 import { VocabDetail, exampleHtml } from "./Vocabulary";
@@ -68,7 +69,9 @@ export default function Flashcards() {
     } catch (e) { setErr(e instanceof Error ? e.message : String(e)); } finally { setLoading(false); }
   }
   if (grammar) return <PracticeSession title="Fiszki · gramatyka" items={grammar} pool={[]} source="flashcards-grammar" onClose={() => setGrammar(null)} />;
-  if (session && !session.started) return <WordPreview words={session.cards.map((c) => c.v)} onStart={() => { setSession({ ...session, started: true }); window.scrollTo(0, 0); }} onBack={() => setSession(null)} />;
+  if (session && !session.started) return <WordPreview words={session.cards.map((c) => c.v)} onStart={() => { setSession({ ...session, started: true }); window.scrollTo(0, 0); }} onBack={() => setSession(null)}
+    onRemove={(v) => setSession((s) => s && { ...s, cards: s.cards.filter((c) => c.v.id !== v.id) })}
+    onRestore={(v) => setSession((s) => s && { ...s, cards: [...s.cards, { v, mode: pickMode(v, cfg.type) }] })} />;
   if (session) return <Session cards={session.cards} onExit={() => setSession(null)} />;
   return <div>
     <PageHeader eyebrow="Inteligentne fiszki" title="Wpisz, popraw, zapamiętaj" lead="Każdą odpowiedź wpisujesz ręcznie. Po błędzie zobaczysz, co jest nie tak, a potem wpiszesz odpowiedź z pamięci – dopiero wtedy przejdziesz dalej. Powtórki planują się automatycznie (1, 2, 4, 8… dni)." />
@@ -91,6 +94,8 @@ function Session({ cards: initial, onExit }: { cards: FlashCard[]; onExit: () =>
   const [outcome, setOutcome] = useState<Outcome | null>(null);
   const [first, setFirst] = useState<Record<string, Outcome>>({});
   const [saveErr, setSaveErr] = useState<string | null>(null);
+  const [answered, setAnswered] = useState(false);
+  const [removed, setRemoved] = useState<{ id: string; term: string } | null>(null);
   const started = useRef(Date.now());
   const logged = useRef(false);
   const done = i >= cards.length;
@@ -112,13 +117,18 @@ function Session({ cards: initial, onExit }: { cards: FlashCard[]; onExit: () =>
       }
     } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
   }
-  async function next() {
-    setOutcome(null); const ni = i + 1; setI(ni);
-    if (ni >= cards.length && !logged.current) {
+  async function next(len = cards.length) {
+    setOutcome(null); setAnswered(false); const ni = i + 1; setI(ni);
+    if (outcome) setRemoved(null);
+    if (ni >= len && !logged.current) {
       logged.current = true;
       const vals = Object.values(first);
       try { await logSession("flashcards", vals.length, vals.filter((x) => x.firstTry).length, (Date.now() - started.current) / 60000); } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
     }
+  }
+  function removeWord(id: string) {
+    const nc = [...cards.slice(0, i + 1), ...cards.slice(i + 1).filter((x) => x.v.id !== id)];
+    setCards(nc); setRemoved({ id, term: c.v.term }); void next(nc.length);
   }
   useEnter(() => { void next(); }, !!outcome && !done);
   useEnter(onExit, done);
@@ -136,14 +146,16 @@ function Session({ cards: initial, onExit }: { cards: FlashCard[]; onExit: () =>
   return <div className="max-w-2xl">
     <div className="mb-2 flex flex-wrap items-center justify-between gap-2 text-sm"><span className="font-bold uppercase tracking-widest text-ink-soft">Fiszka {i + 1} / {cards.length}{c.again ? " · powtórka w innym kontekście" : ""}</span><span className="flex gap-1"><Pill>{KIND_LABEL[c.v.kind]}</Pill><Pill>{c.v.level}</Pill></span></div>
     <Progress value={(i / cards.length) * 100} />
+    {removed && <div className="mt-3"><RemovedNotice term={removed.term} onUndo={async () => { const r = removed; setRemoved(null); try { await unhideWord(r.id); } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); } }} /></div>}
     <Card className="mt-4">
       <div className="text-xs font-bold uppercase tracking-widest text-ink-soft">{spec.label}</div>
       <TypedTask key={c.v.id + c.mode + i} prompt={<div className="mt-2 font-display text-2xl font-bold leading-snug">{spec.prompt}</div>} answers={spec.answers} allowHint multiline={c.mode === "sentence"}
         placeholder={c.mode === "enpl" ? "odpowiedź po polsku" : "answer in English"} extraCheck={translationCheck}
-        explanation={<span>{c.v.term} – {c.v.translation_pl}{c.v.ipa ? ` /${c.v.ipa}/` : ""}</span>} onDone={handleDone} />
+        explanation={<span>{c.v.term} – {c.v.translation_pl}{c.v.ipa ? ` /${c.v.ipa.replace(/^\/|\/$/g, "")}/` : ""}</span>} onDone={handleDone} onAnswered={() => setAnswered(true)} />
       {outcome && <details className="mt-4 rounded-lg bg-black/[.03] p-3 dark:bg-white/[.04]" open={!outcome.firstTry}><summary className="cursor-pointer font-bold">{c.v.term}</summary><div className="mt-2"><VocabDetail v={c.v} /></div><p className="mt-2 text-sm italic">{exampleHtml(c.v.example)}</p></details>}
     </Card>
     {saveErr && <div className="mt-3"><Feedback tone="warn" title="Problem z zapisem">{saveErr}</Feedback></div>}
-    <div className="mt-4 flex gap-2">{outcome && <Button onClick={next} data-testid="next">Dalej →</Button>}<Button variant="ghost" onClick={() => setI(cards.length)}>Zakończ sesję</Button></div>
+    {!outcome && <div className="mt-3"><SkipBar canSkip={!answered} vocabId={c.v.id} onSkip={() => { setRemoved(null); void next(); }} onRemoved={removeWord} /></div>}
+    <div className="mt-4 flex gap-2">{outcome && <Button onClick={() => void next()} data-testid="next">Dalej →</Button>}<Button variant="ghost" onClick={() => setI(cards.length)}>Zakończ sesję</Button></div>
   </div>;
 }

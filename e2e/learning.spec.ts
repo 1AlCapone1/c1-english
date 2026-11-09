@@ -71,3 +71,43 @@ test("tests: Enter moves to the next question and then asks to finish; Writing k
   await area.click(); await page.keyboard.type("First line"); await page.keyboard.press("Enter"); await page.keyboard.type("Second line");
   await expect(area).toHaveValue("First line\nSecond line");
 });
+test("skip and remove a word: preview, during flashcards, restore in settings", async ({ page }) => {
+  await login(page);
+  await page.goto("/#/flashcards");
+  await page.getByTestId("start-flashcards").click();
+  const preview = page.getByTestId("word-preview");
+  await expect(preview).toBeVisible({ timeout: 20_000 });
+  const before = await preview.locator("li").count();
+  const firstTerm = (await preview.locator("li b").first().textContent())!.trim();
+  await preview.getByTestId("preview-remove").first().click();               // remove in the preview
+  await expect(page.getByTestId("removed-notice")).toContainText(firstTerm);
+  await expect(preview.locator("li")).toHaveCount(before - 1);
+  await page.getByTestId("removed-notice").getByRole("button", { name: "Cofnij" }).click();   // undo
+  await expect(preview.locator("li")).toHaveCount(before);
+  await page.getByTestId("preview-start").click();
+  // during the session: "Pomiń" before answering, hidden once the correction loop started
+  const counter = async () => Number((await page.getByText(/^Fiszka \d+ \/ \d+/).textContent())!.match(/\/ (\d+)/)![1]);
+  await expect(page.getByTestId("skip")).toBeVisible();
+  await page.getByTestId("skip").click();
+  await expect(page.getByText(/^Fiszka 2 \//)).toBeVisible();
+  await page.getByTestId("answer-input").fill("zzz wrong"); await page.keyboard.press("Enter");
+  await expect(page.getByTestId("skip")).toHaveCount(0);                      // no skipping out of a correction
+  await page.getByTestId("retype").click();
+  await page.goto("/#/flashcards");
+  await page.getByTestId("start-flashcards").click();
+  await page.getByTestId("preview-start").click();
+  const total = await counter();
+  await page.getByTestId("remove-word").click();                              // remove during the session
+  await expect(page.getByTestId("removed-notice")).toBeVisible();
+  await expect.poll(counter).toBeLessThanOrEqual(total);
+  // it is listed in settings and can be restored
+  await page.goto("/#/settings");
+  const hidden = page.getByTestId("hidden-words");
+  await expect(hidden.locator("li").first()).toBeVisible({ timeout: 15_000 });
+  const n = await hidden.locator("li").count();
+  await hidden.getByRole("button", { name: "Przywróć" }).first().click();
+  await expect(hidden.locator("li")).toHaveCount(n - 1);
+  // clean up: restore everything so the test account keeps its full word pool
+  for (let k = 1; k < n; k++) await hidden.getByRole("button", { name: "Przywróć" }).first().click();
+  await expect(hidden.getByText("Brak wyrzuconych słów.")).toBeVisible({ timeout: 15_000 });
+});

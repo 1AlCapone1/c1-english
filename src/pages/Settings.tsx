@@ -1,9 +1,10 @@
 import { useState, type FormEvent } from "react";
 import { useAuth } from "../lib/auth";
-import { updateProfile } from "../lib/api";
+import { listHidden, unhideWord, updateProfile } from "../lib/api";
+import { useAsync } from "../lib/useAsync";
 import { supabase, translateError } from "../lib/supabase";
 import { applyTheme } from "../lib/theme";
-import { Button, Card, Feedback, PageHeader, inputCls } from "../components/ui";
+import { Button, Card, Feedback, Loading, PageHeader, inputCls } from "../components/ui";
 import type { Level } from "../lib/types";
 
 export default function Settings() {
@@ -32,5 +33,20 @@ export default function Settings() {
       {msg && <Feedback tone={msg.tone}>{msg.t}</Feedback>}
       <div><Button type="submit">Zapisz</Button></div></form></Card>
     <Card className="mt-4"><h2 className="font-display text-lg font-bold">Zmiana hasła</h2><form onSubmit={changePw} className="mt-3 flex flex-col gap-3"><input type="password" className={inputCls} value={pw} onChange={(e) => setPw(e.target.value)} placeholder="Nowe hasło" autoComplete="new-password" aria-label="Nowe hasło" />{pwMsg && <Feedback tone={pwMsg.tone}>{pwMsg.t}</Feedback>}<div><Button type="submit" variant="quiet">Zmień hasło</Button></div></form></Card>
+    <HiddenWords />
   </div>;
+}
+
+
+/** Words removed with "Wyrzuć" – they are not offered in flashcards and daily lessons until restored. */
+function HiddenWords() {
+  const list = useAsync(listHidden);
+  const [busy, setBusy] = useState<string | null>(null);
+  return <div data-testid="hidden-words"><Card className="mt-4"><h2 className="font-display text-lg font-bold">Wyrzucone słowa</h2>
+    <p className="mt-1 text-sm text-ink-soft">Hasła, które wyrzuciłeś z nauki. Nie pojawiają się w fiszkach ani w codziennej lekcji. Przywróć, jeśli chcesz się ich jednak uczyć.</p>
+    {list.loading ? <Loading /> : list.error ? <Feedback tone="warn">{list.error}</Feedback> : !list.data?.length ? <p className="mt-3 text-sm">Brak wyrzuconych słów.</p> :
+      <ul className="mt-3">{list.data.map((v) => <li key={v.id} className="flex items-center justify-between gap-3 border-t border-black/5 py-2 first:border-0 dark:border-white/5">
+        <span><b>{v.term}</b> <span className="text-ink-soft">– {v.translation_pl}</span></span>
+        <Button size="sm" variant="quiet" disabled={busy === v.id} onClick={async () => { setBusy(v.id); try { await unhideWord(v.id); list.reload(); } finally { setBusy(null); } }}>Przywróć</Button></li>)}</ul>}
+  </Card></div>;
 }

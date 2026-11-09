@@ -12,11 +12,15 @@ export type Outcome = { firstTry: boolean; attempts: number; firstAnswer: string
  * wrong again: hint (no answer) → wrong again: explain again → … until correct.
  */
 export function TypedTask(props: {
+  /** called once, when the first answer is given (used to hide "Pomiń" during the correction loop) */
+  onAnswered?: () => void;
   prompt: ReactNode; answers: string[]; explanation?: ReactNode; placeholder?: string; multiline?: boolean;
   onDone: (o: Outcome) => void; allowHint?: boolean; extraCheck?: (v: string) => boolean;
 }) {
   const { answers } = props;
   const [phase, setPhase] = useState<"ask" | "fix" | "retype" | "done">("ask");
+  const answeredRef = useRef(false);
+  useEffect(() => { if (phase !== "ask" && !answeredRef.current) { answeredRef.current = true; props.onAnswered?.(); } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
   const [val, setVal] = useState("");
   const [attempts, setAttempts] = useState(0);
   const [first, setFirst] = useState<{ answer: string; diag: Diagnosis | null } | null>(null);
@@ -83,9 +87,11 @@ export function TypedTask(props: {
 }
 
 /** Multiple choice with the same rule: after a mistake you must choose again (options reshuffled, hints remove wrong options). */
-export function ChoiceTask(props: { prompt: ReactNode; options: string[]; correct: string; explanation?: ReactNode; notes?: Record<string, string> | null; onDone: (o: Outcome) => void }) {
+export function ChoiceTask(props: { onAnswered?: () => void; prompt: ReactNode; options: string[]; correct: string; explanation?: ReactNode; notes?: Record<string, string> | null; onDone: (o: Outcome) => void }) {
   const [order, setOrder] = useState(() => shuffleIdx(props.options.length));
   const [phase, setPhase] = useState<"ask" | "fix" | "retype" | "done">("ask");
+  const answeredRef = useRef(false);
+  useEffect(() => { if (phase !== "ask" && !answeredRef.current) { answeredRef.current = true; props.onAnswered?.(); } }, [phase]); // eslint-disable-line react-hooks/exhaustive-deps
   const [picked, setPicked] = useState<number | null>(null);
   const [hidden, setHidden] = useState<number[]>([]);
   const [attempts, setAttempts] = useState(0);
@@ -140,16 +146,16 @@ export function ChoiceTask(props: { prompt: ReactNode; options: string[]; correc
 function shuffleIdx(n: number) { const a = Array.from({ length: n }, (_, i) => i); for (let i = n - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
 /** Render one exercise in practice mode (with correction loop). */
-export function ExerciseTask({ ex, onDone }: { ex: Exercise; onDone: (o: Outcome) => void }) {
+export function ExerciseTask({ ex, onDone, onAnswered }: { ex: Exercise; onDone: (o: Outcome) => void; onAnswered?: () => void }) {
   const p = ex.prompt;
   const instruction = <div className="text-sm text-ink-soft dark:text-[#9AA3B8]">{ex.instruction}</div>;
   if (ex.task_type === "mc" || ex.task_type === "mc_cloze" || ex.task_type === "tfng" || ex.task_type === "matching")
-    return <ChoiceTask key={ex.id} prompt={<>{instruction}<div className="mt-1">{withGap(p.question)}</div></>} options={p.options ?? []} correct={ex.answers[0]} explanation={ex.explanation} notes={ex.distractor_notes} onDone={onDone} />;
+    return <ChoiceTask key={ex.id} prompt={<>{instruction}<div className="mt-1">{withGap(p.question)}</div></>} options={p.options ?? []} correct={ex.answers[0]} explanation={ex.explanation} notes={ex.distractor_notes} onDone={onDone} onAnswered={onAnswered} />;
   if (ex.task_type === "kwt")
-    return <TypedTask key={ex.id} prompt={<>{instruction}<div className="mt-1">{p.question}</div><div className="my-2"><span className="rounded border-2 border-current px-2 py-0.5 font-mono text-sm font-bold tracking-wider">{p.keyword}</span></div><div>{withGap(p.sentence2 ?? "")}</div></>} answers={ex.answers} explanation={ex.explanation} placeholder="2–5 słów, w tym słowo kluczowe" allowHint onDone={onDone}
+    return <TypedTask key={ex.id} prompt={<>{instruction}<div className="mt-1">{p.question}</div><div className="my-2"><span className="rounded border-2 border-current px-2 py-0.5 font-mono text-sm font-bold tracking-wider">{p.keyword}</span></div><div>{withGap(p.sentence2 ?? "")}</div></>} answers={ex.answers} explanation={ex.explanation} placeholder="2–5 słów, w tym słowo kluczowe" allowHint onDone={onDone} onAnswered={onAnswered}
       extraCheck={(v) => !!p.sentence2 && ex.answers.some((a) => checkText(v, [p.sentence2!.replace("___", a)]).ok)} />;
   return <TypedTask key={ex.id} prompt={<>{instruction}<div className="mt-1">{withGap(p.question)}{p.base ? <b className="ml-1 font-mono">({p.base})</b> : null}</div></>} answers={ex.answers} explanation={ex.explanation}
-    placeholder={ex.task_type === "translation" ? "English translation…" : ex.task_type === "error" ? "poprawiony fragment" : undefined} multiline={ex.task_type === "translation"} allowHint onDone={onDone} />;
+    placeholder={ex.task_type === "translation" ? "English translation…" : ex.task_type === "error" ? "poprawiony fragment" : undefined} multiline={ex.task_type === "translation"} allowHint onDone={onDone} onAnswered={onAnswered} />;
 }
 export function withGap(text: string): ReactNode {
   const parts = String(text).split("___");
