@@ -39,7 +39,7 @@ export function WordPreview({ words, title = "Najpierw przejrzyj hasła", lead, 
       const isOpen = open === v.id;
       return <li key={v.id} className="relative border-t border-black/5 first:border-0 dark:border-white/5">
         {onRemove && <button type="button" onClick={() => remove(v)} className="absolute right-2 top-2 z-[1] rounded-md border border-black/15 px-2 py-0.5 text-xs font-bold text-ink-soft hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/10" data-testid="preview-remove" title="Znam to / nie chcę się tego uczyć – nie będzie pojawiać się w fiszkach i codziennych lekcjach">Wyrzuć</button>}
-        <button type="button" className="flex w-full flex-col gap-1 p-3 pr-20 text-left hover:bg-black/[.03] dark:hover:bg-white/[.04]" onClick={() => setOpen(isOpen ? null : v.id)} aria-expanded={isOpen}>
+        <button type="button" data-testid="preview-row" className="flex w-full flex-col gap-1 p-3 pr-20 text-left hover:bg-black/[.03] dark:hover:bg-white/[.04]" onClick={() => setOpen(isOpen ? null : v.id)} aria-expanded={isOpen}>
           <span className="flex flex-wrap items-baseline gap-2"><span className="font-mono text-xs text-ink-soft">{i + 1}</span><b className="text-lg">{v.term}</b>
             {v.ipa && <span className="font-mono text-xs text-ink-soft">/{v.ipa.replace(/^\/|\/$/g, "")}/</span>}
             <span className="text-ink-soft">– {v.translation_pl}</span>{v.kind !== "word" && <Pill>{KIND_LABEL[v.kind]}</Pill>}</span>

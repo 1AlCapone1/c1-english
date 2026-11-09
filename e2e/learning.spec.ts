@@ -8,7 +8,7 @@ test("flashcard: wrong answer forces correction, then saves progress", async ({ 
   // the words of the session are shown first
   await expect(page.getByTestId("word-preview")).toBeVisible({ timeout: 20_000 });
   await expect(page.getByTestId("word-preview").locator("li").first()).toBeVisible();
-  await page.getByTestId("word-preview").locator("li button").first().click();     // full card opens
+  await page.getByTestId("preview-row").first().click();     // full card opens
   await expect(page.getByText("Wymowa").first()).toBeVisible();
   await page.getByTestId("preview-start").click();
   const input = page.getByTestId("answer-input").first();
@@ -93,6 +93,7 @@ test("skip and remove a word: preview, during flashcards, restore in settings", 
   await page.getByTestId("answer-input").fill("zzz wrong"); await page.keyboard.press("Enter");
   await expect(page.getByTestId("skip")).toHaveCount(0);                      // no skipping out of a correction
   await page.getByTestId("retype").click();
+  await page.goto("/#/dashboard");
   await page.goto("/#/flashcards");
   await page.getByTestId("start-flashcards").click();
   await page.getByTestId("preview-start").click();

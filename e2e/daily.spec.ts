@@ -66,11 +66,11 @@ for (const [label, user] of [["desktop", U1], ["phone", U2]] as const) {
     await expect(page.getByTestId("stage-exercises")).toBeDisabled();
     await expect(page.getByText("Polski").first()).toBeVisible();
     await expect(page.getByTestId("stage-next")).toHaveText("Znam już te słowa – dalej");
-    const words = page.locator("[data-testid=daily] ol > li");
+    const words = page.locator("li:has([data-testid=vocab-remove])");
     const n = await words.count();
     const removedTerm = (await words.first().locator("h2").textContent())!.trim();
     await words.first().getByTestId("vocab-remove").click();                 // "Wyrzuć – daj inne słowo"
-    await expect(page.locator("[data-testid=daily] ol > li h2").filter({ hasText: new RegExp(`^${removedTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`) })).toHaveCount(0, { timeout: 20_000 });
+    await expect(page.locator("li:has([data-testid=vocab-remove]) h2").filter({ hasText: new RegExp(`^${removedTerm.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}$`) })).toHaveCount(0, { timeout: 20_000 });
     await expect(words).toHaveCount(n);
     await page.keyboard.press("Enter");
     // 2. grammar second
