@@ -5,6 +5,12 @@ test("flashcard: wrong answer forces correction, then saves progress", async ({ 
   await login(page);
   await page.goto("/#/flashcards");
   await page.getByTestId("start-flashcards").click();
+  // the words of the session are shown first
+  await expect(page.getByTestId("word-preview")).toBeVisible({ timeout: 20_000 });
+  await expect(page.getByTestId("word-preview").locator("li").first()).toBeVisible();
+  await page.getByTestId("word-preview").locator("li button").first().click();     // full card opens
+  await expect(page.getByText("Wymowa").first()).toBeVisible();
+  await page.getByTestId("preview-start").click();
   const input = page.getByTestId("answer-input").first();
   await expect(input).toBeVisible({ timeout: 20_000 });
   await input.fill("zzzz definitely wrong");

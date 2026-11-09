@@ -5,6 +5,7 @@ import { canon, levenshtein, mistakeCategory, type MistakeCategory } from "../li
 import { CATEGORIES, KIND_LABEL, type Kind, type Vocab } from "../lib/types";
 import { TypedTask, type Outcome } from "../components/Correction";
 import { useEnter } from "../lib/keys";
+import { WordPreview } from "../components/WordPreview";
 import { PracticeSession } from "../components/PracticeSession";
 import { Button, Card, Empty, Feedback, PageHeader, Pill, Progress, inputCls } from "../components/ui";
 import { VocabDetail, exampleHtml } from "./Vocabulary";
@@ -47,7 +48,7 @@ export default function Flashcards() {
   const [params] = useSearchParams();
   type PickMode = "smart" | "new" | "due" | "hard" | "saved";
   const [cfg, setCfg] = useState<{ kind: string; category: string; level: string; n: number; mode: PickMode; type: Mode | "mix" }>({ kind: "", category: "", level: "", n: 20, mode: (params.get("mode") as PickMode) || "smart", type: "mix" });
-  const [session, setSession] = useState<{ cards: FlashCard[]; i: number } | null>(null);
+  const [session, setSession] = useState<{ cards: FlashCard[]; i: number; started: boolean } | null>(null);
   const [grammar, setGrammar] = useState<Awaited<ReturnType<typeof listExercises>> | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
@@ -62,11 +63,12 @@ export default function Flashcards() {
       } else {
         const vs = await pickFlashcards({ kind: cfg.kind || undefined, category: cfg.category || undefined, level: cfg.level || undefined, n: cfg.n, mode: cfg.mode });
         if (!vs.length) throw new Error(cfg.mode === "due" ? "Nie masz teraz haseł do powtórki – świetnie! Wybierz „Nowe i powtórki”." : "Brak haseł dla tych ustawień.");
-        setSession({ cards: vs.map((v) => ({ v, mode: pickMode(v, cfg.type) })), i: 0 });
+        setSession({ cards: vs.map((v) => ({ v, mode: pickMode(v, cfg.type) })), i: 0, started: false });
       }
     } catch (e) { setErr(e instanceof Error ? e.message : String(e)); } finally { setLoading(false); }
   }
   if (grammar) return <PracticeSession title="Fiszki · gramatyka" items={grammar} pool={[]} source="flashcards-grammar" onClose={() => setGrammar(null)} />;
+  if (session && !session.started) return <WordPreview words={session.cards.map((c) => c.v)} onStart={() => { setSession({ ...session, started: true }); window.scrollTo(0, 0); }} onBack={() => setSession(null)} />;
   if (session) return <Session cards={session.cards} onExit={() => setSession(null)} />;
   return <div>
     <PageHeader eyebrow="Inteligentne fiszki" title="Wpisz, popraw, zapamiętaj" lead="Każdą odpowiedź wpisujesz ręcznie. Po błędzie zobaczysz, co jest nie tak, a potem wpiszesz odpowiedź z pamięci – dopiero wtedy przejdziesz dalej. Powtórki planują się automatycznie (1, 2, 4, 8… dni)." />

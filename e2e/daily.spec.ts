@@ -78,6 +78,9 @@ for (const [label, user] of [["desktop", U1], ["phone", U2]] as const) {
     await page.keyboard.press("Enter");                                     // summary of stage → next stage
     // 4. revision
     await expect.poll(() => stage(page)).toBe("revision");
+    await expect(page.getByTestId("word-preview")).toBeVisible({ timeout: 20_000 });   // words first, then flashcards
+    await expect(page.getByTestId("answer-input")).toHaveCount(0);
+    await page.keyboard.press("Enter");
     await solveSession(page);
     await page.keyboard.press("Enter");
     // summary

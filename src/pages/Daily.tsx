@@ -7,6 +7,7 @@ import { isShortTask, vocabShortExercise } from "../lib/vocabTest";
 import { useEnter } from "../lib/keys";
 import type { Exercise, GrammarLesson, Vocab } from "../lib/types";
 import { PracticeSession } from "../components/PracticeSession";
+import { WordPreview } from "../components/WordPreview";
 import { VocabDetail } from "./Vocabulary";
 import { Button, Card, ErrorBox, Feedback, Loading, PageHeader, Pill, Progress, cx } from "../components/ui";
 
@@ -227,6 +228,7 @@ function RevisionStage({ words, header, onDone, errBox }: { words: Vocab[]; head
   const [result, setResult] = useState<{ correct: number; items: number } | null>(null);
   const [closeAsked, setCloseAsked] = useState(false);
   useEffect(() => { if (closeAsked && result) onDone(result.correct, result.items); }, [closeAsked, result]); // eslint-disable-line react-hooks/exhaustive-deps
+  const [started, setStarted] = useState(false);
   const built = useAsync(async () => {
     const todayIds = new Set(words.map((w) => w.id));
     const todays = shuffle(words).slice(0, 6).map((v, i) => vocabShortExercise(v, i % 2 ? "gap" : "def")); // same words, another form
@@ -247,6 +249,9 @@ function RevisionStage({ words, header, onDone, errBox }: { words: Vocab[]; head
   }
   if (built.loading) return <Loading />;
   if (built.error || !built.data) return <ErrorBox error={built.error ?? ""} onRetry={built.reload} />;
+  if (!started) return <WordPreview words={[...new Map(built.data.vocab.map((w) => [w.id, w])).values()]} title="Powtórka – hasła"
+    lead="Te słowa i wyrażenia pojawią się teraz w fiszkach: słowa dnia oraz zaległe powtórki i błędy z poprzednich dni. Kliknij hasło, żeby zobaczyć pełną kartę."
+    startLabel="Zaczynamy powtórkę →" onStart={() => { setStarted(true); window.scrollTo(0, 0); }} />;
   return <div>
     {header("Powtórka", built.data.fromPast ? `Fiszki ze słowami dnia oraz ${built.data.fromPast} pytań z poprzednich dni (powtórki i Twoje błędy).` : "Fiszki ze słowami dnia. Nie masz zaległych powtórek ani błędów z poprzednich dni.")}
     {errBox}
