@@ -1,5 +1,91 @@
-<h2>Potwierdź swój adres e-mail</h2>
-<p>Dziękujemy za rejestrację w C1 English Academy.</p>
-<p>Kliknij poniższy link, a na otwartej stronie przycisk <b>„Potwierdź weryfikację”</b>:</p>
-<p><a href="{{ .SiteURL }}?token_hash={{ .TokenHash }}&type=email" style="display:inline-block;padding:12px 20px;background:#2F4FD8;color:#ffffff;border-radius:8px;text-decoration:none;font-weight:bold">Otwórz stronę weryfikacji</a></p>
-<p>Link jest jednorazowy. Jeśli to nie Ty zakładałeś konto, zignoruj tę wiadomość.</p>
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light only">
+<style>@media only screen and (max-width:480px){.px{padding-left:22px !important;padding-right:22px !important}.h1{font-size:23px !important;line-height:29px !important}}</style>
+<title>Potwierdź konto – C1 English Academy</title>
+</head>
+<body style="margin:0;padding:0;background-color:#F4F5F0;">
+<!-- preheader: text shown in the inbox list -->
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">Jeden krok do pierwszej lekcji – potwierdź swój adres e-mail.</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4F5F0;">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;">
+        <!-- logo -->
+        <tr>
+          <td style="padding:0 4px 20px 4px;font-family:Arial,Helvetica,sans-serif;">
+            <span style="display:inline-block;background-color:#2944C4;color:#ffffff;font-weight:bold;font-size:15px;line-height:15px;padding:8px 10px;border-radius:8px;">C1</span>
+            <span style="font-size:17px;font-weight:bold;color:#16213A;vertical-align:middle;padding-left:8px;">English Academy</span>
+          </td>
+        </tr>
+        <!-- card -->
+        <tr>
+          <td style="background-color:#ffffff;border-radius:16px;border:1px solid #E4E6E1;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+              <tr><td style="height:6px;background-color:#2944C4;border-radius:16px 16px 0 0;font-size:0;line-height:0;">&nbsp;</td></tr>
+              <tr>
+                <td class="px" style="padding:36px 36px 8px 36px;font-family:Arial,Helvetica,sans-serif;color:#16213A;">
+                  <p style="margin:0 0 8px 0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#5A6377;font-weight:bold;">Potwierdzenie konta</p>
+                  <h1 class="h1" style="margin:0 0 16px 0;font-size:26px;line-height:32px;font-weight:bold;color:#16213A;">Witaj w C1 English Academy!</h1>
+                  <p style="margin:0 0 24px 0;font-size:16px;line-height:25px;color:#33405A;">Dziękujemy za rejestrację. Zostało już tylko potwierdzenie adresu <b style="color:#16213A;">{{ .Email }}</b>&nbsp;– potem możesz zacząć naukę.</p>
+                </td>
+              </tr>
+              <!-- button -->
+              <tr>
+                <td align="center" style="padding:0 36px 8px 36px;">
+                  <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                      <td align="center" bgcolor="#2944C4" style="border-radius:10px;">
+                        <a href="{{ .SiteURL }}?token_hash={{ .TokenHash }}&type=email" target="_blank" style="display:inline-block;padding:15px 34px;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;color:#ffffff;text-decoration:none;border-radius:10px;">Potwierdź adres e-mail</a>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td class="px" align="center" style="padding:6px 36px 28px 36px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#5A6377;">
+                  Na otwartej stronie kliknij jeszcze <b>„Potwierdź weryfikację”</b>.
+                </td>
+              </tr>
+              <!-- what's next -->
+              <tr>
+                <td class="px" style="padding:0 36px;">
+                  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#F4F6FE;border-radius:12px;">
+                    <tr>
+                      <td style="padding:18px 20px;font-family:Arial,Helvetica,sans-serif;color:#16213A;">
+                        <p style="margin:0 0 10px 0;font-size:14px;font-weight:bold;">Co dalej?</p>
+                        <p style="margin:0 0 6px 0;font-size:14px;line-height:21px;color:#33405A;">☀&nbsp; <b>Codzienna lekcja</b> – ok. 20 minut: słownictwo, gramatyka, ćwiczenia i powtórka</p>
+                        <p style="margin:0 0 6px 0;font-size:14px;line-height:21px;color:#33405A;">🗂&nbsp; <b>Fiszki</b> z powtórkami we właściwym momencie</p>
+                        <p style="margin:0;font-size:14px;line-height:21px;color:#33405A;">📝&nbsp; <b>Testy i egzamin próbny</b> C1 z wyjaśnieniami błędów</p>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <!-- fallback link -->
+              <tr>
+                <td class="px" style="padding:24px 36px 32px 36px;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:20px;color:#5A6377;">
+                  Przycisk nie działa? Skopiuj ten adres do przeglądarki:<br>
+                  <a href="{{ .SiteURL }}?token_hash={{ .TokenHash }}&type=email" style="color:#2944C4;word-break:break-all;">{{ .SiteURL }}?token_hash={{ .TokenHash }}&amp;type=email</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <!-- footer -->
+        <tr>
+          <td style="padding:20px 8px 0 8px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#7A8296;text-align:center;">
+            Link jest jednorazowy i wygasa po pewnym czasie – jeśli wygaśnie, w aplikacji możesz poprosić o nowy.<br>
+            Nie zakładałeś konta? Zignoruj tę wiadomość – nic się nie stanie.<br><br>
+            C1 English Academy · nauka do egzaminu C1 Advanced
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

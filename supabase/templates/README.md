@@ -1,5 +1,8 @@
 # E-mail templates (Supabase → Authentication → Emails)
 
+Suggested subjects: **Potwierdź konto – C1 English Academy** and **Reset hasła – C1 English Academy**.
+The templates are e-mail-safe (tables + inline styles), with a fallback link and a version for narrow screens.
+
 Paste these into **Confirm signup** and **Reset password** (subject e.g. "Potwierdź konto – C1 English Academy").
 
 Why: the link opens the app directly (`/?token_hash=…`), and the token is used only after the user clicks
