@@ -150,10 +150,7 @@ export function ChoiceTask(props: { onAnswered?: () => void; prompt: ReactNode; 
       {picked !== null && props.notes?.[props.options[picked]] && <span className="text-sm">Dlaczego nie „{props.options[picked]}”: {props.notes[props.options[picked]]}</span>}
     </Feedback>}
     {phase === "retype" && <Feedback tone="warn" title="Wybierz ponownie – samodzielnie.">{hidden.length ? "Wskazówka: usunąłem jedną błędną odpowiedź." : "Odpowiedzi zostały przetasowane."}</Feedback>}
-    {phase === "done" && overridden !== null && <Feedback tone="ok" title="Zaliczone – Twoja odpowiedź">
-      <span>Przyjęto: <b className="font-mono">{overridden}</b>. W kluczu jest: <b className="font-mono">{answers[0]}</b>. Zgłoszenie trafi do administratora, żeby dodać ten wariant.</span>
-      {props.explanation && <span className="text-sm">{props.explanation}</span>}</Feedback>}
-    {phase === "done" && overridden === null && <Feedback tone="ok" title={attempts > 1 ? `Poprawione po ${attempts} próbach.` : "Dobrze!"}>{props.explanation && <span className="text-sm">{props.explanation}</span>}</Feedback>}
+    {phase === "done" && <Feedback tone="ok" title={attempts > 1 ? `Poprawione po ${attempts} próbach.` : "Dobrze!"}>{props.explanation && <span className="text-sm">{props.explanation}</span>}</Feedback>}
     {phase === "fix" && <div><Button onClick={retry} data-testid="retype">Rozwiąż ponownie samodzielnie</Button></div>}
     {(phase === "ask" || phase === "retype") && <div className="hidden text-xs text-ink-soft sm:block">Klawisze A–{"ABCDEF"[Math.max(0, visible.length - 1)]} lub 1–{visible.length} wybierają odpowiedź</div>}
   </div>;
