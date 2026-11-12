@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { deleteMistake, listMistakes, logSession, updateMistake } from "../lib/api";
+import { deleteMistake, listMistakes, logSession, updateMistake, reportAcceptedAnswer } from "../lib/api";
 import { useAsync } from "../lib/useAsync";
 import { TypedTask, type Outcome } from "../components/Correction";
 import { useEnter } from "../lib/keys";
@@ -46,6 +46,7 @@ function Review({ items, onClose }: { items: Mistake[]; onClose: () => void }) {
   const m = items[i];
   return <div className="max-w-2xl"><div className="mb-2 text-sm font-bold uppercase tracking-widest text-ink-soft">Powtórka błędów · {i + 1}/{items.length}</div>
     <Card><TypedTask key={m.id} prompt={m.prompt} answers={[m.correct_answer]} explanation={m.explanation ?? undefined} allowHint onDone={async (o) => {
+      if (o.overridden) void reportAcceptedAnswer({ exerciseId: m.exercise_id ?? (m.vocab_id ? `v:${m.vocab_id}:mistake` : undefined), source: "mistakes", prompt: m.prompt, userAnswer: o.acceptedAnswer ?? "", expected: m.correct_answer });
       setDone(o);
       try { if (o.firstTry) { setOk((x) => x + 1); await updateMistake(m.id, { mastered: true }); } if (i === items.length - 1) await logSession("mistakes", items.length, ok + (o.firstTry ? 1 : 0), (Date.now() - started) / 60000); } catch (e) { setErr(e instanceof Error ? e.message : String(e)); }
     }} /></Card>

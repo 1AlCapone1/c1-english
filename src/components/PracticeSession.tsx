@@ -4,7 +4,7 @@ import { ExerciseTask, type Outcome } from "./Correction";
 import { useEnter } from "../lib/keys";
 import { Button, Card, Feedback, Progress } from "./ui";
 import type { Exercise } from "../lib/types";
-import { logSession, recordMistake, unhideWord } from "../lib/api";
+import { logSession, recordMistake, reportAcceptedAnswer, unhideWord } from "../lib/api";
 import { RemovedNotice, SkipBar } from "./SkipBar";
 import { mistakeCategory, type MistakeCategory } from "../lib/answer";
 
@@ -39,6 +39,7 @@ export function PracticeSession({ title, items, pool = [], source, onFinish, onC
   async function handleDone(o: Outcome) {
     const ex = queue[i];
     setDone(o);
+    if (o.overridden) void reportAcceptedAnswer({ exerciseId: ex.id, source, prompt: promptText(ex), userAnswer: o.acceptedAnswer ?? "", expected: o.expected ?? String(ex.answers[0] ?? "") });
     try { await onItemDone?.(ex, o); } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
     setStats((s) => ({ first: s.first + (o.firstTry ? 1 : 0), fixed: s.fixed + (o.firstTry ? 0 : 1), total: s.total + 1 }));
     if (!o.firstTry) {

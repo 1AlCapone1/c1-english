@@ -215,3 +215,14 @@ export async function updateProfile(p: Partial<Pick<Profile, "display_name" | "l
 
 // ---------- helpers ----------
 export function shuffle<T>(a: T[]): T[] { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; }
+
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+/** "Dobrze jest napisane – zalicz": store the accepted answer so an admin can add it as a variant. Best effort. */
+export async function reportAcceptedAnswer(r: { exerciseId?: string; source: string; prompt: string; userAnswer: string; expected: string }) {
+  const id = r.exerciseId ?? "";
+  const vocab = id.startsWith("v:") ? id.split(":")[1] : null;
+  const row = { exercise_id: UUID_RE.test(id) ? id : null, vocab_id: vocab && UUID_RE.test(vocab) ? vocab : null, source: r.source.slice(0, 40),
+    prompt: r.prompt.slice(0, 2000), user_answer: r.userAnswer.slice(0, 500), expected: r.expected.slice(0, 500) };
+  const { error } = await supabase.from("answer_reports").insert(row);
+  if (error) console.warn("[C1] answer report not saved", error.message);
+}

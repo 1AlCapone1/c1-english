@@ -112,3 +112,21 @@ test("skip and remove a word: preview, during flashcards, restore in settings", 
   for (let k = 1; k < n; k++) await hidden.getByRole("button", { name: "Przywróć" }).first().click();
   await expect(hidden.getByText("Brak wyrzuconych słów.")).toBeVisible({ timeout: 15_000 });
 });
+test("'Dobrze jest napisane – zalicz' accepts the learner's answer and reports it", async ({ page }) => {
+  await login(page);
+  await page.goto("/#/flashcards");
+  await page.getByTestId("start-flashcards").click();
+  await page.getByTestId("preview-start").click();
+  const input = page.getByTestId("answer-input").first();
+  await input.fill("my own variant"); await page.keyboard.press("Enter");
+  await expect(page.getByTestId("accept-own")).toBeVisible();
+  await page.getByTestId("accept-own").click();
+  await expect(page.getByText("Zaliczone – Twoja odpowiedź")).toBeVisible();
+  await expect(page.getByTestId("next")).toBeVisible();                    // can move on, no retyping
+  // the report was stored for the admin; remove it again so test runs don't pile up
+  const { createClient } = await import("@supabase/supabase-js");
+  const c = createClient(process.env.VITE_SUPABASE_URL!, process.env.VITE_SUPABASE_PUBLISHABLE_KEY!, { auth: { persistSession: false } });
+  await c.auth.signInWithPassword({ email: process.env.E2E_USER_EMAIL!, password: process.env.E2E_USER_PASSWORD! });
+  await expect.poll(async () => (await c.from("answer_reports").select("id").eq("user_answer", "my own variant")).data?.length ?? 0).toBeGreaterThan(0);
+  await c.from("answer_reports").delete().eq("user_answer", "my own variant");
+});

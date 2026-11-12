@@ -4,7 +4,8 @@ import type { Exercise } from "../lib/types";
 import { Button, Diff, Feedback, answerCls, cx } from "./ui";
 import { claimEnter, useEnter } from "../lib/keys";
 
-export type Outcome = { firstTry: boolean; attempts: number; firstAnswer: string; diagnosis: Diagnosis | null; hinted: boolean };
+/** overridden: the learner said their answer was right ("Dobrze jest napisane – zalicz"); acceptedAnswer = what they typed. */
+export type Outcome = { firstTry: boolean; attempts: number; firstAnswer: string; diagnosis: Diagnosis | null; hinted: boolean; overridden?: boolean; acceptedAnswer?: string; expected?: string };
 
 /**
  * Mandatory correction loop for typed answers:
@@ -29,6 +30,7 @@ export function TypedTask(props: {
   const [fails, setFails] = useState(0);
   const [hintLvl, setHintLvl] = useState(0);
   const [hinted, setHinted] = useState(false);
+  const [overridden, setOverridden] = useState<string | null>(null);
   const ref = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
   useEffect(() => { ref.current?.focus(); }, [phase]);
 
@@ -55,6 +57,12 @@ export function TypedTask(props: {
   }
   const best = diag?.best ?? answers[0];
   const toRetype = () => { setVal(""); setPhase("retype"); };
+  /** "Dobrze jest napisane – zalicz": accept the learner's own answer (e.g. a valid variant the key lacks). */
+  const acceptOwn = () => {
+    const own = lastWrong.trim(); if (!own) return;
+    setOverridden(own); setVal(own); setPhase("done");
+    props.onDone({ firstTry: attempts === 1, attempts, firstAnswer: first?.answer ?? own, diagnosis: null, hinted, overridden: true, acceptedAnswer: own, expected: answers[0] });
+  };
   const onEnter = (e: ReactKeyboardEvent) => { if (phase === "done") return; /* page-level "Dalej" handles it */ if (!claimEnter(e)) return; if (phase === "ask" || phase === "retype") submit(); else toRetype(); };
   return <div className="flex flex-col gap-4">
     <div className="text-lg">{props.prompt}</div>
@@ -75,12 +83,16 @@ export function TypedTask(props: {
     {phase === "retype" && <Feedback tone="warn" title={fails ? "Jeszcze nie." : "Teraz wpisz poprawną odpowiedź z pamięci."}>
       <span>{fails && diag ? `${diag.label}. ` : ""}{hintLvl ? <>Wskazówka: <b className="font-mono">{hint(answers[0], hintLvl)}</b></> : "Odpowiedź jest ukryta. Przejdziesz dalej dopiero po poprawnym wpisaniu."}</span>
     </Feedback>}
-    {phase === "done" && <Feedback tone="ok" title={attempts > 1 ? `Poprawione po ${attempts} próbach.` : "Dobrze!"}>{props.explanation && <span className="text-sm">{props.explanation}</span>}{answers.length > 1 && attempts === 1 && <span className="text-sm">Inne poprawne: {answers.slice(0, 4).join(" / ")}</span>}</Feedback>}
+    {phase === "done" && overridden !== null && <Feedback tone="ok" title="Zaliczone – Twoja odpowiedź">
+      <span>Przyjęto: <b className="font-mono">{overridden}</b>. W kluczu jest: <b className="font-mono">{answers[0]}</b>. Zgłoszenie trafi do administratora, żeby dodać ten wariant.</span>
+      {props.explanation && <span className="text-sm">{props.explanation}</span>}</Feedback>}
+    {phase === "done" && overridden === null && <Feedback tone="ok" title={attempts > 1 ? `Poprawione po ${attempts} próbach.` : "Dobrze!"}>{props.explanation && <span className="text-sm">{props.explanation}</span>}{answers.length > 1 && attempts === 1 && <span className="text-sm">Inne poprawne: {answers.slice(0, 4).join(" / ")}</span>}</Feedback>}
     <div className="flex flex-wrap gap-2">
       {(phase === "ask" || phase === "retype") && <Button onClick={submit} data-testid="check">Sprawdź</Button>}
       {phase === "ask" && props.allowHint && !hinted && <Button variant="quiet" onClick={() => setHinted(true)}>Podpowiedź</Button>}
       {phase === "ask" && <Button variant="ghost" onClick={() => { setVal(""); const n = attempts + 1; setAttempts(n); const d = diagnose("", answers); setDiag(d); setLastWrong(""); if (!first) setFirst({ answer: "", diag: d }); setPhase("fix"); }}>Nie wiem</Button>}
       {phase === "fix" && <Button onClick={toRetype} data-testid="retype">Ukryj odpowiedź i wpisz z pamięci</Button>}
+      {phase === "fix" && lastWrong.trim() && <Button variant="quiet" onClick={acceptOwn} data-testid="accept-own" title="Użyj, gdy Twoja odpowiedź jest poprawna (np. inny dobry wariant), a system jej nie uznał.">Dobrze jest napisane – zalicz</Button>}
       {phase === "retype" && <Button variant="ghost" onClick={() => { setFails(0); setPhase("fix"); }}>Pokaż wyjaśnienie jeszcze raz</Button>}
     </div>
   </div>;
@@ -138,7 +150,10 @@ export function ChoiceTask(props: { onAnswered?: () => void; prompt: ReactNode; 
       {picked !== null && props.notes?.[props.options[picked]] && <span className="text-sm">Dlaczego nie „{props.options[picked]}”: {props.notes[props.options[picked]]}</span>}
     </Feedback>}
     {phase === "retype" && <Feedback tone="warn" title="Wybierz ponownie – samodzielnie.">{hidden.length ? "Wskazówka: usunąłem jedną błędną odpowiedź." : "Odpowiedzi zostały przetasowane."}</Feedback>}
-    {phase === "done" && <Feedback tone="ok" title={attempts > 1 ? `Poprawione po ${attempts} próbach.` : "Dobrze!"}>{props.explanation && <span className="text-sm">{props.explanation}</span>}</Feedback>}
+    {phase === "done" && overridden !== null && <Feedback tone="ok" title="Zaliczone – Twoja odpowiedź">
+      <span>Przyjęto: <b className="font-mono">{overridden}</b>. W kluczu jest: <b className="font-mono">{answers[0]}</b>. Zgłoszenie trafi do administratora, żeby dodać ten wariant.</span>
+      {props.explanation && <span className="text-sm">{props.explanation}</span>}</Feedback>}
+    {phase === "done" && overridden === null && <Feedback tone="ok" title={attempts > 1 ? `Poprawione po ${attempts} próbach.` : "Dobrze!"}>{props.explanation && <span className="text-sm">{props.explanation}</span>}</Feedback>}
     {phase === "fix" && <div><Button onClick={retry} data-testid="retype">Rozwiąż ponownie samodzielnie</Button></div>}
     {(phase === "ask" || phase === "retype") && <div className="hidden text-xs text-ink-soft sm:block">Klawisze A–{"ABCDEF"[Math.max(0, visible.length - 1)]} lub 1–{visible.length} wybierają odpowiedź</div>}
   </div>;

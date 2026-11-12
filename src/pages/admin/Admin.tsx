@@ -4,8 +4,8 @@ import { useAsync } from "../../lib/useAsync";
 import { Button, Card, Confirm, ErrorBox, Feedback, Loading, PageHeader, Stat, cx, inputCls } from "../../components/ui";
 import { validateRecord, type TableName } from "./validate";
 
-type Tab = "stats" | TableName;
-const TABS: [Tab, string][] = [["stats", "Statystyki"], ["vocabulary", "Słownictwo"], ["grammar_lessons", "Lekcje"], ["exercises", "Ćwiczenia"], ["reading_materials", "Teksty Reading"], ["listening_materials", "Listening"], ["writing_guides", "Writing"], ["speaking_tasks", "Speaking"], ["tests", "Testy"]];
+type Tab = "stats" | "reports" | TableName;
+const TABS: [Tab, string][] = [["stats", "Statystyki"], ["reports", "Zgłoszone odpowiedzi"], ["vocabulary", "Słownictwo"], ["grammar_lessons", "Lekcje"], ["exercises", "Ćwiczenia"], ["reading_materials", "Teksty Reading"], ["listening_materials", "Listening"], ["writing_guides", "Writing"], ["speaking_tasks", "Speaking"], ["tests", "Testy"]];
 const LIST_COLS: Record<TableName, string[]> = {
   vocabulary: ["term", "kind", "category", "level"], grammar_lessons: ["position", "title", "area", "published"], exercises: ["module", "task_type", "topic", "instruction"],
   reading_materials: ["title", "topic", "word_count"], listening_materials: ["title", "published", "audio_path"], writing_guides: ["type", "title"], speaking_tasks: ["type", "title"], tests: ["title", "kind", "published"],
@@ -27,7 +27,7 @@ export default function Admin() {
   return <div>
     <PageHeader eyebrow="Administrator" title="Panel administratora" lead="Zmiany zapisują się w bazie. Uprawnienia sprawdza baza danych – zwykły użytkownik nie może zapisać zmian, nawet znając adres tej strony." />
     <div className="mb-4 flex flex-wrap gap-1.5">{TABS.map(([k, n]) => <button key={k} onClick={() => setTab(k)} className={cx("rounded-full border px-3 py-1.5 text-sm", tab === k ? "bg-ink font-bold text-white dark:bg-white dark:text-ink" : "border-black/15 dark:border-white/15")}>{n}</button>)}</div>
-    {tab === "stats" ? <Stats /> : <TableEditor key={tab} table={tab} />}
+    {tab === "stats" ? <Stats /> : tab === "reports" ? <Reports /> : <TableEditor key={tab} table={tab} />}
   </div>;
 }
 
@@ -80,5 +80,38 @@ function TableEditor({ table }: { table: TableName }) {
         <tbody>{list.data!.rows.map((r) => <tr key={String(r.id)} className="border-t border-black/5 dark:border-white/5">{cols.map((c) => <td key={c} className="max-w-xs truncate p-3">{String(r[c] ?? "")}</td>)}
           <td className="whitespace-nowrap p-3"><Button size="sm" variant="quiet" onClick={() => { const { id, created_at, ...rest } = r; void created_at; setEdit({ id: String(id), json: JSON.stringify(rest, null, 2) }); window.scrollTo(0, 0); }}>Edytuj</Button> <Confirm label="Usunąć?" onConfirm={() => remove(String(r.id))}><Button size="sm" variant="ghost">Usuń</Button></Confirm></td></tr>)}</tbody></table>
         <div className="flex items-center gap-3 p-3 text-sm"><Button size="sm" variant="quiet" disabled={page === 0} onClick={() => setPage(page - 1)}>←</Button><span>{page * 25 + 1}–{Math.min((page + 1) * 25, list.data!.count)} z {list.data!.count}</span><Button size="sm" variant="quiet" disabled={(page + 1) * 25 >= list.data!.count} onClick={() => setPage(page + 1)}>→</Button></div></Card>}
+  </div>;
+}
+
+type Report = { id: string; exercise_id: string | null; vocab_id: string | null; source: string; prompt: string; user_answer: string; expected: string; status: string; created_at: string };
+/** Answers learners accepted with "Dobrze jest napisane – zalicz". Add a variant to the exercise key, or reject. */
+function Reports() {
+  const [status, setStatus] = useState("new");
+  const [msg, setMsg] = useState<{ tone: "ok" | "bad"; t: string } | null>(null);
+  const list = useAsync(async () => unwrap(await supabase.from("answer_reports").select("*").eq("status", status).order("created_at", { ascending: false }).limit(200)) as Report[], [status]);
+  async function setRep(id: string, st: "added" | "rejected") { const r = await supabase.from("answer_reports").update({ status: st }).eq("id", id); if (r.error) setMsg({ tone: "bad", t: r.error.message }); list.reload(); }
+  async function addVariant(r: Report) {
+    setMsg(null);
+    if (!r.exercise_id) return setMsg({ tone: "bad", t: "To zgłoszenie dotyczy słówka – popraw hasło ręcznie w zakładce Słownictwo (np. synonimy, przykład)." });
+    const ex = await supabase.from("exercises").select("answers").eq("id", r.exercise_id).single();
+    if (ex.error) return setMsg({ tone: "bad", t: ex.error.message });
+    const answers = ex.data.answers as string[];
+    if (!answers.some((a) => a.trim().toLowerCase() === r.user_answer.trim().toLowerCase())) {
+      const up = await supabase.from("exercises").update({ answers: [...answers, r.user_answer.trim()] }).eq("id", r.exercise_id).select();
+      if (up.error || !up.data?.length) return setMsg({ tone: "bad", t: up.error?.message ?? "Zapis odrzucony." });
+    }
+    await setRep(r.id, "added"); setMsg({ tone: "ok", t: `Dodano wariant „${r.user_answer}”.` });
+  }
+  return <div className="flex flex-col gap-4">
+    <p className="text-sm text-ink-soft">Odpowiedzi, które użytkownicy zaliczyli przyciskiem „Dobrze jest napisane – zalicz”. Sprawdź je: dobry wariant dodaj do klucza, błędny odrzuć.</p>
+    <div className="flex gap-1.5">{[["new", "Nowe"], ["added", "Dodane"], ["rejected", "Odrzucone"]].map(([k, n]) => <button key={k} onClick={() => setStatus(k)} className={cx("rounded-full border px-3 py-1 text-sm", status === k ? "bg-ink font-bold text-white dark:bg-white dark:text-ink" : "border-black/15 dark:border-white/15")}>{n}</button>)}</div>
+    {msg && <Feedback tone={msg.tone}>{msg.t}</Feedback>}
+    {list.loading ? <Loading /> : list.error ? <ErrorBox error={list.error} onRetry={list.reload} /> : !list.data?.length ? <Card>Brak zgłoszeń.</Card> :
+      <Card className="p-0"><ul>{list.data.map((r) => <li key={r.id} className="flex flex-col gap-1 border-t border-black/5 p-3 first:border-0 dark:border-white/5">
+        <div className="text-sm text-ink-soft">{new Date(r.created_at).toLocaleString("pl-PL")} · {r.source}</div>
+        <div className="text-sm">{r.prompt}</div>
+        <div>Użytkownik: <b className="font-mono">{r.user_answer}</b> · klucz: <b className="font-mono">{r.expected}</b></div>
+        {status === "new" && <div className="mt-1 flex gap-2">{r.exercise_id && <Button size="sm" onClick={() => addVariant(r)}>Dodaj jako poprawny wariant</Button>}<Button size="sm" variant="quiet" onClick={() => setRep(r.id, r.exercise_id ? "rejected" : "added")}>{r.exercise_id ? "Odrzuć" : "Sprawdzone"}</Button></div>}
+      </li>)}</ul></Card>}
   </div>;
 }

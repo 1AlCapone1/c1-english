@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { listExercises, logSession, pickFlashcards, recordMistake, saveFlashcardResult, shuffle, unhideWord } from "../lib/api";
+import { listExercises, logSession, pickFlashcards, recordMistake, reportAcceptedAnswer, saveFlashcardResult, shuffle, unhideWord } from "../lib/api";
 import { canon, levenshtein, mistakeCategory, type MistakeCategory } from "../lib/answer";
 import { CATEGORIES, KIND_LABEL, type Kind, type Vocab } from "../lib/types";
 import { TypedTask, type Outcome } from "../components/Correction";
@@ -105,6 +105,7 @@ function Session({ cards: initial, onExit }: { cards: FlashCard[]; onExit: () =>
   async function handleDone(o: Outcome) {
     setOutcome(o);
     const v = c.v;
+    if (o.overridden) void reportAcceptedAnswer({ exerciseId: `v:${v.id}:${c.mode}`, source: `flashcards:${c.mode}`, prompt: `${c.mode}: ${v.term} / ${v.translation_pl}`, userAnswer: o.acceptedAnswer ?? "", expected: o.expected ?? "" });
     if (first[v.id]) return; // follow-up repetition in this session – already recorded
     setFirst((f) => ({ ...f, [v.id]: o }));
     try {
