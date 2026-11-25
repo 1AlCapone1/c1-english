@@ -41,7 +41,7 @@ export default function Dashboard() {
     </div>
     <div className="mt-4 grid gap-4 lg:grid-cols-3">
       <Card><h2 className="font-display text-lg font-bold">Do powtórzenia</h2><ul className="mt-3 flex flex-col gap-2">
-        <li className="flex items-center justify-between"><span>Fiszki do powtórki</span><Link to="/flashcards?mode=due"><Pill tone={d.words_due ? "warn" : "ok"}>{d.words_due}</Pill></Link></li>
+        <li className="flex items-center justify-between"><span>Powtórki SRS na teraz</span><Link to="/review" data-testid="dash-srs"><Pill tone={d.words_due ? "warn" : "ok"}>{d.words_due}</Pill></Link></li>
         <li className="flex items-center justify-between"><span>Otwarte błędy</span><Link to="/mistakes"><Pill tone={d.mistakes_open ? "bad" : "ok"}>{d.mistakes_open}</Pill></Link></li>
       </ul></Card>
       <Card><h2 className="font-display text-lg font-bold">Rekomendowana lekcja</h2>{next ? <><p className="mt-2">{next.title}</p><Link to={`/grammar/${next.slug}`} className="mt-3 inline-block"><Button size="sm" variant="quiet">Otwórz lekcję</Button></Link></> : <p className="mt-2 text-ink-soft">Ukończyłeś wszystkie dostępne lekcje. Zrób test powtórkowy.</p>}</Card>

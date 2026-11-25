@@ -1,6 +1,6 @@
 // Data access layer – all reads/writes go through Supabase with RLS.
 import { supabase, unwrap } from "./supabase";
-import { nextState } from "./srs";
+import { autoGrade, schedule, type Grade, type SrsCard } from "./srs";
 import type { Exercise, GrammarLesson, Listening, Mistake, Profile, Progress, Reading, SpeakingTask, TestAttempt, Vocab, WritingGuide } from "./types";
 import type { MistakeCategory } from "./answer";
 
@@ -87,11 +87,63 @@ export async function pickFlashcards(f: { kind?: string; category?: string; leve
   }
   return shuffle(pool);
 }
-export async function saveFlashcardResult(vocabId: string, firstTryCorrect: boolean, hinted: boolean, attempts: number, mode: string) {
+const SRS_COLS = "box, correct, wrong, ease, interval_days, reps, lapses";
+/** Current SRS state of one word for this user (null = never reviewed). */
+export async function srsCard(vocabId: string): Promise<SrsCard | null> {
+  return unwrap(await supabase.from("flashcard_progress").select(SRS_COLS).eq("vocab_id", vocabId).maybeSingle()) as SrsCard | null;
+}
+/** Record a review with an explicit grade (Again/Hard/Good/Easy) and schedule the next one. */
+export async function reviewCard(vocabId: string, grade: Grade, attempts: number, source: string, prev?: SrsCard | null) {
   const user_id = await uid();
-  const cur = unwrap(await supabase.from("flashcard_progress").select("box, correct, wrong").eq("vocab_id", vocabId).maybeSingle()) as { box: number; correct: number; wrong: number } | null;
-  const s = nextState(cur, firstTryCorrect, hinted);
-  unwrap(await supabase.from("flashcard_progress").upsert({ user_id, vocab_id: vocabId, box: s.box, correct: s.correct, wrong: s.wrong, due_at: s.due_at, last_attempts: attempts, last_mode: firstTryCorrect ? null : mode, last_reviewed_at: new Date().toISOString() }));
+  const cur = prev !== undefined ? prev : await srsCard(vocabId);
+  const s = schedule(cur, grade, Date.now(), Math.random());
+  unwrap(await supabase.from("flashcard_progress").upsert({ user_id, vocab_id: vocabId, box: s.box, correct: s.correct, wrong: s.wrong, ease: s.ease, interval_days: s.interval_days, reps: s.reps, lapses: s.lapses,
+    due_at: s.due_at, last_attempts: attempts, last_mode: grade === "again" ? source.slice(0, 40) : null, last_reviewed_at: new Date().toISOString() }));
+  const log = await supabase.from("srs_reviews").insert({ vocab_id: vocabId, grade, interval_before: Number(cur?.interval_days ?? 0), interval_after: s.interval_days, source: source.slice(0, 40) });
+  if (log.error) console.warn("[C1] review log not saved", log.error.message);
+  return s;
+}
+/** Typed-answer result without a self-rating (daily lessons etc.): wrong → Again, hinted → Hard, correct → Good. */
+export async function saveFlashcardResult(vocabId: string, firstTryCorrect: boolean, hinted: boolean, attempts: number, mode: string) {
+  return reviewCard(vocabId, autoGrade(firstTryCorrect, hinted), attempts, mode);
+}
+/** SRS overview: due now, due today, new allowed today, 14-day forecast, last-30-days retention. */
+export async function srsOverview() {
+  const now = new Date();
+  const [prog, reviews, prof, hidden] = await Promise.all([
+    unwrap(await supabase.from("flashcard_progress").select("vocab_id, due_at, interval_days, reps, lapses, ease").limit(20000)) as { vocab_id: string; due_at: string; interval_days: number; reps: number; lapses: number; ease: number }[],
+    unwrap(await supabase.from("srs_reviews").select("grade, reviewed_at, interval_before").gte("reviewed_at", new Date(now.getTime() - 30 * 86400000).toISOString()).limit(20000)) as { grade: Grade; reviewed_at: string; interval_before: number }[],
+    unwrap(await supabase.from("profiles").select("srs_new_per_day").single()) as { srs_new_per_day: number },
+    hiddenIds(),
+  ]);
+  const cards = prog.filter((p) => !hidden.has(p.vocab_id));
+  const endOfToday = new Date(); endOfToday.setHours(23, 59, 59, 999);
+  const dueNow = cards.filter((c) => new Date(c.due_at) <= now).length;
+  const dueToday = cards.filter((c) => new Date(c.due_at) <= endOfToday).length;
+  const forecast = Array.from({ length: 14 }, (_, d) => {
+    const start = new Date(); start.setHours(0, 0, 0, 0); start.setDate(start.getDate() + d);
+    const end = new Date(start); end.setDate(end.getDate() + 1);
+    return { day: start.toISOString().slice(0, 10), count: cards.filter((c) => { const t = new Date(c.due_at); return d === 0 ? t < end : t >= start && t < end; }).length };
+  });
+  const todayKey = now.toLocaleDateString("sv-SE", { timeZone: "Europe/Warsaw" });
+  const newToday = reviews.filter((r) => Number(r.interval_before) === 0 && r.grade !== "again" && new Date(r.reviewed_at).toLocaleDateString("sv-SE", { timeZone: "Europe/Warsaw" }) === todayKey).length;
+  const mature = reviews.filter((r) => Number(r.interval_before) >= 1);
+  const retention = mature.length ? Math.round((mature.filter((r) => r.grade !== "again").length / mature.length) * 100) : null;
+  return { total: cards.length, dueNow, dueToday, forecast, newPerDay: prof.srs_new_per_day, newLeft: Math.max(0, prof.srs_new_per_day - newToday),
+    young: cards.filter((c) => Number(c.interval_days) > 0 && Number(c.interval_days) < 21).length, matureCount: cards.filter((c) => Number(c.interval_days) >= 21).length,
+    learning: cards.filter((c) => Number(c.interval_days) === 0).length, retention, reviews30: reviews.length };
+}
+/** Cards for an SRS session: everything due (most overdue first), then up to `newLimit` new words. */
+export async function srsQueue(limit: number, newLimit: number) {
+  const now = new Date().toISOString();
+  const hidden = await hiddenIds();
+  const due = (unwrap(await supabase.from("flashcard_progress").select("vocab_id, due_at").lte("due_at", now).order("due_at").limit(1000)) as { vocab_id: string }[])
+    .map((r) => r.vocab_id).filter((id) => !hidden.has(id)).slice(0, limit);
+  const dueWords = due.length ? (await listVocab({ ids: due, limit: due.length })).rows : [];
+  const order = new Map(due.map((id, i) => [id, i]));
+  dueWords.sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
+  const fresh = newLimit > 0 && dueWords.length < limit ? await pickFlashcards({ n: Math.min(newLimit, limit - dueWords.length), mode: "new" }) : [];
+  return { due: dueWords, fresh };
 }
 export async function toggleSaved(vocabId: string, save: boolean) {
   const user_id = await uid();
@@ -208,7 +260,7 @@ export async function sessionsHistory(days = 60) {
 }
 
 // ---------- profile ----------
-export async function updateProfile(p: Partial<Pick<Profile, "display_name" | "level" | "daily_goal_min" | "theme">>) {
+export async function updateProfile(p: Partial<Pick<Profile, "display_name" | "level" | "daily_goal_min" | "theme" | "srs_new_per_day">>) {
   const id = await uid();
   unwrap(await supabase.from("profiles").update(p).eq("id", id));
 }

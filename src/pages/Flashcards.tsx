@@ -1,6 +1,7 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { listExercises, logSession, pickFlashcards, recordMistake, reportAcceptedAnswer, saveFlashcardResult, shuffle, unhideWord } from "../lib/api";
+import { listExercises, logSession, pickFlashcards, recordMistake, reportAcceptedAnswer, reviewCard, shuffle, srsCard, unhideWord } from "../lib/api";
+import { GRADE_LABEL, formatInterval, schedule, type Grade, type SrsCard } from "../lib/srs";
 import { canon, levenshtein, mistakeCategory, type MistakeCategory } from "../lib/answer";
 import { CATEGORIES, KIND_LABEL, type Kind, type Vocab } from "../lib/types";
 import { TypedTask, type Outcome } from "../components/Correction";
@@ -13,7 +14,7 @@ import { VocabDetail, exampleHtml } from "./Vocabulary";
 
 type Mode = "plen" | "enpl" | "gap" | "sentence" | "def";
 const MODE_LABEL: Record<Mode, string> = { plen: "Polski → angielski", enpl: "Angielski → polski", gap: "Uzupełnij lukę w zdaniu", sentence: "Przetłumacz całe zdanie", def: "Definicja → wyrażenie" };
-type FlashCard = { v: Vocab; mode: Mode; again?: boolean };
+export type FlashCard = { v: Vocab; mode: Mode; again?: boolean };
 
 const target = (v: Vocab) => (v.example.match(/\*([^*]+)\*/) || [])[1] ?? v.term;
 const plVariants = (pl: string) => Array.from(new Set([pl, ...pl.split(/[,;/]/).map((p) => p.replace(/\([^)]*\)/g, "").trim()).filter(Boolean)]));
@@ -24,7 +25,7 @@ function availableModes(v: Vocab): Mode[] {
   if (v.definition) m.push("def");
   return m;
 }
-function pickMode(v: Vocab, wanted: Mode | "mix", avoid?: string | null): Mode {
+export function pickMode(v: Vocab, wanted: Mode | "mix", avoid?: string | null): Mode {
   const av = availableModes(v);
   if (wanted !== "mix" && av.includes(wanted)) return wanted;
   const weighted = av.flatMap((m) => (m === "gap" ? [m, m] : m === "sentence" ? [] : [m])).filter((m) => m !== avoid);
@@ -88,7 +89,35 @@ export default function Flashcards() {
   </div>;
 }
 
-function Session({ cards: initial, onExit }: { cards: FlashCard[]; onExit: () => void }) {
+/** Self-rating after a correct answer: Trudne / Dobre / Łatwe with the resulting next-review time. Enter = Dobre, keys 1–3. */
+function RatingBar({ cur, onRate, busy }: { cur: SrsCard | null; onRate: (g: Grade) => void; busy: boolean }) {
+  const now = Date.now();
+  const grades: Grade[] = ["hard", "good", "easy"];
+  const ref = useRef(onRate); ref.current = onRate;
+  useLayoutEffect(() => {
+    const since = performance.now();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.timeStamp <= since || e.repeat || e.ctrlKey || e.metaKey || e.altKey || busy) return;
+      const t = e.target as HTMLElement | null;
+      if ((t?.tagName === "INPUT" || t?.tagName === "TEXTAREA") && !(t as HTMLInputElement).readOnly) return;
+      if (t?.tagName === "BUTTON" && e.key === "Enter") return; // focused button: native click
+      const g = e.key === "Enter" ? "good" : e.key === "1" ? "hard" : e.key === "2" ? "good" : e.key === "3" ? "easy" : null;
+      if (g) { e.preventDefault(); ref.current(g); }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [busy]);
+  return <div className="mt-4" data-testid="srs-rating">
+    <div className="mb-2 text-sm font-bold">Jak łatwo było przypomnieć sobie odpowiedź?</div>
+    <div className="grid grid-cols-3 gap-2">{grades.map((g, k) => <button key={g} type="button" disabled={busy} onClick={() => onRate(g)} data-testid={`rate-${g}`}
+      className={"flex flex-col items-center rounded-lg border px-2 py-2 font-bold disabled:opacity-50 " + (g === "good" ? "border-accent bg-accent text-white dark:border-accent-dark dark:bg-accent-dark dark:text-ink" : "border-black/15 hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/10")}>
+      <span>{GRADE_LABEL[g]}</span><span className={"text-xs font-normal " + (g === "good" ? "opacity-90" : "text-ink-soft")}>za {formatInterval(schedule(cur, g, now), now)}</span>
+      <span className="hidden text-[10px] font-normal opacity-70 sm:block">klawisz {k + 1}{g === "good" ? " / Enter" : ""}</span></button>)}</div>
+    <p className="mt-2 text-xs text-ink-soft">Powtórki rozkładane w czasie (SRS): im łatwiej, tym później słowo wróci.</p>
+  </div>;
+}
+
+export function Session({ cards: initial, onExit, source = "flashcards" }: { cards: FlashCard[]; onExit: () => void; source?: string }) {
   const [cards, setCards] = useState<FlashCard[]>(initial);
   const [i, setI] = useState(0);
   const [outcome, setOutcome] = useState<Outcome | null>(null);
@@ -101,15 +130,29 @@ function Session({ cards: initial, onExit }: { cards: FlashCard[]; onExit: () =>
   const done = i >= cards.length;
   const c = cards[i];
   const spec = useMemo(() => (c ? cardSpec(c) : null), [c]);
+  const [cur, setCur] = useState<SrsCard | null>(null);          // SRS state of the current word (for interval previews)
+  const [ratingFor, setRatingFor] = useState<string | null>(null); // word waiting for Trudne/Dobre/Łatwe
+  const [rated, setRated] = useState<{ term: string; when: string } | null>(null);
+  const [busy, setBusy] = useState(false);
+  useEffect(() => { let on = true; setCur(null); if (c) srsCard(c.v.id).then((x) => on && setCur(x)).catch(() => {}); return () => { on = false; }; }, [c?.v.id]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  async function rate(g: Grade) {
+    if (!ratingFor || busy) return;
+    setBusy(true);
+    try { const s = await reviewCard(ratingFor, g, 1, `${source}:${c.mode}`, cur); setRated({ term: c.v.term, when: formatInterval(s) }); }
+    catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
+    setBusy(false); setRatingFor(null); void next();
+  }
   async function handleDone(o: Outcome) {
-    setOutcome(o);
+    setOutcome(o); setRated(null);
     const v = c.v;
     if (o.overridden) void reportAcceptedAnswer({ exerciseId: `v:${v.id}:${c.mode}`, source: `flashcards:${c.mode}`, prompt: `${c.mode}: ${v.term} / ${v.translation_pl}`, userAnswer: o.acceptedAnswer ?? "", expected: o.expected ?? "" });
     if (first[v.id]) return; // follow-up repetition in this session – already recorded
     setFirst((f) => ({ ...f, [v.id]: o }));
+    // correct on the first try without help → the learner rates it; otherwise the grade is automatic
+    if (o.firstTry && !o.hinted && !o.overridden) { setRatingFor(v.id); return; }
     try {
-      await saveFlashcardResult(v.id, o.firstTry, o.hinted, o.attempts, c.mode);
+      await reviewCard(v.id, !o.firstTry ? "again" : o.hinted ? "hard" : "good", o.attempts, `${source}:${c.mode}`, cur);
       if (!o.firstTry) {
         await recordMistake({ category: o.diagnosis ? mistakeCategory(o.diagnosis, catFor(v), spec!.answers[0]) : catFor(v), source: "flashcards", prompt: `${spec!.label}: ${spec!.prompt}`, user_answer: o.firstAnswer, correct: spec!.answers[0], explanation: v.definition ?? undefined, vocab_id: v.id });
         // come back at the end of the session in a different context
@@ -124,14 +167,14 @@ function Session({ cards: initial, onExit }: { cards: FlashCard[]; onExit: () =>
     if (ni >= len && !logged.current) {
       logged.current = true;
       const vals = Object.values(first);
-      try { await logSession("flashcards", vals.length, vals.filter((x) => x.firstTry).length, (Date.now() - started.current) / 60000); } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
+      try { await logSession(source, vals.length, vals.filter((x) => x.firstTry).length, (Date.now() - started.current) / 60000); } catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
     }
   }
   function removeWord(id: string) {
     const nc = [...cards.slice(0, i + 1), ...cards.slice(i + 1).filter((x) => x.v.id !== id)];
     setCards(nc); setRemoved({ id, term: c.v.term }); void next(nc.length);
   }
-  useEnter(() => { void next(); }, !!outcome && !done);
+  useEnter(() => { void next(); }, !!outcome && !done && !ratingFor);
   useEnter(onExit, done);
   if (done) {
     const vals = Object.entries(first); const ok = vals.filter(([, o]) => o.firstTry).length; const wrong = vals.filter(([, o]) => !o.firstTry);
@@ -155,8 +198,11 @@ function Session({ cards: initial, onExit }: { cards: FlashCard[]; onExit: () =>
         explanation={<span>{c.v.term} – {c.v.translation_pl}{c.v.ipa ? ` /${c.v.ipa.replace(/^\/|\/$/g, "")}/` : ""}</span>} onDone={handleDone} onAnswered={() => setAnswered(true)} />
       {outcome && <details className="mt-4 rounded-lg bg-black/[.03] p-3 dark:bg-white/[.04]" open={!outcome.firstTry}><summary className="cursor-pointer font-bold">{c.v.term}</summary><div className="mt-2"><VocabDetail v={c.v} /></div><p className="mt-2 text-sm italic">{exampleHtml(c.v.example)}</p></details>}
     </Card>
+    {outcome && ratingFor && <RatingBar cur={cur} onRate={rate} busy={busy} />}
+    {outcome && !ratingFor && !outcome.firstTry && <p className="mt-3 text-sm text-ink-soft" data-testid="srs-again">To słowo wróci jeszcze w tej sesji, a w powtórkach SRS – już za 10 minut.</p>}
+    {!outcome && rated && <p className="mt-3 text-sm text-ink-soft" role="status">„{rated.term}” wróci za {rated.when}.</p>}
     {saveErr && <div className="mt-3"><Feedback tone="warn" title="Problem z zapisem">{saveErr}</Feedback></div>}
     {!outcome && <div className="mt-3"><SkipBar canSkip={!answered} vocabId={c.v.id} onSkip={() => { setRemoved(null); void next(); }} onRemoved={removeWord} /></div>}
-    <div className="mt-4 flex gap-2">{outcome && <Button onClick={() => void next()} data-testid="next">Dalej →</Button>}<Button variant="ghost" onClick={() => setI(cards.length)}>Zakończ sesję</Button></div>
+    <div className="mt-4 flex gap-2">{outcome && !ratingFor && <Button onClick={() => void next()} data-testid="next">Dalej →</Button>}<Button variant="ghost" onClick={async () => { if (ratingFor) { try { await reviewCard(ratingFor, "good", 1, `${source}:${c.mode}`, cur); } catch { /* best effort */ } setRatingFor(null); } setI(cards.length); }}>Zakończ sesję</Button></div>
   </div>;
 }

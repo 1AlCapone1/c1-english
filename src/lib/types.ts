@@ -6,7 +6,7 @@ export type Vocab = {
   collocations: string[]; synonyms: string[]; antonyms: string[]; register: "neutral" | "formal" | "informal" | "academic"; usage_note: string | null;
 };
 export type Progress = { vocab_id: string; box: number; due_at: string; correct: number; wrong: number; last_attempts: number; last_mode: string | null };
-export type Profile = { id: string; display_name: string; role: "user" | "admin"; level: Level; daily_goal_min: number; theme: "system" | "light" | "dark"; created_at: string };
+export type Profile = { id: string; display_name: string; role: "user" | "admin"; level: Level; daily_goal_min: number; theme: "system" | "light" | "dark"; srs_new_per_day?: number; created_at: string };
 export type TaskType = "mc" | "gap" | "open_cloze" | "mc_cloze" | "word_formation" | "kwt" | "error" | "translation" | "matching" | "tfng";
 export type Exercise = {
   id: string; module: string; task_type: TaskType; grammar_lesson_id: string | null; reading_id: string | null; listening_id?: string | null; topic: string | null; level: Level;

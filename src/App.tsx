@@ -23,6 +23,7 @@ const ProgressPage = lazy(() => import("./pages/Progress"));
 const Settings = lazy(() => import("./pages/Settings"));
 const Admin = lazy(() => import("./pages/admin/Admin"));
 const Daily = lazy(() => import("./pages/Daily"));
+const Review = lazy(() => import("./pages/Review"));
 
 export default function App() {
   const { session, recovery, loading } = useAuth();
@@ -40,6 +41,7 @@ export default function App() {
           <Route element={<Protected />}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/daily" element={<Daily />} />
+            <Route path="/review" element={<Review />} />
             <Route path="/vocabulary" element={<Vocabulary />} />
             <Route path="/flashcards" element={<Flashcards />} />
             <Route path="/grammar" element={<Grammar />} />

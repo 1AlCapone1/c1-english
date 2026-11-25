@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { canon, checkText, diagnose, hint, mistakeCategory } from "./answer";
-import { nextState, cardStatus } from "./srs";
+import { cardStatus } from "./srs";
 
 describe("canon", () => {
   it("ignores case, punctuation and quotes", () => expect(canon("  Hello, World! ")).toBe(canon("hello world")));
@@ -28,8 +28,6 @@ describe("mistakeCategory", () => {
   it("maps prepositions", () => expect(mistakeCategory(diagnose("in", ["at"]), "grammar", "at")).toBe("prepositions"));
 });
 describe("srs", () => {
-  it("promotes on first-try success", () => expect(nextState({ box: 1, correct: 1, wrong: 0 }, true).box).toBe(2));
-  it("resets on failure", () => expect(nextState({ box: 5, correct: 5, wrong: 0 }, false).box).toBe(0));
-  it("does not promote hinted answers", () => expect(nextState({ box: 2, correct: 1, wrong: 0 }, true, true).box).toBe(2));
-  it("classifies mastered", () => expect(cardStatus({ box: 4, correct: 4, wrong: 0, due_at: new Date().toISOString() })).toBe("mastered"));
+  it("classifies mastered", () => expect(cardStatus({ box: 4, correct: 4, wrong: 0, due_at: new Date(Date.now() + 86400000).toISOString() })).toBe("mastered"));
+  it("a due card is due even if mastered", () => expect(cardStatus({ box: 4, correct: 4, wrong: 0, due_at: new Date(Date.now() - 1000).toISOString() })).toBe("due"));
 });
