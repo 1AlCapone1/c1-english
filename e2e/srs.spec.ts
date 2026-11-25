@@ -70,8 +70,8 @@ test("SRS session: write from memory, check, rate, schedule updates; typo vs err
       await expect(page.getByTestId("srs-rating")).toBeVisible();
       await page.keyboard.press("3"); typoDone = true;
     } else if (ans) { await input().fill(ans); await page.keyboard.press("Enter"); await expect(page.getByTestId("srs-rating")).toBeVisible(); await page.keyboard.press("3"); }
-    await expect(page.getByTestId("srs-rating")).toHaveCount(0);
     else break;
+    await expect(page.getByTestId("srs-rating")).toHaveCount(0);
   }
 
   // finish the rest: answer (words from the map, grammar unknown) → if wrong, fix from the shown answer → rate / next
