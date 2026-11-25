@@ -67,8 +67,10 @@ test("SRS session: write from memory, check, rate, schedule updates; typo vs err
       const slip = ans.slice(0, 3) + (ans[3] === "x" ? "y" : "x") + ans.slice(4);   // one wrong letter in the middle
       await input().fill(slip); await page.keyboard.press("Enter");
       await expect(page.getByText("Zaliczone – drobna literówka")).toBeVisible();
+      await expect(page.getByTestId("srs-rating")).toBeVisible();
       await page.keyboard.press("3"); typoDone = true;
-    } else if (ans) { await input().fill(ans); await page.keyboard.press("Enter"); await page.keyboard.press("3"); }
+    } else if (ans) { await input().fill(ans); await page.keyboard.press("Enter"); await expect(page.getByTestId("srs-rating")).toBeVisible(); await page.keyboard.press("3"); }
+    await expect(page.getByTestId("srs-rating")).toHaveCount(0);
     else break;
   }
 
