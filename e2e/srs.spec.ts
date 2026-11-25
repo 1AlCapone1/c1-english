@@ -85,7 +85,13 @@ test("SRS session: write from memory, check, rate, schedule updates; typo vs err
       await expect(page.getByTestId("srs-rating").or(page.getByTestId("next"))).toBeVisible({ timeout: 10_000 });
     }
     await page.keyboard.press("Enter");                                                   // rate (default) or next
-    await expect.poll(async () => (await page.getByTestId("srs-summary").isVisible()) || (await counter(page)) === before + 1, { timeout: 10_000 }).toBe(true);
+    try {
+      await expect.poll(async () => (await page.getByTestId("srs-summary").isVisible()) || (await counter(page)) === before + 1, { timeout: 10_000 }).toBe(true);
+    } catch (e) {
+      console.log("DEBUG", before, JSON.stringify((await page.locator("main").innerText()).replace(/\s+/g, " ").slice(0, 1500)));
+      console.log("DEBUG active", await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 200)));
+      throw e;
+    }
   }
   await expect(page.getByTestId("srs-summary")).toBeVisible();
   await expect(page.getByText("Wykonane ćwiczenia")).toBeVisible();
