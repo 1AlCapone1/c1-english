@@ -85,14 +85,12 @@ export function SrsSession({ items: initial, onExit }: { items: Item[]; onExit: 
     if (logged.current) return; logged.current = true;
     try { await logSession("srs", list.length, list.filter((r) => r.firstTry).length, (Date.now() - started.current) / 60000); } catch (e) { setErr(e instanceof Error ? e.message : String(e)); }
   }
-  function advance(list = results, len = items.length, why = "?") {
-    ((window as unknown as { __srs?: string[] }).__srs ??= []).push(`${Math.round(performance.now())} advance from ${i} (${why}) outcome=${!!outcome} rating=${rating}`);
+  function advance(list = results, len = items.length) {
     setOutcome(null); setRating(false); setAnswered(false);
     const ni = i + 1; setI(ni);
     if (ni >= len) void finish(list);
   }
   async function onDone(o: Outcome) {
-    ((window as unknown as { __srs?: string[] }).__srs ??= []).push(`${Math.round(performance.now())} done ${i} repeat=${!!it.repeat} first=${o.firstTry}`);
     setOutcome(o);
     if (o.overridden) void reportAcceptedAnswer({ exerciseId: it.kind === "vocab" ? `v:${it.v.id}:${it.type}` : it.ex.id, source: `srs:${it.type}`, prompt: sp!.text, userAnswer: o.acceptedAnswer ?? "", expected: o.expected ?? sp!.answers[0] });
     if (it.repeat) return; // second pass in this session: already rated
@@ -119,7 +117,7 @@ export function SrsSession({ items: initial, onExit }: { items: Item[]; onExit: 
       setLastNext(`${it.kind === "vocab" ? `„${it.v.term}”` : "To zadanie"} wróci za ${formatInterval(s)}.`);
     } catch (e) { setErr(e instanceof Error ? e.message : String(e)); }
     const list = [...results, { item: it, firstTry: outcome.firstTry, grade: g }];
-    setResults(list); setBusy(false); advance(list, items.length, "rate:" + g);
+    setResults(list); setBusy(false); advance(list);
   }
   function skip() { setRemoved(null); setLastNext(null); advance(); }
   function removeWord(id: string) {
@@ -127,7 +125,7 @@ export function SrsSession({ items: initial, onExit }: { items: Item[]; onExit: 
     const nl = [...items.slice(0, i + 1), ...items.slice(i + 1).filter((x) => !(x.kind === "vocab" && x.v.id === id))];
     setItems(nl); setRemoved({ id, term }); advance(results, nl.length);
   }
-  useEnter(() => advance(results, items.length, "enter"), !!outcome && !rating && !done);   // second-pass items: Enter → next
+  useEnter(() => advance(), !!outcome && !rating && !done);   // second-pass items: Enter → next
   useEnter(onExit, done);
 
   if (done) {
@@ -162,7 +160,7 @@ export function SrsSession({ items: initial, onExit }: { items: Item[]; onExit: 
       {outcome && it.kind === "vocab" && <details className="mt-4 rounded-lg bg-black/[.03] p-3 dark:bg-white/[.04]" open={!outcome.firstTry}><summary className="cursor-pointer font-bold">{it.v.term}</summary><div className="mt-2"><VocabDetail v={it.v} /></div></details>}
     </Card>
     {outcome && rating && <RatingBar cur={cur} onRate={rate} busy={busy} wasCorrect={outcome.firstTry} />}
-    {outcome && !rating && <div className="mt-4"><Button onClick={() => advance(results, items.length, "click")} data-testid="next">Dalej →</Button></div>}
+    {outcome && !rating && <div className="mt-4"><Button onClick={() => advance()} data-testid="next">Dalej →</Button></div>}
     {err && <div className="mt-3"><Feedback tone="warn" title="Problem z zapisem">{err}</Feedback></div>}
     {!outcome && <div className="mt-3"><SkipBar canSkip={!answered} vocabId={it.kind === "vocab" ? it.v.id : undefined} onSkip={skip} onRemoved={removeWord} /></div>}
     <div className="mt-4"><Button variant="ghost" onClick={() => { setI(items.length); void finish(results); }}>Zakończ sesję</Button></div>
