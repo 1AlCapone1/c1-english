@@ -4,6 +4,8 @@ export type Vocab = {
   id: string; term: string; kind: Kind; category: string; pos: string | null; ipa: string | null; level: Level;
   translation_pl: string; definition: string | null; example: string; example_pl: string | null;
   collocations: string[]; synonyms: string[]; antonyms: string[]; register: "neutral" | "formal" | "informal" | "academic"; usage_note: string | null;
+  /** accepted alternative answers (admin adds them from learners' reports) */
+  alternatives?: string[]; sentence_alternatives?: string[];
 };
 export type Progress = { vocab_id: string; box: number; due_at: string; correct: number; wrong: number; last_attempts: number; last_mode: string | null };
 export type Profile = { id: string; display_name: string; role: "user" | "admin"; level: Level; daily_goal_min: number; theme: "system" | "light" | "dark"; srs_new_per_day?: number; created_at: string };

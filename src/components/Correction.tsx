@@ -5,7 +5,9 @@ import { Button, Diff, Feedback, answerCls, cx } from "./ui";
 import { claimEnter, useEnter } from "../lib/keys";
 
 /** overridden: the learner said their answer was right ("Dobrze jest napisane – zalicz"); acceptedAnswer = what they typed. */
-export type Outcome = { firstTry: boolean; attempts: number; firstAnswer: string; diagnosis: Diagnosis | null; hinted: boolean; overridden?: boolean; acceptedAnswer?: string; expected?: string };
+export type Outcome = { firstTry: boolean; attempts: number; firstAnswer: string; diagnosis: Diagnosis | null; hinted: boolean; overridden?: boolean; acceptedAnswer?: string; expected?: string;
+  /** accepted with a small spelling slip (acceptTypos): the correct spelling */
+  typo?: string };
 
 /**
  * Mandatory correction loop for typed answers:
@@ -13,6 +15,8 @@ export type Outcome = { firstTry: boolean; attempts: number; firstAnswer: string
  * wrong again: hint (no answer) → wrong again: explain again → … until correct.
  */
 export function TypedTask(props: {
+  /** count a one-letter slip as correct (with a note) – used in SRS reviews; wrong grammatical forms are still errors */
+  acceptTypos?: boolean;
   /** called once, when the first answer is given (used to hide "Pomiń" during the correction loop) */
   onAnswered?: () => void;
   prompt: ReactNode; answers: string[]; explanation?: ReactNode; placeholder?: string; multiline?: boolean;
@@ -31,6 +35,7 @@ export function TypedTask(props: {
   const [hintLvl, setHintLvl] = useState(0);
   const [hinted, setHinted] = useState(false);
   const [overridden, setOverridden] = useState<string | null>(null);
+  const [typoOk, setTypoOk] = useState<string | null>(null);
   const ref = useRef<HTMLInputElement & HTMLTextAreaElement>(null);
   useEffect(() => { ref.current?.focus(); }, [phase]);
 
@@ -47,6 +52,11 @@ export function TypedTask(props: {
       return;
     }
     const d = diagnose(v, answers);
+    if (props.acceptTypos && phase === "ask" && d.type === "typo") { // spelling slip, not a grammar error → accepted, with the right spelling shown
+      setTypoOk(d.best); setPhase("done");
+      props.onDone({ firstTry: n === 1, attempts: n, firstAnswer: v, diagnosis: d, hinted, typo: d.best });
+      return;
+    }
     setDiag(d); setLastWrong(v);
     if (!first) setFirst({ answer: v, diag: d });
     if (phase === "retype") {
@@ -86,7 +96,10 @@ export function TypedTask(props: {
     {phase === "done" && overridden !== null && <Feedback tone="ok" title="Zaliczone – Twoja odpowiedź">
       <span>Przyjęto: <b className="font-mono">{overridden}</b>. W kluczu jest: <b className="font-mono">{answers[0]}</b>. Zgłoszenie trafi do administratora, żeby dodać ten wariant.</span>
       {props.explanation && <span className="text-sm">{props.explanation}</span>}</Feedback>}
-    {phase === "done" && overridden === null && <Feedback tone="ok" title={attempts > 1 ? `Poprawione po ${attempts} próbach.` : "Dobrze!"}>{props.explanation && <span className="text-sm">{props.explanation}</span>}{answers.length > 1 && attempts === 1 && <span className="text-sm">Inne poprawne: {answers.slice(0, 4).join(" / ")}</span>}</Feedback>}
+    {phase === "done" && typoOk !== null && <Feedback tone="warn" title="Zaliczone – drobna literówka">
+      <span>Poprawna pisownia: <b className="font-mono" data-testid="correct-answer">{typoOk}</b>. Na egzaminie liczy się dokładna pisownia.</span>
+      {props.explanation && <span className="text-sm">{props.explanation}</span>}</Feedback>}
+    {phase === "done" && overridden === null && typoOk === null && <Feedback tone="ok" title={attempts > 1 ? `Poprawione po ${attempts} próbach.` : "Dobrze!"}>{props.explanation && <span className="text-sm">{props.explanation}</span>}{answers.length > 1 && attempts === 1 && <span className="text-sm">Inne poprawne: {answers.slice(0, 4).join(" / ")}</span>}</Feedback>}
     <div className="flex flex-wrap gap-2">
       {(phase === "ask" || phase === "retype") && <Button onClick={submit} data-testid="check">Sprawdź</Button>}
       {phase === "ask" && props.allowHint && !hinted && <Button variant="quiet" onClick={() => setHinted(true)}>Podpowiedź</Button>}

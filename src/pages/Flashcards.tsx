@@ -89,10 +89,15 @@ export default function Flashcards() {
   </div>;
 }
 
-/** Self-rating after a correct answer: Trudne / Dobre / Łatwe with the resulting next-review time. Enter = Dobre, keys 1–3. */
-function RatingBar({ cur, onRate, busy }: { cur: SrsCard | null; onRate: (g: Grade) => void; busy: boolean }) {
+/**
+ * Rating after the answer has been checked: Again / Hard / Good / Easy (keys 1–4), each with the resulting next review.
+ * After a wrong answer only Again and Hard are offered; Enter = Good after a correct answer, Again after a wrong one.
+ */
+export function RatingBar({ cur, onRate, busy, wasCorrect }: { cur: SrsCard | null; onRate: (g: Grade) => void; busy: boolean; wasCorrect: boolean }) {
   const now = Date.now();
-  const grades: Grade[] = ["hard", "good", "easy"];
+  const grades: Grade[] = ["again", "hard", "good", "easy"];
+  const allowed = (g: Grade) => wasCorrect || g === "again" || g === "hard";
+  const def: Grade = wasCorrect ? "good" : "again";
   const ref = useRef(onRate); ref.current = onRate;
   useLayoutEffect(() => {
     const since = performance.now();
@@ -101,19 +106,22 @@ function RatingBar({ cur, onRate, busy }: { cur: SrsCard | null; onRate: (g: Gra
       const t = e.target as HTMLElement | null;
       if ((t?.tagName === "INPUT" || t?.tagName === "TEXTAREA") && !(t as HTMLInputElement).readOnly) return;
       if (t?.tagName === "BUTTON" && e.key === "Enter") return; // focused button: native click
-      const g = e.key === "Enter" ? "good" : e.key === "1" ? "hard" : e.key === "2" ? "good" : e.key === "3" ? "easy" : null;
-      if (g) { e.preventDefault(); ref.current(g); }
+      const g: Grade | null = e.key === "Enter" ? def : (["1", "2", "3", "4"].includes(e.key) ? grades[Number(e.key) - 1] : null);
+      if (g && allowed(g)) { e.preventDefault(); ref.current(g); }
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [busy]);
+  }, [busy, wasCorrect]); // eslint-disable-line react-hooks/exhaustive-deps
   return <div className="mt-4" data-testid="srs-rating">
-    <div className="mb-2 text-sm font-bold">Jak łatwo było przypomnieć sobie odpowiedź?</div>
-    <div className="grid grid-cols-3 gap-2">{grades.map((g, k) => <button key={g} type="button" disabled={busy} onClick={() => onRate(g)} data-testid={`rate-${g}`}
-      className={"flex flex-col items-center rounded-lg border px-2 py-2 font-bold disabled:opacity-50 " + (g === "good" ? "border-accent bg-accent text-white dark:border-accent-dark dark:bg-accent-dark dark:text-ink" : "border-black/15 hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/10")}>
-      <span>{GRADE_LABEL[g]}</span><span className={"text-xs font-normal " + (g === "good" ? "opacity-90" : "text-ink-soft")}>za {formatInterval(schedule(cur, g, now), now)}</span>
-      <span className="hidden text-[10px] font-normal opacity-70 sm:block">klawisz {k + 1}{g === "good" ? " / Enter" : ""}</span></button>)}</div>
-    <p className="mt-2 text-xs text-ink-soft">Powtórki rozkładane w czasie (SRS): im łatwiej, tym później słowo wróci.</p>
+    <div className="mb-2 text-sm font-bold">Jak dobrze to pamiętałeś?</div>
+    <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">{grades.map((g, k) => {
+      const on = allowed(g), isDef = g === def;
+      return <button key={g} type="button" disabled={busy || !on} onClick={() => onRate(g)} data-testid={`rate-${g}`}
+        className={"flex min-h-[56px] flex-col items-center justify-center rounded-lg border px-2 py-2 font-bold disabled:opacity-35 " + (isDef ? "border-accent bg-accent text-white dark:border-accent-dark dark:bg-accent-dark dark:text-ink" : g === "again" ? "border-red-300 text-red-800 hover:bg-red-50 dark:border-red-800 dark:text-red-200 dark:hover:bg-red-950" : "border-black/15 hover:bg-black/5 dark:border-white/15 dark:hover:bg-white/10")}>
+        <span>{GRADE_LABEL[g]}</span><span className={"text-xs font-normal " + (isDef ? "opacity-90" : "text-ink-soft")}>za {formatInterval(schedule(cur, g, now), now)}</span>
+        <span className="hidden text-[10px] font-normal opacity-70 sm:block">klawisz {k + 1}{isDef ? " / Enter" : ""}</span></button>;
+    })}</div>
+    <p className="mt-2 text-xs text-ink-soft">{wasCorrect ? "Im łatwiej było sobie przypomnieć, tym później słowo wróci." : "Był błąd, więc słowo wróci wcześniej."}</p>
   </div>;
 }
 
@@ -139,7 +147,7 @@ export function Session({ cards: initial, onExit, source = "flashcards" }: { car
   async function rate(g: Grade) {
     if (!ratingFor || busy) return;
     setBusy(true);
-    try { const s = await reviewCard(ratingFor, g, 1, `${source}:${c.mode}`, cur); setRated({ term: c.v.term, when: formatInterval(s) }); }
+    try { const s = await reviewCard(ratingFor, g, outcome?.attempts ?? 1, `${source}:${c.mode}`, cur, outcome?.firstTry ?? null); setRated({ term: c.v.term, when: formatInterval(s) }); }
     catch (e) { setSaveErr(e instanceof Error ? e.message : String(e)); }
     setBusy(false); setRatingFor(null); void next();
   }
@@ -149,10 +157,9 @@ export function Session({ cards: initial, onExit, source = "flashcards" }: { car
     if (o.overridden) void reportAcceptedAnswer({ exerciseId: `v:${v.id}:${c.mode}`, source: `flashcards:${c.mode}`, prompt: `${c.mode}: ${v.term} / ${v.translation_pl}`, userAnswer: o.acceptedAnswer ?? "", expected: o.expected ?? "" });
     if (first[v.id]) return; // follow-up repetition in this session – already recorded
     setFirst((f) => ({ ...f, [v.id]: o }));
-    // correct on the first try without help → the learner rates it; otherwise the grade is automatic
-    if (o.firstTry && !o.hinted && !o.overridden) { setRatingFor(v.id); return; }
+    // after checking, the learner rates how well they remembered (Again/Hard/Good/Easy); the SRS is updated on rating
+    setRatingFor(v.id);
     try {
-      await reviewCard(v.id, !o.firstTry ? "again" : o.hinted ? "hard" : "good", o.attempts, `${source}:${c.mode}`, cur);
       if (!o.firstTry) {
         await recordMistake({ category: o.diagnosis ? mistakeCategory(o.diagnosis, catFor(v), spec!.answers[0]) : catFor(v), source: "flashcards", prompt: `${spec!.label}: ${spec!.prompt}`, user_answer: o.firstAnswer, correct: spec!.answers[0], explanation: v.definition ?? undefined, vocab_id: v.id });
         // come back at the end of the session in a different context
@@ -198,11 +205,11 @@ export function Session({ cards: initial, onExit, source = "flashcards" }: { car
         explanation={<span>{c.v.term} – {c.v.translation_pl}{c.v.ipa ? ` /${c.v.ipa.replace(/^\/|\/$/g, "")}/` : ""}</span>} onDone={handleDone} onAnswered={() => setAnswered(true)} />
       {outcome && <details className="mt-4 rounded-lg bg-black/[.03] p-3 dark:bg-white/[.04]" open={!outcome.firstTry}><summary className="cursor-pointer font-bold">{c.v.term}</summary><div className="mt-2"><VocabDetail v={c.v} /></div><p className="mt-2 text-sm italic">{exampleHtml(c.v.example)}</p></details>}
     </Card>
-    {outcome && ratingFor && <RatingBar cur={cur} onRate={rate} busy={busy} />}
-    {outcome && !ratingFor && !outcome.firstTry && <p className="mt-3 text-sm text-ink-soft" data-testid="srs-again">To słowo wróci jeszcze w tej sesji, a w powtórkach SRS – już za 10 minut.</p>}
+    {outcome && ratingFor && <RatingBar cur={cur} onRate={rate} busy={busy} wasCorrect={outcome.firstTry} />}
+    {outcome && !outcome.firstTry && <p className="mt-3 text-sm text-ink-soft" data-testid="srs-again">To słowo wróci jeszcze w tej sesji w innej formie.</p>}
     {!outcome && rated && <p className="mt-3 text-sm text-ink-soft" role="status">„{rated.term}” wróci za {rated.when}.</p>}
     {saveErr && <div className="mt-3"><Feedback tone="warn" title="Problem z zapisem">{saveErr}</Feedback></div>}
     {!outcome && <div className="mt-3"><SkipBar canSkip={!answered} vocabId={c.v.id} onSkip={() => { setRemoved(null); void next(); }} onRemoved={removeWord} /></div>}
-    <div className="mt-4 flex gap-2">{outcome && !ratingFor && <Button onClick={() => void next()} data-testid="next">Dalej →</Button>}<Button variant="ghost" onClick={async () => { if (ratingFor) { try { await reviewCard(ratingFor, "good", 1, `${source}:${c.mode}`, cur); } catch { /* best effort */ } setRatingFor(null); } setI(cards.length); }}>Zakończ sesję</Button></div>
+    <div className="mt-4 flex gap-2">{outcome && !ratingFor && <Button onClick={() => void next()} data-testid="next">Dalej →</Button>}<Button variant="ghost" onClick={async () => { if (ratingFor) { try { await reviewCard(ratingFor, outcome?.firstTry ? "good" : "again", outcome?.attempts ?? 1, `${source}:${c.mode}`, cur, outcome?.firstTry ?? null); } catch { /* best effort */ } setRatingFor(null); } setI(cards.length); }}>Zakończ sesję</Button></div>
   </div>;
 }

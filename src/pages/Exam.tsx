@@ -18,8 +18,7 @@ export default function Exam() {
   const [data, setData] = useState<ExamData | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [rue, setRue] = useState<TestResult | null>(null);
-  const [writing, setWriting] = useState<{ t1: string; t2: string; task1: string; task2: string; type2: string; self: number }>({ t1: "", t2: "", task1: "", task2: "", type2: "report", self: -1 });
-  const [speakSelf, setSpeakSelf] = useState<number>(-1);
+  const [writing, setWriting] = useState<{ t1: string; t2: string; task1: string; task2: string; type2: string }>({ t1: "", t2: "", task1: "", task2: "", type2: "report" });
   const [saved, setSaved] = useState<string | null>(null);
 
   async function prepare() {
@@ -44,7 +43,7 @@ export default function Exam() {
     try {
       if (writing.t1.trim()) await saveSubmission({ type: "essay", task: writing.task1, body: writing.t1 });
       if (writing.t2.trim()) await saveSubmission({ type: writing.type2, task: writing.task2, body: writing.t2 });
-      await saveAttempt({ kind: "exam", title: "Exam Simulator – C1 Advanced", score: rue.score, max_score: rue.max, duration_sec: rue.durationSec, details: { writing_self: writing.self, speaking_self: speakSelf, words: [wc(writing.t1), wc(writing.t2)], listening: data.listeningAvailable ? "taken" : "unavailable" } });
+      await saveAttempt({ kind: "exam", title: "Exam Simulator – C1 Advanced", score: rue.score, max_score: rue.max, duration_sec: rue.durationSec, details: { words: [wc(writing.t1), wc(writing.t2)], listening: data.listeningAvailable ? "taken" : "unavailable" } });
       for (const g of rue.items.filter((x) => !x.ok)) await recordMistake({ category: categoryFor(g.ex), source: "exam", prompt: promptText(g.ex), user_answer: g.answer, correct: g.ex.answers[0], explanation: g.ex.explanation, exercise_id: g.ex.id });
       await logSession("exam", rue.max, rue.score, rue.durationSec / 60);
       setSaved("ok");
@@ -55,7 +54,7 @@ export default function Exam() {
   if (stage === "intro") return <div className="max-w-3xl">
     <PageHeader eyebrow="Exam Simulator" title="Egzamin próbny – Cambridge C1 Advanced" lead="Pięć części jak na egzaminie: Reading and Use of English (90 min), Writing (90 min), Listening (ok. 40 min), Speaking (ok. 15 min) i analiza wyniku. Zadania są nasze własne, wzorowane na formacie egzaminu – nie są to oficjalne materiały Cambridge." />
     <Card><ul className="list-disc pl-5"><li>Reading and Use of English: multiple-choice cloze, open cloze, word formation, key word transformations i tekst z pytaniami. Limit czasu: 90 minut.</li><li>Writing: obowiązkowy esej i jedno zadanie do wyboru, z licznikiem słów.</li><li>Listening: uruchamiany tylko wtedy, gdy w bazie są nagrania.</li><li>Speaking: zadania z nagrywaniem wypowiedzi i samooceną.</li></ul>
-      <p className="mt-3 text-sm text-ink-soft">Wynik obejmuje automatycznie sprawdzane części. Writing i Speaking oceniasz sam według kryteriów – to nie jest ocena egzaminatora ani oficjalny wynik w skali Cambridge.</p>
+      <p className="mt-3 text-sm text-ink-soft">Wynik obejmuje automatycznie sprawdzane części. Writing i Speaking ćwiczysz bez punktacji (teksty zapiszą się w module Writing) – to nie jest oficjalny wynik w skali Cambridge.</p>
       {err && <div className="mt-3"><Feedback tone="bad">{err}</Feedback></div>}
       <div className="mt-4"><Button onClick={prepare} data-testid="start-exam">Rozpocznij egzamin</Button></div></Card></div>;
   if (!data) return <Loading />;
@@ -67,14 +66,13 @@ export default function Exam() {
     {data.listeningAvailable ? <p className="mt-2">Nagrania są dostępne w module Listening. W tej wersji symulatora część Listening rozwiązujesz w module Listening, a wynik zapisuje się osobno w historii testów.</p>
       : <Feedback tone="info" title="Część pominięta">W bazie nie ma jeszcze nagrań audio, więc ta część nie jest oceniana. Wynik egzaminu obejmie pozostałe części.</Feedback>}
     <div className="mt-4"><Button onClick={() => setStage("speaking")}>Przejdź do części Speaking →</Button></div></Card></div>;
-  if (stage === "speaking") return <div className="max-w-3xl">{nav}<Card><h2 className="font-display text-xl font-bold">Speaking</h2><p className="mt-1 text-ink-soft">Odpowiedz na głos na każde zadanie (ok. 1–2 minuty). Możesz się nagrać w module Speaking. Potem oceń się sam.</p>
+  if (stage === "speaking") return <div className="max-w-3xl">{nav}<Card><h2 className="font-display text-xl font-bold">Speaking</h2><p className="mt-1 text-ink-soft">Odpowiedz na głos na każde zadanie (ok. 1–2 minuty). Możesz się nagrać w module Speaking i porównać z odpowiedzią modelową.</p>
     <ol className="mt-3 flex flex-col gap-3">{data.speaking.map((t, i) => <li key={t.id} className="rounded-lg border border-black/10 p-3 dark:border-white/10"><b>{i + 1}. {t.title}</b><p className="mt-1 whitespace-pre-wrap">{t.prompt}</p></li>)}</ol>
-    <label className="mt-4 flex flex-col gap-1 text-sm font-bold">Samoocena części Speaking (0–5)<select className={inputCls + " w-32"} value={speakSelf} onChange={(e) => setSpeakSelf(Number(e.target.value))}><option value={-1}>–</option>{[0, 1, 2, 3, 4, 5].map((n) => <option key={n} value={n}>{n}</option>)}</select></label>
     <div className="mt-4"><Button onClick={finishExam} data-testid="exam-finish">Zakończ egzamin i zobacz analizę →</Button></div></Card></div>;
-  return <div className="max-w-4xl">{nav}<Results data={data} rue={rue} writing={writing} speakSelf={speakSelf} saved={saved} /></div>;
+  return <div className="max-w-4xl">{nav}<Results data={data} rue={rue} writing={writing} saved={saved} /></div>;
 }
 
-function WritingPart({ data, writing, setWriting, onNext }: { data: ExamData; writing: { t1: string; t2: string; task1: string; task2: string; type2: string; self: number }; setWriting: (w: typeof writing) => void; onNext: () => void }) {
+function WritingPart({ data, writing, setWriting, onNext }: { data: ExamData; writing: { t1: string; t2: string; task1: string; task2: string; type2: string }; setWriting: (w: typeof writing) => void; onNext: () => void }) {
   const start = useRef(Date.now()); const [now, setNow] = useState(Date.now());
   useEffect(() => { const t = setInterval(() => setNow(Date.now()), 1000); return () => clearInterval(t); }, []);
   const left = 90 * 60 - (now - start.current) / 1000;
@@ -86,11 +84,10 @@ function WritingPart({ data, writing, setWriting, onNext }: { data: ExamData; wr
     <select className={inputCls + " mt-1"} value={writing.type2} onChange={(e) => { const g = others.find((x) => x.type === e.target.value); setWriting({ ...writing, type2: e.target.value, task2: g?.content.tasks[0] ?? "" }); }}>{others.map((g) => <option key={g.type} value={g.type}>{g.title}</option>)}</select>
     <p className="mt-2">{writing.task2}</p>
     <textarea className={inputCls + " mt-2 min-h-[220px]"} value={writing.t2} onChange={(e) => setWriting({ ...writing, t2: e.target.value })} spellCheck={false} aria-label="Zadanie 2" /><div className="text-right font-mono text-sm">{wc(writing.t2)} słów</div>
-    <label className="mt-3 flex flex-col gap-1 text-sm font-bold">Samoocena Writing (0–5, wg kryteriów: realizacja polecenia, komunikacja, organizacja, język)<select className={inputCls + " w-32"} value={writing.self} onChange={(e) => setWriting({ ...writing, self: Number(e.target.value) })}><option value={-1}>–</option>{[0, 1, 2, 3, 4, 5].map((n) => <option key={n} value={n}>{n}</option>)}</select></label>
     <div className="mt-4"><Button onClick={onNext}>Przejdź do części Listening →</Button></div></Card>;
 }
 
-function Results({ data, rue, writing, speakSelf, saved }: { data: ExamData; rue: TestResult | null; writing: { t1: string; t2: string; self: number }; speakSelf: number; saved: string | null }) {
+function Results({ data, rue, writing, saved }: { data: ExamData; rue: TestResult | null; writing: { t1: string; t2: string }; saved: string | null }) {
   if (!rue) return <Feedback tone="warn">Brak wyniku części Reading and Use of English.</Feedback>;
   const byType: Record<string, { ok: number; n: number }> = {};
   rue.items.forEach((g) => { const k = g.ex.reading_id ? "reading" : g.ex.task_type; byType[k] = byType[k] || { ok: 0, n: 0 }; byType[k].n++; if (g.ok) byType[k].ok++; });
@@ -112,7 +109,7 @@ function Results({ data, rue, writing, speakSelf, saved }: { data: ExamData; rue
   ].filter(Boolean) as string[];
   return <div className="flex flex-col gap-4">
     <Card><div className="text-xs font-bold uppercase tracking-widest text-ink-soft">Wynik części sprawdzanych automatycznie</div><div className="mt-1 font-display text-5xl font-extrabold">{total}%</div><div className="mt-1 text-ink-soft">{rue.score}/{rue.max} pkt w Reading and Use of English</div><div className="mt-3"><Progress value={total} tone={total >= 70 ? "ok" : total >= 50 ? "warn" : "bad"} /></div>
-      <p className="mt-3 text-sm text-ink-soft">Samoocena: Writing {writing.self >= 0 ? `${writing.self}/5` : "–"}, Speaking {speakSelf >= 0 ? `${speakSelf}/5` : "–"}. To nie jest wynik w oficjalnej skali Cambridge.</p>
+      <p className="mt-3 text-sm text-ink-soft">Writing i Speaking nie są oceniane punktowo – Twoje teksty zapisaliśmy w module Writing, gdzie porównasz je z przykładami i kryteriami. To nie jest wynik w oficjalnej skali Cambridge.</p>
       {saved === "ok" ? <p className="mt-1 text-sm text-ink-soft">Wynik i prace pisemne zapisano na Twoim koncie.</p> : saved ? <Feedback tone="warn" title="Nie zapisano wyniku">{saved}</Feedback> : <p className="mt-1 text-sm text-ink-soft" aria-live="polite">Zapisywanie wyniku…</p>}</Card>
     <Card><h2 className="font-display text-lg font-bold">Wyniki według typu zadań</h2><div className="mt-3 flex flex-col gap-2">{rows.map((r) => <div key={r.k} className="grid grid-cols-[1fr_auto] items-center gap-3 sm:grid-cols-[220px_1fr_auto]"><span>{r.name}</span><div className="hidden sm:block"><Progress value={r.pct} tone={r.pct >= 75 ? "ok" : r.pct >= 60 ? "warn" : "bad"} /></div><span className="font-mono text-sm">{r.ok}/{r.n}</span></div>)}</div></Card>
     <div className="grid gap-4 sm:grid-cols-2"><Card><h2 className="font-display text-lg font-bold">Mocne strony</h2><p className="mt-2">{strong.length ? strong.map((s) => s.name).join(", ") : "Na razie żaden typ zadań nie przekroczył 75%."}</p></Card><Card><h2 className="font-display text-lg font-bold">Słabe strony</h2><p className="mt-2">{weak.length ? weak.map((s) => s.name).join(", ") : "Brak typów zadań poniżej 60% – świetnie."}</p></Card></div>

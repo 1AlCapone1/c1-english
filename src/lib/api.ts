@@ -93,30 +93,48 @@ export async function srsCard(vocabId: string): Promise<SrsCard | null> {
   return unwrap(await supabase.from("flashcard_progress").select(SRS_COLS).eq("vocab_id", vocabId).maybeSingle()) as SrsCard | null;
 }
 /** Record a review with an explicit grade (Again/Hard/Good/Easy) and schedule the next one. */
-export async function reviewCard(vocabId: string, grade: Grade, attempts: number, source: string, prev?: SrsCard | null) {
+export async function reviewCard(vocabId: string, grade: Grade, attempts: number, source: string, prev?: SrsCard | null, correct: boolean | null = null) {
   const user_id = await uid();
   const cur = prev !== undefined ? prev : await srsCard(vocabId);
   const s = schedule(cur, grade, Date.now(), Math.random());
   unwrap(await supabase.from("flashcard_progress").upsert({ user_id, vocab_id: vocabId, box: s.box, correct: s.correct, wrong: s.wrong, ease: s.ease, interval_days: s.interval_days, reps: s.reps, lapses: s.lapses,
     due_at: s.due_at, last_attempts: attempts, last_mode: grade === "again" ? source.slice(0, 40) : null, last_reviewed_at: new Date().toISOString() }));
-  const log = await supabase.from("srs_reviews").insert({ vocab_id: vocabId, grade, interval_before: Number(cur?.interval_days ?? 0), interval_after: s.interval_days, source: source.slice(0, 40) });
+  const log = await supabase.from("srs_reviews").insert({ vocab_id: vocabId, grade, correct, interval_before: Number(cur?.interval_days ?? 0), interval_after: s.interval_days, source: source.slice(0, 40) });
   if (log.error) console.warn("[C1] review log not saved", log.error.message);
   return s;
 }
+/** Current SRS state of one grammar exercise. */
+export async function srsExercise(exerciseId: string): Promise<SrsCard | null> {
+  return unwrap(await supabase.from("exercise_progress").select(SRS_COLS).eq("exercise_id", exerciseId).maybeSingle()) as SrsCard | null;
+}
+/** Same scheduler for grammar items (one shared SRS for words and grammar). */
+export async function reviewExercise(exerciseId: string, grade: Grade, source: string, prev?: SrsCard | null, correct: boolean | null = null) {
+  const user_id = await uid();
+  const cur = prev !== undefined ? prev : await srsExercise(exerciseId);
+  const s = schedule(cur, grade, Date.now(), Math.random());
+  unwrap(await supabase.from("exercise_progress").upsert({ user_id, exercise_id: exerciseId, box: s.box, correct: s.correct, wrong: s.wrong, ease: s.ease, interval_days: s.interval_days, reps: s.reps, lapses: s.lapses, due_at: s.due_at, last_reviewed_at: new Date().toISOString() }));
+  const log = await supabase.from("srs_reviews").insert({ exercise_id: exerciseId, grade, correct, interval_before: Number(cur?.interval_days ?? 0), interval_after: s.interval_days, source: source.slice(0, 40) });
+  if (log.error) console.warn("[C1] review log not saved", log.error.message);
+  return s;
+}
+/** Fewer new items when reviews pile up: full limit up to 30 due, none from 100 due. */
+export const throttleNew = (newLeft: number, dueNow: number) => (dueNow <= 30 ? newLeft : dueNow >= 100 ? 0 : Math.round(newLeft * (1 - (dueNow - 30) / 70)));
+
 /** Typed-answer result without a self-rating (daily lessons etc.): wrong → Again, hinted → Hard, correct → Good. */
 export async function saveFlashcardResult(vocabId: string, firstTryCorrect: boolean, hinted: boolean, attempts: number, mode: string) {
   return reviewCard(vocabId, autoGrade(firstTryCorrect, hinted), attempts, mode);
 }
-/** SRS overview: due now, due today, new allowed today, 14-day forecast, last-30-days retention. */
+/** SRS overview (words + grammar items): due now/today, new allowed today, 14-day forecast, last-30-days success rate. */
 export async function srsOverview() {
   const now = new Date();
-  const [prog, reviews, prof, hidden] = await Promise.all([
-    unwrap(await supabase.from("flashcard_progress").select("vocab_id, due_at, interval_days, reps, lapses, ease").limit(20000)) as { vocab_id: string; due_at: string; interval_days: number; reps: number; lapses: number; ease: number }[],
-    unwrap(await supabase.from("srs_reviews").select("grade, reviewed_at, interval_before").gte("reviewed_at", new Date(now.getTime() - 30 * 86400000).toISOString()).limit(20000)) as { grade: Grade; reviewed_at: string; interval_before: number }[],
-    unwrap(await supabase.from("profiles").select("srs_new_per_day").single()) as { srs_new_per_day: number },
+  const [prog, eprog, reviews, prof, hidden] = await Promise.all([
+    supabase.from("flashcard_progress").select("vocab_id, due_at, interval_days").limit(20000).then((r) => unwrap(r) as { vocab_id: string; due_at: string; interval_days: number }[]),
+    supabase.from("exercise_progress").select("exercise_id, due_at, interval_days").limit(20000).then((r) => unwrap(r) as { exercise_id: string; due_at: string; interval_days: number }[]),
+    supabase.from("srs_reviews").select("grade, correct, reviewed_at, interval_before, vocab_id").gte("reviewed_at", new Date(now.getTime() - 30 * 86400000).toISOString()).limit(20000).then((r) => unwrap(r) as { grade: Grade; correct: boolean | null; reviewed_at: string; interval_before: number; vocab_id: string | null }[]),
+    supabase.from("profiles").select("srs_new_per_day").single().then((r) => unwrap(r) as { srs_new_per_day: number }),
     hiddenIds(),
   ]);
-  const cards = prog.filter((p) => !hidden.has(p.vocab_id));
+  const cards = [...prog.filter((p) => !hidden.has(p.vocab_id)), ...eprog];
   const endOfToday = new Date(); endOfToday.setHours(23, 59, 59, 999);
   const dueNow = cards.filter((c) => new Date(c.due_at) <= now).length;
   const dueToday = cards.filter((c) => new Date(c.due_at) <= endOfToday).length;
@@ -126,24 +144,48 @@ export async function srsOverview() {
     return { day: start.toISOString().slice(0, 10), count: cards.filter((c) => { const t = new Date(c.due_at); return d === 0 ? t < end : t >= start && t < end; }).length };
   });
   const todayKey = now.toLocaleDateString("sv-SE", { timeZone: "Europe/Warsaw" });
-  const newToday = reviews.filter((r) => Number(r.interval_before) === 0 && r.grade !== "again" && new Date(r.reviewed_at).toLocaleDateString("sv-SE", { timeZone: "Europe/Warsaw" }) === todayKey).length;
+  const newToday = reviews.filter((r) => r.vocab_id && Number(r.interval_before) === 0 && r.grade !== "again" && new Date(r.reviewed_at).toLocaleDateString("sv-SE", { timeZone: "Europe/Warsaw" }) === todayKey).length;
   const mature = reviews.filter((r) => Number(r.interval_before) >= 1);
   const retention = mature.length ? Math.round((mature.filter((r) => r.grade !== "again").length / mature.length) * 100) : null;
-  return { total: cards.length, dueNow, dueToday, forecast, newPerDay: prof.srs_new_per_day, newLeft: Math.max(0, prof.srs_new_per_day - newToday),
+  const newLeft = Math.max(0, prof.srs_new_per_day - newToday);
+  return { total: cards.length, dueNow, dueToday, forecast, newPerDay: prof.srs_new_per_day, newLeft, newAllowed: throttleNew(newLeft, dueNow), grammarItems: eprog.length,
     young: cards.filter((c) => Number(c.interval_days) > 0 && Number(c.interval_days) < 21).length, matureCount: cards.filter((c) => Number(c.interval_days) >= 21).length,
     learning: cards.filter((c) => Number(c.interval_days) === 0).length, retention, reviews30: reviews.length };
 }
-/** Cards for an SRS session: everything due (most overdue first), then up to `newLimit` new words. */
-export async function srsQueue(limit: number, newLimit: number) {
+/**
+ * Items for an SRS session, in priority order: overdue (oldest first) → due later today → new.
+ * Words and grammar items share one schedule. New words: up to `newWords`; new grammar items: up to `newGrammar`
+ * gap exercises from lessons the learner has started (or the first lesson).
+ */
+export async function srsQueue(limit: number, newWords: number, newGrammar = 3) {
   const now = new Date().toISOString();
+  const endOfToday = new Date(); endOfToday.setHours(23, 59, 59, 999);
   const hidden = await hiddenIds();
-  const due = (unwrap(await supabase.from("flashcard_progress").select("vocab_id, due_at").lte("due_at", now).order("due_at").limit(1000)) as { vocab_id: string }[])
-    .map((r) => r.vocab_id).filter((id) => !hidden.has(id)).slice(0, limit);
-  const dueWords = due.length ? (await listVocab({ ids: due, limit: due.length })).rows : [];
-  const order = new Map(due.map((id, i) => [id, i]));
-  dueWords.sort((a, b) => (order.get(a.id) ?? 0) - (order.get(b.id) ?? 0));
-  const fresh = newLimit > 0 && dueWords.length < limit ? await pickFlashcards({ n: Math.min(newLimit, limit - dueWords.length), mode: "new" }) : [];
-  return { due: dueWords, fresh };
+  const [vdue, edue] = await Promise.all([
+    supabase.from("flashcard_progress").select("vocab_id, due_at").lte("due_at", endOfToday.toISOString()).order("due_at").limit(1000).then((r) => unwrap(r) as { vocab_id: string; due_at: string }[]),
+    supabase.from("exercise_progress").select("exercise_id, due_at").lte("due_at", endOfToday.toISOString()).order("due_at").limit(1000).then((r) => unwrap(r) as { exercise_id: string; due_at: string }[]),
+  ]);
+  const due = [...vdue.filter((r) => !hidden.has(r.vocab_id)).map((r) => ({ id: r.vocab_id, at: r.due_at, kind: "v" as const })), ...edue.map((r) => ({ id: r.exercise_id, at: r.due_at, kind: "e" as const }))]
+    .sort((a, b) => a.at.localeCompare(b.at)) // oldest first: overdue, then the rest of today
+    .slice(0, limit);
+  const vIds = due.filter((d) => d.kind === "v").map((d) => d.id), eIds = due.filter((d) => d.kind === "e").map((d) => d.id);
+  const [vrows, erows] = await Promise.all([vIds.length ? listVocab({ ids: vIds, limit: vIds.length }).then((r) => r.rows) : [], eIds.length ? exercisesByIds(eIds) : []]);
+  const vm = new Map(vrows.map((v) => [v.id, v])), em = new Map(erows.map((e) => [e.id, e]));
+  const dueItems = due.flatMap((d) => d.kind === "v" ? (vm.get(d.id) ? [{ kind: "vocab" as const, v: vm.get(d.id)! }] : []) : (em.get(d.id) ? [{ kind: "grammar" as const, ex: em.get(d.id)! }] : []));
+  const room = Math.max(0, limit - dueItems.length);
+  const freshWords = newWords > 0 && room > 0 ? await pickFlashcards({ n: Math.min(newWords, room), mode: "new" }) : [];
+  let freshGrammar: Exercise[] = [];
+  if (newGrammar > 0 && room > freshWords.length) {
+    const seen = new Set((unwrap(await supabase.from("exercise_progress").select("exercise_id").limit(20000)) as { exercise_id: string }[]).map((r) => r.exercise_id));
+    const started = (unwrap(await supabase.from("lesson_progress").select("lesson_id")) as { lesson_id: string }[]).map((r) => r.lesson_id);
+    let lessonIds = started;
+    if (!lessonIds.length) { const first = (await listLessons())[0]; lessonIds = first ? [first.id] : []; }
+    if (lessonIds.length) {
+      const pool = unwrap(await supabase.from("exercises").select("*").in("grammar_lesson_id", lessonIds).eq("task_type", "gap").order("position").limit(500)) as Exercise[];
+      freshGrammar = pool.filter((e) => !seen.has(e.id) && e.answers.every((a) => String(a).split(/\s+/).length <= 4)).slice(0, Math.min(newGrammar, room - freshWords.length));
+    }
+  }
+  return { due: dueItems, freshWords, freshGrammar, overdue: due.filter((d) => d.at <= now).length };
 }
 export async function toggleSaved(vocabId: string, save: boolean) {
   const user_id = await uid();
@@ -207,10 +249,10 @@ export async function listSpeaking(): Promise<SpeakingTask[]> { return unwrap(aw
 export async function mySubmissions() {
   return unwrap(await supabase.from("writing_submissions").select("*").order("updated_at", { ascending: false })) as { id: string; type: string; task: string; body: string; word_count: number; self_assessment: Record<string, number> | null; updated_at: string }[];
 }
-export async function saveSubmission(s: { id?: string; type: string; task: string; body: string; self_assessment?: Record<string, number> | null }) {
+export async function saveSubmission(s: { id?: string; type: string; task: string; body: string }) {
   const user_id = await uid();
   const word_count = (s.body.trim().match(/[A-Za-zÀ-ž0-9'’-]+/g) || []).length;
-  const row = { user_id, type: s.type, task: s.task, body: s.body, word_count, self_assessment: s.self_assessment ?? null, updated_at: new Date().toISOString() };
+  const row = { user_id, type: s.type, task: s.task, body: s.body, word_count, updated_at: new Date().toISOString() };
   if (s.id) return unwrap(await supabase.from("writing_submissions").update(row).eq("id", s.id).select().single());
   return unwrap(await supabase.from("writing_submissions").insert(row).select().single());
 }
