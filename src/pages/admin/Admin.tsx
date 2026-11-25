@@ -92,7 +92,18 @@ function Reports() {
   async function setRep(id: string, st: "added" | "rejected") { const r = await supabase.from("answer_reports").update({ status: st }).eq("id", id); if (r.error) setMsg({ tone: "bad", t: r.error.message }); list.reload(); }
   async function addVariant(r: Report) {
     setMsg(null);
-    if (!r.exercise_id) return setMsg({ tone: "bad", t: "To zgłoszenie dotyczy słówka – popraw hasło ręcznie w zakładce Słownictwo (np. synonimy, przykład)." });
+    if (!r.exercise_id && r.vocab_id) { // word: add to the accepted alternatives (whole-sentence answers go to sentence_alternatives)
+      const col = r.source.endsWith(":sentence") ? "sentence_alternatives" : "alternatives";
+      const v = await supabase.from("vocabulary").select(col).eq("id", r.vocab_id).single();
+      if (v.error) return setMsg({ tone: "bad", t: v.error.message });
+      const list = ((v.data as Record<string, string[]>)[col] ?? []);
+      if (!list.some((a) => a.trim().toLowerCase() === r.user_answer.trim().toLowerCase())) {
+        const up = await supabase.from("vocabulary").update({ [col]: [...list, r.user_answer.trim()] }).eq("id", r.vocab_id).select("id");
+        if (up.error || !up.data?.length) return setMsg({ tone: "bad", t: up.error?.message ?? "Zapis odrzucony." });
+      }
+      await setRep(r.id, "added"); return setMsg({ tone: "ok", t: `Dodano „${r.user_answer}” jako poprawną odpowiedź dla słowa.` });
+    }
+    if (!r.exercise_id) return setMsg({ tone: "bad", t: "Brak powiązanego ćwiczenia ani słowa." });
     const ex = await supabase.from("exercises").select("answers").eq("id", r.exercise_id).single();
     if (ex.error) return setMsg({ tone: "bad", t: ex.error.message });
     const answers = ex.data.answers as string[];
@@ -111,7 +122,7 @@ function Reports() {
         <div className="text-sm text-ink-soft">{new Date(r.created_at).toLocaleString("pl-PL")} · {r.source}</div>
         <div className="text-sm">{r.prompt}</div>
         <div>Użytkownik: <b className="font-mono">{r.user_answer}</b> · klucz: <b className="font-mono">{r.expected}</b></div>
-        {status === "new" && <div className="mt-1 flex gap-2">{r.exercise_id && <Button size="sm" onClick={() => addVariant(r)}>Dodaj jako poprawny wariant</Button>}<Button size="sm" variant="quiet" onClick={() => setRep(r.id, r.exercise_id ? "rejected" : "added")}>{r.exercise_id ? "Odrzuć" : "Sprawdzone"}</Button></div>}
+        {status === "new" && <div className="mt-1 flex gap-2">{(r.exercise_id || r.vocab_id) && <Button size="sm" onClick={() => addVariant(r)}>Dodaj jako poprawny wariant</Button>}<Button size="sm" variant="quiet" onClick={() => setRep(r.id, "rejected")}>Odrzuć</Button></div>}
       </li>)}</ul></Card>}
   </div>;
 }
