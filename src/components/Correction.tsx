@@ -53,8 +53,8 @@ export function TypedTask(props: {
     }
     const d = diagnose(v, answers);
     if (props.acceptTypos && phase === "ask" && d.type === "typo") { // spelling slip, not a grammar error → accepted, with the right spelling shown
-      setTypoOk(d.best); setPhase("done");
-      props.onDone({ firstTry: n === 1, attempts: n, firstAnswer: v, diagnosis: d, hinted, typo: d.best });
+      setTypoOk(d.best ?? answers[0]); setPhase("done");
+      props.onDone({ firstTry: n === 1, attempts: n, firstAnswer: v, diagnosis: d, hinted, typo: d.best ?? answers[0] });
       return;
     }
     setDiag(d); setLastWrong(v);

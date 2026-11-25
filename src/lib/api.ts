@@ -171,7 +171,12 @@ export async function srsQueue(limit: number, newWords: number, newGrammar = 3) 
   const vIds = due.filter((d) => d.kind === "v").map((d) => d.id), eIds = due.filter((d) => d.kind === "e").map((d) => d.id);
   const [vrows, erows] = await Promise.all([vIds.length ? listVocab({ ids: vIds, limit: vIds.length }).then((r) => r.rows) : [], eIds.length ? exercisesByIds(eIds) : []]);
   const vm = new Map(vrows.map((v) => [v.id, v])), em = new Map(erows.map((e) => [e.id, e]));
-  const dueItems = due.flatMap((d) => d.kind === "v" ? (vm.get(d.id) ? [{ kind: "vocab" as const, v: vm.get(d.id)! }] : []) : (em.get(d.id) ? [{ kind: "grammar" as const, ex: em.get(d.id)! }] : []));
+  type DueItem = { kind: "vocab"; v: Vocab } | { kind: "grammar"; ex: Exercise };
+  const dueItems: DueItem[] = [];
+  for (const d of due) {
+    if (d.kind === "v") { const v = vm.get(d.id); if (v) dueItems.push({ kind: "vocab", v }); }
+    else { const ex = em.get(d.id); if (ex) dueItems.push({ kind: "grammar", ex }); }
+  }
   const room = Math.max(0, limit - dueItems.length);
   const freshWords = newWords > 0 && room > 0 ? await pickFlashcards({ n: Math.min(newWords, room), mode: "new" }) : [];
   let freshGrammar: Exercise[] = [];
