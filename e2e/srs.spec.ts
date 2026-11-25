@@ -9,7 +9,7 @@ import { login } from "./helpers";
 const U3 = { email: "e2e-user3@c1-english.test", password: process.env.E2E_USER_PASSWORD! };
 const url = process.env.VITE_SUPABASE_URL!, key = process.env.VITE_SUPABASE_PUBLISHABLE_KEY!;
 async function db() { const c = createClient(url, key, { auth: { persistSession: false } }); const { error } = await c.auth.signInWithPassword(U3); if (error) throw error; return c; }
-const counter = async (page: Page) => Number((await page.getByTestId("srs-counter").textContent())!.match(/Element (\d+)/)![1]);
+const counter = async (page: Page) => Number((await page.getByTestId("srs-counter").textContent({ timeout: 10_000 }))!.match(/Element (\d+)/)![1]);
 
 test.skip(({ isMobile }) => isMobile, "desktop project only");
 
@@ -35,7 +35,7 @@ test("SRS session: write from memory, check, rate, schedule updates; typo vs err
   expect(map.size).toBe(5);
   await page.keyboard.press("Enter");
   const input = () => page.getByTestId("answer-input");
-  const prompt = async () => (await page.getByTestId("srs-prompt").textContent())!.trim();
+  const prompt = async () => (await page.getByTestId("srs-prompt").textContent({ timeout: 10_000 }))!.trim();
 
   // 1) correct from memory → the answer is never shown before checking; rating offers all four; Easy → 4 days
   expect(await counter(page)).toBe(1);
@@ -52,7 +52,7 @@ test("SRS session: write from memory, check, rate, schedule updates; typo vs err
   // 2) wrong → correction loop → only Again/Hard; Enter = Again → back in 10 min
   await input().fill("zzzz wrong"); await page.keyboard.press("Enter");
   await expect(page.getByTestId("srs-rating")).toHaveCount(0);                          // must fix first
-  const right = (await page.getByTestId("correct-answer").textContent())!.trim();
+  const right = (await page.getByTestId("correct-answer").textContent({ timeout: 10_000 }))!.trim();
   await page.keyboard.press("Enter"); await input().fill(right); await page.keyboard.press("Enter");
   await expect(page.getByTestId("rate-good")).toBeDisabled();
   await expect(page.getByTestId("rate-easy")).toBeDisabled();
@@ -72,18 +72,20 @@ test("SRS session: write from memory, check, rate, schedule updates; typo vs err
     else break;
   }
 
-  // finish the rest: words by the map, grammar by fixing
+  // finish the rest: answer (words from the map, grammar unknown) → if wrong, fix from the shown answer → rate / next
   for (let guard = 0; guard < 40; guard++) {
     if (await page.getByTestId("srs-summary").isVisible()) break;
-    const p = await prompt(); const ans = map.get(p);
-    if (ans) { await input().fill(ans); await page.keyboard.press("Enter"); await page.keyboard.press("Enter"); }
-    else {
-      await input().fill("zzz"); await page.keyboard.press("Enter");
-      const r = (await page.getByTestId("correct-answer").textContent())!.trim();
+    const before = await counter(page);
+    const ans = map.get(await prompt()) ?? "zzz";
+    await input().fill(ans); await page.keyboard.press("Enter");
+    await expect(page.getByTestId("srs-rating").or(page.getByTestId("next")).or(page.getByTestId("retype"))).toBeVisible({ timeout: 10_000 });
+    if (await page.getByTestId("retype").isVisible()) {
+      const r = (await page.getByTestId("correct-answer").textContent({ timeout: 10_000 }))!.trim();
       await page.keyboard.press("Enter"); await input().fill(r); await page.keyboard.press("Enter");
-      if (await page.getByTestId("srs-rating").isVisible()) await page.keyboard.press("Enter"); else await page.getByTestId("next").click();
+      await expect(page.getByTestId("srs-rating").or(page.getByTestId("next"))).toBeVisible({ timeout: 10_000 });
     }
-    await expect.poll(async () => (await page.getByTestId("srs-summary").isVisible()) || (await page.getByTestId("srs-rating").count()) === 0).toBe(true);
+    await page.keyboard.press("Enter");                                                   // rate (default) or next
+    await expect.poll(async () => (await page.getByTestId("srs-summary").isVisible()) || (await counter(page)) === before + 1, { timeout: 10_000 }).toBe(true);
   }
   await expect(page.getByTestId("srs-summary")).toBeVisible();
   await expect(page.getByText("Wykonane ćwiczenia")).toBeVisible();

@@ -122,7 +122,7 @@ test("'Dobrze jest napisane – zalicz' accepts the learner's answer and reports
   await expect(page.getByTestId("accept-own")).toBeVisible();
   await page.getByTestId("accept-own").click();
   await expect(page.getByText("Zaliczone – Twoja odpowiedź")).toBeVisible();
-  await expect(page.getByTestId("next")).toBeVisible();                    // can move on, no retyping
+  await expect(page.getByTestId("srs-rating")).toBeVisible();              // no retyping: straight to rating
   // the report was stored for the admin; remove it again so test runs don't pile up
   const { createClient } = await import("@supabase/supabase-js");
   const c = createClient(process.env.VITE_SUPABASE_URL!, process.env.VITE_SUPABASE_PUBLISHABLE_KEY!, { auth: { persistSession: false } });
