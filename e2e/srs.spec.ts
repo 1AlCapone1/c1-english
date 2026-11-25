@@ -89,7 +89,7 @@ test("SRS session: write from memory, check, rate, schedule updates; typo vs err
       await expect.poll(async () => (await page.getByTestId("srs-summary").isVisible()) || (await counter(page)) === before + 1, { timeout: 10_000 }).toBe(true);
     } catch (e) {
       console.log("DEBUG", before, JSON.stringify((await page.locator("main").innerText()).replace(/\s+/g, " ").slice(0, 1500)));
-      console.log("DEBUG active", await page.evaluate(() => document.activeElement?.outerHTML.slice(0, 200)));
+      console.log("DEBUG log", JSON.stringify(await page.evaluate(() => (window as unknown as { __srs?: string[] }).__srs?.slice(-12))));
       throw e;
     }
   }
